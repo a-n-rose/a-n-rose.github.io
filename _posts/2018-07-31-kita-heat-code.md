@@ -4,9 +4,9 @@ title: "Kita, heat, and code: Fledglings await"
 date: 2018-07-31
 ---
 
-I thought I was a desert person, someone who could handle heat. Due to my everpresent sulkiness since the daily temperatures began hovering around 35 degrees, I am facing an identity crisis. Another item on the 'self-improvement list': Be less sensitive to heat.  Don't make yourself dependent on air conditioning. Free yourself from your physical world...
+I thought I was a desert person, someone who could handle heat. Due to my everpresent sulkiness since the daily temperatures began hovering around 35 degrees, I am facing an identity crisis. Another item on the 'self-improvement list': Be less sensitive to heat. I grew up in the desert for heaven's sake. What was all my suffering through cracking and bleeding skin for? Perhaps  the dryness distracted me from the heat...
 
-I hate repeating goals I thought I'd accomplished. This heat fucking sucks. 
+Nonetheless, I hate repeating goals I thought I'd accomplished. 
 
 To distract myself from my constant human failures, as well as the heat, let's bring out to the front a goal I most definitely have not failed at (yet... not even attempted, actually): to blog about my projects and my career in software, despite not having a computer science degree and also being a mother. And a woman. To up the frankness levels, I should say "my career in development." 
 
