@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kita, Heat, and Code"
+title: "Kita, heat, and code: Fledglings getting ready"
 date: 2018-07-31
 ---
 
