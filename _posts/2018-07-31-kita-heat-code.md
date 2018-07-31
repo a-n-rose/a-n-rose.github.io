@@ -4,7 +4,7 @@ title: "Kita, heat, and code: Fledglings await"
 date: 2018-07-31
 ---
 
-I thought I was a desert person, someone who could handle heat. Due to my everpresent sulkiness since the daily temperatures began hovering around 35 degrees, I am facing an identity crisis. Another item on the 'self-improvement list': Be less sensitive to heat. I grew up in the desert for heaven's sake. What was all my suffering through cracking and bleeding skin for? Perhaps  the dryness distracted me from the heat...
+I thought I was a desert person, someone who could handle heat. Due to my everpresent sulkiness since the Berlin daily temperatures began hovering around 35 degrees (95d Fahrenheit), I am facing an identity crisis. I thought I was tougher than this. Another item on the 'self-improvement list': Be less sensitive to heat. I grew up in the desert for heaven's sake. What was all my suffering through cracking and bleeding skin for? Perhaps the dryness distracted me from the heat...
 
 Nonetheless, I hate repeating goals I thought I'd accomplished. 
 
