@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Forever Vocab: collect word treasures you find and get tested on them later"
-date: 2018-08-31
+date: 2018-08-03
 ---
 
 I am dissatisfied with the vocab apps I have come across - maybe it's cause I'm just looking at the free ones. Regardless, I am sad I am daily loosing vocabulary because I just haven't found the tool that works for me.
