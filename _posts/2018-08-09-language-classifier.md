@@ -9,3 +9,6 @@ This is in the works of getting the kinks out: first downloading lots of English
 To see where the reprository is currently, click <a href = "https://github.com/a-n-rose/language-classifier">here</a>. 
 
 As I train the algorithms and add more languages to train them, I'll update this post.
+
+Articles I've found interesting/helpful:
+* <a href = "https://iamtrask.github.io/2015/07/27/python-network-part2/">Gradient Descent</a> - I found the graphics helpful and made me look at neural nets a new way.
