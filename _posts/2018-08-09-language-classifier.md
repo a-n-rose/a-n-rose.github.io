@@ -19,7 +19,7 @@ Meanwhile, I'm training the model on various levels of 'matched environment nois
 I suspect that a CNN or RNN might be better suited for this problem. Seeing how MFCCs change over time is relevant in a language's phoneme pattern; that would likely aid in identifying whether a language is German or English, since certain phonemes or combinations of phonemes don't exist in both languages (e.g. 'pf' exists in German but not in English and 'a' in 'apple' exists in English but not in German). Since I also want to examine healthy vs clinical data, it will be interesting to see which type of model would be most relevant (probably depends on the clinical disorder). The next ToDo item on my list: build a CNN or RNN and see how the model does.
 
 An example of the simple ANN visualized with ANNvisualizer 
-[Imgur](https://i.imgur.com/pfAsfyO.png)
+![Imgur](https://i.imgur.com/pfAsfyO.png)
 
 
 
