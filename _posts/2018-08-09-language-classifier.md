@@ -15,10 +15,10 @@ I fed it varying numbers of rows of MFCC data, starting with 1 million and worki
 
 When I compared how well the ANN trained with varying levels of noise, that's when the differences became prominent.
 
-![Imgur](https://i.imgur.com/Y7KnwpF.png)
+![Imgur](https://i.imgur.com/yAA0y1i.png)
 #### The graph on the left is likely over-fitting and those with more noise, might not be training well at all.
 
-![Imgur](https://i.imgur.com/PGwsz1U.png)
+![Imgur](https://i.imgur.com/xxaSfBA.png)
 #### Models trained with more noise tend to classify English; this could be due to German having more unique sounds than English, and the model using those unque sounds as identifiers of German. 
 
 The first model, trained with no noise, shows a classic case of over-fitting. I look forward to testing out how well all of these models classify new speech, not included in the training or test datasets. This is next on the agenda. A little further down the line I'd like to see how CNN models do.   
