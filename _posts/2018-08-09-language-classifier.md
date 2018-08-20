@@ -30,8 +30,6 @@ Articles I've found interesting/helpful:
 
 * <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/46945">Tips on training models with speech data</a>
 
-* <a href="https://www.kaggle.com/fizzbuzz/beginner-s-guide-to-audio-data">Prepping speech data for analysis</a>
+* <a href="https://www.analyticsindiamag.com/using-deep-learning-for-sound-classification-an-in-depth-analysis/">Deep learning and sound classification</a>
 
-* <a href="https://www.analyticsindiamag.com/using-deep-learning-for-sound-classification-an-in-depth-analysis/">Sound Classification</a>
-
-* <a href="https://www.analyticsvidhya.com/blog/2017/08/audio-voice-processing-deep-learning/">Preparing speech data for data science projects</a>
+* A couple articles on audio data prepping for machine/deep learning <a href="https://www.kaggle.com/fizzbuzz/beginner-s-guide-to-audio-data">here</a> and <a href="https://www.analyticsvidhya.com/blog/2017/08/audio-voice-processing-deep-learning/">here</a>
