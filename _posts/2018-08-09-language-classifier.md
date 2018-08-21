@@ -4,7 +4,9 @@ title: "Language Classifier: Using public speech databases to train deep neural 
 date: 2018-08-09
 --- 
 
-This project serves as a wonderful playground for data collection, data cleaning, and seeing how deep learning works, from outside the black box, of course. I've collected a lot of English and German speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted MFCCs after I added various levels of backgound noise to the speech. 
+This project serves as a wonderful playground for data collection, data cleaning, and seeing how deep learning works, from outside the black box, of course. To see where the reprository is currently, click <a href = "https://github.com/a-n-rose/language-classifier">here.</a>
+
+I've collected a lot of English and German speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted MFCCs after I added various levels of backgound noise to the speech. 
 
 The first neural network I trained was a simple ANN, with only 3 layers (including the input and output layers) just to get the hang of it. 
 
