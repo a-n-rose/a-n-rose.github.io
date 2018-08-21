@@ -10,22 +10,23 @@ I've collected a lot of English and German speech from <a href="http://voxforge.
 
 The first neural network I trained was a simple ANN, with only 3 layers (including the input and output layers) just to get the hang of it. 
 
+###### Figure 1: Artificial Neural Network (ANN) Illustration
 ![Imgur](https://i.imgur.com/pfAsfyO.png)
-##### Inputs = 40 MFCCs; Outputs = English or German 
+###### Inputs = 40 MFCCs; Outputs = English or German 
 
 I fed it varying numbers of rows of MFCC data, starting with 1 million and working up to 4 million, and also playing with batchsizes and epochs. Eventually I found a sweetspot using batchsizes of 100 and epochs of 50 to show the general nature of how a model trained without taking too long. 
 
-Without touching the data or the model, I didn't notice a difference in model performance with the increase of data. I saw, though, that the model favored one language over the other at a suspiciously consistent rate...(see Figure 2) It classified speech as English nearly twice as often as German, even though they are equally represented. 
+Without touching the data or the model, I didn't notice a difference in model performance with the increase of data. I saw, though, that the model favored one language over the other at a suspiciously consistent rate...(see Figure 3) It classified speech as English nearly twice as often as German, even though they are equally represented. 
 
 Just for kicks, I removed the 1st MFCC to see if that had an effect, as that pertains to amplitude. Nada.
 
 When I compared how well the ANN trained with varying levels of noise, that's when the differences became prominent.
 
-###### Figure 1: Model Accuracy and Loss across Noise Condition
+###### Figure 2: Model Accuracy and Loss across Noise Condition
 ![Imgur](https://i.imgur.com/yAA0y1i.png)
 ###### The graph on the left is likely over-fitting and those with more noise, might not be training well at all.
 
-###### Figure 2: Model Classification of Speech
+###### Figure 3: Model Classification of Speech
 ![Imgur](https://i.imgur.com/xxaSfBA.png)
 ###### Models trained with more noise tend to classify English; this could be due to German having more unique sounds than English, and the model using those unque sounds as identifiers of German. 
 
