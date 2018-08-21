@@ -21,11 +21,11 @@ Just for kicks, I removed the 1st MFCC to see if that had an effect, as that per
 
 When I compared how well the ANN trained with varying levels of noise, that's when the differences became prominent.
 
-###### Figure 1
+###### Figure 1: Model Accuracy and Loss across Noise Condition
 ![Imgur](https://i.imgur.com/yAA0y1i.png)
 ###### The graph on the left is likely over-fitting and those with more noise, might not be training well at all.
 
-###### Figure 2
+###### Figure 2: Model Classification of Speech
 ![Imgur](https://i.imgur.com/xxaSfBA.png)
 ###### Models trained with more noise tend to classify English; this could be due to German having more unique sounds than English, and the model using those unque sounds as identifiers of German. 
 
