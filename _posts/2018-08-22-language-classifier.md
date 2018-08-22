@@ -24,15 +24,17 @@ Just for kicks, I removed the 1st MFCC to see if that had an effect, as that per
 
 When I compared how well the ANN trained with varying levels of noise, that's when the differences became prominent.
 
-#### Figure 2: Model Accuracy across Noise Condition
+#### Figure 2: Model Accuracy across Noise Condition on Test Dataset
 ![Imgur](https://i.imgur.com/uwYEPik.png)
 ##### Accuracy of models trained either with no noise, or with varying levels of noise, ranging from 0.25 (the noise signal was reduced to a quarter of its original amplitude before being added to the speech data) to 1.25 (the noise signal was increased to one and one-quarter of its original amplitude before being added to the speech data). The 'All Levels' model was trained on speech mixed with either no noise or noise at these varying levels.
 
-#### Figure 3
-![Imgur](https://i.imgur.com/Qn3FKkh.png)
+The first model, trained with no noise (i.e. 'None: 0'), showed a classic case of over-fitting. It classified the test set (different from the training set used to train the model; for further information see <a href="https://en.wikipedia.org/wiki/Training,_test,_and_validation_sets">here.</a>) with almost 100% accuracy. It fit its model a bit too closely to the provided speech data and won't likely generalize to other speech data well. The other models did not reach very high accuracy, especially with higher levels of noise, and showed a bias towards English (the models with higher levels of red show bias towards English)
+
+#### Figure 3: Model Classification Error on Test Dataset 
+![Imgur](https://i.imgur.com/qHO9YT6.png)
 ##### Models trained with more noise tended to classify speech as English
 
-The first model, trained with no noise, showed a classic case of over-fitting. The other models did not reach very high accuracy, especially with higher levels of noise, and showed a bias towards English. I wonder if this is because more of the sounds generated in English are also present in German than the other way around (i.e. more of German's sounds would be considered phonologically illegal in English, like 'pf' in 'Pferd', which means horse by the way). If this is correct, the model used MFCC values not present in English as identifiers of German. I'm just speculating though.
+ I wonder if this is because more of the sounds generated in English are also present in German than the other way around (i.e. more of German's sounds would be considered phonologically illegal in English, like 'pf' in 'Pferd', which means horse by the way). If this is correct, the model used MFCC values not present in English as identifiers of German. I'm just speculating though.
 
 To see how these models classified newly recorded speech, I created an application to do just that: collect speech and categorize it using these 7 models.
 
@@ -45,9 +47,9 @@ The models that categorized my husband's speech as German:
 
 I peaked a bit further into the accuracy and confusion matrixes/matrices of each of these models on my newly collected speech. What I found interesting was, even though the 'All Levels' model showed bias towards English with the Test Data, for my brand-new speech, that model showed no bias at all. 
 
-#### Figure 4
-![Imgur](https://i.imgur.com/tsicvE3.png)
-##### Language bias disappears or decreases when models are applied to new speech.
+#### Figure 4: Model Classification Error on Newly Recorded Speech
+![Imgur](https://i.imgur.com/EPEQkHc.png)
+##### The model trained with no noise increases false classifications dramatically while the other models decrease or lose their Language bias when applied to new speech. 
 
 Comparing accuracy of the models across Test Data and New Speech contexts, it seems the model trained on speech with 'All Levels' of noise performed the best, with 'Very Low', 'Low', and 'Medium' models close on its heals. Considering these numbers, it makes sense the models 'Low', 'Medium' and 'All Levels' identified my husband's speech correctly.
 
