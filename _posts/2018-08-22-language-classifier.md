@@ -28,7 +28,7 @@ When I compared how well the ANN trained with varying levels of noise, that's wh
 
 #### Figure 2: Model Accuracy across Noise Condition on Test Dataset
 ![Imgur](https://i.imgur.com/uwYEPik.png)
-##### Accuracy of models trained either with no noise, or with varying levels of noise, ranging from 0.25 (the noise signal was reduced to a quarter of its original amplitude before being added to the speech data) to 1.25 (the noise signal was increased to one and one-quarter of its original amplitude before being added to the speech data). The 'All Levels' model was trained on speech mixed with either no noise or noise at these varying levels.
+##### Accuracy of models trained with no noise ('None: 0'); with varying levels of noise, ranging from 0.25 to 1.25; and a mix of all levels of noise ranging from 0 to 1.25 ('All Levels').
 
 The first model, trained with no noise (i.e. 'None: 0'), showed a classic case of over-fitting. It classified the test set (different from the training set used to train the model; for further information see <a href="https://en.wikipedia.org/wiki/Training,_test,_and_validation_sets">here.</a>) with almost 100% accuracy. It fit its model a bit too closely to the provided speech data and won't likely generalize to other speech data well. The other models did not reach very high accuracy, especially with higher levels of noise, and showed a bias towards English (the models with higher levels of red show bias towards English)
 
