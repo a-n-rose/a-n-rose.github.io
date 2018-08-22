@@ -8,7 +8,7 @@ This project served as a wonderful playground for speech data collection and pre
 
 My main goal was to build a classifier that could identify the type of language spoken. To start out, I decided to keep it simple, training a simple ANN on only two languages, English and German. That seemed to me a good starting off point.
 
-I collected a lot of English and German speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted MFCCs after I added various levels of backgound noise to the speech.
+I collected a lot of English and German speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted <a href="https://en.wikipedia.org/wiki/Mel-frequency_cepstrum">MFCCs</a> after I added various levels of backgound noise to the speech.
 
 The first neural network I trained was a simple ANN, with only 3 layers (including the input and output layers) just to get the hang of it. 
 
