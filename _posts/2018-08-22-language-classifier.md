@@ -36,7 +36,7 @@ The first model, trained with no noise, showed a classic case of over-fitting. T
 
 To see how these models classified newly recorded speech, I created an application to do just that: collect speech and categorize it using these 7 models.
 
-The two people I had at hand to use this application happened to be a native English speaker and a native German speaker (me and my hub-dubs.. er husband, respectively). I was not surprised, with models biased towards English, that all of the models identified my speech as English. Success! Unfortunately, only around 2-3 of the models identified my hubby's as German. But that's actually great news as that tells me which models are doing a better job.
+The two people I had at hand to use this application happened to be a native English speaker and a native German speaker (me and my hub-dubs.. er husband, respectively). I was not surprised, with models biased towards English, that all of the models identified my speech as English. Success! Unfortunately, only three of the models identified my hubby's as German. But that's actually great news as that tells me which models are doing a better job.
 
 The models that categorized my husband's speech as German: 
 * Low (0.5)
