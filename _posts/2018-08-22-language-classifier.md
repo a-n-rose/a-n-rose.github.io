@@ -49,7 +49,7 @@ I peaked a bit further into the accuracy and confusion matrixes/matrices of each
 
 #### Figure 4: Model Classification Error on Newly Recorded Speech
 ![Imgur](https://i.imgur.com/EPEQkHc.png)
-##### The model trained with no noise increases false classifications dramatically while the other models decrease or lose their Language bias when applied to new speech. 
+##### The model trained with no noise increased false classifications dramatically while the other models decreased or lost their language bias when applied to new speech. 
 
 Comparing accuracy of the models across Test Data and New Speech contexts, it seems the model trained on speech with 'All Levels' of noise performed the best, with 'Very Low', 'Low', and 'Medium' models close on its heals. Considering these numbers, it makes sense the models 'Low', 'Medium' and 'All Levels' identified my husband's speech correctly.
 
