@@ -16,7 +16,7 @@ The first neural network I trained was a simple ANN, with only 3 layers (includi
 ![Imgur](https://i.imgur.com/pfAsfyO.png)
 ##### Inputs = 40 MFCCs; Outputs = English or German 
 
-I fed it varying numbers of rows of MFCC data, starting with 1 million and working up to 4 million (not to take up too much memory on the machine I had), and also playing with batchsizes and epochs. Eventually I found a sweetspot using batchsizes of 100 and epochs of 50 to show the general nature of how a model trained without taking too long. 
+I fed it varying numbers of rows of MFCC data, starting with 1 million and working up to 4 million (not to take up too much memory on the machine I used), and also playing with batchsizes and epochs. Eventually I found a sweetspot using batchsizes of 100 and epochs of 50 to show the general nature of how a model trained without taking too long. 
 
 Without touching the data or the model, I didn't notice a difference in model performance with the increase of data (because of that I stuck with 2 million rows for each training session). What I did see, was that the model favored one language over the other at a suspiciously consistent rate...(see Figure 3) It classified speech as English nearly twice as often as German, even though they were equally represented. 
 
