@@ -8,7 +8,7 @@ This project served as a wonderful playground for speech data collection and pre
 
 My main goal was to build a classifier that could identify the type of language spoken. To start out, I decided to keep it simple, training a simple ANN on only two languages, English and German. That seemed to me a good starting off point.
 
-I collected a lot of English and German speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted <a href="https://en.wikipedia.org/wiki/Mel-frequency_cepstrum">MFCCs</a> after I added various levels of backgound noise to the speech.
+I collected a lot of English and German speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted <a href="https://en.wikipedia.org/wiki/Mel-frequency_cepstrum">MFCCs</a> after I added various levels of backgound noise to the speech (see Figure 2).
 
 The first neural network I trained was a simple ANN, with only 3 layers (including the input and output layers) just to get the hang of it. 
 
@@ -24,8 +24,8 @@ Just for kicks, I removed the 1st MFCC to see if that had an effect, as that per
 
 When I compared how well the ANN trained with varying levels of noise, that's when the differences became prominent.
 
-#### Figure 2: Model Accuracy and Loss across Noise Condition
-![Imgur](https://i.imgur.com/yAA0y1i.png)
+#### Figure 2: Model Accuracy across Noise Condition
+![Imgur](https://i.imgur.com/uwYEPik.png)
 ##### Accuracy of models trained either with no noise, or with varying levels of noise, ranging from 0.25 (the noise signal was reduced to a quarter of its original amplitude before being added to the speech data) to 1.25 (the noise signal was increased to one and one-quarter of its original amplitude before being added to the speech data). The 'All Levels' model was trained on speech mixed with either no noise or noise at these varying levels.
 
 #### Figure 3
