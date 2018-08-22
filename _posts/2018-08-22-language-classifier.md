@@ -26,7 +26,7 @@ When I compared how well the ANN trained with varying levels of noise, that's wh
 
 #### Figure 2: Model Accuracy and Loss across Noise Condition
 ![Imgur](https://i.imgur.com/yAA0y1i.png)
-##### The graph on the left is an example of over-fitting 
+##### Accuracy of models trained either with no noise, or with varying levels of noise, ranging from 0.25 (the noise signal was reduced to a quarter of its original amplitude before being added to the speech data) to 1.25 (the noise signal was increased to one and one-quarter of its original amplitude before being added to the speech data). The 'All Levels' model was trained on speech mixed with either no noise or noise at these varying levels.
 
 #### Figure 3
 ![Imgur](https://i.imgur.com/Qn3FKkh.png)
@@ -43,11 +43,11 @@ The models that categorized my husband's speech as German:
 * Medium (0.75)
 * All Levels 
 
-I peaked a bit further into the accuracy and confusion matrixes/matrices of each of these models on my newly collected speech. What I found interesting was, even though the 'All Levels' model showed bias towards English with the Test Data, for my brand-new speech, that model showed no bias at all. The other models, though, still showed a bit of bias towards English.
+I peaked a bit further into the accuracy and confusion matrixes/matrices of each of these models on my newly collected speech. What I found interesting was, even though the 'All Levels' model showed bias towards English with the Test Data, for my brand-new speech, that model showed no bias at all. 
 
 #### Figure 4
 ![Imgur](https://i.imgur.com/tsicvE3.png)
-##### No language bias for the model trained on speech with all noise levels
+##### Language bias disappears or decreases when models are applied to new speech.
 
 Comparing accuracy of the models across Test Data and New Speech contexts, it seems the model trained on speech with 'All Levels' of noise performed the best, with 'Very Low', 'Low', and 'Medium' models close on its heals. Considering these numbers, it makes sense the models 'Low', 'Medium' and 'All Levels' identified my husband's speech correctly.
 
