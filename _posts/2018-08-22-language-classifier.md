@@ -8,7 +8,9 @@ This project served as a wonderful playground for speech data collection and pre
 
 My main goal was to build a classifier that could identify the type of language spoken. To start out, I decided to keep it simple, training a simple ANN on only two languages, English and German. That seemed to me a good starting off point.
 
-I collected a lot of English and German speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted <a href="https://en.wikipedia.org/wiki/Mel-frequency_cepstrum">MFCCs</a> after I added various levels of backgound noise to the speech (see Figure 2).
+I collected a lot of English and German speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted <a href="https://en.wikipedia.org/wiki/Mel-frequency_cepstrum">MFCCs</a> after I added various levels of backgound noise to the speech. I'm glad I did that too! Little did I know but those various levels of noise would reveal how important noise is in machine learning contexts. 
+
+Before I continue, I'll quickly cover how I did that. When adding the noise signal to the each speech signal (i.e. a speaker's recording), I first multiplied the noise signal with a random value from the following: 0, 0.25, 0.5, 0.75, 1.0, and 1.25. This either cancelled out, reduced, or enhanced the noise, similar to real life, which has many levels of noise present. Once the noise was added, I extracted the MFCCs (with windows of 25ms and window shifts of 10ms).
 
 The first neural network I trained was a simple ANN, with only 3 layers (including the input and output layers) just to get the hang of it. 
 
