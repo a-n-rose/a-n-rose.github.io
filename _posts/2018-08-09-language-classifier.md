@@ -6,7 +6,7 @@ date: 2018-08-09
 
 This project serves as a wonderful playground for data collection, data cleaning, and seeing how deep learning works, from outside the black box, of course. To see where the reprository is currently, click <a href = "https://github.com/a-n-rose/language-classifier">here.</a>
 
-I've collected a lot of English and German speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted MFCCs after I added various levels of backgound noise to the speech. 
+I've collected a lot of English and German speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted MFCCs after I added various levels of backgound noise to the speech.
 
 The first neural network I trained was a simple ANN, with only 3 layers (including the input and output layers) just to get the hang of it. 
 
@@ -14,7 +14,7 @@ The first neural network I trained was a simple ANN, with only 3 layers (includi
 ![Imgur](https://i.imgur.com/pfAsfyO.png)
 ##### Inputs = 40 MFCCs; Outputs = English or German 
 
-I fed it varying numbers of rows of MFCC data, starting with 1 million and working up to 4 million, and also playing with batchsizes and epochs. Eventually I found a sweetspot using batchsizes of 100 and epochs of 50 to show the general nature of how a model trained without taking too long. 
+I fed it varying numbers of rows of MFCC data, starting with 1 million and working up to 4 million, and also playing with batchsizes and epochs. Eventually I found a sweetspot using batchsizes of 100 and epochs of 50 to show the general nature of how a model trained without taking too long. I stuck with feeding the model 2 million rows of data, to make sure there wasn't too few data.
 
 Without touching the data or the model, I didn't notice a difference in model performance with the increase of data. I saw, though, that the model favored one language over the other at a suspiciously consistent rate...(see Figure 3) It classified speech as English nearly twice as often as German, even though they are equally represented. 
 
@@ -22,23 +22,42 @@ Just for kicks, I removed the 1st MFCC to see if that had an effect, as that per
 
 When I compared how well the ANN trained with varying levels of noise, that's when the differences became prominent.
 
-##### Figure 2: Model Accuracy and Loss across Noise Condition
+#### Figure 2: Model Accuracy and Loss across Noise Condition
 ![Imgur](https://i.imgur.com/yAA0y1i.png)
-##### The graph on the left is likely over-fitting and those with more noise, might not be training well at all.
+##### The graph on the left is an example of over-fitting 
+
+#### Figure 3
+![Imgur](https://i.imgur.com/Qn3FKkh.png)
+##### Models trained with more noise tended to classify speech as English
+
+The first model, trained with no noise, showed a classic case of over-fitting. The other models did not reach high accuracy and showed a bias towards English. I wonder if this is because more of the sounds generated in English are also present in German than the other way around (i.e. more of German's sounds would be considered phonologically illegal in English, like 'pf' in 'Pferd', which means horse). If this is correct, the model used MFCC values not present in English as identifiers of German. I'm just speculating though.
+
+To see how these models classified newly recorded speech, I created an application to do just that: collect speech and categorize it using these 7 models.
+
+The two people I had at hand to use this application happened to be a native English speaker and a native German speaker (me and my hubby, respectively). I was not surprised, with models biased towards English, all of the models identified my speech as English and only around 2-3 of the models identified my hubby's as German. 
+
+The models that categorized my husband's speech as German: 
+* Low (0.5)
+* Medium (0.75)
+* All Levels 
+
+I peaked a bit further into the accuracy and confusion matrixes/matrices of each of these models on my newly collected speech. What I found interesting was, even though the 'All Levels' model showed bias towards English with the Test Data, for the brand-new speech, that model showed no bias at all. The other models, though, still showed a bit of bias towards English.
+
+#### Figure 4
+![Imgur](https://i.imgur.com/tsicvE3.png)
+##### No language bias for the model trained on speech with all noise levels
+
+Comparing accuracy of the models across Test Data and New Speech contexts, it seems the model trained on speech with 'All Levels' of noise performed the best, with 'Very Low', 'Low', and 'Medium' models close on its heals.
+
+#### Figure 5
+![Imgur](https://i.imgur.com/LfDcs7z.png)
+##### When applied to brand-new speech, the 'All levels' model achieved the highest accuracy, 59.29%
+
+It will be interesting to see if using Kera's TimeDistributed module reveals a succession of MFCC data to be useful in identifying languages (I suspect yes as that could allow the models to identify phonological patterns). I also plan on training these models with additional languages, like Russian, as well as applying random background noises to speech training data. 
+
+For now, this little experiment highlights the importance of considering background noise when training, testing, and deploying speech/audio related models. No use of background noise is probably a bad idea, and too much probably won't do any good. Like with so many things, moderation is key.
 
 
-
-##### Figure 3: Model Classification of Speech
-![Imgur](https://i.imgur.com/xxaSfBA.png)
-##### Models trained with more noise tend to classify English; this could be due to German having more unique sounds than English, and the model using those unque sounds as identifiers of German. 
-
-The first model, trained with no noise, showed a classic case of over-fitting. The other models did not reach high accuracy and showed a bias towards English. I wonder if this is because more of the sounds generated in English are also present in German than the other way around (i.e. more of German's sounds would be considered phonologically illegal in English, like 'pf' in 'Pferd', which means horse).
-
-Before exploring Keras's TimeDistributed module, to see if training with many subsequential MFCCs might help the models identify phonological patterns, I created a little game that collects speech (normalizes it, subtracts noise from it, and extracts MFCCs from it) and deploys each of the models I've created on it. It spits out at the end the language (out of German and English) the model classified it as. 
-
-I am a native speaker of English, so I tried it out, and my husband is a native speaker of German, so I made him try it out too. I was not surprised, with models biased towards English, all of the models (out of 7) almost always identified my speech as English and only around 2-3 of the models identified my hubby's as German. I guess that's something.
-
-I am now peeking a bit further into the accuracy and confusion matrixes/matrices of each of these models on my newly collected English and German (teehee!) speech.
 
 
 Articles I've found interesting/helpful:
