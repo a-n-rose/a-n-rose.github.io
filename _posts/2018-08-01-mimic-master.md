@@ -248,11 +248,11 @@ The fingerprints and their scores were achieved with the following code (origina
 import acoustid
 import chromaprint
 
-lion_original = 'Roaring Lion-SoundBible.com-527774719.wav'
-lion_mimic = 'Aislyn_2018y8m23d13h33m9s.wav'
-lionmimic_post_noisereduction = 'rednoise_2018y8m23d13h33m9s.wav'
-lionmimic_post_speechstart = 'rednoise_speechstart_2018y8m23d13h33m9s.wav'
-lionmimic_post_volumematch = 'rednoise2_2018y8m23d13h33m9s.wav'
+lion_original = 'lion_roar.wav'
+lion_mimic = 'aislyn_roar.wav'
+lionmimic_post_noisereduction = 'aislyn_roar_noise_reduction.wav'
+lionmimic_post_speechstart = 'aislyn_roar_speech_start.wav'
+lionmimic_post_volumematch = 'aislyn_roar_volume_matched.wav'
 
 waves2compare = [lion_original,lion_mimic,lionmimic_post_noisereduction,lionmimic_post_speechstart,lionmimic_post_volumematch]
 labels = ['Lion_Original','Mimic1','Mimic2','Mimic3','Mimic4']
