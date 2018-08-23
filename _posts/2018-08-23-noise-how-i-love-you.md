@@ -21,7 +21,7 @@ def reduce_noise(noise_powerspectrum_mean,noise_powerspectrum_variance, speech_p
     for i in range(len(spr)):
         if spr[i] <= npm[i] + npv[i]:
             stft_r[i] = 1e-3
-return stft_r
+    return stft_r
 ```
 * developed speech detection functions*
 ```
@@ -59,7 +59,7 @@ def sound_index(rootmeansquare_speech, start = True, rootmeansquare_mean_noise =
                     return row,True
     else:
         print("No speech detected.")
-return beg,False
+    return beg,False
 ```
 * adjusted volume of recorded speech to match target recordings*
 ```
@@ -70,7 +70,7 @@ def matchvol(target_powerspectrum, speech_powerspectrum, speech_stft):
     if smp > tmp:
         mag = tmp/smp
         stft *= mag
-return stft
+    return stft
 ```
 * removed the very beginning of recordings to remove clicks that might be there*
 * scaled speech data with scikit-learn**
