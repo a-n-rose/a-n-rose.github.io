@@ -15,34 +15,77 @@ I attempted to recreate the noise reduction technique Audacity performs very wel
 ##### Functions defined (see <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic">the repository</a> for the entire code): 
 ```
 import sounddevice as sd
+import librosa
 
 def record_user(duration):
     fs = 22050
     user_rec = sd.rec(int(duration*fs),samplerate=fs,channels=1)
     sd.wait()   
-return(user_rec)
+    return(user_rec)
 
-def test_mic(duration):
-    user_rec = record_user(duration)
-    sd.wait()
-    if user_rec.any():
-        sd.wait()
-        print("Thanks!")
-        return user_rec
-    else:    
-        print("Hmmmmm.. something went wrong. Check your mic and try again.")
-        if start_game('test your mic'):
-            test_mic(duration)
-        else:
-            return None
-
+def savewave(filename,samples,sr):
+    librosa.output.write_wav(filename,samples,sr)
+    print("File has been saved")
+    return None
 ```            
-##### Put those functions to work to get background noise.
+##### Put those functions to work to get and save background noise:
 ```
 duration = 5
 print("\nThis next step will take just {} seconds\n".format(duration))
-background_noise = test_mic(duration)
+background_noise = record_user(duration)
+savewave("backgroundnoise.wav",background_noise,sr=22050)
 
+```
+##### Collect the user's mimic (after playing the target sound, of course):
+```
+user_mimic = record_user(duration_of_target_signal)
+savewave("user_mimic.wav",user_mimic,sr=22050)
+
+```
+##### Calculate the power spectrum of noise and speech after applying <a href="https://en.wikipedia.org/wiki/Short-time_Fourier_transform">Short-time Fourier Transform</a> (STFT). Then subtract noise from the speech signal's STFT:
+```
+def wave2stft(wavefile):
+    y, sr = librosa.load(wavefile)
+    if len(y)%2 != 0:
+        y = y[:-1]
+    stft = librosa.stft(y)
+    stft = np.transpose(stft)
+    return stft, y, sr
+
+def stft2power(stft_matrix):
+    stft = stft_matrix.copy()
+    power = np.abs(stft)**2
+    return(power)
+
+def reduce_noise(noise_powerspectrum_mean,noise_powerspectrum_variance, speech_powerspectrum_row,speech_stft_row):
+    npm = noise_powerspectrum_mean
+    npv = noise_powerspectrum_variance
+    spr = speech_powerspectrum_row
+    stft_r = speech_stft_row.copy()
+    for i in range(len(spr)):
+        if spr[i] <= npm[i] + npv[i]:
+            stft_r[i] = 1e-3
+    return stft_r
+    
+    
+noise_STFT, noise_samples, noise_samplingrate = wave2stft("backgroundnoise.wav")
+speech_STFT, speech_samples, speech_samplingrate = wave2stft("user_mimic.wav")
+noise_powerspectrum = stft2power(noise_STFT)
+speech_powerspectrum = stft2power(speech_STFT)
+
+import numpy as np
+speech_reducednoise_STFT = np.array([reduce_noise(noise_powerspectrum_mean,noise_powerspectrum_variance,speech_powerspectrum[row],speech_STFT[row]) for row in range(speech_STFT.shape[0])])
+```
+
+##### Save the noise reduces STFT/speech signal to wavefile (to make sure it works).
+```
+def stft2wave(stft,len_origsamp):
+    istft = np.transpose(stft.copy())
+    samples = librosa.istft(istft,length=len_origsamp)
+    return samples
+    
+speech_reducednoise = stft2wave(speech_reducednoise_STFT,len(speech_samples))
+savewave("user_mimic_reducednoise.wav",speech_reducednoise,sr=22050)
 ```
 
 One way I knew this worked was testing out my game while my vacuuming robot was on, right next to me (I had somehow ignored the little guy - we call him Roby). I was shocked to find basically silent speech recordings! So, needless to say, this game shouldn't be played while vacuuming your apartment.
@@ -53,8 +96,29 @@ One way I knew this worked was testing out my game while my vacuuming robot was 
 ![Imgur](https://i.imgur.com/XdiJLOD.png)
 ###### Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>
 
+Here is an example of how the noise reduction function ideally works:
+##### Audio Signal of Dove
+![Imgur](https://i.imgur.com/RZoV918.png)
+##### User's Mimic Before Noise Reduction
+![Imgur](https://i.imgur.com/B79OTih.png)
+##### User's Mimic Post Noise Reduction
+![Imgur](https://i.imgur.com/juexi3F.png)
+
+You'll notice that the amplitude of the user's recording is still quite a bit higher than the target recording, despite noise reduction. I confronted this problem by developing a function that matched the volume of the user's recording
+with that of the target recording:
+```
+def matchvol(target_powerspectrum, speech_powerspectrum, speech_stft):
+    tmp = np.max(target_powerspectrum)
+    smp = np.max(speech_powerspectrum)
+    stft = speech_stft.copy()
+    if smp > tmp:
+        mag = tmp/smp
+        stft *= mag
+return stft
+```
+
 A surprise issue I faced was oddities in the recordings throughout the game: it seemed the first recording the game took, artifacts in the first milliseconds disrupted analyses of either background noise or the user's speech. Similar patterns were found in the course of this research <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5426841/pdf/sensors-17-00917.pdf">project.</a> As a result, I decided to remove the first few milliseconds of every recording the game took, which improved analyses. (Note: since I was not sure if these artifacts would always only occur in the first recording, but perhaps also the third or 20th one, the beginning was removed from all recordings.)
-##### Example of Beginning Recording Click
+##### Example of Beginning Recording Artifact
 ![Imgur](https://i.imgur.com/aeqYaoM.png)
 
 I am currently still working on how to best compare the target sound and the user's mimic. At first I tried using Chromaprint and generated a score based on how similar that software calculated the target and mimic to be. The results were disappointing though: chance. I could have screamed into the microphone when the target was a whispering panda, and then expertly mimicked a chimpanzee call, our closest animal relative, and ended up with comparable scores. 
