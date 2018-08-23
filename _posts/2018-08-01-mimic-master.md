@@ -97,7 +97,7 @@ One way I knew this worked was testing out my game while my vacuuming robot was 
 ###### Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>
 
 Here is an example of how the noise reduction function ideally works:
-##### Audio Signal of Dove
+##### Audio Signal of Dove (sound to mimic)
 ![Imgur](https://i.imgur.com/9JjFU77.png)
 ##### User's Mimic Before Noise Reduction
 ![Imgur](https://i.imgur.com/B79OTih.png)
@@ -114,11 +114,11 @@ def matchvol(target_powerspectrum, speech_powerspectrum, speech_stft):
     if smp > tmp:
         mag = tmp/smp
         stft *= mag
-return stft
+    return stft
 ```
 Now a comparison of the target recording and the preprocessed mimic:
 
-##### Audio Signal of Dove
+##### Audio Signal of Dove 
 ![Imgur](https://i.imgur.com/9JjFU77.png)
 ##### User's Mimic Post Volume Matching
 ![Imgur](https://i.imgur.com/jp24Gf8.png)
@@ -276,22 +276,22 @@ for i in range(len(scores)):
 If we look at how the pitch curve analysis works, the problem will make itself quite apparent. For now I am comparing the area underneath the pitch curves. I knew that this wouldn't be perfect but it was the quickest solution I could come up with. Basically, I collected pitch values with librosa's piptrack module, then took their means, and finally square roots of their means (graphed below). This made large jumps in the pitch curve less influential of the general pattern of the sound. 
 
 Let's first compare the pitch curves of the lion and my mimic:
-##### Lion's Pitch Curve
+##### Pitch Curve: Lion Roar
 ![Imgur](https://i.imgur.com/AkGi9E4.png)
-##### Aislyn's Unprocessed Pitch Curve
+##### Pitch Curve: Lion Mimic (unprocessed) 
 ![Imgur](https://i.imgur.com/qrsty5C.png)
-##### Aislyn's Preprocessed Pitch Curve
+##### Pitch Curve: Lion Mimic (preprocessed) 
 ![Imgur](https://i.imgur.com/DGNUcHZ.png)
 
 Now for comparison, the pitch curves of a cute meowing cat and me sounding ridiculous:
-##### Cute Cat's Pitch Curve
+##### Pitch Curve: Cute Cat
 ![Imgur](https://i.imgur.com/QCdEBRm.png)
-##### Ridiculous Aislyn's Pitch Curve (unprocessed)
+##### Pitch Curve: Lion Mimic (unprocessed)
 ![Imgur](https://i.imgur.com/kcFeGn4.png)
-##### Ridiculous Aislyn's Pitch Curve (preprocessed)
+##### Pitch Curve: Lion Mimic (preprocessed)
 ![Imgur](https://i.imgur.com/ikMwOAC.png)
 
-I would say my mimic of the cat was better than that of the lion. Well, according to the pitch curve analysis, it wasn't by a long shot. 
+I would say I mimicked the cat better then the lion. Well, according to the pitch curve analysis, it wasn't by a long shot. 
 
 From -1 to 1, I scored a 0.59 on my lion mimic, and only a -0.49 on my cat mimic. 
 
