@@ -273,7 +273,7 @@ for i in range(len(scores)):
     print("Similarity score of the {} and the Lion Original: {}".format(labels[i],scores[i]))
 ```
 
-If we look at how the pitch curve analysis works, the problem will make itself quite apparent. For now I am comparing the area underneath the pitch curves. I knew that this wouldn't be perfect but it was the quickest solution I could come up with. 
+If we look at how the pitch curve analysis works, the problem will make itself quite apparent. For now I am comparing the area underneath the pitch curves. I knew that this wouldn't be perfect but it was the quickest solution I could come up with. Basically, I collected pitch values with librosa's piptrack module, then took their means, and finally square roots of their means (graphed below). This made large jumps in the pitch curve less influential of the general pattern of the sound. 
 
 Let's first compare the pitch curves of the lion and my mimic:
 ##### Lion's Pitch Curve
@@ -295,7 +295,70 @@ I would say my mimic of the cat was better than that of the lion. Well, accordin
 
 From -1 to 1, I scored a 0.59 on my lion mimic, and only a -0.49 on my cat mimic. 
 
-That's because if the curves aren't perfectly lined up, the area cancels out. So.... ya. I'm working on that. Other methods of similarity such as <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">cross-spectral density</a> or <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a> need to be implemented perhaps instead.
+That's because if the curves aren't perfectly lined up, the area cancels out. So.... ya. I'm working on that. Below is the code used to reach these values:
+```
+import librosa
+import numpy as np
+import matplotlib.pyplot as plt
+
+def get_pitch_mean(matrix_pitches):
+    p = matrix_pitches.copy()
+    p_mean = [np.mean(p[:,time_unit]) for time_unit in range(p.shape[1])]
+    p_mean = np.transpose(p_mean)
+    #remove beginning artifacts:
+    pmean = p_mean[int(len(p_mean)*0.07):]
+    return pmean
+              
+def pitch_sqrt(pitch_mean):
+    psqrt = np.sqrt(pitch_mean)
+    return psqrt
+
+def get_pitch(wavefile):
+    y, sr = librosa.load(wavefile)
+    if len(y)%2 != 0:
+        y = y[:-1]
+    pitches,mag = librosa.piptrack(y=y,sr=sr)
+    return pitches,mag
+
+animal_original = 'cat_meow.wav'
+animal_mimic = 'aislyn_meow.wav'
+animalmimic_post_noisereduction = 'aislyn_roar_noise_reduction.wav'
+animalmimic_post_speechstart = 'aislyn_roar_speech_start.wav'
+animalmimic_post_volumematch = 'aislyn_roar_volume_matched.wav'
+
+animal_type = 'cat'
+labels = ['original_sound_{}'.format(animal_type),'mimic1_{}'.format(animal_type),'mimic2_{}'.format(animal_type),'mimic3_{}'.format(animal_type),'mimic4_{}'.format(animal_type)]
+
+waves_list = [animal_original,animal_mimic,animalmimic_post_noisereduction,animalmimic_post_speechstart,animalmimic_post_volumematch]
+
+pitches = [get_pitch(wave) for wave in waves_list]
+pitch_means = [get_pitch_mean(pitch[0]) for pitch in pitches]
+pitch_means_sqrts = [pitch_sqrt(mean) for mean in pitch_means]
+
+for j in range(len(pitch_means_sqrts)):
+    fig = plt.figure()
+    plt.plot(pitch_means_sqrts[j])
+    fig.savefig('pitchcurve_{}.png'.format(labels[j]))
+
+def compare_sim(pitch_mean1, pitch_mean2):
+    pm1 = pitch_mean1.copy()
+    pm2 = pitch_mean2.copy()
+    if len(pm1) != len(pm2):
+        index_min = np.argmin([len(pm1),len(pm2)])
+        if index_min > 0:
+            pm1 = pm1[:len(pm2)]
+        else:
+            pm2 = pm2[:len(pm1)]
+    corrmatrix = np.corrcoef(pm1,pm2)
+    return(corrmatrix)
+
+pitch_sim = [compare_sim(sqrt,pitch_means_sqrts[0]) for sqrt in pitch_means_sqrts]
+for i in range(len(pitch_sim)):
+    print("Similarity of pitch curve between the original sound and {}: {}".format(labels[i],pitch_sim[i][0][1]))
+
+```
+
+Other methods of similarity such as <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">cross-spectral density</a> or <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a> need to be implemented perhaps instead.
 
 This was a bit long-winded but I hope it was a little enlightening, the turmoil I've gone through in developing what seemed such a simple game. 
 
