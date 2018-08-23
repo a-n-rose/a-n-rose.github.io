@@ -228,18 +228,9 @@ Similarity score of the Mimic4 and the Lion Original: 47
 #### Acoustic Fingerprints:
 ##### Lion Roaring
 ![Imgur](https://i.imgur.com/0rSEH33.png)
-##### Aislyn Roaring - no preprocessing
-![Imgur](https://i.imgur.com/O7xauhR.png)
-
-##### Aislyn Roaring - noise reduction
-![Imgur](https://i.imgur.com/HWnSGnw.png)
-
-##### Aislyn Roaring - beginning silence removed and noise reduction
-![Imgur](https://i.imgur.com/RlE6Axo.png)
-
 ##### Aislyn Roaring - volume matched, beginning silence removed, and noise reduction
 ![Aislyn Roaring: noise reduced, beginning silence removed, volume matched](https://i.imgur.com/mPWqSHv.png)
-
+###### I'm not going to bore you with the other fingerprints - they all looked very similar. This one was the one that got the best score.
 
 The fingerprints and their scores were achieved with the following code (original 
 <a href="https://yohanes.gultom.me/2018/03/24/simple-music-fingerprinting-using-chromaprint-in-python/">source</a>):
@@ -282,9 +273,23 @@ for i in range(len(scores)):
     print("Similarity score of the {} and the Lion Original: {}".format(labels[i],scores[i]))
 ```
 
+If we look at how the pitch curve analysis works, it works better on recordings that have clear pitch than those that don't, understandably. Therefore, when we compare the (square-root-mean) pitch curves of mimicked sounds with their originals, some work better than others. 
 
+Let's first compare the pitch curves of the lion and my mimic:
+##### Lion's Pitch Curve
+![Imgur](https://i.imgur.com/AkGi9E4.png)
+##### Aislyn's Unprocessed Pitch Curve
+![Imgur](https://i.imgur.com/qrsty5C.png)
+##### Aislyn's Preprocessed Pitch Curve
+![Imgur](https://i.imgur.com/DGNUcHZ.png)
 
-
+Now for comparison, the pitch curves of a cute meowing cat and me sounding ridiculous:
+##### Cute Cat's Pitch Curve
+![Imgur](https://i.imgur.com/QCdEBRm.png)
+##### Ridiculous Aislyn's Pitch Curve (unprocessed)
+![Imgur](https://i.imgur.com/kcFeGn4.png)
+##### Ridiculous Aislyn's Pitch Curve (preprocessed)
+![Imgur](https://i.imgur.com/ikMwOAC.png)
 
 
 Other methods of similarity such as <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">cross-spectral density</a> or <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a> need to be implemented.
