@@ -12,7 +12,7 @@ Any app that records a user remotely has to deal with varying microphone quality
 
 I attempted to recreate the noise reduction technique Audacity performs very well; I would say I was relatively successful as background noise was removed from the user's mimics, which improved the analysis of their speech. In the game, I started out by testing the user's mic by recording 5 seconds of their background noise. I calculated the spectral power in that recording and subtracted it from all of the user's subsequent mimics. 
 
-Functions defined (see <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic">the repository</a> for the entire code): 
+##### Functions defined (see <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic">the repository</a> for the entire code): 
 ```
 import sounddevice as sd
 
@@ -38,7 +38,7 @@ def test_mic(duration):
             return False
 
 ```            
-Put those functions to work to get background noise.
+##### Put those functions to work to get background noise.
 ```
 duration = 5
 print("\nThis next step will take just {} seconds\n".format(duration))
