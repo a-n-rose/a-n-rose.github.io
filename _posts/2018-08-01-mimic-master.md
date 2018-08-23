@@ -286,9 +286,9 @@ Let's first compare the pitch curves of the lion and my mimic:
 Now for comparison, the pitch curves of a cute meowing cat and me sounding ridiculous:
 ##### Pitch Curve: Cute Cat
 ![Imgur](https://i.imgur.com/QCdEBRm.png)
-##### Pitch Curve: Lion Mimic (unprocessed)
+##### Pitch Curve: Cat Mimic (unprocessed)
 ![Imgur](https://i.imgur.com/kcFeGn4.png)
-##### Pitch Curve: Lion Mimic (preprocessed)
+##### Pitch Curve: Cat Mimic (preprocessed)
 ![Imgur](https://i.imgur.com/ikMwOAC.png)
 
 I would say I mimicked the cat better then the lion. Well, according to the pitch curve analysis, it wasn't by a long shot. 
