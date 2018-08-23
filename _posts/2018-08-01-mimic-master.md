@@ -216,21 +216,30 @@ As you can see, it's still not perfect; there are still artefacts towards the en
 
 Take this Lion series as example. When comparing the acoustic fingerprint similarity of these, the mimic that underwent all of the preprocessing steps got a higher similarity score.
 
+```
+Similarity score of the Lion_Original and the Lion Original: 100
+Similarity score of the Mimic1 and the Lion Original: 45
+Similarity score of the Mimic2 and the Lion Original: 45
+Similarity score of the Mimic3 and the Lion Original: 46
+Similarity score of the Mimic4 and the Lion Original: 47
+
+```
+
 #### Acoustic Fingerprints:
 ##### Lion Roaring
 ![Imgur](https://i.imgur.com/0rSEH33.png)
 ##### Aislyn Roaring - no preprocessing
 ![Imgur](https://i.imgur.com/O7xauhR.png)
-###### Similarity score: 45
+
 ##### Aislyn Roaring - noise reduction
 ![Imgur](https://i.imgur.com/HWnSGnw.png)
-###### Similarity score: 45
+
 ##### Aislyn Roaring - beginning silence removed and noise reduction
 ![Imgur](https://i.imgur.com/RlE6Axo.png)
-###### Similarity score: 46
+
 ##### Aislyn Roaring - volume matched, beginning silence removed, and noise reduction
 ![Aislyn Roaring: noise reduced, beginning silence removed, volume matched](https://i.imgur.com/mPWqSHv.png)
-###### Similarity score: 47
+
 
 The fingerprints and their scores were achieved with the following code (original 
 <a href="https://yohanes.gultom.me/2018/03/24/simple-music-fingerprinting-using-chromaprint-in-python/">source</a>):
@@ -246,7 +255,7 @@ lionmimic_post_speechstart = 'rednoise_speechstart_2018y8m23d13h33m9s.wav'
 lionmimic_post_volumematch = 'rednoise2_2018y8m23d13h33m9s.wav'
 
 waves2compare = [lion_original,lion_mimic,lionmimic_post_noisereduction,lionmimic_post_speechstart,lionmimic_post_volumematch]
-labels = ['Lion Original','Mimic (no preprocessing)','Mimic Noise Reduced','Mimic Silence Removed','Mimic Volume Matched']
+labels = ['Lion_Original','Mimic1','Mimic2','Mimic3','Mimic4']
 
 #collect fingerprints
 fingerprints = []
@@ -255,44 +264,30 @@ for wave in waves2compare:
     _,fingerprint_encoded = acoustid.fingerprint_file(wave)
     fingerprint, _ = chromaprint.decode_fingerprint(fingerprint_encoded)
     fingerprints.append(fingerprint)
-    
+  
 import numpy as np
 import matplotlib.pyplot as plt
-#visualize fingerprints
-for fp in fingerprints:
+#visualize fingerprints and save to .png
+for j in range(len(fingerprints)):
     fig = plt.figure()
-    bitmap = np.transpose(np.array([[b == '1' for b in list('{:32b}'.format(i & 0xffffffff))] for i in fp]))
+    bitmap = np.transpose(np.array([[b == '1' for b in list('{:32b}'.format(i & 0xffffffff))] for i in fingerprints[j]]))
     plt.imshow(bitmap)
-    plt.show()
+    fig.savefig('fingerprint_{}.png'.format(labels[j]))
     
-#compare fingerprints
 from fuzzywuzzy import fuzz
-scores = []
-for fp in fingerprints:
-    similarity = fuzz.ratio(fp,fingerprints[0])
-    scores.append(similarity)
-    
+
+scores = [fuzz.ratio(fp,fingerprints[0]) for fp in fingerprints] 
+ 
 for i in range(len(scores)):
-    print("Similarity score of the {}: {}".format(labels[i],scores[i]))
-    
-```
-With the output of:
-```
-Similarity score of the Lion Original: 100
-Similarity score of the Mimic (no preprocessing): 45
-Similarity score of the Mimic Noise Reduced: 45
-Similarity score of the Mimic Silence Removed: 46
-Similarity score of the Mimic Volume Matched: 47
+    print("Similarity score of the {} and the Lion Original: {}".format(labels[i],scores[i]))
 ```
 
-At first I tried using Chromaprint and generated a score based on how similar that software calculated the target and mimic to be. The results were disappointing though: chance. I could have screamed into the microphone when the target was a whispering panda, and then expertly mimicked a chimpanzee call, our closest animal relative, and ended up with comparable scores. 
 
-Perhaps Chromaprint will work better as I improve how I preprocessing the audiofiles, or perhaps I missed something when I implemented it, but for now I've turned to a much more basic approach: Pearson correlation coefficient, i.e. measuring the area beneath pitch curves. This is far from perfect, though. First, I had to remove the beginning silence from both the target sound and the user's recording to get the pitch curves to start at the same time. But if the user's timing is just slightly off throughout the mimic, that difference in pitch curve will greatly exaggerate the imperfection of the user's mimic. Therefore, other methods of similarity such as <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">cross-spectral density</a> or <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a> need to be implemented.
 
-Another hurdle I'm trying to jump over is how to balance strict enough measures to ensure that if the user says nothing, that is clearly identified by the game, but also able to identify sublties in the user's recording that might get lost if the measures are too rigid. I'm hoping as I improve the comparison methods this will get better as a result. 
 
-For the target sounds, I collected recordings from <a href="https://freesound.org/">freesound</a>, mainly animals 'cause those are the most fun. I am excited to eventually include different kinds of sounds, like famous speakers and non-living sounds. I'm sure many more fun issues will appear with those!
 
+
+Other methods of similarity such as <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">cross-spectral density</a> or <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a> need to be implemented.
 
 
 ### Articles or Resources I found helpful:
