@@ -230,7 +230,7 @@ Similarity score of the Mimic4 and the Lion Original: 47
 ![Imgur](https://i.imgur.com/0rSEH33.png)
 ##### Aislyn Roaring - volume matched, beginning silence removed, and noise reduction
 ![Aislyn Roaring: noise reduced, beginning silence removed, volume matched](https://i.imgur.com/mPWqSHv.png)
-###### I'm not going to bore you with the other fingerprints - they all looked very similar. This one was the one that got the best score.
+###### I'm not going to bore you with the other fingerprints - they all looked very similar. This one was the one that got the best score. Note: the mimic fingerprint is a bit wider due to the longer length. The mimics were 1 second longer than the original sound to account for user response delay.
 
 The fingerprints and their scores were achieved with the following code (original 
 <a href="https://yohanes.gultom.me/2018/03/24/simple-music-fingerprinting-using-chromaprint-in-python/">source</a>):
