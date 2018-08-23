@@ -28,13 +28,13 @@ def test_mic(duration):
     if user_rec.any():
         sd.wait()
         print("Thanks!")
-        return True
+        return user_rec
     else:    
         print("Hmmmmm.. something went wrong. Check your mic and try again.")
         if start_game('test your mic'):
             test_mic(duration)
         else:
-            return False
+            return None
 
 ```            
 ##### Put those functions to work to get background noise.
