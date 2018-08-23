@@ -83,7 +83,7 @@ I first developed the noise reduction functions for Mimic Master and decided to 
 
 ##### Figure 1: Accuracy of 7 Classifiers on Different Datasets
 ![Imgur](https://i.imgur.com/YH9xOAo.png)
-##### The models are named based on how much noise was present in their training data. The speech data from the 'new speech' condition is the same except that one went through noise reduction and the other did not. 
+##### The models are named based on how much noise was present in their training data. The speech data from the 'New Dpeech' condition is the same except that one went through noise reduction and the other did not. From this experiment, the (more robust) models performed better on the noise reduced speech.
 
 
 
