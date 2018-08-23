@@ -4,13 +4,49 @@ title: "Mimic Master: Learning how to use voice biometrics and speech analysis w
 date: 2018-08-01
 ---
 
-All this game does is play a recording and then records the user, ideally mimicking what was just played. After each recording, a score is calculated based on how well the user mimicked the sound. Easy right? 
+Ever wanted to improve your animal mimicking skills? Well, you're in the right place. While this is still a work in progress, you can try out the best working version <a href = "https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic">here.</a>
 
-Maybe for some but I'm still working on this one. While this is still a work in progress, you can try out the best working version <a href = "https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic">here.</a>
+This has been a blast and adventure to build. I have come across several problems, ranging from differencs in microphone quality to detecting speech amidst noise, let alone comparing pitch or prosody of two audio signals. 
 
-I have come across several problems, ranging from microphone quality to comparing spectral fingerprints. 
+Any app that records a user remotely has to deal with varying microphone quality and background noise levels. My first challenge was finding a simple way to cancel out whatever background noise a user might have due to those variables. 
 
-Any app that records a user remotely has to deal with varying microphone quality and background noise levels. My first challenge was finding a simple way to cancel out whatever background noise a user might have due to those variables. I attempted to recreate the noise reduction technique Audacity performs very well; I would say I was relatively successful as background noise was removed from the user's mimics, which improved the analysis of their speech. In the game, I started out by testing the user's mic by recording 5 seconds of their background noise. I calculated the spectral power in that recording and subtracted it from all of the user's subsequent mimics. One way I knew this worked was testing out my game while my vacuuming robot was on, right next to me (I had somehow ignored the little guy - we call him Roby). I was shocked to find basically silent speech recordings! So, needless to say, this game shouldn't be played while vacuuming your apartment.
+I attempted to recreate the noise reduction technique Audacity performs very well; I would say I was relatively successful as background noise was removed from the user's mimics, which improved the analysis of their speech. In the game, I started out by testing the user's mic by recording 5 seconds of their background noise. I calculated the spectral power in that recording and subtracted it from all of the user's subsequent mimics. 
+
+Functions defined (see <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic">the repository</a> for the entire code): 
+```
+import sounddevice as sd
+
+def record_user(duration):
+    duration = duration
+    fs = 22050
+    user_rec = sd.rec(int(duration*fs),samplerate=fs,channels=1)
+    sd.wait()   
+return(user_rec)
+
+def test_mic(duration):
+    user_rec = record_user(duration)
+    sd.wait()
+    if user_rec.any():
+        sd.wait()
+        print("Thanks!")
+        return True
+    else:    
+        print("Hmmmmm.. something went wrong. Check your mic and try again.")
+        if start_game('test your mic'):
+            test_mic(duration)
+        else:
+            return False
+
+```            
+Put those functions to work to get background noise.
+```
+duration = 5
+print("\nThis next step will take just {} seconds\n".format(duration))
+background_noise = test_mic(duration)
+
+```
+
+One way I knew this worked was testing out my game while my vacuuming robot was on, right next to me (I had somehow ignored the little guy - we call him Roby). I was shocked to find basically silent speech recordings! So, needless to say, this game shouldn't be played while vacuuming your apartment.
 
 ##### My Mimic with Vacuum in the background
 ![Imgur](https://i.imgur.com/dgrsfSP.png)
