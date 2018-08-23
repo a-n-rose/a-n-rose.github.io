@@ -85,5 +85,16 @@ I first developed the noise reduction functions for Mimic Master and decided to 
 ![Imgur](https://i.imgur.com/YH9xOAo.png)
 ##### The models are named based on how much noise was present in their training data. The speech data from the 'New Dpeech' condition is the same except that one went through noise reduction and the other did not. From this experiment, the (more robust) models performed better on the noise reduced speech.
 
+To see what the noise reduction and volume matching process looked like, here is an example of a 'target sound', in this case a dove, and a user's mimic of that sound. (Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>)
+##### Figure 2: Audio Signal of Dove
+![Imgur](https://i.imgur.com/RZoV918.png)
+##### Figure 3: User's Mimic Before Preprocessing
+![Imgur](https://i.imgur.com/B79OTih.png)
+##### Note: duration is a little different than the target recording to account for user's delay.
+##### Figure 4: User's Mimic Post Noise Reduction
+![Imgur](https://i.imgur.com/juexi3F.png)
+##### Figure 4: User's Mimic Post Volume Matching
+![Imgur](https://i.imgur.com/jp24Gf8.png)
+###### The volume was matched with the target recording. As you can see, the volume doesn't match perfectly but this process did aid the program's performance.
 
-
+I still need to come up with a way to objectively show the improved performance of the Mimic Master game; I think I always perfectly mimic whatever sound I come across so, clearly the game isn't up to par. I'm still working on this project though so I will update this post to better account for that game's performance based on the noise preprossing techniques. 
