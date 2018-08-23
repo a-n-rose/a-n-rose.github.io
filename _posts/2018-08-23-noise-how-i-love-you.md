@@ -83,7 +83,7 @@ I first developed the noise reduction functions for Mimic Master and decided to 
 
 ##### Figure 1: Accuracy of 7 Classifiers on Different Datasets
 ![Imgur](https://i.imgur.com/YH9xOAo.png)
-##### The models are named based on how much noise was present in their training data. The speech data from the 'New Dpeech' condition is the same except that one went through noise reduction and the other did not. From this experiment, the (more robust) models performed better on the noise reduced speech.
+##### The models are named based on how much noise was present in their training data. The speech data from the 'New Data' condition is the same except that one went through noise reduction and the other did not. From this experiment, the (more robust) models performed better on the noise reduced speech.
 
 To see what the noise reduction and volume matching process looked like, here is an example of a 'target sound', in this case a dove, and a user's mimic of that sound. (Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>)
 ##### Figure 2: Audio Signal of Dove
