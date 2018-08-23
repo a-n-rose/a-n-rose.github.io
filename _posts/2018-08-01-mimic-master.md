@@ -129,7 +129,163 @@ A surprise issue I faced was artifacts in collected audio data: in some of the r
 ##### Example of Beginning Recording Artifact
 ![Imgur](https://i.imgur.com/aeqYaoM.png)
 
-I am currently still working on how to best compare the target sound and the user's mimic. At first I tried using Chromaprint and generated a score based on how similar that software calculated the target and mimic to be. The results were disappointing though: chance. I could have screamed into the microphone when the target was a whispering panda, and then expertly mimicked a chimpanzee call, our closest animal relative, and ended up with comparable scores. 
+I am currently still working on how to best compare the target sound and the user's mimic. Two different comparison techniques are in the works: 1) Chromaprint and 2) pitch curve analsis. Improvements to theses techniques are also in the works. I hope to combine them soon. 
+
+For now, I developed a function that identifies 1) if speech is present and 2) where speech begins (usually a mimicker needs a second to start mimicking). By deleting the lack of speech at the beginning of a recording, that seemed to help both techniques measure similarity better.
+```
+def sound_index(rootmeansquare_speech, start = True, rootmeansquare_mean_noise = None):
+    if rootmeansquare_mean_noise == None:
+        rootmeansquare_mean_noise = 1
+    if start == True:
+        side = 1
+        beg = 0
+        end = len(rootmeansquare_speech)
+    else:
+        side = -1
+        beg = len(rootmeansquare_speech)-1
+        end = -1
+    for row in range(beg,end,side):
+        if rootmeansquare_speech[row] > rootmeansquare_mean_noise:
+            if suspended_energy(rootmeansquare_speech,row,rootmeansquare_mean_noise,start=start):
+                if start==True:
+                    #to catch plosive sounds
+                    while row >= 0:
+                        row -= 1
+                        row -= 1
+                        if row < 0:
+                            row = 0
+                        break
+                    return row,True
+                else:
+                    #to catch quiet consonant endings
+                    while row <= len(rootmeansquare_speech):
+                        row += 1
+                        row += 1
+                        if row > len(rootmeansquare_speech):
+                            row = len(rootmeansquare_speech)
+                        break
+                    return row,True
+    else:
+        print("No speech detected.")
+    return beg,False
+    
+def get_energy(stft_matrix):
+    #stft.shape[1] == bandwidths/frequencies
+    #stft.shape[0] pertains to the time domain
+    rms_list = [np.sqrt(sum(np.abs(stft_matrix[row])**2)/stft_matrix.shape[1]) for row in range(len(stft_matrix))]
+    return rms_list    
+
+speech_energy = get_energy(speech_reducednoise_STFT)
+voice_start,voice = sound_index(speech_energy,start=True,,start=True,rootmeansquare_mean_noise=noise_energy_mean)
+if voice:
+    start = voice_start/len(speech_energy)
+    start_time = (len(speech_samples)*start)/speech_samplingrate
+    speech_reducednoise_STFT = speech_reducednoise_STFT[voice_start:]
+    voicestart_samp = stft2wave(speech_reducednoise_STFT,len(speech_samples))
+    date = get_date()
+    savewave('./processed_recordings/rednoise_speechstart_{}.wav'.format(date),voicestart_samp,sr)
+    print('Removed silence from beginning of recording. File saved.')
+```
+Alrighty. All together this is what the game does:
+
+It records a little bit to collect the user's background noise. Here's what my quiet apartment sounds like recorded by my computer:
+
+##### Collects User's Background Noise
+![Imgur](https://i.imgur.com/jxT78f9.png)
+
+Next it plays a sound for the user to mimic. This time it's a lion roaring:
+
+##### Lion Roaring
+![Imgur](https://i.imgur.com/HAvMBBL.png)
+
+Once that plays, the application records the user mimicking that sound. Here's me roaring.
+
+##### Aislyn Roaring
+![Imgur](https://i.imgur.com/QqUBKsf.png)
+
+Aaaaaaaah! That looks horrible. Now the preprocessing steps get to work. 
+
+##### Subtract background noise from user's mimic
+![Imgur](https://i.imgur.com/k1bwnAF.png)
+##### Remove the beginning silence
+![Imgur](https://i.imgur.com/OWkNr4E.png)
+##### And match the volume to that of the roaring lion
+![Imgur](https://i.imgur.com/ecnm6rB.png)
+
+As you can see, it's still not perfect; there are still artefacts towards the ends of recordings, which I need to take care of (I will, I will). But these steps have helped the game to measure similarity somewhat. 
+
+Take this Lion series as example. When comparing the acoustic fingerprint similarity of these, the mimic that underwent all of the preprocessing steps got a higher similarity score.
+
+#### Acoustic Fingerprints:
+##### Lion Roaring
+![Imgur](https://i.imgur.com/0rSEH33.png)
+##### Aislyn Roaring - no preprocessing
+![Imgur](https://i.imgur.com/O7xauhR.png)
+###### Similarity score: 45
+##### Aislyn Roaring - noise reduction
+![Imgur](https://i.imgur.com/HWnSGnw.png)
+###### Similarity score: 45
+##### Aislyn Roaring - beginning silence removed and noise reduction
+![Imgur](https://i.imgur.com/RlE6Axo.png)
+###### Similarity score: 46
+##### Aislyn Roaring - volume matched, beginning silence removed, and noise reduction
+![Aislyn Roaring: noise reduced, beginning silence removed, volume matched](https://i.imgur.com/mPWqSHv.png)
+###### Similarity score: 47
+
+The fingerprints and their scores were achieved with the following code (original 
+<a href="https://yohanes.gultom.me/2018/03/24/simple-music-fingerprinting-using-chromaprint-in-python/">source</a>):
+
+```
+import acoustid
+import chromaprint
+
+lion_original = 'Roaring Lion-SoundBible.com-527774719.wav'
+lion_mimic = 'Aislyn_2018y8m23d13h33m9s.wav'
+lionmimic_post_noisereduction = 'rednoise_2018y8m23d13h33m9s.wav'
+lionmimic_post_speechstart = 'rednoise_speechstart_2018y8m23d13h33m9s.wav'
+lionmimic_post_volumematch = 'rednoise2_2018y8m23d13h33m9s.wav'
+
+waves2compare = [lion_original,lion_mimic,lionmimic_post_noisereduction,lionmimic_post_speechstart,lionmimic_post_volumematch]
+labels = ['Lion Original','Mimic (no preprocessing)','Mimic Noise Reduced','Mimic Silence Removed','Mimic Volume Matched']
+
+#collect fingerprints
+fingerprints = []
+fp_encodings = []
+for wave in waves2compare:
+    _,fingerprint_encoded = acoustid.fingerprint_file(wave)
+    fingerprint, _ = chromaprint.decode_fingerprint(fingerprint_encoded)
+    fingerprints.append(fingerprint)
+    
+import numpy as np
+import matplotlib.pyplot as plt
+#visualize fingerprints
+for fp in fingerprints:
+    fig = plt.figure()
+    bitmap = np.transpose(np.array([[b == '1' for b in list('{:32b}'.format(i & 0xffffffff))] for i in fp]))
+    plt.imshow(bitmap)
+    plt.show()
+    
+#compare fingerprints
+from fuzzywuzzy import fuzz
+scores = []
+for fp in fingerprints:
+    similarity = fuzz.ratio(fp,fingerprints[0])
+    scores.append(similarity)
+    
+for i in range(len(scores)):
+    print("Similarity score of the {}: {}".format(labels[i],scores[i]))
+    
+```
+With the output of:
+```
+Similarity score of the Lion Original: 100
+Similarity score of the Mimic (no preprocessing): 45
+Similarity score of the Mimic Noise Reduced: 45
+Similarity score of the Mimic Silence Removed: 46
+Similarity score of the Mimic Volume Matched: 47
+```
+
+At first I tried using Chromaprint and generated a score based on how similar that software calculated the target and mimic to be. The results were disappointing though: chance. I could have screamed into the microphone when the target was a whispering panda, and then expertly mimicked a chimpanzee call, our closest animal relative, and ended up with comparable scores. 
 
 Perhaps Chromaprint will work better as I improve how I preprocessing the audiofiles, or perhaps I missed something when I implemented it, but for now I've turned to a much more basic approach: Pearson correlation coefficient, i.e. measuring the area beneath pitch curves. This is far from perfect, though. First, I had to remove the beginning silence from both the target sound and the user's recording to get the pitch curves to start at the same time. But if the user's timing is just slightly off throughout the mimic, that difference in pitch curve will greatly exaggerate the imperfection of the user's mimic. Therefore, other methods of similarity such as <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">cross-spectral density</a> or <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a> need to be implemented.
 
@@ -138,5 +294,8 @@ Another hurdle I'm trying to jump over is how to balance strict enough measures 
 For the target sounds, I collected recordings from <a href="https://freesound.org/">freesound</a>, mainly animals 'cause those are the most fun. I am excited to eventually include different kinds of sounds, like famous speakers and non-living sounds. I'm sure many more fun issues will appear with those!
 
 
+
+### Articles or Resources I found helpful:
+* Easy visualization and comparison of Chromaprint <a href="https://yohanes.gultom.me/2018/03/24/simple-music-fingerprinting-using-chromaprint-in-python/">fingerprints</a>.
 
 
