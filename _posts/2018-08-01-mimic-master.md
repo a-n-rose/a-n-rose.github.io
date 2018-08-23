@@ -12,7 +12,15 @@ I have come across several problems, ranging from microphone quality to comparin
 
 Any app that records a user remotely has to deal with varying microphone quality and background noise levels. My first challenge was finding a simple way to cancel out whatever background noise a user might have due to those variables. I attempted to recreate the noise reduction technique Audacity performs very well; I would say I was relatively successful as background noise was removed from the user's mimics, which improved the analysis of their speech. In the game, I started out by testing the user's mic by recording 5 seconds of their background noise. I calculated the spectral power in that recording and subtracted it from all of the user's subsequent mimics. One way I knew this worked was testing out my game while my vacuuming robot was on, right next to me (I had somehow ignored the little guy - we call him Roby). I was shocked to find basically silent speech recordings! So, needless to say, this game shouldn't be played while vacuuming your apartment.
 
+##### My Mimic with Roby in the background
+![Imgur](https://i.imgur.com/dgrsfSP.png)
+##### My Mimic Post Noise Reduction:
+![Imgur](https://i.imgur.com/XdiJLOD.png)
+###### Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>
+
 A surprise issue I faced was oddities in the recordings throughout the game: it seemed the first recording the game took, artifacts in the first milliseconds disrupted analyses of either background noise or the user's speech. Similar patterns were found in the course of this research <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5426841/pdf/sensors-17-00917.pdf">project.</a> As a result, I decided to remove the first few milliseconds of every recording the game took, which improved analyses. (Note: since I was not sure if these artifacts would always only occur in the first recording, but perhaps also the third or 20th one, the beginning was removed from all recordings.)
+##### Example of Beginning Recording Click
+![Imgur](https://i.imgur.com/aeqYaoM.png)
 
 I am currently still working on how to best compare the target sound and the user's mimic. At first I tried using Chromaprint and generated a score based on how similar that software calculated the target and mimic to be. The results were disappointing though: chance. I could have screamed into the microphone when the target was a whispering panda, and then expertly mimicked a chimpanzee call, our closest animal relative, and ended up with comparable scores. 
 
