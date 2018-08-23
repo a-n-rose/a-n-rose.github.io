@@ -79,5 +79,11 @@ return stft
 ###### ** Language Classifier
 ###### *** Both Mimic Master and Language Classifier
 
-I first developed the noise reduction functions for Mimic Master and decided to try them out in my speech collection and identification application. 
+I first developed the noise reduction functions for Mimic Master and decided to try them out in my speech collection and identification application. This application recorded new speech and identified whether it was German or English by applying a trained ANN classifer. Below is a graph of 7 models' performances with either the test dataset, new speech *without* noise reduction and new speech *with* noise reduction. (To better understand the context of this graph, reading <a href="https://a-n-rose.github.io/2018/08/22/language-classifier.html">this</a> might help.)
+
+##### Figure 1: Accuracy of 7 Classifiers on Different Datasets
+![Imgur](https://i.imgur.com/YH9xOAo.png)
+##### The models are named based on how much noise was present in their training data. The speech data from the 'new speech' condition is the same except that one went through noise reduction and the other did not. 
+
+
 
