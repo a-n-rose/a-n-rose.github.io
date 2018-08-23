@@ -47,7 +47,7 @@ background_noise = test_mic(duration)
 
 One way I knew this worked was testing out my game while my vacuuming robot was on, right next to me (I had somehow ignored the little guy - we call him Roby). I was shocked to find basically silent speech recordings! So, needless to say, this game shouldn't be played while vacuuming your apartment.
 
-##### My Mimic with Vacuum in the background
+##### My Mimic with Vacuum in the Background
 ![Imgur](https://i.imgur.com/dgrsfSP.png)
 ##### My Mimic Post Noise Reduction:
 ![Imgur](https://i.imgur.com/XdiJLOD.png)
