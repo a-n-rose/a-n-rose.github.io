@@ -116,8 +116,16 @@ def matchvol(target_powerspectrum, speech_powerspectrum, speech_stft):
         stft *= mag
 return stft
 ```
+Now a comparison of the target recording and the preprocessed mimic:
 
-A surprise issue I faced was oddities in the recordings throughout the game: it seemed the first recording the game took, artifacts in the first milliseconds disrupted analyses of either background noise or the user's speech. Similar patterns were found in the course of this research <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5426841/pdf/sensors-17-00917.pdf">project.</a> As a result, I decided to remove the first few milliseconds of every recording the game took, which improved analyses. (Note: since I was not sure if these artifacts would always only occur in the first recording, but perhaps also the third or 20th one, the beginning was removed from all recordings.)
+##### Audio Signal of Dove
+![Imgur](https://i.imgur.com/RZoV918.png)
+##### User's Mimic Post Volume Matching
+![Imgur](https://i.imgur.com/jp24Gf8.png)
+
+Much better, right?
+
+A surprise issue I faced was artifacts at the start of recordings: in some of the recordings, artifacts were present in the first milliseconds. Similar patterns were found in the course of this research <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5426841/pdf/sensors-17-00917.pdf">project.</a> Since I didn't want these influencing analyses, I decided to remove the first few milliseconds of every recording the game took. 
 ##### Example of Beginning Recording Artifact
 ![Imgur](https://i.imgur.com/aeqYaoM.png)
 
