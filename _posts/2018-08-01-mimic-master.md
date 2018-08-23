@@ -214,7 +214,7 @@ Aaaaaaaah! That looks horrible. Now the preprocessing steps get to work.
 
 As you can see, it's still not perfect; there are still artefacts towards the ends of recordings, which I need to take care of (I will, I will). But these steps have helped the game to measure similarity somewhat. 
 
-Take this Lion series as example. When comparing the acoustic fingerprint similarity of these, the mimic that underwent all of the preprocessing steps got a higher similarity score.
+Take this Lion series as an example. When comparing the acoustic fingerprint similarity of these, the mimic that underwent all of the preprocessing steps got a higher similarity score.
 
 ```
 Similarity score of the Lion_Original and the Lion Original: 100
@@ -273,7 +273,7 @@ for i in range(len(scores)):
     print("Similarity score of the {} and the Lion Original: {}".format(labels[i],scores[i]))
 ```
 
-If we look at how the pitch curve analysis works, the problem will make itself quite apparent. For now I am comparing how similar the area under the pitch curves the recordings have. I knew that this wouldn't be perfect but it was the quickest solution I could come up with. 
+If we look at how the pitch curve analysis works, the problem will make itself quite apparent. For now I am comparing the area underneath the pitch curves. I knew that this wouldn't be perfect but it was the quickest solution I could come up with. 
 
 Let's first compare the pitch curves of the lion and my mimic:
 ##### Lion's Pitch Curve
@@ -302,5 +302,3 @@ This was a bit long-winded but I hope it was a little enlightening, the turmoil 
 
 ### Articles or Resources I found helpful:
 * Easy visualization and comparison of Chromaprint <a href="https://yohanes.gultom.me/2018/03/24/simple-music-fingerprinting-using-chromaprint-in-python/">fingerprints</a>.
-
-
