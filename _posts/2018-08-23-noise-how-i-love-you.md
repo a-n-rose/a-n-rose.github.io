@@ -81,7 +81,7 @@ return stft
 
 
 
-To see what the noise reduction and volume matching process looks like, here is an example of a 'target sound', in this case a dove, and a user's mimic of that sound. (Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>)
+To see what the noise reduction and volume matching process look like, here is an example of a 'target sound', in this case a dove, and a user's mimic of that sound. (Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>)
 ##### Figure 2: Audio Signal of Dove
 ![Imgur](https://i.imgur.com/RZoV918.png)
 ##### Figure 3: User's Mimic Before Preprocessing
