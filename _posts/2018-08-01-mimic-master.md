@@ -77,7 +77,7 @@ import numpy as np
 speech_reducednoise_STFT = np.array([reduce_noise(noise_powerspectrum_mean,noise_powerspectrum_variance,speech_powerspectrum[row],speech_STFT[row]) for row in range(speech_STFT.shape[0])])
 ```
 
-##### Save the noise reduces STFT/speech signal to wavefile (to make sure it works).
+##### Save the noise reduced STFT/speech signal to wavefile (to play it and make sure it works).
 ```
 def stft2wave(stft,len_origsamp):
     istft = np.transpose(stft.copy())
