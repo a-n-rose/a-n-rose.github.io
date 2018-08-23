@@ -273,7 +273,7 @@ for i in range(len(scores)):
     print("Similarity score of the {} and the Lion Original: {}".format(labels[i],scores[i]))
 ```
 
-If we look at how the pitch curve analysis works, it works better on recordings that have clear pitch than those that don't, understandably. Therefore, when we compare the (square-root-mean) pitch curves of mimicked sounds with their originals, some work better than others. 
+If we look at how the pitch curve analysis works, the problem will make itself quite apparent. For now I am comparing how similar the area under the pitch curves the recordings have. I knew that this wouldn't be perfect but it was the quickest solution I could come up with. 
 
 Let's first compare the pitch curves of the lion and my mimic:
 ##### Lion's Pitch Curve
@@ -291,8 +291,13 @@ Now for comparison, the pitch curves of a cute meowing cat and me sounding ridic
 ##### Ridiculous Aislyn's Pitch Curve (preprocessed)
 ![Imgur](https://i.imgur.com/ikMwOAC.png)
 
+I would say my mimic of the cat was better than that of the lion. Well, according to the pitch curve analysis, it wasn't by a long shot. 
 
-Other methods of similarity such as <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">cross-spectral density</a> or <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a> need to be implemented.
+From -1 to 1, I scored a 0.59 on my lion mimic, and only a -0.49 on my cat mimic. 
+
+That's because if the curves aren't perfectly lined up, the area cancels out. So.... ya. I'm working on that. Other methods of similarity such as <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">cross-spectral density</a> or <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a> need to be implemented perhaps instead.
+
+This was a bit long-winded but I hope it was a little enlightening, the turmoil I've gone through in developing what seemed such a simple game. 
 
 
 ### Articles or Resources I found helpful:
