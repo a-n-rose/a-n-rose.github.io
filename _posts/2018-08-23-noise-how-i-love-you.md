@@ -79,13 +79,9 @@ return stft
 ###### ** Language Classifier
 ###### *** Both Mimic Master and Language Classifier
 
-I first developed the noise reduction functions for Mimic Master and decided to try them out in my speech collection and identification application. This application recorded new speech and identified whether it was German or English by applying a trained ANN classifer. Below is a graph of 7 models' performances with either the test dataset, new speech *without* noise reduction and new speech *with* noise reduction. (To better understand the context of this graph, reading <a href="https://a-n-rose.github.io/2018/08/22/language-classifier.html">this</a> might help.)
 
-##### Figure 1: Accuracy of 7 Classifiers on Different Datasets
-![Imgur](https://i.imgur.com/YH9xOAo.png)
-##### The models are named based on how much noise was present in their training data. The speech data from the 'New Data' condition is the same except that one went through noise reduction and the other did not. From this experiment, the (more robust) models performed better on the noise reduced speech.
 
-To see what the noise reduction and volume matching process looked like, here is an example of a 'target sound', in this case a dove, and a user's mimic of that sound. (Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>)
+To see what the noise reduction and volume matching process looks like, here is an example of a 'target sound', in this case a dove, and a user's mimic of that sound. (Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>)
 ##### Figure 2: Audio Signal of Dove
 ![Imgur](https://i.imgur.com/RZoV918.png)
 ##### Figure 3: User's Mimic Before Preprocessing
@@ -97,4 +93,10 @@ To see what the noise reduction and volume matching process looked like, here is
 ![Imgur](https://i.imgur.com/jp24Gf8.png)
 ###### The volume was matched with the target recording. As you can see, the volume doesn't match perfectly but this process did aid the program's performance.
 
-I still need to come up with a way to objectively show the improved performance of the Mimic Master game; I think I always perfectly mimic whatever sound I come across so, clearly the game isn't up to par. I'm still working on this project though so I will update this post to better account for that game's performance based on the noise preprossing techniques. 
+The noise reduction function also came in handy when I built an application to apply my ANN English German classifier. This application recorded new speech and identified whether it was German or English by applying a trained ANN classifer. Below is a graph of 7 models' performances with either the test dataset (data from VoxForge) or new data (my husband's German and my own English speech). I decided to also see how well the models performed on new speech data that underwent my noise reduction algorithm versus on speech data that didn't. The graph shows that the more robust models performed better on speech that had undergone noise reduction.
+
+##### Figure 1: Accuracy of 7 Classifiers on Different Datasets
+![Imgur](https://i.imgur.com/YH9xOAo.png)
+##### The models are named based on how much noise was present in their training data. The speech data from the 'New Data' condition is the same except that one went through noise reduction and the other did not. From this experiment, the (more robust) models performed better on the noise reduced speech.
+
+I am working on somehow showing objectively how well the Mimic Game performs based on noise preprocessing... considering I never think it accurately scores my own mimics (I am most definitely a mimic master!) I guess I can't rely on my own judgement. More on that to come!
