@@ -125,7 +125,7 @@ Now a comparison of the target recording and the preprocessed mimic:
 
 Much better, right?
 
-A surprise issue I faced was artifacts at the start of recordings: in some of the recordings, artifacts were present in the first milliseconds. Similar patterns were found in the course of this research <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5426841/pdf/sensors-17-00917.pdf">project.</a> Since I didn't want these influencing analyses, I decided to remove the first few milliseconds of every recording the game took. 
+A surprise issue I faced was artifacts in collected audio data: in some of the recordings, artifacts were present in the first milliseconds. Similar patterns were found in the course of this research <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5426841/pdf/sensors-17-00917.pdf">project.</a> Since I didn't want these influencing analyses, I decided to remove the first few milliseconds of every recording the game took. 
 ##### Example of Beginning Recording Artifact
 ![Imgur](https://i.imgur.com/aeqYaoM.png)
 
