@@ -83,7 +83,7 @@ def matchvol(target_powerspectrum, speech_powerspectrum, speech_stft):
 
 To see what the noise reduction and volume matching process look like, here is an example of a 'target sound', in this case a dove, and a user's mimic of that sound. 
 ##### Figure 1: Audio Signal of Dove
-![Imgur](https://i.imgur.com/RZoV918.png)
+![Imgur](https://i.imgur.com/9JjFU77.png)
 ##### Figure 2: User's Mimic Before Preprocessing
 ![Imgur](https://i.imgur.com/B79OTih.png)
 ##### Note: duration is a little different than the target recording to account for user's delay.

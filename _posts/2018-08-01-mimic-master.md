@@ -119,7 +119,7 @@ return stft
 Now a comparison of the target recording and the preprocessed mimic:
 
 ##### Audio Signal of Dove
-![Imgur](https://i.imgur.com/RZoV918.png)
+![Imgur](https://i.imgur.com/9JjFU77.png)
 ##### User's Mimic Post Volume Matching
 ![Imgur](https://i.imgur.com/jp24Gf8.png)
 
@@ -196,7 +196,7 @@ It records a little bit to collect the user's background noise. Here's what my q
 Next it plays a sound for the user to mimic. This time it's a lion roaring:
 
 ##### Lion Roaring
-![Imgur](https://i.imgur.com/HAvMBBL.png)
+![Imgur](https://i.imgur.com/rSOUomD.png)
 
 Once that plays, the application records the user mimicking that sound. Here's me roaring.
 
