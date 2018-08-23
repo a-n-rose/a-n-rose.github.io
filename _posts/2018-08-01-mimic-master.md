@@ -129,7 +129,7 @@ A surprise issue I faced was artifacts in collected audio data: in some of the r
 ##### Example of Beginning Recording Artifact
 ![Imgur](https://i.imgur.com/aeqYaoM.png)
 
-I am currently still working on how to best compare the target sound and the user's mimic. Two different comparison techniques are in the works: 1) Chromaprint and 2) pitch curve analysis. Improvements to theses techniques are also in the works. I hope to combine them soon. 
+I am currently still working on how to best compare the target sound and the user's mimic. Two different comparison techniques are in the works: 1) Chromaprint and 2) pitch curve analysis. Improvements of these techniques are also in the works. I hope to combine them soon. 
 
 For now, I developed a function that identifies 1) if speech is present and 2) where speech begins (usually a mimicker needs a second to start mimicking). By deleting the lack of speech at the beginning of a recording, that seemed to help both techniques measure similarity better.
 ```
