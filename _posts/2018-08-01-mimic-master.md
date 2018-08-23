@@ -12,7 +12,7 @@ I have come across several problems, ranging from microphone quality to comparin
 
 Any app that records a user remotely has to deal with varying microphone quality and background noise levels. My first challenge was finding a simple way to cancel out whatever background noise a user might have due to those variables. I attempted to recreate the noise reduction technique Audacity performs very well; I would say I was relatively successful as background noise was removed from the user's mimics, which improved the analysis of their speech. In the game, I started out by testing the user's mic by recording 5 seconds of their background noise. I calculated the spectral power in that recording and subtracted it from all of the user's subsequent mimics. One way I knew this worked was testing out my game while my vacuuming robot was on, right next to me (I had somehow ignored the little guy - we call him Roby). I was shocked to find basically silent speech recordings! So, needless to say, this game shouldn't be played while vacuuming your apartment.
 
-##### My Mimic with Roby in the background
+##### My Mimic with Vacuum in the background
 ![Imgur](https://i.imgur.com/dgrsfSP.png)
 ##### My Mimic Post Noise Reduction:
 ![Imgur](https://i.imgur.com/XdiJLOD.png)
