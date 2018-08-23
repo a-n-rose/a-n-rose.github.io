@@ -98,7 +98,7 @@ One way I knew this worked was testing out my game while my vacuuming robot was 
 
 Here is an example of how the noise reduction function ideally works:
 ##### Audio Signal of Dove
-![Imgur](https://i.imgur.com/RZoV918.png)
+![Imgur](https://i.imgur.com/9JjFU77.png)
 ##### User's Mimic Before Noise Reduction
 ![Imgur](https://i.imgur.com/B79OTih.png)
 ##### User's Mimic Post Noise Reduction
