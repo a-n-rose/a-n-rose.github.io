@@ -17,7 +17,6 @@ I attempted to recreate the noise reduction technique Audacity performs very wel
 import sounddevice as sd
 
 def record_user(duration):
-    duration = duration
     fs = 22050
     user_rec = sd.rec(int(duration*fs),samplerate=fs,channels=1)
     sd.wait()   
