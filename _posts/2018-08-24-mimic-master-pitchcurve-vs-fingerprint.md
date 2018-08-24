@@ -251,8 +251,9 @@ if voice:
 Additionally I noticed artefacts (little clicks) in the speech recordings, particularly in the beginning. Therefore I removed the beginng few milliseconds to remove them. (Unfortunately, other artefacts, for example at the ending of recordings, that I still need to account for.)
 ##### Artefacts I removed during processing
 ![Imgur](https://i.imgur.com/aeqYaoM.png)
-##### Artefacts I still need to account for (see towards the end of the recording)
-!![Imgur](https://i.imgur.com/CkIKDBr.png)
+##### Artefacts I still need to account for 
+![Imgur](https://i.imgur.com/CkIKDBr.png)
+###### (see towards the end of the recording)
 
 ### The Scores
 
