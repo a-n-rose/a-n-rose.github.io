@@ -193,7 +193,7 @@ Much better, right?
 
 Similar to the scores above, I wasn't seeing my rating system produce any meaningful scores (I'll get to that in a bit). So I decided to cut out the starting silence of the user's mimics. Perhaps that would help produce more accurate scores.
 
-Below is a function that identifies 1) if speech is present and 2) where speech begins (usually a mimicker needs a second to start mimicking). By deleting the lack of speech at the beginning of a recording, that seemed to help both techniques measure similarity better.
+Below is a function that identifies 1) if speech is present and 2) where speech begins (usually a mimicker needs a second to start mimicking).
 ```
 def sound_index(rootmeansquare_speech, start = True, rootmeansquare_mean_noise = None):
     if rootmeansquare_mean_noise == None:
