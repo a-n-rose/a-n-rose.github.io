@@ -4,7 +4,7 @@ title: "Mimic Master - First Attempt: Learning the wrong way to compare speech s
 date: 2018-08-24
 ---
 
-Imagine yourself bored on your couch, wishing you were hiking in the mountains, hearing birds sing and returning their calls. In your fantasy you respond perfectly, but wonder if how well you actually do that in reality. Have I got the solution for you! You can test your mimics with this silly little mimic game! 
+Imagine yourself bored on your couch, wishing you were hiking in the mountains, hearing birds sing and returning their calls. In your fantasy you respond perfectly, but wonder how well you actually do that in reality. Have I got the solution for you! You can test your mimics with this silly little mimic game! 
 
 Here's how it works. 
 
