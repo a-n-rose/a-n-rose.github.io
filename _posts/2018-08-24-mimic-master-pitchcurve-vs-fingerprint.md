@@ -4,7 +4,7 @@ title: "Mimic Master - First Attempt: Learning the wrong way to compare speech s
 date: 2018-08-24
 ---
 
-Imagine yourself bored on your couch, wishing you were hiking in the mountains, hearing birds sing and returning their calls. In your fantasy you respond perfectly, but wonder if you could actually do that in reality. Well, to make you unbored, you can try it out with this silly little mimic game! 
+Imagine yourself bored on your couch, wishing you were hiking in the mountains, hearing birds sing and returning their calls. In your fantasy you respond perfectly, but wonder if how well you actually do that in reality. Have I got the solution for you! You can test your mimics with this silly little mimic game! 
 
 Here's how it works. 
 
@@ -30,7 +30,9 @@ Few. Much better.
 
 How well did I do? 
 I got two scores: 
+
 1) 47
+
 2) 0.59
 
 Next try. 
@@ -45,7 +47,9 @@ A little touched up:
 ![Imgur](https://i.imgur.com/higYIak.png)
 
 And the score(s) are....
+
 1)  52
+
 2) -0.49
 
 Alright... I improved according to the first score but performed vastly worse according to the second score.
@@ -59,7 +63,9 @@ What happens if a user makes random sounds? Like mimicking a rooster instead of 
 ###### Cacka-doodle-dooooo
 
 Scores:
+
 1) 48
+
 2) 0.15282471566864583
 
 Hmmmmmmmmmmmm... This isn't encouraging. Well, to see where developing this game came of any use, check out how I applied my noise cancelling function to increase accuracy of a deep learning classifier <a href="https://a-n-rose.github.io/2018/08/23/noise-how-i-love-you.html">here.</a> To see the hurdles I went through in developing this (so far unsuccesful) game, read on!
