@@ -160,7 +160,6 @@ One way I knew this worked was testing out my game while my vacuuming robot was 
 ![Imgur](https://i.imgur.com/dgrsfSP.png)
 ##### My Mimic Post Noise Reduction:
 ![Imgur](https://i.imgur.com/XdiJLOD.png)
-###### Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>
 
 Here is an example of how the noise reduction function ideally works:
 ##### Audio Signal of Dove (sound to mimic)
@@ -407,3 +406,5 @@ The pitch curves:
 ![Imgur](https://i.imgur.com/xz5DTkd.png)
 
 Oh well..
+
+~ Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a> ~
