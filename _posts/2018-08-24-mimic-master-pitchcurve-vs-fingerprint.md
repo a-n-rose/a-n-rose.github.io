@@ -38,7 +38,7 @@ I got two scores:
 Next try. 
 
 Awe cute... it's a meowing cat
-![Imgur](https://i.imgur.com/rp2kOpt.png)
+![Imgur](https://i.imgur.com/bxBYaAG.png)
 
 A meowing bored person:
 ![Imgur](https://i.imgur.com/HyWid7b.png)
@@ -48,9 +48,9 @@ A little touched up:
 
 And the score(s) are....
 
-1)  52
+1)  50
 
-2) -0.49
+2) -0.6818043886826649
 
 Alright... I improved according to the first score but performed vastly worse according to the second score.
 
@@ -298,6 +298,14 @@ for i in range(len(scores)):
     print("Similarity score of the {} and the Lion Original: {}".format(labels[i],scores[i]))
 ```
 
+And here's what the fingerprints looked like:
+
+##### Lion 
+![Imgur](https://i.imgur.com/0rSEH33.png)
+##### Me mimicking the lion
+![Aislyn Roaring: noise reduced, beginning silence removed, volume matched](https://i.imgur.com/mPWqSHv.png)
+###### Note: the mimic fingerprint is a bit wider due to the longer length. The mimics were 1 second longer than the original sound to account for user response delay.
+
 If I'm honest here, I was mainly just testing Chromaprint out to see if it worked in this setting, without too much additional work. I don't know so much about the workings behind the scenes, so clearly I have some more to explore and read about when creating and comparing acoustic fingerprints.
 
 #### Second Score
@@ -388,3 +396,14 @@ for i in range(len(pitch_sim)):
 In sum, I'm happy some of the functions I wrote have been useful in other applications I made, which was why I developed this game: to learn how to process, analyze, and manipulate speech. I still have a ways to go, however, to get this to a point of accurately rating mimics. 
 
 Other methods of similarity I have on my list to try out include <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">Cross-Spectral Density</a> or <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a>. 
+
+Note: Just to see if it would help if all silences were removed from the animal sounds (for example, there's a bit of a silence before the cat's meow), I removed those before running the scores again. To no avail. Comparing my cat mimic to the cat sound minus the starting silence, here was my pitch score:
+-0.6818043886826649
+
+The pitch curves:
+##### The Cat without starting silence:
+![Imgur](https://i.imgur.com/TXWN68V.png)
+##### My mimic:
+![Imgur](https://i.imgur.com/xz5DTkd.png)
+
+Oh well..
