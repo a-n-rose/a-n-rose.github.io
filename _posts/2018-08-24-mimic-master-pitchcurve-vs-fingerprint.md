@@ -4,7 +4,7 @@ title: "Mimic Master - First Attempt: Learning the wrong way to compare speech s
 date: 2018-08-24
 ---
 
-Imagine yourself bored on your couch, wishing you were hiking in the mountains, hearing birds sing and returning their calls. In your fantasy you respond perfectly, but wonder how well you actually do that in reality. Have I got the solution for you! You can test your mimics with this silly little mimic game! 
+Imagine yourself bored on your couch, wishing you were hiking in the mountains, hearing birds sing and returning their calls. In your fantasy you respond perfectly, but wonder how well you actually do that in reality. Have I got the solution for you! You can test your mimics with this silly little mimic game.
 
 Here's how it works. 
 
@@ -76,7 +76,7 @@ This has been a blast and adventure to build. I have come across several problem
 
 Any app that records a user remotely has to deal with varying microphone quality and background noise levels. My first challenge was finding a simple way to cancel out whatever background noise a user might have due to those variables. 
 
-I attempted to recreate the noise reduction technique Audacity performs very well; I would say I was relatively successful as background noise was removed from the user's mimics, which improved the analysis of their speech. In the game, I started out by testing the user's mic by recording 5 seconds of their background noise. I calculated the spectral power in that recording and subtracted it from all of the user's subsequent mimics. 
+I took on the task to build by own version of <a href="https://www.audacityteam.org/">Adacity's</a> noise reduction technique; I would say I was successful as background noise was removed from the user's mimics, which improved the analysis of their speech. (Audacity's software includes smoothing and other more complicated techniques, which I didn't do, but my functions worked just fine for the task at hand.) In the game, I started out by testing the user's mic by recording 5 seconds of their background noise. I calculated the spectral power in that recording and subtracted it from all of the user's subsequent mimics. 
 
 ##### Functions defined (see <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic">the repository</a> for the entire code): 
 ```
@@ -161,16 +161,15 @@ One way I knew this worked was testing out my game while my vacuuming robot was 
 ##### My Mimic Post Noise Reduction:
 ![Imgur](https://i.imgur.com/XdiJLOD.png)
 
-Here is an example of how the noise reduction function ideally works:
-##### Audio Signal of Dove (sound to mimic)
+Here is an example of how the noise reduction function works without a vacuum running in the background:
+##### Audio Signal of Dove (animal sound to mimic)
 ![Imgur](https://i.imgur.com/9JjFU77.png)
 ##### User's Mimic Before Noise Reduction
 ![Imgur](https://i.imgur.com/B79OTih.png)
 ##### User's Mimic Post Noise Reduction
 ![Imgur](https://i.imgur.com/juexi3F.png)
 
-You'll notice that the amplitude of the user's recording is still quite a bit higher than the target recording, despite noise reduction. I confronted this problem by developing a function that matched the volume of the user's recording
-with that of the target recording:
+You'll notice that the amplitude of the user's recording is still quite a bit higher than the target recording, despite noise reduction. I confronted this problem by developing a function that matched the volume of the user's recording with that of the target recording:
 ```
 def matchvol(target_powerspectrum, speech_powerspectrum, speech_stft):
     tmp = np.max(target_powerspectrum)
@@ -181,7 +180,7 @@ def matchvol(target_powerspectrum, speech_powerspectrum, speech_stft):
         stft *= mag
     return stft
 ```
-Now a comparison of the target recording and the preprocessed mimic:
+Now a comparison of the target recording and the cleaned-up mimic:
 
 ##### Audio Signal of Dove 
 ![Imgur](https://i.imgur.com/9JjFU77.png)
@@ -310,11 +309,11 @@ If I'm honest here, I was mainly just testing Chromaprint out to see if it worke
 
 #### Second Score
 
-The second score is probably equally as silly. I wanted a quick and easy solution so I tried out a comparison of pitch curves and their the "Pearson product-moment correlation coefficients". Basically I compared their areas under their pitch curves. I knew this wouldn't be perfect but I thought that it might kind of work, especially if I remove the beginning silences of the user's mimics, to ensure the pitch curves line up somewhat.
+Another quick solution I tried out was comparing the pitch curves using the "Pearson product-moment correlation coefficients". Basically I compared the areas under the pitch curves of the target sound and the mimic. I knew this wouldn't be perfect but I thought that it might produce somewhat reliable scoring, especially if I remove the beginning silences of the user's mimics, to ensure the pitch curves lined up somewhat.
 
-Well... yeah. Any sort of mismatch distorted how poorly the mimic was. So, on to other, more complicated and interesting ways of comparing similarity. Below are some graphs and code, for those who are interested.
+Well... yeah. Any sort of curve mismatch distorted how poor the mimic was. Therefore, I am now exploring more complicated and interesting ways of comparing similarity such as <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">Cross-Spectral Density</a> and <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a>. 
 
-Note: For the pitch-curve generation, I collected pitch values with librosa's piptrack module, then took their means (along the time-domain), as well as the square roots of their means. This made large jumps in the pitch curve less influential of the general pattern of the sound. 
+Note: For the pitch-curve generation, I collected pitch values with librosa's piptrack module, then took their means (along the time-domain), as well as the square roots of their means. This made large jumps in the pitch curve less influential of the general pattern of the sound. Below are some graphs and code, for those who are interested.
 
 ##### Pitch Curve: Lion Roar
 ![Imgur](https://i.imgur.com/AkGi9E4.png)
@@ -393,19 +392,8 @@ for i in range(len(pitch_sim)):
 
 ```
 
-In sum, I'm happy some of the functions I wrote have been useful in other applications I made, which was why I developed this game: to learn how to process, analyze, and manipulate speech. I still have a ways to go, however, to get this to a point of accurately rating mimics. 
+In sum, I'm happy with results so far, largely because I could use functions I wrote for this game for other applications. This was the main reason why I developed this game: to learn how to process, analyze, and manipulate speech. I still have a ways to go, however, to get this to a point of accurately rating mimics. 
 
-Other methods of similarity I have on my list to try out include <a href="https://stackoverflow.com/questions/21647120/how-to-use-the-cross-spectral-density-to-calculate-the-phase-shift-of-two-relate">Cross-Spectral Density</a> or <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">Dynamic Time Warping</a>. 
 
-Note: Just to see if it would help if all silences were removed from the animal sounds (for example, there's a bit of a silence before the cat's meow), I removed those before running the scores again. To no avail. Comparing my cat mimic to the cat sound minus the starting silence, here was my pitch score:
--0.6818043886826649
+~ Speech signal visualizations created using <a href="https://www.audacityteam.org/">Adacity</a> 
 
-The pitch curves:
-##### The Cat without starting silence:
-![Imgur](https://i.imgur.com/TXWN68V.png)
-##### My mimic:
-![Imgur](https://i.imgur.com/xz5DTkd.png)
-
-Oh well..
-
-~ Visualizations created using <a href="https://www.audacityteam.org/">Adacity</a> ~
