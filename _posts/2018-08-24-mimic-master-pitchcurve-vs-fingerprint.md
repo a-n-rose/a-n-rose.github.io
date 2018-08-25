@@ -35,6 +35,8 @@ I got two scores:
 
 2) 0.59
 
+(I'll get into the scoring later on)
+
 Next try. 
 
 Awe cute... it's a meowing cat
