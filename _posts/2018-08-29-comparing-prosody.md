@@ -141,5 +141,31 @@ Cat vs Cat Mimic
 Cat vs Rooster Mimic
 * -0.1367108903732711
 
-Wow! Including the window of 256ms made already a huge difference! Now to see if this works also for other sounds... 
+Wow! Including the window of 256ms made already a huge difference! One problem: the computation time is too long for a silly mimic game. Just for comparison, here are the computation times of pitch and stft extraction that I've completed thus far (on the original cat wavefile):
+
+
+Calculating the pitch with Librosa's default Values: 
+* 0.09511232376098633 seconds
+
+Calculating pitch at 1 ms intervals:
+* 0.6700444221496582 seconds
+
+Calculating STFT at 1 ms intervals:
+* 0.2541377544403076 seconds
+
+Calculating pitch at 1 ms intervals with 256 windows:
+* 2.5810253620147705 seconds
+
+Calculating STFT at 1 ms intervals with 256 windows:
+* 1.2656512260437012 seconds
+
+Next step is to find values that result in similar results but lower calculation requirements.
+
+
+
+
+
+
+
+
 
