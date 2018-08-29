@@ -26,7 +26,7 @@ To produce similarity scores, I used the Pearson's correlation coefficient. This
 The similarity score of the Cat and Cat Mimic came to:
 -0.6818043886826649
 The similarity score of the Cat and Rooster Mimic came to:
--0.14939653912944015
+-0.2219641856228962
 
 Clearly the Cat and Cat Mimic should be more similar than a mimic of some random animal.
 
@@ -48,19 +48,19 @@ sum(coefficients)
 
 Using the Hermes weighted coefficient, here were the results:
 The Cat and Cat Mimic
--0.7441400814665404
+-0.5827660456045796
 The Cat and Rooster Mimic
-0.1590280449928146
+-0.49357990451239103
 
 As with the scores from the first version of the game, the random mimic scored more similar than the cat mimic.
 
 I did not yet implement the author's DTW alorithm immediately; I first applied their processing window of 256ms at every 1 ms interval. Here is an example of that code:
 ```
 def long_term_info(y,sr):
-    stft = librosa.stft(y,hop_length=int(0.1*sr),n_fft=int(0.256*sr))
+    stft = librosa.stft(y,hop_length=int(0.001*sr),n_fft=int(0.256*sr))
     stft = np.transpose(stft)
     power = np.abs(stft)**2
-    pitch, mag = librosa.piptrack(y=y,sr=sr,hop_length=int(0.1*sr),n_fft=int(0.256*sr))
+    pitch, mag = librosa.piptrack(y=y,sr=sr,hop_length=int(0.001*sr),n_fft=int(0.256*sr))
     pitch = np.transpose(pitch)
     return stft,power,pitch
  
@@ -85,13 +85,12 @@ sum(coefficients_longterm)
 
 This resulted in the scores:
 Cat vs Cat Mimic
--0.1844086273046544
+0.2313280069785804
 Cat vs Rooster Mimic
-0.15232822492231926
+-0.1367108903732711
 
-The Rooster Mimic still scores more similar, but at least the difference between the scores has decreased from 0.903168126459355 to 0.3367368522269737.
+Wow! Including the window of 256ms made already a huge difference! Now to see if this works also for other sounds... 
 
-Still room for improvement. Up next is to implement the full Dynamic Time Warped Algorithm. For this I need to measure pitch slope, kurtosis, skewness, standard deviation, mean, and 1st and 9th deciles in each of the 256 windows.
 
 
 
