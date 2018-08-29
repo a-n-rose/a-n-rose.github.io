@@ -95,6 +95,7 @@ sum(coefficients)
 ```
 
 Using the Hermes weighted coefficient, here were the results:
+
 The Cat and Cat Mimic
 * -0.5827660456045796
 
@@ -133,6 +134,7 @@ sum(coefficients_longterm)
 ```
 
 This resulted in the scores:
+
 Cat vs Cat Mimic
 * 0.2313280069785804
 
