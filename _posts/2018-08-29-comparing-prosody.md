@@ -24,9 +24,10 @@ I then took the mean of the pitches along each row (i.e. along the time axis) an
 To produce similarity scores, I used the Pearson's correlation coefficient. This was not very successful; even if two pitch curves had similar patterns, if they were not perfectly aligned, their dissimilarity would be overexaggerated. (For the code, see the first version of the <a href="https://a-n-rose.github.io/2018/08/24/mimic-master-pitchcurve-vs-fingerprint.html">Mimic Master</a> game.)
 
 The similarity score of the Cat and Cat Mimic came to:
--0.6818043886826649
+* -0.6818043886826649
+
 The similarity score of the Cat and Rooster Mimic came to:
--0.2219641856228962
+* -0.2219641856228962
 
 Clearly the Cat and Cat Mimic should be more similar than a mimic of some random animal.
 
@@ -48,9 +49,10 @@ sum(coefficients)
 
 Using the Hermes weighted coefficient, here were the results:
 The Cat and Cat Mimic
--0.5827660456045796
+* -0.5827660456045796
+
 The Cat and Rooster Mimic
--0.49357990451239103
+* -0.49357990451239103
 
 As with the scores from the first version of the game, the random mimic scored more similar than the cat mimic.
 
@@ -85,9 +87,10 @@ sum(coefficients_longterm)
 
 This resulted in the scores:
 Cat vs Cat Mimic
-0.2313280069785804
+* 0.2313280069785804
+
 Cat vs Rooster Mimic
--0.1367108903732711
+* -0.1367108903732711
 
 Wow! Including the window of 256ms made already a huge difference! Now to see if this works also for other sounds... 
 
