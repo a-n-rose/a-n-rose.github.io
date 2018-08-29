@@ -14,11 +14,11 @@ pitches = np.transpose
 ```
 I then took the mean of the pitches along each row (i.e. along the time axis) and graphed their square-roots. This resulted in a graph that scaled the pitch curves to a similar level and kept from large jumps in pitch to catch too much of our attention. Below is what the graphs look like. 
 ##### Pitch Curve: Cute Cat Meowing
-![Imgur](https://i.imgur.com/QCdEBRm.png)
+![Imgur](https://i.imgur.com/Iu5NcpB.png)
 ##### Pitch Curve: Human Meowing
-![Imgur](https://i.imgur.com/ikMwOAC.png)
+![Imgur](https://i.imgur.com/f5UnwSb.png)
 ##### Pitch Curve: Human Cacka-doodle-doing (Rooster Mimic)
-![Imgur](https://i.imgur.com/Qmx1b45.png)
+![Imgur](https://i.imgur.com/PSO4CPL.png)
 ###### Cacka-doodle-dooooo
 
 To produce similarity scores, I used the Pearson's correlation coefficient. This was not very successful; even if two pitch curves had similar patterns, if they were not perfectly aligned, their dissimilarity would be overexaggerated. (For the code, see the first version of the <a href="https://a-n-rose.github.io/2018/08/24/mimic-master-pitchcurve-vs-fingerprint.html">Mimic Master</a> game.)
