@@ -35,7 +35,7 @@ To explore ways to improve this score, I used this <a href="https://perso.limsi.
 
 Below is how I applied the Hermes similarity measurement:
 
-1) Write necessary defintions:
+1) The necessary defintions:
 ```
 def wave2stft(wavefile):
     y, sr = librosa.load(wavefile)
@@ -89,7 +89,6 @@ coefficients = []
 for i in range(len(sumpower)):
     nom = sum(sumpower[i]*((mimic_pitch[i]-np.mean(mimic_pitch))*(animal_pitch[i]-np.mean(animal_pitch))))
     den = np.sqrt(sum(sumpower[i]*((mimic_pitch[i]-np.mean(mimic_pitch))**2))*sum(sumpower[i]*((animal_pitch[i]-np.mean(animal_pitch))**2)))
-    print(nom/den)
     coefficients.append(nom/den)
     
 sum(coefficients)
@@ -128,7 +127,6 @@ coefficients_longterm = []
 for i in range(len(sumpower)):
     nom = sum(sumpower_long[i]*((mpitch_long[i]-np.mean(mpitch_long))*(apitch_long[i]-np.mean(apitch_long))))
     den = np.sqrt(sum(sumpower_long[i]*((mpitch_long[i]-np.mean(mpitch_long))**2))*sum(sumpower_long[i]*((apitch_long[i]-np.mean(apitch_long))**2)))
-    print(nom/den)
     coefficients_longterm.append(nom/den)
     
 sum(coefficients_longterm)
@@ -142,10 +140,4 @@ Cat vs Rooster Mimic
 * -0.1367108903732711
 
 Wow! Including the window of 256ms made already a huge difference! Now to see if this works also for other sounds... 
-
-
-
-
-
-
 
