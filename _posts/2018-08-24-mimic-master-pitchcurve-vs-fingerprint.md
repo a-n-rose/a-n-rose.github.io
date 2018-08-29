@@ -318,19 +318,19 @@ Well... yeah. Any sort of curve mismatch distorted how poor the mimic was. There
 Note: For the pitch-curve generation, I collected pitch values with librosa's piptrack module, then took their means (along the time-domain), as well as the square roots of their means. This made large jumps in the pitch curve less influential of the general pattern of the sound. Below are some graphs and code, for those who are interested.
 
 ##### Pitch Curve: Lion Roar
-![Imgur](https://i.imgur.com/AkGi9E4.png)
+![Imgur](https://i.imgur.com/DraESrw.png)
 ##### Pitch Curve: Lion Mimic (unprocessed) 
-![Imgur](https://i.imgur.com/qrsty5C.png)
+![Imgur](https://i.imgur.com/x8aOkfy.png)
 ##### Pitch Curve: Lion Mimic (preprocessed) 
-![Imgur](https://i.imgur.com/DGNUcHZ.png)
+![Imgur](https://i.imgur.com/I9sA6IP.png)
 
 Now for comparison, the pitch curves of a cute meowing cat and me sounding ridiculous:
 ##### Pitch Curve: Cute Cat
-![Imgur](https://i.imgur.com/QCdEBRm.png)
+![Imgur](https://i.imgur.com/Iu5NcpB.png)
 ##### Pitch Curve: Cat Mimic (unprocessed)
-![Imgur](https://i.imgur.com/kcFeGn4.png)
+![Imgur](https://i.imgur.com/pnAzH5U.png)
 ##### Pitch Curve: Cat Mimic (preprocessed)
-![Imgur](https://i.imgur.com/ikMwOAC.png)
+![Imgur](https://i.imgur.com/0dMbSXG.png)
 
 ```
 import librosa
