@@ -36,6 +36,7 @@ To explore ways to improve this score, I used this <a href="https://perso.limsi.
 Below is how I applied the Hermes similarity measurement:
 * Calculate the sum of power of the two signals (sumpower)
 * For each of the signals, calculate the pitch at every millisecond as well as pitch mean of the entire signal
+
 ```
 coefficients = []
 for i in range(len(sumpower)):
