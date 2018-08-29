@@ -55,9 +55,10 @@ The Cat and Cat Mimic
 The Cat and Rooster Mimic
 * -0.49357990451239103
 
-As with the scores from the first version of the game, the random mimic scored more similar than the cat mimic.
+Although the Rooster Mimic still scores to be more similar, barely. An improvement at least in that respect.
 
-I did not yet implement the author's DTW alorithm immediately; I first applied their processing window of 256ms at every 1 ms interval. Here is an example of that code:
+For the next step, I tried applying similar calculations but not only at the local level of 1 millisecond intervals but rather at the long-term level, with 256ms windows at each millisecond interval (similar to the DTW algorithm applied in the paper). 
+
 ```
 def long_term_info(y,sr):
     stft = librosa.stft(y,hop_length=int(0.001*sr),n_fft=int(0.256*sr))
