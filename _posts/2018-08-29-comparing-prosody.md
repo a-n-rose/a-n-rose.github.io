@@ -159,13 +159,24 @@ Calculating pitch at 1 ms intervals with 256 windows:
 Calculating STFT at 1 ms intervals with 256 windows:
 * 1.2656512260437012 seconds
 
-Next step is to find values that result in similar results but lower calculation requirements.
+How do the scores and times compare with 10 ms windows? 
 
+### With 10 millisecond intervals:
 
+Duration of pitch calculation with 10.0 ms intervals: 0.0620427131652832 seconds
 
+Duration of STFT calculation with 10.0 ms intervals: 0.0929727554321289 seconds
 
+Similarity score for the matched mimic: -0.5672101641613938
 
+Similarity score for the random mimic: -0.43661382558278505
 
+### With 10 millisecond intervals and 256 ms windows:
 
+Duration of STFT calculation with 10.0 ms intervals and 256.0 ms windows: 0.1283879280090332 seconds
 
+Duration of pitch calculation with 10.0 ms intervals and 256.0 ms windows: 0.20823955535888672 seconds
 
+Similarity score for the matched mimic over longer intervals: 0.1726895461780784
+
+Similarity score for the random mimic over longer intervals: -0.11110679757542691
