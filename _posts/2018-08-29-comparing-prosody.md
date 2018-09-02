@@ -211,7 +211,7 @@ Comparing the calcuation times and the scores, it looks like using the 10 millis
 
 #### Table showing the Matched Mimic (MM) scores and the Random Mimic scores (RM) of the different pitch measurement settings:
 | Sound Mimicked | Default setting | 10 ms intervals | 10 ms intervals 256 windows |
-|---------------|:----------------:|:-------------------:|:----------------|
+|---------------:|:----------------:|:-------------------:|:----------------|
 | Deerkill Call | MM: -0.09 RM: -0.14 | MM: 0.42 RM: 0.08 | MM: 0.32 RM: 0.34 |
 | Killdeer Call (Attempt 2) | MM: -0.27 RM: -0.14 | MM: 0.27 RM: 0.08 | MM: 0.64 RM: 0.34 | |
 | Kitten Meow | MM: 0.83 RM: 0.08 | MM: 0.13 RM: 0.28 | MM: 0.017 RM: -0.07 |
