@@ -141,42 +141,71 @@ Cat vs Cat Mimic
 Cat vs Rooster Mimic
 * -0.1367108903732711
 
-Wow! Including the window of 256ms made already a huge difference! One problem: the computation time is too long for a silly mimic game. Just for comparison, here are the computation times of pitch and stft extraction that I've completed thus far (on the original cat wavefile):
+Wow! Including the window of 256ms made already a huge difference! One problem: the computation time is too long for a silly mimic game. 
+
+A comparison of calculation times (of pitch and STFT) and scores with varying millisecond intervals and window lengths (local vs long-term i.e. 0ms vs 256ms):
 
 
-Calculating the pitch with Librosa's default Values: 
+
+
+### Calculation times and scores with Librosa's default Values:
+Pitch: 
 * 0.09511232376098633 seconds
 
-Calculating pitch at 1 ms intervals:
+STFT:
+* Not computed
+
+Similarity score for the matched mimic: -0.6818043886826649
+
+Similarity score for the random mimic: -0.2219641856228962
+
+### Calculation times and scores with 1 millisecond intervals:
+Pitch
 * 0.6700444221496582 seconds
 
-Calculating STFT at 1 ms intervals:
+STFT:
 * 0.2541377544403076 seconds
 
-Calculating pitch at 1 ms intervals with 256 windows:
+Similarity score for the matched mimic: -0.5827660456045796
+
+Similarity score for the random mimic: -0.49357990451239103
+
+### Calculation times and scores with 1 millisecond intervals and 256 ms windows
+Pitch:
 * 2.5810253620147705 seconds
 
-Calculating STFT at 1 ms intervals with 256 windows:
+STFT:
 * 1.2656512260437012 seconds
 
-How do the scores and times compare with 10 ms windows? 
+Similarity score for the matched mimic: 0.2313280069785804
 
-### With 10 millisecond intervals:
+Similarity score for the random mimic: -0.1367108903732711
 
-Duration of pitch calculation with 10.0 ms intervals: 0.0620427131652832 seconds
+### Calculation times and scores with 10 millisecond intervals:
 
-Duration of STFT calculation with 10.0 ms intervals: 0.0929727554321289 seconds
+Pitch: 
+* 0.0620427131652832 seconds
+
+STFT:
+* 0.0929727554321289 seconds
 
 Similarity score for the matched mimic: -0.5672101641613938
 
 Similarity score for the random mimic: -0.43661382558278505
 
-### With 10 millisecond intervals and 256 ms windows:
+### Calculation times and scores with 10 millisecond intervals and 256 ms windows:
 
-Duration of STFT calculation with 10.0 ms intervals and 256.0 ms windows: 0.1283879280090332 seconds
+Pitch: 
+* 0.20823955535888672 seconds
 
-Duration of pitch calculation with 10.0 ms intervals and 256.0 ms windows: 0.20823955535888672 seconds
+STFT:
+* 0.1283879280090332 seconds
+
 
 Similarity score for the matched mimic over longer intervals: 0.1726895461780784
 
 Similarity score for the random mimic over longer intervals: -0.11110679757542691
+
+
+Comparing the calcuation times and the scores, it looks like using the 10 millisecond intervals with 256 millisecond window lengths is the way to go. What would be interesting to know is if the new settings also score other sounds better. Let's compare the orignal settings with the new ones I've configured.
+
