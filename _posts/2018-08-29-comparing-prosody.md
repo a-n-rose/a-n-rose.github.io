@@ -209,13 +209,12 @@ Similarity score for the random mimic over longer intervals: -0.1111067975754269
 
 Comparing the calcuation times and the scores, it looks like using the 10 millisecond intervals with 256 millisecond window lengths is the way to go. Before we decide to integrate that one, I would like to see how these settings compare with other sounds. Due to long processing times of the 1 second interval calculations, I will not include those. 
 
-| Sound Mimicked | Default setting scores | 10 ms intervals | 10 ms intervals 256 windows |
+| Sound Mimicked | Default setting scores (MM = Matched Mimic; RM = Random Mimic) | 10 ms intervals | 10 ms intervals 256 windows |
 |---------------|:----------------:|:-------------------:|:----------------|
-| Deerkill Call | MM: -0.09117716135298223 RM: -0.13732110604409462 | MM: 0.42417864186059656 RM: 0.08138676704482051 | MM: 0.3183987199215531 RM: 0.34028664905198897 |
-| Killdeer Call (Attempt 2) | MM: -0.27329152650559585 RM: -0.13732110604409462 MM: 0.2673424830174177 RM: 0.08138676704482051 | MM: 0.6366381765045449 RM: 0.34028664905198897 | |
-| Kitten Meow | MM: 0.8284534278816392 RM: 0.08433401056024156 | MM: 0.13376621453344462 RM: 0.2754590323085617 | MM: 0.016711484170983434 RM: -0.0664781439969252 |
-| Lion | MM: 0.7050785658886863 RM: 0.14895963871760315 | MM: 0.17497106429155274 RM: 0.024416334848876273 | MM: 0.4595252037839041 RM: -0.35400277458327795 |
-| Pig | MM: 0.21847745592292092 RM: 0.110099939161723 | MM: 0.17149208332492877 RM: 0.519814545647899 | MM: -0.08139453758826998 RM: 0.2660859135026845 |
-| Horse | MM: -0.401542933730961 RM: 0.23835958982283567 | MM: -0.09761662974599129 RM: -0.0479235452071661 | MM: -0.13517197084986413 RM: -0.36793423365350353 |
-
+| Deerkill Call | MM: -0.09 RM: -0.14 | MM: 0.42 RM: 0.08 | MM: 0.32 RM: 0.34 |
+| Killdeer Call (Attempt 2) | MM: -0.27 RM: -0.14 MM: 0.27 RM: 0.08 | MM: 0.64 RM: 0.34 | |
+| Kitten Meow | MM: 0.83 RM: 0.08 | MM: 0.13 RM: 0.28 | MM: 0.017 RM: -0.07 |
+| Lion | MM: 0.71 RM: 0.15 | MM: 0.17 RM: 0.02 | MM: 0.46 RM: -0.35 |
+| Pig | MM: 0.27 RM: 0.11 | MM: 0.17 RM: 0.52 | MM: -0.08 RM: 0.27 |
+| Horse | MM: -0.40 RM: 0.24 | MM: -0.10 RM: -0.05 | MM: -0.14 RM: -0.37 |
 
