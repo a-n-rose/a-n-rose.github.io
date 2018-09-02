@@ -207,5 +207,143 @@ Similarity score for the matched mimic over longer intervals: 0.1726895461780784
 Similarity score for the random mimic over longer intervals: -0.11110679757542691
 
 
-Comparing the calcuation times and the scores, it looks like using the 10 millisecond intervals with 256 millisecond window lengths is the way to go. What would be interesting to know is if the new settings also score other sounds better. Let's compare the orignal settings with the new ones I've configured.
+Comparing the calcuation times and the scores, it looks like using the 10 millisecond intervals with 256 millisecond window lengths is the way to go. Before we decide to integrate that one, I would like to see how these settings compare with other sounds. Due to long processing times of the 1 second interval calculations, I will not include those. 
 
+
+### Deerkill Call
+
+#### Original settings (Librosa Defaults)
+
+Similarity score for the matched mimic: -0.09117716135298223
+Similarity score for the random mimic: -0.13732110604409462
+
+
+#### 10 ms intervals, no window:
+Similarity score for the matched mimic: 0.42417864186059656
+Similarity score for the random mimic: 0.08138676704482051
+
+
+#### 10 ms intervals, 256 ms windows
+
+Similarity score for the matched mimic: 0.3183987199215531
+Similarity score for the random mimic: 0.34028664905198897
+
+For this mimic, it looks like the 10 ms intervals without windows worked better than the one with a 256 ms window. The authors of the paper used a combination of local and long-term values, which might be necessary in this game as well. Let's see how it does with giving this sound another try
+
+### Killdeer Call (Attempt 2)
+
+#### Original settings (Librosa Defaults)
+
+Similarity score for the matched mimic: -0.27329152650559585
+Similarity score for the random mimic:  -0.13732110604409462
+
+
+#### 10 ms intervals, no window:
+Similarity score for the matched mimic: 0.2673424830174177
+Similarity score for the random mimic: 0.08138676704482051
+
+
+#### 10 ms intervals, 256 ms windows
+
+Similarity score for the matched mimic: 0.6366381765045449
+Similarity score for the random mimic: 0.34028664905198897
+
+Hmmmm... now the one with the 256 ms windows did better. Let's keep comparing.
+
+
+### Kitten Meow (different from the Cat above)
+Similarity score for the matched mimic: 
+Similarity score for the random mimic: 
+Similarity score for the matched mimic over longer intervals: 
+Similarity score for the random mimic over longer intervals: 
+
+
+#### Original settings (Librosa Defaults)
+
+Similarity score for the matched mimic: 0.8284534278816392
+Similarity score for the random mimic: 0.08433401056024156
+
+
+#### 10 ms intervals, no window:
+Similarity score for the matched mimic: 0.13376621453344462
+Similarity score for the random mimic: 0.2754590323085617
+
+
+#### 10 ms intervals, 256 ms windows
+
+Similarity score for the matched mimic: 0.016711484170983434
+Similarity score for the random mimic: -0.0664781439969252
+
+
+Uuuuuuuuuugh. In this sound-mimic comparison, a lot of the signal was 'silent'. That means I've got to improve how silence is processed, which sounds easier than it is.
+
+### Lion
+
+#### Original settings (Librosa Defaults)
+
+Similarity score for the matched mimic: 0.7050785658886863
+Similarity score for the random mimic: 0.14895963871760315
+
+
+#### 10 ms intervals, no window:
+Similarity score for the matched mimic: 0.17497106429155274
+Similarity score for the random mimic: 0.024416334848876273
+
+
+#### 10 ms intervals, 256 ms windows
+
+Similarity score for the matched mimic: 0.4595252037839041
+Similarity score for the random mimic: -0.35400277458327795
+
+
+All in all pretty good here.
+
+### Pig
+
+Similarity of pitch curve between the original sound and pig_mimic: 
+Similarity of pitch curve between the original sound and pig_random: 
+Similarity score for the matched mimic: 
+Similarity score for the random mimic: 
+Similarity score for the matched mimic over longer intervals: 
+Similarity score for the random mimic over longer intervals: 
+
+#### Original settings (Librosa Defaults)
+
+Similarity score for the matched mimic: 0.21847745592292092
+Similarity score for the random mimic: 0.110099939161723
+
+
+#### 10 ms intervals, no window:
+Similarity score for the matched mimic: 0.17149208332492877
+Similarity score for the random mimic: 0.519814545647899
+
+
+#### 10 ms intervals, 256 ms windows
+
+Similarity score for the matched mimic: -0.08139453758826998
+Similarity score for the random mimic: 0.2660859135026845
+
+
+I have to admit, this was a tough mimic.
+
+
+### Horse
+
+
+#### Original settings (Librosa Defaults)
+
+Similarity score for the matched mimic: -0.401542933730961
+Similarity score for the random mimic: 0.23835958982283567
+
+
+#### 10 ms intervals, no window:
+Similarity score for the matched mimic: -0.09761662974599129
+Similarity score for the random mimic: -0.0479235452071661
+
+
+#### 10 ms intervals, 256 ms windows
+
+Similarity score for the matched mimic: -0.13517197084986413
+Similarity score for the random mimic: -0.36793423365350353
+
+I'm guessing sounds with stronger pitches are easier to compare! I wonder how these would do when comparing acoustic fingerprints....
