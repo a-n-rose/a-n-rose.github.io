@@ -210,6 +210,7 @@ Similarity score for the random mimic over longer intervals: -0.1111067975754269
 Comparing the calcuation times and the scores, it looks like using the 10 millisecond intervals with 256 millisecond window lengths is the way to go. Before we decide to integrate that one, I would like to see how these settings compare with other sounds. Due to long processing times of the 1 second interval calculations, I will not include those. 
 
 #### Table showing the Matched Mimic (MM) scores and the Random Mimic scores (RM) of the different pitch measurement settings:
+
 | Sound Mimicked | Default setting | 10 ms intervals | 10 ms intervals 256 windows |
 |---------------:|:----------------:|:-------------------:|:----------------|
 | Deerkill Call | MM: -0.09 RM: -0.14 | MM: 0.42 RM: 0.08 | MM: 0.32 RM: 0.34 |
