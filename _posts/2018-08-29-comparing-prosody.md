@@ -252,11 +252,6 @@ Hmmmm... now the one with the 256 ms windows did better. Let's keep comparing.
 
 
 ### Kitten Meow (different from the Cat above)
-Similarity score for the matched mimic: 
-Similarity score for the random mimic: 
-Similarity score for the matched mimic over longer intervals: 
-Similarity score for the random mimic over longer intervals: 
-
 
 #### Original settings (Librosa Defaults)
 
