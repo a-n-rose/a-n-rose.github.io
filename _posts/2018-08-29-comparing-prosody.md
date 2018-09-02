@@ -209,7 +209,7 @@ Similarity score for the random mimic over longer intervals: -0.1111067975754269
 
 Comparing the calcuation times and the scores, it looks like using the 10 millisecond intervals with 256 millisecond window lengths is the way to go. Before we decide to integrate that one, I would like to see how these settings compare with other sounds. Due to long processing times of the 1 second interval calculations, I will not include those. 
 
-#### Table showing the Matched Mimic (MM) scores and the Random Mimic scores (RM) of the different pitch measurement settings:
+#### Table Comparing Scores across Pitch Measurement Settings:
 
 | Sound Mimicked | Default setting | 10 ms intervals | 10 ms intervals 256 windows |
 |---------------|:----------------:|:-------------------:|:----------------|
@@ -220,4 +220,4 @@ Comparing the calcuation times and the scores, it looks like using the 10 millis
 | Pig | MM: 0.27 RM: 0.11 | MM: 0.17 RM: 0.52 | MM: -0.08 RM: 0.27 |
 | Horse | MM: -0.40 RM: 0.24 | MM: -0.10 RM: -0.05 | MM: -0.14 RM: -0.37 |
 
-##### The MM score should be significantly higher than the RM score
+##### Matched Mimic (MM) vs Random Mimic (RM) scores of similarity. The MM score should be significantly higher than the RM score
