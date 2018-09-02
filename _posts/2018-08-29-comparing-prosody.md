@@ -219,4 +219,5 @@ Comparing the calcuation times and the scores, it looks like using the 10 millis
 | Lion | MM: 0.71 RM: 0.15 | MM: 0.17 RM: 0.02 | MM: 0.46 RM: -0.35 |
 | Pig | MM: 0.27 RM: 0.11 | MM: 0.17 RM: 0.52 | MM: -0.08 RM: 0.27 |
 | Horse | MM: -0.40 RM: 0.24 | MM: -0.10 RM: -0.05 | MM: -0.14 RM: -0.37 |
+
 ##### The MM score should be significantly higher than the RM score
