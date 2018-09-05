@@ -10,7 +10,7 @@ My main goal was to build a classifier that could identify the type of language 
 
 I collected a lot of English and German (later Russian as well) speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">MFCCs</a> after I added various levels of backgound noise to the speech. I'm glad I did that too! Little did I know but those various levels of noise would make very clear how important noise is in machine learning contexts. (For more on how I handle noise beyond machine learning contexts, read <a href="https://a-n-rose.github.io/2018/08/23/noise-how-i-love-you.html">here</a>.)
 
-### Noise Background
+## Noise Background
 
 Before I continue, I'll quickly mention some noise background (haha - that wasn't intentional, actually) and the noise techniques I used in this little experiment. 
 
@@ -20,7 +20,7 @@ Since I knew I would test my models with speech recorded by my own computer in a
 
 Before I added the noise signal to the speech signal (i.e. a speaker's recording), I multiplied the noise signal with a random value from the following: 0, 0.25, 0.5, 0.75, 1.0, and 1.25. This either cancelled out, reduced, maintained, or enhanced the orignal noise level, similar to real life, which has many levels of noise present. Once the noise was added, I extracted the MFCCs (with windows of 25ms and window shifts of 10ms).
 
-### Training: Binary Class Classifier (English and German)
+## Training: Binary Class Classifier (English and German)
 
 The first neural network I trained was a simple ANN, with only 3 layers (including the input and output layers) just to get the hang of it. 
 
@@ -48,7 +48,7 @@ The first model, trained with no noise (i.e. 'None: 0'), showed a classic case o
 
 I wonder if this is because more of the sounds generated in English are also present in German than the other way around (i.e. more of German's sounds would be considered phonologically illegal in English, like 'pf' in 'Pferd', which means horse by the way). If this is correct, the model used MFCC values not present in English as identifiers of German. I'm just speculating here.
 
-### Applying the Models to Real-World Speech
+## Applying the Models to Real-World Speech
 
 To see how these models classified newly recorded speech, I created an application to do just that: collect speech and categorize it using these 7 models.
 
@@ -71,11 +71,11 @@ Comparing accuracy of the models across test dataset and new speech contexts, it
 ![Imgur](https://i.imgur.com/LfDcs7z.png)
 ##### When applied to brand-new speech, the 'All levels' model achieved the highest accuracy, 59.29%
 
-### Training: Multiple Class Classifier
+## Training: Multiple Class Classifier
 
 Just for fun, I added Russian to the mix (after adjusting the classifier to accommodate multiple classes). The accuracy dropped to 50%. Soooooooo, it's time to upgrade the model.
 
-### Next Steps
+## Next Steps
 
 It will be interesting to see if using Kera's TimeDistributed module reveals a succession of MFCC data to be useful in identifying languages (I suspect yes, as that could allow the models to identify phonological patterns). Eventually I also want to apply random background noises to speech training data, not only matched background noise. 
 
