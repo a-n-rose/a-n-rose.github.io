@@ -37,7 +37,7 @@ Here is the Hermes equation as applied in the paper:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=r_{f_1&space;f_2}&space;=&space;\frac{\sum_i&space;w(i)(f_1(i)-m_1)(f_2(i)-m_2)}{\sqrt&space;(\sum_i&space;w(i)(f_1(i)-m_1)^{2}&space;\sum_i&space;w(i)(f_2(i)-m_2)^{2})}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?r_{f_1&space;f_2}&space;=&space;\frac{\sum_i&space;w(i)(f_1(i)-m_1)(f_2(i)-m_2)}{\sqrt&space;(\sum_i&space;w(i)(f_1(i)-m_1)^{2}&space;\sum_i&space;w(i)(f_2(i)-m_2)^{2})}" title="r_{f_1 f_2} = \frac{\sum_i w(i)(f_1(i)-m_1)(f_2(i)-m_2)}{\sqrt (\sum_i w(i)(f_1(i)-m_1)^{2} \sum_i w(i)(f_2(i)-m_2)^{2})}" /></a>
 
-##### f1 and f2 are the fundamental frequency (pitch) values of the target sound and mimic; m1 and m2 represent their means, respectively; w(i) represents the sum of their powers. 
+###### f1 and f2 are the fundamental frequencies (pitch) of the target sound and mimic; m1 and m2 represent their means, respectively; w(i) represents the sum of their powers. 
 
 Below is how I applied the Hermes similarity measurement:
 
