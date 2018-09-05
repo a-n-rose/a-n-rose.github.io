@@ -79,7 +79,7 @@ This has been a blast and adventure to build. I have come across several problem
 
 Any app that records a user remotely has to deal with varying microphone quality and background noise levels. My first challenge was finding a simple way to cancel out whatever background noise a user might have due to those variables. 
 
-I took on the task to build by own version of <a href="https://www.audacityteam.org/">Adacity's</a> noise reduction technique; I would say I was successful as background noise was removed from the user's mimics, which improved the analysis of their speech. (Audacity's software includes smoothing and other more complicated techniques, which I didn't do, but my functions worked just fine for the task at hand.) In the game, I started out by testing the user's mic by recording 5 seconds of their background noise. I calculated the spectral power in that recording and subtracted it from all of the user's subsequent mimics. 
+I took on the task to build by own version of <a href="https://www.audacityteam.org/">Audacity's</a> noise reduction technique; I would say I was successful as background noise was removed from the user's mimics, which improved the analysis of their speech. (Audacity's software includes smoothing and other more complicated techniques, which I didn't do, but my functions worked just fine for the task at hand.) In the game, I started out by testing the user's mic by recording 5 seconds of their background noise. I calculated the spectral power in that recording and subtracted it from all of the user's subsequent mimics. 
 
 ##### Functions defined (see <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic">the repository</a> for the entire code): 
 ```
