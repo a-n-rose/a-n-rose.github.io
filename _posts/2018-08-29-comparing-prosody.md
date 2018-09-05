@@ -207,7 +207,7 @@ Similarity score for the matched mimic over longer intervals: 0.1726895461780784
 Similarity score for the random mimic over longer intervals: -0.11110679757542691
 
 
-Comparing the calcuation times and the scores, it looks like using the 10 millisecond intervals with 256 millisecond window lengths is the way to go. Before we decide to integrate that one, I would like to see how these settings compare with other sounds. Due to long processing times of the 1 second interval calculations, I will not include those. 
+Comparing the calcuation times and similarity scores, it looks like using the 10 millisecond intervals with 256 millisecond window lengths is the way to go. Before we decide to integrate that one, I would like to see how these settings compare with other sounds. Due to long processing times of the 1 second interval calculations, I will not include those. 
 
 #### Table Comparing Scores across Pitch Measurement Settings:
 
