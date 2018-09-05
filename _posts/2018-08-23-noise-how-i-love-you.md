@@ -83,14 +83,14 @@ def matchvol(target_powerspectrum, speech_powerspectrum, speech_stft):
 
 To see what the noise reduction and volume matching process look like, here is an example of a 'target sound', in this case a dove, and a user's mimic of that sound. 
 ##### Figure 1: Audio Signal of Dove
-![Imgur](https://i.imgur.com/9JjFU77.png)
+![Imgur](https://i.imgur.com/9JjFU77.png?1)
 ##### Figure 2: User's Mimic Before Preprocessing
-![Imgur](https://i.imgur.com/B79OTih.png)
+![Imgur](https://i.imgur.com/B79OTih.png?1)
 ##### Note: duration is a little different than the target recording to account for user's delay.
 ##### Figure 3: User's Mimic Post Noise Reduction
-![Imgur](https://i.imgur.com/juexi3F.png)
+![Imgur](https://i.imgur.com/juexi3F.png?1)
 ##### Figure 4: User's Mimic Post Volume Matching
-![Imgur](https://i.imgur.com/jp24Gf8.png)
+![Imgur](https://i.imgur.com/jp24Gf8.png?1)
 ###### The volume was matched with the target recording. As you can see, the volume doesn't match perfectly but this process did aid the program's performance. (Dove recording from <a href="https://freesound.org/">Freesound</a>; visualizations created using <a href="https://www.audacityteam.org/">Adacity</a>)
 
 The noise reduction function also came in handy when I built an application to apply my ANN English German classifier. This application recorded new speech and identified whether it was German or English by applying a trained ANN classifer. Below is a graph of 7 models' performances with either the test dataset (data from VoxForge) or new data (my husband's German and my own English speech). I decided to also see how well the models performed on new speech data that underwent my noise reduction algorithm versus on speech data that didn't. The graph shows that the more robust models performed better on speech that had undergone noise reduction.
