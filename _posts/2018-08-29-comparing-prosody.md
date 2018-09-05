@@ -104,7 +104,7 @@ coefficients = []
 for i in range(len(sumpower)):
     numerator = sum(sumpower[i]*((mimic_pitch[i]-np.mean(mimic_pitch))*(animal_pitch[i]-np.mean(animal_pitch))))
     denominator = np.sqrt(sum(sumpower[i]*((mimic_pitch[i]-np.mean(mimic_pitch))**2))*sum(sumpower[i]*((animal_pitch[i]-np.mean(animal_pitch))**2)))
-    coefficients.append(numerator/den)
+    coefficients.append(numerator/denominator)
     
 sum(coefficients)
 ```
