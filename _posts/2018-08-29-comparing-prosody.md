@@ -35,7 +35,7 @@ To explore ways to improve this score, I used this <a href="https://perso.limsi.
 
 Here is the Hermes equation as applied in the paper:
 
-$\r_{f_1 f_2} = \sum_i \w (\i) $
+<a href="https://www.codecogs.com/eqnedit.php?latex=r_{f_1&space;f_2}&space;=&space;\frac{\sum_i&space;w(i)(f_1(i)-m_1)(f_2(i)-m_2)}{\sqrt&space;(\sum_i&space;w(i)(f_1(i)-m_1)^{2}&space;\sum_i&space;w(i)(f_2(i)-m_2)^{2})}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?r_{f_1&space;f_2}&space;=&space;\frac{\sum_i&space;w(i)(f_1(i)-m_1)(f_2(i)-m_2)}{\sqrt&space;(\sum_i&space;w(i)(f_1(i)-m_1)^{2}&space;\sum_i&space;w(i)(f_2(i)-m_2)^{2})}" title="r_{f_1 f_2} = \frac{\sum_i w(i)(f_1(i)-m_1)(f_2(i)-m_2)}{\sqrt (\sum_i w(i)(f_1(i)-m_1)^{2} \sum_i w(i)(f_2(i)-m_2)^{2})}" /></a>
 
 Below is how I applied the Hermes similarity measurement:
 
