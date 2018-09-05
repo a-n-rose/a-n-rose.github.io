@@ -31,7 +31,7 @@ The similarity score of the Cat and Rooster Mimic came to:
 
 Clearly the Cat and Cat Mimic should be more similar than a mimic of some random animal.
 
-To explore ways to improve this score, I used this <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">paper</a> as inspiration. The authors compared using a Hermes similarity measure with a Dynamic Time Warped (DTW) algorithm, the former using primarily local measurements (i.e. comparing pitch values of speech signals at 1 millisecond intervals) and the latter using a combinataion of local measurements as well as 'long-term' measurements (i.e. measuring values in the speech signal at windows of 256ms, at 1 millisecond intervals).
+To explore ways to improve this score, I used this <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">paper (link to pdf)</a> as inspiration. The authors compared using a Hermes similarity measure with a Dynamic Time Warped (DTW) algorithm, the former using primarily local measurements (i.e. comparing pitch values of speech signals at 1 millisecond intervals) and the latter using a combinataion of local measurements as well as 'long-term' measurements (i.e. measuring values in the speech signal at windows of 256ms, at 1 millisecond intervals).
 
 Below is how I applied the Hermes similarity measurement:
 
@@ -50,7 +50,7 @@ def stft2power(stft_matrix):
     power = np.abs(stft)**2
     return(power)
 
-def get_pitch2(y,sr):
+def get_pitch(y,sr):
     pitches,mag = librosa.piptrack(y=y,sr=sr,hop_length=int(0.001*sr))
     return pitches,mag
 
@@ -67,29 +67,38 @@ def match_len(matrix_list):
 
 2) Calculate the two signals' pitch and sum of powers (stft = Short-Time Fourier Transform, which is needed for calculating the power)
 ```
+# 'm' stands for mimic
 mstft,m,sr = wave2stft(mimic)
-mp,mmag = get_pitch2(m,sr)
+mp,mmag = get_pitch(m,sr)
 mpitch = np.transpose(mp)
 mpower = stft2power(mstft)
 
+# 'a' stands for animal sound
 astft,a,sr = wave2stft(animal_sound)
-ap,amag = get_pitch2(a,sr)
+ap,amag = get_pitch(a,sr)
 animal_pitch = np.transpose(ap)
 apower = stft2power(astft)
 
+# collect the pitches of each sound
 pitch_list1 = match_len([mimic_pitch,animal_pitch])
+# collect the powers of each sound
 power_list1 = match_len([mimic_power,animal_power])
+
+# Hermes weighted correlation equation uses the 
+# sum of power of the two signals as a weight
 sumpower = list(map(sum, power_list1))
 ```
 
 3) Now apply the Hermes weighted correlation equation:
 
+Sorry for the long list comprehension...
+
 ```
 coefficients = []
 for i in range(len(sumpower)):
-    nom = sum(sumpower[i]*((mimic_pitch[i]-np.mean(mimic_pitch))*(animal_pitch[i]-np.mean(animal_pitch))))
-    den = np.sqrt(sum(sumpower[i]*((mimic_pitch[i]-np.mean(mimic_pitch))**2))*sum(sumpower[i]*((animal_pitch[i]-np.mean(animal_pitch))**2)))
-    coefficients.append(nom/den)
+    numerator = sum(sumpower[i]*((mimic_pitch[i]-np.mean(mimic_pitch))*(animal_pitch[i]-np.mean(animal_pitch))))
+    denominator = np.sqrt(sum(sumpower[i]*((mimic_pitch[i]-np.mean(mimic_pitch))**2))*sum(sumpower[i]*((animal_pitch[i]-np.mean(animal_pitch))**2)))
+    coefficients.append(numerator/den)
     
 sum(coefficients)
 ```
