@@ -188,6 +188,8 @@ Comparing the calcuation times and similarity scores, it looks like using the 10
 
 ##### Matched Mimic (MM) vs Random Mimic (RM) scores of similarity. The MM score should be significantly higher than the RM score
 
+While the scores still aren't perfect, the 10ms settings with 256ms windows offer the most consistent scores, in scoring the mimic more similar to the target sound than the random mimic. With that, I will integrate this new scoring system in my game and see how it goes!
+
 
 ### Links I found useful
 
