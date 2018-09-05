@@ -8,7 +8,7 @@ This project served as a wonderful playground for speech data collection and pre
 
 My main goal was to build a classifier that could identify the type of language spoken. To start out, I decided to keep it simple, training a simple ANN on only two languages, English and German. That seemed to me a good starting off point.
 
-I collected a lot of English, German, and Russian speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted <a href="https://en.wikipedia.org/wiki/Mel-frequency_cepstrum">MFCCs</a> after I added various levels of backgound noise to the speech. I'm glad I did that too! Little did I know but those various levels of noise would make very clear how important noise is in machine learning contexts. (For more on how I handle noise beyond machine learning contexts, read <a href="https://a-n-rose.github.io/2018/08/23/noise-how-i-love-you.html">here</a>.)
+I collected a lot of English, German, and Russian speech from <a href="http://voxforge.org/">VoxForge</a> and then extracted <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">MFCCs</a> after I added various levels of backgound noise to the speech. I'm glad I did that too! Little did I know but those various levels of noise would make very clear how important noise is in machine learning contexts. (For more on how I handle noise beyond machine learning contexts, read <a href="https://a-n-rose.github.io/2018/08/23/noise-how-i-love-you.html">here</a>.)
 
 Before I continue, I'll quickly mention some noise background (haha - that wasn't intentional, actually) and the noise techniques I used in this little experiment. 
 
