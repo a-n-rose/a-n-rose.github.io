@@ -35,7 +35,7 @@ To explore ways to improve this score, I used this <a href="https://perso.limsi.
 
 Here is the Hermes equation as applied in the paper:
 
-\r_{f_1 f_2} = \sum_i \w (\i) 
+$\r_{f_1 f_2} = \sum_i \w (\i) $
 
 Below is how I applied the Hermes similarity measurement:
 
