@@ -31,7 +31,11 @@ The similarity score of the Cat and Rooster Mimic came to:
 
 Clearly the Cat and Cat Mimic should be more similar than a mimic of some random animal.
 
-To explore ways to improve this score, I used this <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">paper (link to pdf)</a> as inspiration. The authors compared using a Hermes similarity measure with a Dynamic Time Warped (DTW) algorithm, the former using primarily local measurements (i.e. comparing pitch values of speech signals at 1 millisecond intervals) and the latter using a combinataion of local measurements as well as 'long-term' measurements (i.e. measuring values in the speech signal at windows of 256ms, at 1 millisecond intervals).
+To explore ways to improve this score, I used this <a href="https://perso.limsi.fr/mareuil/publi/IS110831.pdf">paper (link to pdf)</a> as inspiration. The authors compared using a Hermes similarity measure with a Dynamic Time Warped (DTW) algorithm. The former uses primarily local measurements (i.e. comparing pitch values of speech signals at 1 millisecond intervals) and the latter uses a combinataion of local measurements as well as 'long-term' measurements (i.e. measuring values in the speech signal at windows of 256ms, at 1 millisecond intervals).
+
+Here is the Hermes equation as applied in the paper:
+
+\r_{f_1 f_2} = \sum_i \w (\i) 
 
 Below is how I applied the Hermes similarity measurement:
 
