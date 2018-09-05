@@ -26,6 +26,7 @@ And now the user shows off their skills:
 Aaaaaaaah! That looks horrible. Let's neaten this up a bit. 
 
 ![Imgur](https://i.imgur.com/ecnm6rB.png?1)
+
 Few. Much better. 
 
 How well did I do? 
