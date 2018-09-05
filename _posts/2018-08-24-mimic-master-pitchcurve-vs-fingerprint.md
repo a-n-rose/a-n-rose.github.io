@@ -16,16 +16,16 @@ First it records your own environment noise (to subtract it later from your amaz
 
 Next it plays a sound. This time it's a roaring lion:
 ##### Lion Roaring
-![Imgur](https://i.imgur.com/rSOUomD.png)
+![Imgur](https://i.imgur.com/rSOUomD.png?1)
 
 And now the user shows off their skills:
 
 ##### Me Roaring
-![Imgur](https://i.imgur.com/QqUBKsf.png)
+![Imgur](https://i.imgur.com/QqUBKsf.png?1)
 
 Aaaaaaaah! That looks horrible. Let's neaten this up a bit. 
 
-![Imgur](https://i.imgur.com/ecnm6rB.png)
+![Imgur](https://i.imgur.com/ecnm6rB.png?1)
 Few. Much better. 
 
 How well did I do? 
@@ -40,13 +40,13 @@ I got two scores:
 Next try. 
 
 Awe cute... it's a meowing cat
-![Imgur](https://i.imgur.com/bxBYaAG.png)
+![Imgur](https://i.imgur.com/bxBYaAG.png?1)
 
 A meowing bored person:
-![Imgur](https://i.imgur.com/HyWid7b.png)
+![Imgur](https://i.imgur.com/HyWid7b.png?1)
 
 A little touched up:
-![Imgur](https://i.imgur.com/higYIak.png)
+![Imgur](https://i.imgur.com/higYIak.png?1)
 
 And the score(s) are....
 
@@ -59,9 +59,9 @@ Alright... I improved according to the first score but performed vastly worse ac
 What happens if a user makes random sounds? Like mimicking a rooster instead of a lion?
 
 ##### Lion:
-![Imgur](https://i.imgur.com/rSOUomD.png)
+![Imgur](https://i.imgur.com/rSOUomD.png?1)
 ##### Rooster Mimic:
-![Imgur](https://i.imgur.com/CkIKDBr.png)
+![Imgur](https://i.imgur.com/CkIKDBr.png?1)
 ###### Cacka-doodle-dooooo
 
 Scores:
@@ -159,17 +159,18 @@ savewave("user_mimic_reducednoise.wav",speech_reducednoise,sr=22050)
 One way I knew this worked was testing out my game while my vacuuming robot was on, right next to me (I had somehow ignored the little guy - we call him Roby). I was shocked to find basically silent speech recordings! So, needless to say, this game shouldn't be played while vacuuming your apartment.
 
 ##### My Mimic with Vacuum in the Background
-![Imgur](https://i.imgur.com/dgrsfSP.png)
+![Imgur](https://i.imgur.com/dgrsfSP.png?1)
 ##### My Mimic Post Noise Reduction:
-![Imgur](https://i.imgur.com/XdiJLOD.png)
+![Imgur](https://i.imgur.com/XdiJLOD.png?1)
+
 
 Here is an example of how the noise reduction function works without a vacuum running in the background:
 ##### Audio Signal of Dove (animal sound to mimic)
-![Imgur](https://i.imgur.com/9JjFU77.png)
+![Imgur](https://i.imgur.com/9JjFU77.png?1)
 ##### User's Mimic Before Noise Reduction
-![Imgur](https://i.imgur.com/B79OTih.png)
+![Imgur](https://i.imgur.com/B79OTih.png?1)
 ##### User's Mimic Post Noise Reduction
-![Imgur](https://i.imgur.com/juexi3F.png)
+![Imgur](https://i.imgur.com/juexi3F.png?1)
 
 You'll notice that the amplitude of the user's recording is still quite a bit higher than the target recording, despite noise reduction. I confronted this problem by developing a function that matched the volume of the user's recording with that of the target recording:
 ```
@@ -185,9 +186,9 @@ def matchvol(target_powerspectrum, speech_powerspectrum, speech_stft):
 Now a comparison of the target recording and the cleaned-up mimic:
 
 ##### Audio Signal of Dove 
-![Imgur](https://i.imgur.com/9JjFU77.png)
+![Imgur](https://i.imgur.com/9JjFU77.png?1)
 ##### User's Mimic Post Volume Matching
-![Imgur](https://i.imgur.com/jp24Gf8.png)
+![Imgur](https://i.imgur.com/jp24Gf8.png?1)
 
 Much better, right?
 
@@ -251,9 +252,9 @@ if voice:
 
 Additionally I noticed artefacts (little clicks) in the speech recordings, particularly in the beginning. Therefore I removed the beginng few milliseconds to remove them. (Unfortunately, other artefacts, for example at the ending of recordings, that I still need to account for.)
 ##### Artefacts I removed during processing
-![Imgur](https://i.imgur.com/aeqYaoM.png)
+![Imgur](https://i.imgur.com/aeqYaoM.png?1)
 ##### Artefacts I still need to account for 
-![Imgur](https://i.imgur.com/CkIKDBr.png)
+![Imgur](https://i.imgur.com/CkIKDBr.png?1)
 ###### (see towards the end of the recording)
 
 ### The Scores
