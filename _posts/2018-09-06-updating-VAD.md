@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Upgrading my Voice Activity Dectection Algorithm"
+title: "Upgrading my voice activity dectection (VAD) algorithm"
 date: 2018-09-06
 --- 
 
