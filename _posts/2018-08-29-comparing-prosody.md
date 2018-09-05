@@ -186,3 +186,8 @@ Comparing the calcuation times and similarity scores, it looks like using the 10
 | Horse | MM: -0.40 RM: 0.24 | MM: -0.10 RM: -0.05 | MM: -0.14 RM: -0.37 |
 
 ##### Matched Mimic (MM) vs Random Mimic (RM) scores of similarity. The MM score should be significantly higher than the RM score
+
+
+### Links I found useful
+
+* Writing <a href="https://www.codecogs.com/latex/eqneditor.php">math equations</a> in GitHub friendly markdown
