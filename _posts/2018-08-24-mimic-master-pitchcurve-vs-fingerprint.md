@@ -198,8 +198,13 @@ Similar to the scores above, I wasn't seeing my rating system produce any meanin
 Below is a function that identifies 1) if speech is present and 2) where speech begins (usually a mimicker needs a second to start mimicking).
 ```
 def sound_index(rootmeansquare_speech, start = True, rootmeansquare_mean_noise = None):
+    # options for using background noise or not
     if rootmeansquare_mean_noise == None:
         rootmeansquare_mean_noise = 1
+    
+    # option for finding the beginning or end of speech
+    # if start == True, start calculating from 0 --> end 
+    # if start == False, start calcuating from end --> 0
     if start == True:
         side = 1
         beg = 0
@@ -208,6 +213,9 @@ def sound_index(rootmeansquare_speech, start = True, rootmeansquare_mean_noise =
         side = -1
         beg = len(rootmeansquare_speech)-1
         end = -1
+    
+    # now see if/when power in mimic exceeds that of the noise signal
+    # note: 'row' represents a step in time
     for row in range(beg,end,side):
         if rootmeansquare_speech[row] > rootmeansquare_mean_noise:
             if suspended_energy(rootmeansquare_speech,row,rootmeansquare_mean_noise,start=start):
@@ -234,17 +242,23 @@ def sound_index(rootmeansquare_speech, start = True, rootmeansquare_mean_noise =
     return beg,False
     
 def get_energy(stft_matrix):
-    #stft.shape[1] == bandwidths/frequencies
-    #stft.shape[0] pertains to the time domain
+    # stft.shape[1] == bandwidths/frequencies
+    # stft.shape[0] pertains to the time domain
     rms_list = [np.sqrt(sum(np.abs(stft_matrix[row])**2)/stft_matrix.shape[1]) for row in range(len(stft_matrix))]
     return rms_list    
 
 speech_energy = get_energy(speech_reducednoise_STFT)
-voice_start,voice = sound_index(speech_energy,start=True,,start=True,rootmeansquare_mean_noise=noise_energy_mean)
+voice_start,voice = sound_index(speech_energy,start=True,rootmeansquare_mean_noise=noise_energy_mean)
 if voice:
+    # find at which percentile the speech starts in energy spectrum:
     start = voice_start/len(speech_energy)
+    # use that percentile to find the start in time domain:
     start_time = (len(speech_samples)*start)/speech_samplingrate
+    
+    # get stft starting from where speech starts
     speech_reducednoise_STFT = speech_reducednoise_STFT[voice_start:]
+    
+    # perform iSTFT (stft2wave) to get sample values --> save to wavefile
     voicestart_samp = stft2wave(speech_reducednoise_STFT,len(speech_samples))
     date = get_date()
     savewave('./processed_recordings/rednoise_speechstart_{}.wav'.format(date),voicestart_samp,sr)
