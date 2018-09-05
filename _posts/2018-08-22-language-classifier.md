@@ -76,6 +76,8 @@ For now, this little experiment highlights the importance of considering backgro
 
 
 Articles I've found interesting/helpful:
+* For background on <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">MFCCs</a>
+
 * <a href = "https://iamtrask.github.io/2015/07/27/python-network-part2/">Gradient Descent</a> - I found the graphics helpful and made me look at neural nets a new way.
 
 * <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/46945">Tips on training models with speech data</a>
