@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Language Classifier: Training a simple ANN on English, German and Russian speech"
+title: "Language Classifier: Training a simple artificial neural network (ANN) on English, German and Russian speech"
 date: 2018-08-22
 --- 
 
