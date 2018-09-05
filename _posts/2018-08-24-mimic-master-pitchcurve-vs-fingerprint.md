@@ -12,7 +12,7 @@ Here's how it works.
 First it records your own environment noise (to subtract it later from your amazing mimics). Mine looks like this:
 
 ##### Collects User's Background Noise
-![Imgur](https://i.imgur.com/jxT78f9.png)
+![Imgur](https://i.imgur.com/0PfFvoF.png)
 
 Next it plays a sound. This time it's a roaring lion:
 ##### Lion Roaring
