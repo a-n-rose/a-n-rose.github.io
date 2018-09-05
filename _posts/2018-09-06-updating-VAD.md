@@ -12,7 +12,7 @@ For some background, my first attempt involved the following. I collected the ST
 
 In other words, for each energy value in the mimic data:
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=e_i,&space;e_{i&plus;1},&space;e_{i&plus;2}&space;>&space;e_{noise&space;mean}&space;&plus;&space;e_{noisevariance}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?e_i,&space;e_{i&plus;1},&space;e_{i&plus;2}&space;>&space;e_{noise&space;mean}&space;&plus;&space;e_{noisevariance}" title="e_i, e_{i+1}, e_{i+2} > e_{noise mean} + e_{noisevariance}" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=e_i,&space;e_{i&plus;1},&space;e_{i&plus;2}&space;>&space;e_{noise&space;mean}&space;&plus;&space;e_{noisevariance}&space;\Rightarrow&space;speech" target="_blank"><img src="https://latex.codecogs.com/gif.latex?e_i,&space;e_{i&plus;1},&space;e_{i&plus;2}&space;>&space;e_{noise&space;mean}&space;&plus;&space;e_{noisevariance}&space;\Rightarrow&space;speech" title="e_i, e_{i+1}, e_{i+2} > e_{noise mean} + e_{noisevariance} \Rightarrow speech" /></a>
 
 ###### e stands for 'energy'
 
