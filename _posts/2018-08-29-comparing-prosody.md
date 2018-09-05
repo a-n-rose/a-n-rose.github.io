@@ -146,70 +146,22 @@ Wow! Including the window of 256ms made already a huge difference! One problem: 
 A comparison of calculation times (of pitch and STFT) and scores with varying millisecond intervals and window lengths (local vs long-term i.e. 0ms vs 256ms):
 
 
+#### Calculation times (sec) and similarity scores across pitch and stft measurement settings. Wavefile processed: Cat Meow
 
+| Measurement Setting | Time: Pitch  | Time: STFT | Score for MM | Score for RM |
+|----------------:|:-------------------:|:----------------:|:-------------------:|:----------------|
+|Default setting|0.095|Not computed|-0.68|-0.22|
+|1 ms intervals|0.67|0.25|-0.58|-0.49|
+|1 ms intervals 256 ms windows|2.58|1.27|0.23|-0.14|
+|10 ms intervals|0.06|0.09|-0.57|-0.44|
+|10 ms intervals 256 windows|0.21|0.13|0.17|-0.11|
 
-### Calculation times and scores with Librosa's default Values:
-Pitch: 
-* 0.09511232376098633 seconds
-
-STFT:
-* Not computed
-
-Similarity score for the matched mimic: -0.6818043886826649
-
-Similarity score for the random mimic: -0.2219641856228962
-
-### Calculation times and scores with 1 millisecond intervals:
-Pitch
-* 0.6700444221496582 seconds
-
-STFT:
-* 0.2541377544403076 seconds
-
-Similarity score for the matched mimic: -0.5827660456045796
-
-Similarity score for the random mimic: -0.49357990451239103
-
-### Calculation times and scores with 1 millisecond intervals and 256 ms windows
-Pitch:
-* 2.5810253620147705 seconds
-
-STFT:
-* 1.2656512260437012 seconds
-
-Similarity score for the matched mimic: 0.2313280069785804
-
-Similarity score for the random mimic: -0.1367108903732711
-
-### Calculation times and scores with 10 millisecond intervals:
-
-Pitch: 
-* 0.0620427131652832 seconds
-
-STFT:
-* 0.0929727554321289 seconds
-
-Similarity score for the matched mimic: -0.5672101641613938
-
-Similarity score for the random mimic: -0.43661382558278505
-
-### Calculation times and scores with 10 millisecond intervals and 256 ms windows:
-
-Pitch: 
-* 0.20823955535888672 seconds
-
-STFT:
-* 0.1283879280090332 seconds
-
-
-Similarity score for the matched mimic over longer intervals: 0.1726895461780784
-
-Similarity score for the random mimic over longer intervals: -0.11110679757542691
+##### MM = Matched Mimic; RM = Random Mimic.
 
 
 Comparing the calcuation times and similarity scores, it looks like using the 10 millisecond intervals with 256 millisecond window lengths is the way to go. Before we decide to integrate that one, I would like to see how these settings compare with other sounds. Due to long processing times of the 1 second interval calculations, I will not include those. 
 
-#### Table Comparing Scores across Pitch Measurement Settings:
+#### Similarity Scores across Measurement Settings:
 
 | Sound Mimicked | Default setting | 10 ms intervals | 10 ms intervals 256 windows |
 |---------------|:----------------:|:-------------------:|:----------------|
