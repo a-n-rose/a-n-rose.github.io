@@ -399,5 +399,5 @@ for i in range(len(pitch_sim)):
 In sum, I'm happy with results so far, largely because I could use functions I wrote for this game for other applications. This was the main reason why I developed this game: to learn how to process, analyze, and manipulate speech. I still have a ways to go, however, to get this to a point of accurately rating mimics. 
 
 
-~ Speech signal visualizations created using <a href="https://www.audacityteam.org/">Adacity</a> 
+~ Speech signal visualizations created using <a href="https://www.audacityteam.org/">Audacity</a> 
 
