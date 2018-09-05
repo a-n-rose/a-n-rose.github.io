@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Noise: How it saved my applications"
+title: "Noise: How it helped my applications"
 date: 2018-08-23
 --- 
 
