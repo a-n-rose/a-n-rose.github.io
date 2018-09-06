@@ -77,7 +77,7 @@ Just for fun, I added Russian to the mix (after adjusting the classifier to acco
 
 ## Next Steps
 
-It will be interesting to see if using Kera's TimeDistributed module reveals a succession of MFCC data to be useful in identifying languages (I suspect yes, as that could allow the models to identify phonological patterns). Eventually I also want to apply random background noises to speech training data, not only matched background noise. 
+It will be interesting to see if using Keras's TimeDistributed module reveals a succession of MFCC data to be useful in identifying languages (I suspect yes, as that could allow the models to identify phonological patterns). Eventually I also want to apply random background noises to speech training data, not only matched background noise. 
 
 For now, this little experiment highlights the importance of considering background noise when training, testing, and deploying speech/audio related models. No use of background noise is probably a bad idea, and too much probably won't do any good. Like with so many things, moderation is key.
 
@@ -87,9 +87,9 @@ For now, this little experiment highlights the importance of considering backgro
 Articles I've found interesting/helpful:
 * For background on <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">MFCCs</a>
 
-* <a href = "https://iamtrask.github.io/2015/07/27/python-network-part2/">Gradient Descent</a> - I found the graphics helpful and made me look at neural nets a new way.
+* Tips from 1st place Kaggle contestant of the <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/46945">speech recogition challenge.</a>
 
-* <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/46945">Tips on training models with speech data</a>
+* <a href = "https://iamtrask.github.io/2015/07/27/python-network-part2/">Gradient Descent</a> - I found the graphics helpful and made me look at neural nets a new way.
 
 * <a href="https://www.analyticsindiamag.com/using-deep-learning-for-sound-classification-an-in-depth-analysis/">Deep learning and sound classification</a>
 
