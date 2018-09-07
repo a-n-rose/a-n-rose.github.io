@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Upgrading language classifier from a simple artificial neural network to a long short term memory (LSTM) model"
+title: "Upgrading language classifier from a simple ANN to a LSTM model"
 date: 2018-09-07
 ---
 
