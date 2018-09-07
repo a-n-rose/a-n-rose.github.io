@@ -41,7 +41,7 @@ ex_data_3d = ex_data_2d.reshape((5,20,40))
 
 Voila! Now I have 5 "samples" each containing a sequnce of MFCC data. You can think of this as instead of training the model with single snap-shots of speech, with really short 'videos' of speech. Ideally this should be able to use phonological rules prevelant in languages to help the classifer in language classification. 
 
-Note: while some of the sequences might combine the MFCCs of two different speech recordings, those will likely be silence and also not numerous enough to influence the learning of the algorithm much. Most of the sequences of MFCCs will belong to one speaker and the specific word they are producing.
+Note: while some of the sequences might combine the MFCCs of two different speech recordings, those will likely be silence and also not numerous enough to influence the learning of the algorithm much. Most of the sequences of MFCCs will belong to one speaker and the specific speech sound, or phoneme, they are producing.
 
 #### Stacked LSTM for sequence classification:
 
