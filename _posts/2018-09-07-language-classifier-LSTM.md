@@ -55,7 +55,7 @@ from keras.layers import LSTM, Dense
 import numpy as np
 
 input_dimension = X_train.shape[2]  #number of features (i.e. 40)
-timesteps = 20  # (This paper (<a href="https://arxiv.org/pdf/1402.1128.pdf">pdf link</a>) offers 20 as an example)
+timesteps = 20  
 num_labels = 1  # Since I was building a binary classifier, one label was enough (the label could be 0 or 1)
 
 classifier = Sequential()
@@ -72,7 +72,9 @@ classifier.compile(loss='binary_crossentropy',
               
 classifier.fit(X_train,y_train,batchsize,epochs)
 ```
-Everything worked with the data but I got the following error:
+###### Note: for the timesteps, this paper (<a href="https://arxiv.org/pdf/1402.1128.pdf">pdf link</a>) offers 20 as an example, which is why I used 20 here. For the number of neurons, the tutorial I looked at applied 100. So, I tried it out. 
+
+Everything worked with reshaping the data but I got the following error:
 
 ```
 Error when checking target: expected dense_1 to have 3 dimensions, but got array with shape (80, 1)
