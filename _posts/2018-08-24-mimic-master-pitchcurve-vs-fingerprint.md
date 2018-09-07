@@ -71,7 +71,7 @@ Scores:
 
 2) 0.15282471566864583
 
-Hmmmmmmmmmmmm... This isn't encouraging. Well, to see where developing this game came of any use, check out how I applied my noise cancelling function to increase accuracy of a deep learning classifier <a href="https://a-n-rose.github.io/2018/08/23/noise-how-i-love-you.html">here.</a> To see the hurdles I went through in developing this (so far unsuccesful) game, read on!
+Hmmmmmmmmmmmm... This isn't encouraging. In <a href="https://a-n-rose.github.io/2018/08/29/comparing-prosody.html">this</a> blog post I explore ways to improve my scoring system. If you're interested to see how I used tools I developed here elsewhere, check out how I applied my noise cancelling function to increase accuracy of a deep learning classifier <a href="https://a-n-rose.github.io/2018/08/23/noise-how-i-love-you.html">here.</a> To see the hurdles I went through in developing this (so far unsuccesful) game, read on!
 
 ### The Development Process
 
