@@ -47,7 +47,7 @@ Note: while some of the sequences might combine the MFCCs of two different speec
 
 #### Stacked LSTM for sequence classification:
 
-Once I prepared my data, it was time to set the parameters of the LSTM model. Using my reference material, I it up like so:
+Once I prepared my data, it was time to set the parameters of the LSTM model. Using my reference material, I put it together like so:
 
 ```
 from keras.models import Sequential
@@ -72,7 +72,7 @@ classifier.compile(loss='binary_crossentropy',
               
 classifier.fit(X_train,y_train,batchsize,epochs)
 ```
-Everything worked with the data but I the following error:
+Everything worked with the data but I got the following error:
 
 ```
 Error when checking target: expected dense_1 to have 3 dimensions, but got array with shape (80, 1)
