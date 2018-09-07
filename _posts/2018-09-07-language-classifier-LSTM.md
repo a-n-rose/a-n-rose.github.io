@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Upgrading language classifier from a simple artificial neural network to a long short term memory (LSTM) recurrent neural network (RNN)"
+title: "Upgrading language classifier from a simple artificial neural network to a long short term memory (LSTM) model"
 date: 2018-09-07
 ---
 
