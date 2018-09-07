@@ -4,7 +4,7 @@ title: "Language Classifier: Training a simple artificial neural network (ANN) o
 date: 2018-08-22
 --- 
 
-This project served as a wonderful playground for speech data collection and preprocessing as well as getting a 'deep'er understanding of how to apply deep learning neural networks. To see where the repository is currently, click <a href = "https://github.com/a-n-rose/language-classifier">here.</a>
+This project served as a wonderful playground for speech data collection and preprocessing as well as getting a 'deep'er understanding of how to apply deep learning neural networks. To see where the repository is currently, click <a href = "https://github.com/a-n-rose/language-classifier">here.</a> 
 
 My main goal was to build a classifier that could identify the type of language spoken. To start out, I decided to keep it simple, training a simple artificial neural network (ANN) on only two languages, English and German. That seemed to me a good starting off point.
 
@@ -88,6 +88,8 @@ Articles I've found interesting/helpful:
 * For background on <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">MFCCs</a>
 
 * Tips from 1st place Kaggle contestant of the <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/46945">speech recogition challenge.</a>
+
+* <a href="https://www.sciencedirect.com/science/article/pii/S1877050917304544">Paper</a< on development of multilingual speech recognition models.
 
 * <a href = "https://iamtrask.github.io/2015/07/27/python-network-part2/">Gradient Descent</a> - I found the graphics helpful and made me look at neural nets a new way.
 
