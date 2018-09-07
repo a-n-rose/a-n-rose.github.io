@@ -86,11 +86,13 @@ classifier.add(Flatten())
 The first training session revealed promising results: the accuracy on test data increased 10 percentage points!
 
 ANN --> 66.71% 
+
 LSTM --> 76.53%
 
 I trained the LSTM to be a multiple class classifer by adding Russian. Unfortunately the accuracy didn't stay there. Still, it was an improvement when compared with the ANN:
 
 ANN --> 43.59%
+
 LSTM --> 53.15%
 
 ### Next Steps:
