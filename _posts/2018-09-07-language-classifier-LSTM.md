@@ -4,7 +4,7 @@ title: "Upgrading language classifier from a simple ANN to a LSTM model"
 date: 2018-09-07
 ---
 
-The <a href = "https://a-n-rose.github.io/2018/08/22/language-classifier.html">first time I trained a network on speech data</a>, I trained a 3-layer artificial neural network (ANN) with German and English (and later with Russian) with varying levels of noise. The accuracy rates of the binary classifier were around 67%, and for the multiclass classifier, only 44%. I did not go into that project expecting high accuracy rates. I went in expecting a reference point as I explored more complex networks. Check out the <a href="https://github.com/a-n-rose/language-classifier">repo</a> for this language classifier.
+The <a href = "https://a-n-rose.github.io/2018/08/22/language-classifier.html">first time I trained a network on speech data</a>, I trained a 3-layer artificial neural network (ANN) with German and English (and later with Russian) speech with varying levels of noise. The accuracy rates of the binary classifier were around 67%, and for the multiclass classifier, only 44%. I did not go into that project expecting high accuracy rates. I went in expecting a reference point as I explored more complex networks. Check out the <a href="https://github.com/a-n-rose/language-classifier">repo</a> for this language classifier.
 
 I at first wanted to try out Keras TimeDistributed module but after looking into it, just trying a simple long short term memory recurrent network would be the smarter way to go. (Incorporating TimeDistributed is a step or two beyond that. Baby steps.)
 
