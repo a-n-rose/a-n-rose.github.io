@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Excracting MFCC data from speech and how I use it in deep learning contexts"
+title: "How I prepare speech for deep learning"
 date: 2018-09-09
 ---
 
