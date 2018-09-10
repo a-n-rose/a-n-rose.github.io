@@ -122,8 +122,9 @@ if len(waves_list) > 0:
         feature,sr,noise_scale = parser(wav, num_mfcc,env_noise)
 ```
 
-If you notice, 'env_noise' can be 'None'. This was to allow the possibility of not adding background noise to the training data. Regardless, once the features (i.e. MFCCs) were extracted, they were then saved via SQL in a database. After all of the speech files had been processed, on the went to a neural network.
+If you notice, 'env_noise' can be 'None'. This was to allow the possibility of not adding background noise to the training data. Regardless, once the features (i.e. MFCCs) were extracted, they were then saved via SQL in a database. For an idea of how many MFCC samples one speech recording had, if a recording was 1 second long, it had appx. 250 samples.  After all of the speech files had been processed, on they went to a neural network.
 
+Note: since the classifer was trained on the sounds present in the speech, not on the content of the speech (i.e. semantics), I did not limit the number of samples per recording. I wanted as many instances of a language's sound included as possible, therefore I did not throw any data away. 
 
 ## MFCCs for the ANN vs LSTM
 
