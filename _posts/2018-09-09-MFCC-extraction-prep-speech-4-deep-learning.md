@@ -51,7 +51,55 @@ One can go about this problem a few ways. One is to make sure the model is appli
 ![Imgur](https://i.imgur.com/piHtRP0.png?1)
 ##### You can see that this looks a lot more like the recording of my husband than the quiet German sample from Voxforge.
 
-Basically, when I extracted the MFCCs from the Voxforge speech samples, I added random segments from the 15 second background noise wavefile to the speech sample. 
+Basically, when I extracted the MFCCs from the Voxforge speech samples, I added random segments from the 15 second background noise wavefile to the speech sample. That code looks like this:
+
+First a definition to apply various levels of background noise to the speech sample:
+
+```
+def parser(wavefile,num_mfcc,env_noise=None):
+    y, sr = librosa.load(wavefile, res_type= 'kaiser_fast')
+    y = prep_data.normalize(y)
+    
+    if env_noise is not None:
+        
+        #at random apply varying amounts of environment noise
+        rand_scale = random.choice([0.0,0.25,0.5,0.75,1.0,1.25])
+
+        #apply environment noise to speech signal
+        #have to first match lengths/scale 
+        total_length = len(y)/sr
+        envnoise_normalized = prep_data.normalize(env_noise)
+        envnoise_scaled = prep_data.scale_noise(envnoise_normalized,rand_scale)
+        envnoise_matched = prep_data.match_length(envnoise_scaled,sr,total_length)
+        if len(envnoise_matched) != len(y):
+            diff = int(len(y) - len(envnoise_matched))
+            if diff < 0:
+                envnoise_matched = envnoise_matched[:diff]
+            else:
+                envnoise_matched = np.append(envnoise_matched,np.zeros(diff,))
+        
+        #add noise to speech values
+        y += envnoise_matched
+        
+    # now extract MFCC features
+    mfccs = librosa.feature.mfcc(y, sr, n_mfcc=num_mfcc,hop_length=int(0.010*sr),n_fft=int(0.025*sr))
+    
+    #return the features, sampling rate, and the amount of noise applied
+    return mfccs, sr, rand_scale
+```
+Then applied the function so as I collected the speech files:
+
+```
+waves_list = []
+for w in glob.glob('/tmp/audio/**/*.wav',recursive=True):
+    waves_list.append(w)
+if len(waves_list) > 0:
+    for k in range(len(waves_list)):
+        wav = waves_list[k]
+        feature,sr,noise_scale = parser(wav, num_mfcc,env_noise)
+```
+
+The features (i.e. MFCCs) were then saved in via SQL in a database. Once all the speech files were processed, the MFCCs were trained on neural networks. 
 
 ## Language Classifier: ANN vs LSTM
 
