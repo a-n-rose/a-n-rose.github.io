@@ -4,7 +4,7 @@ title: "Training a Multi-Emotion Classifier with Emotional Speech"
 date: 2018-09-11
 ---
 
-I decided to try out building an emotion classifier and training it with speech data from the <a href="https://zenodo.org/record/1188976">RAVDESS</a> speech database. It will be interesting to see which MFCC coefficients are most relevant. 
+I decided to try out building an emotion classifier and training it with speech data from the <a href="https://zenodo.org/record/1188976">RAVDESS</a> speech database. It will be interesting to see which MFCC coefficients are most relevant. For reference to the code, follow this <a href="https://github.com/a-n-rose/language-classifier/tree/master/emotions_classifier">repository</a>.
 
 I downloaded the audiofiles, which contained the category of emotion in each wavefile's title. 
 
@@ -36,6 +36,8 @@ for filename in glob.glob('**/*.wav'):
 ```
 
 I am currently extracting 40 MFCC feature values from the speech data, with no noise added. The next step will be to feed to a neural network, for starters the LSTM, as I have had better results with that network in the past. 
+
+
 
 ### Audio files collected from:
 
