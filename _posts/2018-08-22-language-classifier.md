@@ -4,7 +4,7 @@ title: "Language Classifier: Training a simple artificial neural network (ANN) o
 date: 2018-08-22
 --- 
 
-This project served as a wonderful playground for speech data collection and preprocessing as well as getting a 'deep'er understanding of how to apply deep learning neural networks. To see where the repository is currently, click <a href = "https://github.com/a-n-rose/language-classifier">here.</a> 
+This project served as a wonderful playground for speech data collection and preprocessing as well as getting a 'deep'er understanding of how to apply deep learning neural networks. To see where the repository is currently, click <a href = "https://github.com/a-n-rose/language-classifier">here.</a> To see how I improved on this classifier, click <a href="/2018/09/07/language-classifier-LSTM.html">here</a>.
 
 My main goal was to build a classifier that could identify the type of language spoken. To start out, I decided to keep it simple, training a simple artificial neural network (ANN) on only two languages, English and German. That seemed to me a good starting off point.
 
