@@ -33,7 +33,13 @@ To identify changes of speech sounds over a period of milliseconds, a *series* o
 
 ## Language Classifier: ANN vs LSTM
 
+My first attempt at training a neural network classifier on MFCC data was in the context of identifiying the language spoken. I first trained a simple ANN on English and German speech, eventually also Russian, and compared its success with that of a long short term memory (LSTM) recurrent neural network. The former trained on the MFCC at random, and as long as it was a binary classifier (only classifying English vs German), actuallly performed around 60% accuracy. When I built an application to collect new speech and apply the models to that speech, some of the models correctly classified new speech as English or German. The accuracy rate increased 10 percentage points when I trained an LSTM on the MFFC data. 
 
+The biggest difference between the two neural networks is the ANN trains on the MFCC data at random and the LSTM trains on sequences of MFCCs (in my case, 20 MFCC sequences). This allowed the algorithm to identify patterns in the speech productions which logically should help the model identify langauge differences (some speech patterns only exist in one of the three languages).
+
+## Conclusion
+
+The methods I used thus far just scratch the surface of how deep learning can be applied to speech classification. I am primarily interested in how speech (especially child speech) can be used to identify language disorders (or others); however a huge obstacle is the lack of available data. (This is prevalent in my <a href="/2018/09/09/ID-SLI-speech.html">post</a> explore speech data from children with and without specific language impairment) It is not easy to track down thousand upon thousands of reliable, somewhat clean clinical speech data. That said, there is still so much to gain from more prevalent speech data and I still have much to learn about how to tweek models and preprocess the speech data to result in useful findings.
 
 
 
