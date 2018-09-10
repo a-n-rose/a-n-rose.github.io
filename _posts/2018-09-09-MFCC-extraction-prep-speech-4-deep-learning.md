@@ -31,6 +31,28 @@ To identify changes of speech sounds over a period of milliseconds, a *series* o
 ##### Take a look at the patterns evident in this picture. Each 'column' is a snippet of 25 ms of speech from a production of the word 'hippopotamus'. The blue row shows the amplitude (i.e. the first MFCC coefficient). In this row you can speculate which parts of the word were 'voiced' or had higher energy - the darker blue parts ('i','o','otams') and which parts didn't - the whiter parts ('pp','p', possibly 't' and 'm'). The coefficients 2-13 require a bit more study; they are more specifically relevant to the actual sounds rather than their energy levels. And the coefficients 20 upwards reveal a clear pattern that at first glance looks to be stress: secondary stress at 'po' and primary stress at 'pot'. 
 
 
+## Prepping the Speech Data
+
+A problem in the application of models in the real world is variation in background noise. That can be caused by varying microphone quality, room-size, and of course the amount of noise prevelant wherever the person is recording from. As an example, look at the difference of background noise levels between a sample from Voxforge's German database and a segment of my husband's speech recorded from my computer:
+
+#### Voxforge German speech:
+![Imgur](https://i.imgur.com/cuoM85C.png?1)
+##### A German female speaker saying 'sowohl im Bezug'.
+
+#### My husband's speech:
+![Imgur](https://i.imgur.com/j0B0YHe.png?1)
+##### A German male speaker saying 'teilweise weltweit'.
+
+Additionally, one needs to consider how speech data was collected in a database. Voxforge is a collection of speech from international volunteers: people record their speech and upload it. They probably check the speech at some level but I don't know for sure how much background noise is prevelant. Specifically, if I am building a network comparing English and German speech (which I <a href="/2018/08/22/language-classifier.html">did</a>), if the databases are significantly different from each other in their background noises/microphone quality, etc., this might adversely affect the generalizability of a model trained on that data. 
+
+One can go about this problem a few ways. One is to make sure the model is applied to new speech data that is as similar to the training data as possible. Another is to apply 'matched' background noise to the training data. 'Matched' noise is background noise that would be present when the model is applied to new data. If 'matched' noise is applied to the training data, the model should still be sensitive to relevant speech information, despite the presense of noise. And lastly, apply 'random' background noises to the training data. When you have no idea where new speech will be collected, this is probably the best choice. It will likely result in a model that can be applied to speech with a wide variety of background noise. This latter option is on my checklist to try out; for my current project I went the route of adding 'matched' noise to the training data. 
+
+#### 15 seconds of background noise at my apartment:
+![Imgur](https://i.imgur.com/piHtRP0.png?1)
+##### You can see that this looks a lot more like the recording of my husband than the quiet German sample from Voxforge.
+
+Basically, when I extracted the MFCCs from the Voxforge speech samples, I added random segments from the 15 second background noise wavefile to the speech sample. 
+
 ## Language Classifier: ANN vs LSTM
 
 My first attempt at training a neural network classifier on MFCC data was in the context of identifiying the language spoken. I first trained a simple ANN on English and German speech, eventually also Russian, and compared its success with that of a long short term memory (LSTM) recurrent neural network. The former trained on the MFCC at random, and as long as it was a binary classifier (only classifying English vs German), actuallly performed around 60% accuracy. When I built an application to collect new speech and apply the models to that speech, some of the models correctly classified new speech as English or German. The accuracy rate increased 10 percentage points when I trained an LSTM on the MFFC data. 
