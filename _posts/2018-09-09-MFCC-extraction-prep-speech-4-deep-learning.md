@@ -91,7 +91,7 @@ def parser(wavefile,num_mfcc,env_noise=None):
     #return the features, sampling rate, and the amount of noise applied
     return mfccs, sr, rand_scale
 ```
-Then applied the function so as I collected the speech files:
+Then applied the function as I collected the speech files:
 
 ```
 waves_list = []
@@ -103,7 +103,7 @@ if len(waves_list) > 0:
         feature,sr,noise_scale = parser(wav, num_mfcc,env_noise)
 ```
 
-The features (i.e. MFCCs) were then saved in via SQL in a database. Once all the speech files were processed, the MFCCs were trained on neural networks. 
+The features (i.e. MFCCs) were then saved via SQL in a database. Once all the speech files were processed, the MFCCs were trained on neural networks. 
 
 ## Language Classifier: ANN vs LSTM
 
