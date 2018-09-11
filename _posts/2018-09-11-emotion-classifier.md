@@ -35,7 +35,20 @@ for filename in glob.glob('**/*.wav'):
     gender = speaker%2  #0 = female, 1 = male
 ```
 
-I am currently extracting 40 MFCC feature values from the speech data, with no noise added. The next step will be to feed to a neural network, for starters the LSTM, as I have had better results with that network in the past. 
+I extracted 40 MFCC feature values from the speech data, with no noise added. The next step will be to feed these to a neural network, for starters the LSTM, as I have had better results with that network in the past. 
+
+Unfortunately, as with <a href="/2018/09/09/ID-SLI-speech.html">another project</a> I'm working on, the one with SLI speech, there is not as much emotion data to train with as I had available for the Language Classifier <a href="/2018/08/22/language-classifier.html">project</a>. In the latter project, I had well over 2 million rows of MFCC samples to use for testing and training; in the current project I only have a quarter of that amount: 534,822.
+
+The first neural network I trained this MFCC data (with all 40 coefficients) on was a 2 layer (technically 3, as I had to apply a 'flatten' layer) LSTM. The resuts made me think the other classifiers I built were actually quite good. The accuracy on the test data was a mere 34.54%, meaning it only classified MFCC samples as the correct emotion 34.54% of the time. I can't say I'm surprised, as there are 8 emotion categories. It is much more difficult to train a network on 8 classes than 2. 
+
+For a bit of reference, I trained all 40 MFCCs on a 3-layer ANN and the accuracy did not worsen too much: acc: 31.84%. How do the accuracy rates change using the first and higher level MFCC coefficients? (To read more about MFCCs and which coefficients are relevant for what analyses, read <a herf="/2018/09/09/MFCC-extraction-prep-speech-4-deep-learning.html">this post</a>.)
+
+When I removed the lower coefficients and included only the 20-40 coefficients, for the ANN, the accuracy dropped even further, to 17.53%. For the LSTM, using only those coefficients brought the accuracy down to 19.25%. If I include the first coefficient with those upper coefficients, accuracy of the ANN goes up to 28.38% and the LSTM accuracy jumps up to 28.12%, basically the same level of accuracy, surprisingly.
+
+So far, it appears the LSTM, using all 40 MFCCs, does better than the ANN. However, this may be because the speakers all said very similar sentences, either 'Kids are talking by the door' or 'Dogs are sitting by the door'; therefore, I will further explore methods used in other research, for example this paper by <a href="https://ieeexplore.ieee.org/abstract/document/7472669/">Trigeorgis et al. (2016)</a>. They apply both an LSTM and CNN to speech in analyzing emotion. Unfortunately, they used speech data from the <a href="https://diuf.unifr.ch/diva/recola/download.html">RECOLA database</a>, which I don't have access to. So, I will make do with the data I have. 
+
+### Papers of interest:
+* <a href="https://ieeexplore.ieee.org/abstract/document/7472669/">Adieu features? End-to-end speech emotion recognition using a deep convolutional recurrent network</a>
 
 
 
