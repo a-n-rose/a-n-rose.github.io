@@ -45,12 +45,12 @@ For a bit of reference, I trained all 40 MFCCs on a 3-layer ANN and the accuracy
 
 When I removed the lower coefficients and included only the 20-40 coefficients, for the ANN, the accuracy dropped even further, to 17.53%. For the LSTM, using only those coefficients brought the accuracy down to 19.25%. If I include the first coefficient with those upper coefficients, accuracy of the ANN goes up to 28.38% and the LSTM accuracy jumps up to 28.12%, basically the same level of accuracy, surprisingly.
 
-So far, it appears the LSTM, using all 40 MFCCs, does better than the ANN. However, this may be because the speakers all said very similar sentences, either 'Kids are talking by the door' or 'Dogs are sitting by the door'; therefore, I will further explore methods used in other research, for example this paper by <a href="https://ieeexplore.ieee.org/abstract/document/7472669/">Trigeorgis et al. (2016)</a>. They apply both an LSTM and CNN to speech in analyzing emotion. Unfortunately, they used speech data from the <a href="https://diuf.unifr.ch/diva/recola/download.html">RECOLA database</a>, which I don't have access to. So, I will make do with the data I have. 
+So far, it appears the LSTM, using all 40 MFCCs, does better than the ANN. However, this may be because the speakers all said very similar sentences, either 'Kids are talking by the door' or 'Dogs are sitting by the door'; therefore, I will further explore methods used in other research, for example this paper by <a href="https://ieeexplore.ieee.org/abstract/document/7472669/">Trigeorgis et al. (2016)</a>. They apply both a LSTM and CNN to speech in analyzing emotion. Unfortunately, they used speech data from the <a href="https://diuf.unifr.ch/diva/recola/download.html">RECOLA database</a>, which I don't have access to. So, I will make do with the data I have. 
+
+For now I am reading into how I can apply their methods.
 
 ### Papers of interest:
 * <a href="https://ieeexplore.ieee.org/abstract/document/7472669/">Adieu features? End-to-end speech emotion recognition using a deep convolutional recurrent network</a>
-
-
 
 ### Audio files collected from:
 
