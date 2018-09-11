@@ -49,8 +49,9 @@ So far, it appears the LSTM, using all 40 MFCCs, does better than the ANN. Howev
 
 For now I am reading into how I can apply their methods.
 
-### Papers of interest:
+### Papers/Sources of interest:
 * <a href="https://ieeexplore.ieee.org/abstract/document/7472669/">Adieu features? End-to-end speech emotion recognition using a deep convolutional recurrent network</a>
+* German speech database of <a href="https://clarin.phonetik.uni-muenchen.de/BASRepository/index.php?target=Public/Corpora/NSC/NSC.1.php">speaker characteristics</a>.
 
 ### Audio files collected from:
 
