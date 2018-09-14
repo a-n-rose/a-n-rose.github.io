@@ -35,7 +35,7 @@ for filename in glob.glob('**/*.wav'):
     gender = speaker%2  #0 = female, 1 = male
 ```
 
-I extracted 40 MFCC feature values from the speech data, with no noise added. The next step will be to feed these to a neural network, for starters the LSTM, as I have had better results with that network in the past. 
+I <a href="/2018/09/09/MFCC-extraction-prep-speech-4-deep-learning.html">extracted 40 MFCC</a> feature values from the speech data, with no noise added. The next step will be to feed these to a neural network, for starters the LSTM, as I have had better results with that network in the past. 
 
 Unfortunately, as with <a href="/2018/09/09/ID-SLI-speech.html">another project</a> I'm working on, the one with SLI speech, there is not as much emotion data to train with as I had available for the Language Classifier <a href="/2018/08/22/language-classifier.html">project</a>. In the latter project, I had well over 2 million rows of MFCC samples to use for testing and training; in the current project I only have a quarter of that amount: 534,822.
 
