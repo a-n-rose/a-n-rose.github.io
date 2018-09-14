@@ -18,7 +18,7 @@ Quickly, what these accuracy scores show, is the percentage the models identifie
 
 It's just a guess here but I'd say the model is overfitting the data. The model seems to decrease in overfitting when noise is added to the training data; however, I doubt it is generalizable. First of all, the data are not numerous enough to create a generalizable model. For the language classifier I had well over 2 million samples of MFCC data to train and test the ANN/LSTM; for this project I have just 201,020 samples of MFCC features. Also, there is significantly more 'Patient' speech than 'Healthy' speech. Therefore, for the time being, I will continue exploring this speech data in other machine learning contexts, to see what can be gathered about the features and what they may indicate for healthy vs clinical speech. 
 
-Just for kicks, I decided to see what would happen when training a LSTM on MFCC features that were extracted from the speech while implementing a voice activity detection function. Well, the accuracy rate of the LSTM trained without added noise rose from 98.82% to 99.60% and the LSTM trained with added nosie rose from 86.02% to 
+Just for kicks, I decided to see what would happen when training a LSTM on MFCC features that were extracted from the speech while implementing a <a href="/2018/09/06/updating-VAD.html">voice activity detection</a> function. Well, the accuracy rate of the LSTM trained without added noise rose from 98.82% to 99.60% and the LSTM trained with added nosie rose from 86.02% to 88.91%.
 
 I know I know.. I need some graphs on here. I'll get to that. At some point. 
 
