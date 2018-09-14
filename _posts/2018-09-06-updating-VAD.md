@@ -17,3 +17,34 @@ In other words, for each energy value in the mimic data:
 ###### e stands for 'energy'
 
 For now I am educating myself on the above mentioned repository. This post will be updated soon. 
+
+...
+
+After looking a bit more into voice detection, I decided to keep my simple strategy but I improved it to show directly that it could indicate when sound (i.e. speech) was present. I also simplified it further, removing any noise values. I simply examined whether or not the energy in a given sample was greater than the mean energy of the signal, for three consecutive samples. (A similar strategy of comparing energy levels within the signal was conducted by the author of the repository from <a href="https://github.com/marsbroshok/VAD-python/blob/master/vad.py">above</a>.)
+
+Unlike that author, I did not attempt to remove silences throughout a recording as that is not my goal (as of yet). I am only interested in removing the beginning and ending silences of a recording.
+
+These are the plots when this script was applied to a cat meowing:
+
+#### Original signal
+![Imgur](https://i.imgur.com/mfTW3tx.png)
+
+#### Signal with silences removed
+![Imgur](https://i.imgur.com/T1d29HD.png)
+
+#### Original signal energy
+![Imgur](https://i.imgur.com/WfwyDiv.png)
+
+#### Signal energy with silences removed
+![Imgur](https://i.imgur.com/KHbb3Ke.png)
+
+#### Original signal power
+![Imgur](https://i.imgur.com/k76a8Rk.png)
+
+#### Signal power with silences removed
+![Imgur](https://i.imgur.com/Zhk7ykt.png)
+
+
+Haha, please forgive the titles of those graphs. Perhaps they're a bit too long. These were made via matplotlib.
+
+I am happy with the results so far, and to see that my simply implementation and original methodology wasn't too far off. 
