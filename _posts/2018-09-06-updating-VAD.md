@@ -4,7 +4,7 @@ title: "Upgrading my voice activity dectection (VAD) algorithm"
 date: 2018-09-06
 --- 
 
-My Mimic Master Game is having trouble finding speech. As long as no background noise exists, it's fine, but with noise, sometimes it's spot on, other times it cuts off the mimic or holds onto several moments of silence/background noise. It is time for an upgrade. 
+My Mimic Master Game is having trouble finding speech. As long as no background noise exists, it's fine, but with noise, sometimes it's spot on, other times it cuts off the mimic or holds onto several moments of silence/background noise. It is time for an upgrade. (For my scripts on speech detection, visit this <a href="https://github.com/a-n-rose/language-classifier/tree/master/speech_detection">repo</a>.)
 
 I will try integrating similar strategies as that of the author of <a href="https://github.com/marsbroshok/VAD-python/blob/master/vad.py">this repository</a>.
 
