@@ -45,6 +45,8 @@ These are the plots when this script was applied to a cat meowing:
 ![Imgur](https://i.imgur.com/Zhk7ykt.png)
 
 
-Haha, please forgive the titles of those graphs. Perhaps they're a bit too long. These were made via matplotlib.
+Haha, please forgive the titles of those graphs. The wavefile name was crazy long.
 
 I am happy with the results so far, and to see that my simply implementation and original methodology wasn't too far off. 
+
+###### Plots made with matplotlib
