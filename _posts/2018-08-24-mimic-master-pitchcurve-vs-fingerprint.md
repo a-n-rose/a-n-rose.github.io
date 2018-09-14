@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mimic Master - First Attempt: Learning the wrong way to compare speech signals"
+title: "Mimic Master - First Attempt at Comparing Audio Signals' Similarity"
 date: 2018-08-24
 ---
 
