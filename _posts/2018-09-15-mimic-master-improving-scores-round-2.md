@@ -34,10 +34,86 @@ I think with additional measures, for example acoustic fingerprints (I will expl
 
 Also, I will eventually implement a measure to avoid including too much background silence into the calculation of how long users have to mimic a sound. Right now, the user has a couple more seconds to mimic than the length of the target sound; problem there is, if the original sound has a lot of silence, the user's mimic will have a lot of unnecessary background noise to process. 
 
-I will update this post with visuals of how this game processed the audio files and generated scores so that the improvements are a bit easier to see. 
+Here is a rundown of the improved game.
 
-Hope this was interesting/helpful/useful! 
+First background noise is collected. 
 
-Have a great day and thanks for reading. 
+#### Background noise of my apartment, recorded with my computer (5 sec)
+![Imgur](https://i.imgur.com/utuvQcC.png?1)
+
+Then a sound is played:
+
+#### Target sound: Mooing cow
+![Imgur](https://i.imgur.com/ISfq9bB.png?1)
+
+The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay.
+
+#### User mimic: Mooing cow original
+![Imgur](https://i.imgur.com/jofKraq.png?1)
+
+#### User mimic: Mooing cow noise reduced
+![Imgur](https://i.imgur.com/ysJNwr0.png?1)
+
+#### User mimic: Mooing cow volume matched (to the target) 
+#### and silences removed
+![Imgur](https://i.imgur.com/7XEMYLp.png?1)
+
+Points earned: 27
+
+
+Repeat!
+
+
+A sound is played:
+
+#### Target sound: Hooting owl
+![Imgur](https://i.imgur.com/sEU5R43.png?1)
+
+The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay.
+
+#### User mimic: Hooting owl original
+![Imgur](https://i.imgur.com/PtXSyVR.png?1)
+
+#### User mimic: Hooting owl noise reduced
+![Imgur](https://i.imgur.com/97hcZBd.png?1)
+
+#### User mimic: Hooting owl volume matched (to the target) 
+#### and silences removed
+![Imgur](https://i.imgur.com/SwfInqS.png?1)
+
+Points earned: 113
+
+Wow! Not bad..
+
+Total points collected: 140
+
+Repeat!
+
+A sound is played:
+
+#### Target sound: Meowing kitten
+![Imgur](https://i.imgur.com/Y8kEXJq.png?1)
+
+The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay. (See why the extra silence is a problem?)
+
+#### User mimic: Meowing kitten original
+![Imgur](https://i.imgur.com/75nnFqQ.png?1)
+
+#### User mimic: Meowing kitten noise reduced
+![Imgur](https://i.imgur.com/S2sfX68.png?1)
+
+#### User mimic: Meowing kitten volume matched (to the target) 
+#### and silences removed
+![Imgur](https://i.imgur.com/TsUxxSb.png?1)
+
+Points earned: 17
+
+Frowny face.
+
+Well, from the above visuals, you can see that the volume matching works better on some files than on others. You can barely see my kitten mimic after the volume has been matched. Also, it's clear that silences in target sounds should be removed to improve the comparison analyses. 
+
+All in all though, it's a pretty fun and successful game!
+
+Hope this was interesting/helpful/useful! Have a great day and thanks for reading. 
 
 P.S. Feel free to write me for questions/tips/suggestions. 
