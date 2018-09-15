@@ -36,17 +36,17 @@ Also, I will eventually implement a measure to avoid including too much backgrou
 
 Here is a rundown of the improved game.
 
-First background noise is collected. 
+1) First background noise is collected. 
 
 #### Background noise of my apartment, recorded with my computer (5 sec)
 ![Imgur](https://i.imgur.com/utuvQcC.png?1)
 
-Then a sound is played:
+2) Then a sound is played:
 
 #### Target sound: Mooing cow
 ![Imgur](https://i.imgur.com/ISfq9bB.png?1)
 
-The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay.
+3) The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay.
 
 #### User mimic: Mooing cow original
 ![Imgur](https://i.imgur.com/jofKraq.png?1)
@@ -58,18 +58,18 @@ The game records the user for the duration of the target sound, plus a couple of
 #### and silences removed
 ![Imgur](https://i.imgur.com/7XEMYLp.png?1)
 
-Points earned: 27
+4) Points earned: 27
 
 
-Repeat!
+Repeat! (Except for the collection of background noise)
 
 
-A sound is played:
+1) A sound is played:
 
 #### Target sound: Hooting owl
 ![Imgur](https://i.imgur.com/sEU5R43.png?1)
 
-The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay.
+2) The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay.
 
 #### User mimic: Hooting owl original
 ![Imgur](https://i.imgur.com/PtXSyVR.png?1)
@@ -81,7 +81,7 @@ The game records the user for the duration of the target sound, plus a couple of
 #### and silences removed
 ![Imgur](https://i.imgur.com/SwfInqS.png?1)
 
-Points earned: 113
+3) Points earned: 113
 
 Wow! Not bad..
 
@@ -89,12 +89,12 @@ Total points collected: 140
 
 Repeat!
 
-A sound is played:
+1) A sound is played:
 
 #### Target sound: Meowing kitten
 ![Imgur](https://i.imgur.com/Y8kEXJq.png?1)
 
-The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay. (See why the extra silence is a problem?)
+2) The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay. (See why the extra silence is a problem?)
 
 #### User mimic: Meowing kitten original
 ![Imgur](https://i.imgur.com/75nnFqQ.png?1)
@@ -106,7 +106,7 @@ The game records the user for the duration of the target sound, plus a couple of
 #### and silences removed
 ![Imgur](https://i.imgur.com/TsUxxSb.png?1)
 
-Points earned: 17
+3) Points earned: 17
 
 Frowny face.
 
