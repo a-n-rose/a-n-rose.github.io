@@ -117,3 +117,5 @@ All in all though, it's a pretty fun and successful game!
 Hope this was interesting/helpful/useful! Have a great day and thanks for reading. 
 
 P.S. Feel free to write me for questions/tips/suggestions. 
+
+###### All signal visuals created in Audacity
