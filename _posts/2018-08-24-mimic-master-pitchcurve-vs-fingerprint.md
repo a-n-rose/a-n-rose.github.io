@@ -4,7 +4,7 @@ title: "Mimic Master - First Attempt at Comparing Audio Signals' Similarity"
 date: 2018-08-24
 ---
 
-Imagine yourself bored on your couch, wishing you were hiking in the mountains, hearing birds sing and returning their calls. In your fantasy you respond perfectly, but wonder how well you actually do that in reality. Have I got the solution for you! You can test your mimics with this silly little mimic game. For the repository, click <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic">here</a>.
+Imagine yourself bored on your couch, wishing you were hiking in the mountains, hearing birds sing and returning their calls. In your fantasy you respond perfectly, but wonder how well you actually do that in reality. Have I got the solution for you! You can test your mimics with this silly little mimic game. For the repository, click <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic">here</a>. To see what I did to improve this game, reference this <a href="/2018/09/15/mimic-master-improving-scores-round-2.html">post</a>.
 
 Here's how it works. 
 
