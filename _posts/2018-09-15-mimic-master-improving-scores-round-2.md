@@ -16,9 +16,11 @@ I also did not compare the energy levels of the signal with those of the backgro
 
 ## Calculating Similarity
 
-The advancements I made in the scoring system can be viewed <a href="/2018/08/29/comparing-prosody.html">here</a>. Basically, I collected pitch values in longer windows, not just of single data points. This allowed for similar pitch productions to be a little off in timing. The pitch-curves don't have to align perfectly in order to get a high score (which was the case before).
+The advancements I made in the scoring system can be viewed in detail <a href="/2018/08/29/comparing-prosody.html">here</a>. 
 
-Lastly, the score was calculated not soley based on a coefficient of similarity between the mimic and the target pitch curves. Rather, the score was calcuated based on the difference between how similar the mimic was to the target and how similar background noise was to the target. 
+Basically, instead of using the Pearson's correlation coefficient, I implemented Hermes weighted correlation coefficient, following suit of a paper also comparing prosody of two signals. Additionally (also in light of that paper), I collected pitch values in longer windows, not just of single data points. This allowed for similar pitch productions to be a little off in timing. The pitch-curves don't have to align perfectly anymore in order to get a high score (which was the case before).
+
+The final score was the difference between the similiarity scores of the mimic to the target and the background noise to the target. The absolute value of that difference was then multiplied by 100. This seemed to counteract imperfections in the similarity measures: the score was not so dependent on how very similar it was to the target (some kinds of sounds were easier to calculate via pitch curve, thus earned higher similarity ratings; for example, a snorting pig was not as easy to compare (or mimic) as a hooting owl), rather how much better the mimic was in comparison to silence. 
 
 ## Where I saw the differences
 
