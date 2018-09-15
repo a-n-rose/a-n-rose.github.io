@@ -38,26 +38,30 @@ Here is a rundown of the improved game.
 
 1) First background noise is collected. 
 
-#### Background noise of my apartment, recorded with my computer (5 sec)
+### Background noise 
 ![Imgur](https://i.imgur.com/utuvQcC.png?1)
+#### 5 seconds of my apartment, recorded with my computer
 
 2) Then a sound is played:
 
-#### Target sound: Mooing cow
+### Target sound: 
 ![Imgur](https://i.imgur.com/ISfq9bB.png?1)
+#### Mooing cow
 
 3) The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay.
 
-#### User mimic: Mooing cow original
+### User mimic: 
 ![Imgur](https://i.imgur.com/jofKraq.png?1)
+#### Mooing cow original
 
-#### User mimic: Mooing cow noise reduced
+### User mimic: 
 ![Imgur](https://i.imgur.com/ysJNwr0.png?1)
+#### Mooing cow noise reduced
 
-#### User mimic: Mooing cow volume matched (to the target) 
-#### and silences removed
+### User mimic: 
 ![Imgur](https://i.imgur.com/7XEMYLp.png?1)
-
+#### Mooing cow volume matched (to the target) and silences removed
+ 
 4) Points earned: 27
 
 
@@ -66,20 +70,23 @@ Repeat! (Except for the collection of background noise)
 
 1) A sound is played:
 
-#### Target sound: Hooting owl
+### Target sound: 
 ![Imgur](https://i.imgur.com/sEU5R43.png?1)
+#### Hooting owl
 
 2) The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay.
 
-#### User mimic: Hooting owl original
+### User mimic: 
 ![Imgur](https://i.imgur.com/PtXSyVR.png?1)
+#### Hooting owl original
 
-#### User mimic: Hooting owl noise reduced
+### User mimic: 
 ![Imgur](https://i.imgur.com/97hcZBd.png?1)
+#### Hooting owl noise reduced
 
-#### User mimic: Hooting owl volume matched (to the target) 
-#### and silences removed
+### User mimic: 
 ![Imgur](https://i.imgur.com/SwfInqS.png?1)
+#### Hooting owl volume matched (to the target) and silences removed
 
 3) Points earned: 113
 
@@ -91,20 +98,23 @@ Repeat!
 
 1) A sound is played:
 
-#### Target sound: Meowing kitten
+### Target sound: 
 ![Imgur](https://i.imgur.com/Y8kEXJq.png?1)
+#### Meowing kitten
 
 2) The game records the user for the duration of the target sound, plus a couple of seconds to account for user response delay. (See why the extra silence is a problem?)
 
-#### User mimic: Meowing kitten original
+### User mimic: 
 ![Imgur](https://i.imgur.com/75nnFqQ.png?1)
+#### Meowing kitten original
 
-#### User mimic: Meowing kitten noise reduced
+### User mimic: 
 ![Imgur](https://i.imgur.com/S2sfX68.png?1)
+#### Meowing kitten noise reduced
 
-#### User mimic: Meowing kitten volume matched (to the target) 
-#### and silences removed
+### User mimic: 
 ![Imgur](https://i.imgur.com/TsUxxSb.png?1)
+#### Meowing kitten volume matched (to the target) and silences removed
 
 3) Points earned: 17
 
