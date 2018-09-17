@@ -4,7 +4,7 @@ title: "Building Multi-Lingual Speech to Text Application"
 date: 2018-09-12
 ---
 
-I have used Voxforge's speech data to play around with ANN and LSTM models and how they could be trained to identify a certain language spoken. They also have a lot of annotated speech, which I would like to use to develop a multilingual speech to text application.
+I have used Voxforge's speech data to play around with ANN and LSTM models and how they could be trained to identify a certain language spoken. They also have a lot of annotated speech, which I would like to use to develop a <a href="https://github.com/a-n-rose/language-classifier/tree/master/speech_recognition_multilingual">multilingual speech to text application</a>.
 
 First I will further examine how the speech files are organized for each language, made available by Voxforge. 
 
@@ -45,7 +45,11 @@ The English annotation files are in a separate folder from the WAV files. The En
 
 ## Next Steps
 
-Having looked a bit into the annotation data, I thought about how I could use it/how I wanted to use it. I decided to see how I can train a network with MFCC data and the annotations I have available. Already I know that the results won't be ideal, as the annotations are not aligned exactly with the speech productions. However, I want to see if any useful classifications/sequences can be learned with approximations of text and speech data. Furthermore, I also think that using mel-log-spectrograms of speech data would likely work better than MFCCs, but for now I will work with the data I have available: MFCCs of lots of English data, with beginning and ending silences removed.
+Having looked a bit into the annotation data, I thought about how I could use it/how I wanted to use it. I decided to see how I can train a network with MFCC data and the annotations I have available. Already I know that the results won't be ideal, as the annotations are not aligned exactly with the speech productions. However, I want to see if any useful classifications/sequences can be learned with approximations of text and speech data, especially as beautiful and perfect annotations of speech data are not that easy to get, especially in large numbers. 
+
+Despite some evidence of higher accuracy in speech recognition using <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/46945">mel-log-spectrograms instead of MFCCs</a>, the benefits of MFCC automatic normalization of power, especially when using various samples with various amounts of power (<a href="https://pdfs.semanticscholar.org/6bdc/cfe195bc49d218acc5be750aa49e41f408e4.pdf">Deng et al.(2013)</a>). Considering I am using voluntarily submitted data, from speakers with all sorts of recording devices, background noises, etc., I think the MFCC is a safe bet for now. Later I'll likely play with mel-log-spectrograms.
+
+Note: while extracting the MFCCs, I did apply a variation of additional background noise, as that aided my original <a href="/2018/08/22/language-classifier.html">language classifier</a> when it classified brand new speech (i.e. my and my husband's speech). Also, I applied my <a href="/2018/09/06/updating-VAD.html">voice activity detection (VAD) functions</a> to remove the beginning and ending silences of the speakers' recordings. This has shown to increase my own classiers' performances.
 
 To see if anything along these lines is achievable, I will focus on the English data only, as I am a native speaker of English and as I have already played a bit around with <a href="https://github.com/a-n-rose/ipa-features-from-text">translating English to the international phonetic alphabet</a> (IPA), which is what I want to do. My logic goes: translate the language to IPA, which should remove some characters which may not quite represent the time it takes to make a sound (e.g. in German 'sch' - pronounced 'sh' as in 'shoe' - and 'dsch' - pronounced 'j' as in 'jungle' - are sounds with a lot of letters that can be represented in IPA with fewer characters: ʃ  and dʒ, respectively). 
 
