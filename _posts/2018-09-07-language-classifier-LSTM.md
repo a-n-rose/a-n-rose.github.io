@@ -105,4 +105,4 @@ I intend to play with the LSTM parameters and number of layers as well as explor
 
 * Tutorial on <a href="https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/">reshaping data</a> for LSTM models.
 
-* <a href="https://www.sciencedirect.com/science/article/pii/S1877050917304544">Paper</a> on development of multilingual speech recognition models.
+* Paper on <a href="https://www.sciencedirect.com/science/article/pii/S1877050917304544">development of multilingual speech recognition models</a>.

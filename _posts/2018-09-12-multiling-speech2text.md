@@ -219,4 +219,4 @@ if collected:
 * <a href="http://www.arthaey.com/markdown-ipa.html">IPA to markdown</a>
 * Tutorial on handling <a href="https://medium.com/@williamkoehrsen/data-wrangling-with-python-and-sqlite-900d21bc5a53">messy big data</a>.
 * Tutorial on LSTM in <a href="http://adventuresinmachinelearning.com/keras-lstm-tutorial/">Keras</a>
-* Tutorial on </a href="http://adventuresinmachinelearning.com/word2vec-tutorial-tensorflow/">word embedding</a> in Tensorflow.
+* Tutorial on <a href="http://adventuresinmachinelearning.com/word2vec-tutorial-tensorflow/">word embedding</a> in Tensorflow.
