@@ -101,7 +101,7 @@ I intend to play with the LSTM parameters and number of layers as well as explor
 ### Useful resources and articles:
 * Tutorial on <a href="https://machinelearningmastery.com/timedistributed-layer-for-long-short-term-memory-networks-in-python/">implementing LSTMs</a> in Python (with and without TimeDistributed)
 
-* Tutorial on <a href="https://machinelearningmastery.com/sequence-classification-lstm-recurrent-neural-networks-python-keras/">implementing sequence classiication LSTM-RNNs</a> in Python
+* Tutorial on <a href="https://machinelearningmastery.com/sequence-classification-lstm-recurrent-neural-networks-python-keras/">implementing sequence classification LSTM-RNNs</a> in Python
 
 * Tutorial on <a href="https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/">reshaping data</a> for LSTM models.
 
