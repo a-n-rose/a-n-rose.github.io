@@ -26,7 +26,7 @@ I also extracted <a href="http://practicalcryptography.com/miscellaneous/machine
 ### Table 2: MFCC values (columns 0 - 39) with additional necessary information.
 ![Imgur](https://i.imgur.com/7dVuL6n.png?1)
 
-The data were collected with Python scripts and saved in a SQL database. For code relevant for these tasks, please see <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/collect_speechdata.py">'collect_speechdata.py'</a> for the functions, <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/sql_data.py">'sql_data.py'</a> for how I saved/loaded data, and <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/collect_IPA_MFCC_English_tgz.py"> 'collect_IPA_MFCC_English_tgz.py'</a> for the main module.
+The data were collected with Python scripts and saved in a SQL database. The purpose of this experiment was to serve as a test round. Therefore, I only collected a total of 100 recordings, which worked out to be appx. 5 minutes of speech data. For code relevant for these tasks, please see <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/collect_speechdata.py">'collect_speechdata.py'</a> for the functions, <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/sql_data.py">'sql_data.py'</a> for how I saved/loaded data, and <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/collect_IPA_MFCC_English_tgz.py"> 'collect_IPA_MFCC_English_tgz.py'</a> for the main module.
 
 ## Step two: combine data/prep data for training models
 
@@ -46,7 +46,7 @@ Lastly, I had to turn the label data (i.e. three IPA characters) from strings in
 
 To see the code I wrote to prepare the data, please refer to <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/batch_prep.py">'batch_prep.py'</a> for the functions and <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/combine_align_ipa_mfcc_data.py">'combine_align_ipa_mfcc_data.py'</a> for the main module.
 
-## Step three: build and train model
+## Step three: build and train the model
 
 
 ### Resources:
