@@ -44,10 +44,41 @@ Lastly, I had to turn the label data (i.e. three IPA characters) from strings in
 ![Imgur](https://i.imgur.com/4vvSciZ.png?1)
 #### First column (not visualized) is the dataset assignment (train, validate, test); the next 40 columns pertain to the 40 MFCC coefficients; the last column on the right pertains to the IPA label. The first set of MFCC data needs 15 samples to identify 3 IPA characters. In order to make sure each set of samples had the same lengths, any samples less than 20 were padded with zeros. You can see the next sample following the zeros had a different 3 letter IPA label.
 
+I prepared the scripts to allow for adjustment of two key variables: 1) the IPA window shift and 2) which IPA characters were excluded from analysis. I built a total of eight models, trained on data with a mix of the following options:
+
+1) with or without added noise to the MFCC data
+2) with or without IPA stress symbols: e.g. ˌ  ˈ  ː 
+3) with or without overlap 
+
+To give you an idea of what the window shift variable looks like, let's take the word *shallow* as an example. Here is what the '3-letter labels' would look like if they had overlap:
+
+* sha, hal, all, llo, low
+
+Without overlap:
+
+* sha, llo 
+
+Every label required a full 3-letter representation; if three letters were not avaiable at the end of the utterance, those letters/MFCC data were not included in the training (hence the disappearance of *w* in the non-overlap variable example above).
+
 To see the code I wrote to prepare the data, please refer to <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/batch_prep.py">'batch_prep.py'</a> for the functions and <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/combine_align_ipa_mfcc_data.py">'combine_align_ipa_mfcc_data.py'</a> for the main module.
 
 ## Step three: build and train the model
 
+Even though I only used 5 minutes of speech data, that worked out to be 26,280 samples of MFCC data for the condition without overlap and 76,640 samples of MFCC data for the condition with overlap. I could not feed the data all at once to the LSTM model and instead developed a generator function that fed the network 20 sequences of MFCC data at a time. To see the code relevant for the building of the LSTM, please refer to the script <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/batch2model.py">'batch2model.py'</a>, which imports the 'sql_data.py' and 'batch_prep.py' scripts mentioned earlier.
+
+At this stage of experimentation, I used only training and test datasets. If I continue experimenting with this type of data I would also include a validation dataset. 
+
+I found most staggering differences in accuracy rates between the models that use the stress characters and those that didn't. Otherwise, the accuracy rates remained at approximately the same levels. 
+
+### Table 4: LSTM Model Performance
+![Imgur](https://i.imgur.com/ntkF8uL.jpg)
+#### Model types: A = trained without overlapping MFCC data and MFCC data *with* added noise; B = trained *with* overlapping MFCC data and *with* added noise; C = trained without overlapping MFCC data and without added noise; D = trained *with* overlapping MFCC data and without added noise. 
+
+Clearly 27-28% accuracy does not look very high; however, when considering the number of labels the models had with which to classify the MFCC samples (704,881 labels to be exact), that percentage looks a lot more impressive. It is interesting, though the difference between the accuracy of those models, which were trained on MFCC data that was aligned with IPA characters *with* stress markers, and the accuracy of the models that were aligned with IPA characters *only*: the stress markers were not included in the alignment stage. To better understand what this accuracy means, I would like to apply the models to brand new data and see how the models classify the speech. 
+
+I would be curious to further explore training models with these loosely aligned speech and annotation data; however, the computation costs of such development is high. To apply this technique to all of the available English data on Voxforge, the MFCC extraction alone would take at least 9 hours. The following steps of MFCC and IPA alignment and training of the LSTM model, several days would likely be needed. In addition to that, memory costs would also be very high. If I did further explore a model, I would likely explore a model trained on MFCC data *with* noise added and aligned with IPA characters *with* stress markers. Also, even though there was a slight increase in accuracy for the models trained with overlapping MFCC data, the increase is not large enough to make up for the more than double amount of data necessary for that. 
+
+In sum, the findings of this small experiment reveal that IPA characters - when used with their <a href="https://en.wikipedia.org/wiki/Suprasegmentals">suprasegmental</a> markers - can be used to create loose alignments with speech productions and result in potentially reliable training data. The findings also reveal the reliability of Espeak's software which translated the English text to IPA letters. My next step is developing an application to collect new English speech and apply these models to see which handles realworld data best.
 
 ### Resources:
 
