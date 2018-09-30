@@ -4,7 +4,7 @@ title: "Training an LSTM on non-aligned annotation and speech data"
 date: 2018-09-28
 ---
 
-Speech data available for model development usually fits in one of these two categories: 1) little but meticulously annotated speech (and probably not publicly available) and 2) **a lot** but largely unlabeled speech data (maybe publicly available). My experiment below explores the use of Voxforge's publicly available and free speech data, including their simple annotations of that speech.
+Speech data available for model development usually fits in one of these two categories: 1) little but meticulously annotated speech (and probably not publicly available) and 2) **a lot** but largely unlabeled speech data (maybe publicly available). My experiment below explores the use of <a href="http://voxforge.org/">Voxforge's</a> publicly available and free speech data, including their simple annotations of that speech.
 
 Voxforge hosts several large, publicly available speech databases for multiple languages. Included in their speech databases are annotation files associated with individual recordings. I had already downloaded several speech databases in aims of exploring how to <a href = "https://a-n-rose.github.io/2018/08/22/language-classifier.html">train neural networks</a> on <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">MFCC data</a>. Therefore, I decided to see how I could apply the annotations to the training data for an LSTM neural network. Could I build a speech to text model?
 
