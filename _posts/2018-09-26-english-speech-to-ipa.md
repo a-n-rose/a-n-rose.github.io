@@ -40,7 +40,7 @@ In order to align the IPA and MFCC data for each recording, I calculated the len
 
 Lastly, I had to decide how many MFCCs I would use to train the network to classify IPA characters. I decided that classifying three IPA characters would be ideal, as when speech sounds are produced, they are not produced in isolation: their sounds are influenced by the sounds produced before and after. (To see for yourself, see how the letter *j* (dʒ in IPA) changes when you say *joke* (dʒəʊk) versus *judge* (dʒʌdʒ). Your lips are already getting round while saying *j* when pronouncing *joke* while your lips stay more relaxed with the latter.) This meant that I would feed the LSTM network with samples in sequences of MFCCs that corresponded to three IPA characters. Not every speaker speaks at the same speed; therefore sometimes more MFCCs were necessary to represent IPA characters and sometimes fewer. On average 6 MFCC samples represented three IPA characters, so I limited the MFCC sequences to 20, and zero padded the sequences (what was most) that were less than that. 
 
-Lastly, I had to turn the label data (i.e. three IPA characters) from strings into integers, data the LSTM could work with. To do so, I generated a list of all 3-letter IPA combinations possible, including letter repeats. I then applied the indexes of these as labels of the MFCC sequence data. This way I could avoid using one-hot-encoding (I tried that and got a memory error), but I'll get into that later. 
+Lastly, I had to turn the label data (i.e. three IPA characters) from strings into integers, data the LSTM could work with. To do so, I generated a list of all 3-letter IPA combinations possible, including letter repeats. I then applied the indexes of these as labels of the MFCC sequence data. 
 
 ### Table 3: MFCC data with IPA label
 ![Imgur](https://i.imgur.com/4vvSciZ.png?1)
@@ -76,7 +76,7 @@ I found most staggering differences in accuracy rates between the models that us
 
 ### Table 4: LSTM Model Performance
 ![Imgur](https://i.imgur.com/ntkF8uL.jpg)
-#### Model types: A = trained without overlapping MFCC data and MFCC data *with* added noise; B = trained *with* overlapping MFCC data and *with* added noise; C = trained without overlapping MFCC data and without added noise; D = trained *with* overlapping MFCC data and without added noise. 
+#### Model types: A = trained without overlap and *with* added noise; B = trained *with* overlap and *with* added noise; C = trained without overlap and without added noise; D = trained *with* overlap and without added noise. 
 
 Clearly 27-28% accuracy does not look very high; however, when considering the number of labels the models had with which to classify the MFCC samples (704,881 labels to be exact), that percentage looks a lot more impressive. It is interesting to compare the difference between the accuracy of those models, which were trained on MFCC data that was aligned with IPA characters *with* stress markers, and the accuracy of the models that were aligned with IPA characters *only*: the stress markers were not included in the alignment stage. To better understand what this accuracy means, I would like to apply the models to brand new data and see how the models classify the speech. 
 
