@@ -47,7 +47,9 @@ Lastly, I had to turn the label data (i.e. three IPA characters) from strings in
 I prepared the scripts to allow for adjustment of two key variables: 1) the IPA window shift and 2) which IPA characters were excluded from analysis. I built a total of eight models, trained on data with a mix of the following options:
 
 1) with or without added noise to the MFCC data
+
 2) with or without IPA stress symbols: e.g. ˌ  ˈ  ː 
+
 3) with or without overlap 
 
 To give you an idea of what the window shift variable looks like, let's take the word *shallow* as an example. Here is what the '3-letter labels' would look like if they had overlap:
