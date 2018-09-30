@@ -10,9 +10,17 @@ Generally speaking, I would like to see how speech recognition models can be bui
 
 I would like to know if speech data with approximate annotations offers any sort of contribution to the analysis of speech. If so, this may improve the effectiveness of some speech data, even though the speech data is not professionally annotated. This was the purpose of my experiment with Voxforge's English speech database. While I would like to built multilinguistic models, I explored first if I could develop working models with one language. Click <a href="https://github.com/a-n-rose/language-classifier/tree/master/english_speech_to_ipa">here</a> for the repository.
 
-### Step one: prepare the data
+## Step one: prepare the data
 
 The first step in collecting the data I needed was to understand the <a = href="https://a-n-rose.github.io/2018/09/12/multiling-speech2text.html">architecture</a> of the database(s), specifically where the annotations and corresponding wave files were stored. Once I determined a pattern, I wrote a scipt that unzipped each zip-file individually, extracted the data I needed, and then deleted the unzipped contents. I stored the annotations and the MFCC data in the same database but in different tables. I used the zipfile and wave file names as keys to match the right annotation with the right set of <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">MFCC</a> values.
+
+The data I extraced from these files included 1) the written annotation of each recording, and as I did so, I also translated the annotation into characters of the international phonetic alphabet (<a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet">IPA</a>) using Espeak, <a href="http://espeak.sourceforge.net/">an open source speech synthesizer software</a>. I also extracted 2) <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">MFCC</a> data from each recording. Note: I extracted the MFCC data twice, once with added noise, as I found that <a href="/2018/08/22/language-classifier.html">aided model generalizability</a>, and once without added noise, mainly for comparison. 
+
+### Table 1: Filenames, annotation, IPA 'translation' information
+![Imgur](https://i.imgur.com/gzrbKJF.png?1)
+
+### Table 2: MFCC values (columns 0 - 39) with additional necessary information.
+![Imgur](https://i.imgur.com/7dVuL6n.png)
 
 
 ### Resources:
