@@ -52,7 +52,7 @@ I prepared the scripts to allow for adjustment of two key variables: 1) the IPA 
 
 3) with or without overlap 
 
-To give you an idea of what the window shift variable looks like, let's take the word *shallow* as an example. Here is what the '3-letter labels' would look like if they had overlap:
+To give you an idea of what the window shift/ overlap variable looks like, let's take the word *shallow* as an example. Here is what the '3-letter labels' would look like if they had overlap:
 
 * sha, hal, all, llo, low
 
