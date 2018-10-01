@@ -32,7 +32,7 @@ The data were collected with Python scripts and saved in a SQL database. The pur
 
 ## Step two: combine data/prep data for training models
 
-The IPA and MFCC data needed to be paired so the trained model could classify the MFCC data as certain IPA characters. Given my experience with <a href="/2018/09/07/language-classifier-LSTM.html">both simple artificial (ANN) and long short term memory (LSTM) neural networks</a>, I knew I wanted to feed the data to an LSTM network. Therefore, I prepared the data so that I could feed it to the network in sequences. The model would likely learn IPA characters if it trained on MFCC data in short sequences which would capture small speech sounds. For further clarification on this topic, please refer to this <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">post</a>. 
+The IPA and MFCC data needed to be paired so the trained model could classify the MFCC data as certain IPA characters. Given my experience with <a href="/2018/09/07/language-classifier-LSTM.html">both simple artificial (ANN) and long short term memory (LSTM) neural networks</a>, I knew I wanted to feed the data to an LSTM network. Therefore, I prepared the data so that I could feed it to the network in sequences. The model would likely learn IPA characters if it trained on MFCC data in short sequences which would capture small speech sounds. For further clarification on this topic, please refer to this <a href="/2018/09/09/MFCC-extraction-prep-speech-4-deep-learning.html">post</a>. 
 
 Furthermore, for good practice, I randomly assigned each recording sample/annotation to either the training, validation, or testing datasets, with a ratio of 6-2-2, respectively.
 
