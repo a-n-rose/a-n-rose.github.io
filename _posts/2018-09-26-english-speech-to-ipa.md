@@ -71,13 +71,13 @@ fərɛvərjʌŋ
 Let's have a look at how the IPA labels would look like if they had overlap vs no overlap (for the condition *with* IPA stress).
 
 '3-letter labels' with overlap:
-
-* fəˈ, əˈr, ˈrɛ, rɛv, ɛvə, vər, ərj, rjʌ, jʌŋ
-
+```
+fəˈ, əˈr, ˈrɛ, rɛv, ɛvə, vər, ərj, rjʌ, jʌŋ
+```
 Without overlap:
-
-* fəˈ, rɛv, ərj
-
+```
+fəˈ, rɛv, ərj
+```
 Every label required a full 3-letter representation; if three letters were not avaiable at the end of the utterance, those letters/MFCC data were not included in the training (hence the disappearance of ʌŋ in the non-overlap variable example above).
 
 To see the code I wrote to prepare the data, please refer to <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/batch_prep.py">'batch_prep.py'</a> for the functions and <a href="https://github.com/a-n-rose/language-classifier/blob/master/english_speech_to_ipa/combine_align_ipa_mfcc_data.py">'combine_align_ipa_mfcc_data.py'</a> for the main module.
