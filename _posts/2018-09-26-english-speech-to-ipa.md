@@ -54,7 +54,7 @@ I prepared the scripts to allow for adjustment of two key variables: 1) the IPA 
 
 3) with or without overlap 
 
-To give you an idea of what the IPA stress symbol and window shift/ overlap conditions looks like, let's take the saying *forever young* as an example. Here is what the IPA translation looks like:
+To give you an idea of what the IPA stress symbol and window shift/ overlap conditions look like, let's take the saying *forever young* as an example. Here is what the IPA translation looks like:
 
 Original tranlsation (i.e. with a space between the words)
 ```
