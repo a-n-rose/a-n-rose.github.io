@@ -9,7 +9,7 @@ I built many of my applications out of desires for experimentation rather than i
 ## Mimic Master
 The tests I am making for my <a href="/2018/08/24/mimic-master-pitchcurve-vs-fingerprint.html">Mimic Game</a> can be referenced <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic/tree/master/pitch_curve">here</a>.
 
-Note, in order to run the tests easily in the commandline, e.g.:
+Note, in order to run the tests easily in the command line, e.g.:
 ```
 $ python3 test_compare_signals.py
 ```
