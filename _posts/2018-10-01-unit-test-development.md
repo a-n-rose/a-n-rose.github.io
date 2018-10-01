@@ -4,12 +4,20 @@ title: "Developing Unit Tests for my Python Applications"
 date: 2018-10-01
 ---
 
-I built many of my applications out of desires for experimentation rather than implementation. That does not reduce their need for unit testing, however. Therefore, I am going through and adding tests to several of them. Given the variation in complexity, some tests will get implemented faster than others. Read on if you are interested in how I add tests to my applications. 
+I built many of my applications out of desires for experimentation rather than implementation. That does not reduce their need for unit testing, however. Therefore, I am going through and adding tests to several of them. Given the variation in complexity, some tests will get implemented faster than others (I am getting to the simpler functions first). Read on if you are interested in how I add tests to my applications. 
 
 ## Mimic Master
 The tests I am making for my <a href="/2018/08/24/mimic-master-pitchcurve-vs-fingerprint.html">Mimic Game</a> can be referenced <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic/tree/master/pitch_curve">here</a>.
 
-I am beginning with more simple functions. 
+Note, in order to run the tests easily in the commandline, e.g.:
+```
+$ python3 test_compare_signals.py
+```
+I include the following in all of my test scripts.:
+```
+if __name__=="__main__":
+    unittest.main()
+```
 
 ### test_analyse_audio.py
 
