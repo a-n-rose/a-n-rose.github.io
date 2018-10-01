@@ -89,7 +89,7 @@ Articles I've found interesting/helpful:
 
 * Tips from 1st place Kaggle contestant of the <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/46945">speech recogition challenge.</a>
 
-* <a href="https://www.sciencedirect.com/science/article/pii/S1877050917304544">Paper</a< on development of multilingual speech recognition models.
+* <a href="https://www.sciencedirect.com/science/article/pii/S1877050917304544">Paper</a> on development of multilingual speech recognition models.
 
 * <a href = "https://iamtrask.github.io/2015/07/27/python-network-part2/">Gradient Descent</a> - I found the graphics helpful and made me look at neural nets a new way.
 
