@@ -18,11 +18,11 @@ The first step in collecting the data I needed was to understand the <a href="/2
 
 The data I extracted from these files, which I will explain further below, included 1) international phonetic alphabet (<a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet">IPA</a>) representations of the annotations and 2) MFCC data representing the audio data.
 
-As I extracted the written annotation of each recording, I translated the annotation into characters of the IPA using Espeak, <a href="http://espeak.sourceforge.net/">an open source speech synthesizer software</a>. The reason I wanted the transcripts in the IPA was because the IPA was developed to represent all sounds in langauges. In a language's alphabet, often times a single sound is represented by several letters. For example, in German, *sch* - pronounced *sh* as in *shoe* - and *dsch* - pronounced *j* as in *jungle* - are sounds with a lot of letters that can be represented in IPA with fewer characters: ʃ  and dʒ, respectively.
+As I extracted the written annotation of each recording, I transcribed the annotation into characters of the IPA using Espeak, <a href="http://espeak.sourceforge.net/">an open source speech synthesizer software</a>. The reason I wanted the transcripts in the IPA was because the IPA was developed to represent all sounds in langauges. In a language's alphabet, often times a single sound is represented by several letters. For example, in German, *sch* - pronounced *sh* as in *shoe* - and *dsch* - pronounced *j* as in *jungle* - are sounds with a lot of letters that can be represented in IPA with fewer characters: ʃ  and dʒ, respectively.
 
 I also extracted <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">MFCC</a> data from each recording. While extracting, I applied my <a href="https://a-n-rose.github.io/2018/09/06/updating-VAD.html">voice activity detection (VAD) function</a> to avoid collecting MFCC data during the beginning and ending silences of recordings. Note: I extracted the MFCC data twice, once with added noise, as I found that <a href="/2018/08/22/language-classifier.html">aided model generalizability</a>, and once without added noise, mainly for comparison. 
 
-### Table 1: Filenames, annotation, IPA 'translation' information
+### Table 1: Filenames, annotation, IPA transcription information
 ![Imgur](https://i.imgur.com/gzrbKJF.png?2)
 
 ### Table 2: MFCC values (columns 0 - 39) with additional necessary information.
@@ -54,9 +54,9 @@ I prepared the scripts to allow for adjustment of two key variables: 1) the IPA 
 
 3) with or without overlap 
 
-To give you an idea of what the IPA stress symbol and window shift/ overlap conditions look like, let's take the saying *forever young* as an example. Here is what the IPA translation looks like:
+To give you an idea of what the IPA stress symbol and window shift/ overlap conditions look like, let's take the saying *forever young* as an example. Here is what the IPA transcription looks like:
 
-Original tranlsation (i.e. with a space between the words)
+Original transcription (i.e. with a space between the words)
 ```
 fəˈrɛvər jʌŋ
 ```
@@ -100,7 +100,7 @@ I would be curious to further explore training models with these loosely aligned
 
 If I did further explore a model, I would likely explore a model trained on MFCC data *with* noise added and aligned with IPA characters *with* stress markers. In <a href="/2018/08/22/language-classifier.html">past experiences with neural networks</a>, I found the models trained on data with added noise generalized better to realworld data. Also, even though there was a slight increase in accuracy for the models trained with overlapping MFCC data, that increase is not large enough to make up for the more than double amount of data necessary.
 
-In sum, the findings of this small experiment reveal that IPA characters - when used with their <a href="https://en.wikipedia.org/wiki/Suprasegmentals">suprasegmental</a> markers - can be used to create loose alignments with speech productions and result in potentially reliable training data. The findings also reveal the reliability of Espeak's software which translated the English text to IPA letters. My next step is developing an application to collect new English speech and apply these models to see which handles realworld data best. 
+In sum, the findings of this small experiment reveal that IPA characters - when used with their <a href="https://en.wikipedia.org/wiki/Suprasegmentals">suprasegmental</a> markers - can be used to create loose alignments with speech productions and result in potentially reliable training data. The findings also reveal the reliability of Espeak's software which 'translated' the English text to IPA letters. My next steps include developing an application to collect new English speech and apply these models to see which handles realworld data best. Additionally, I will explore whether adding an <a href="https://towardsdatascience.com/neural-network-embeddings-explained-4d028e6f0526">embedding layer</a> might decrease memory/computation costs and improve model performance.
 
 ### Resources:
 
