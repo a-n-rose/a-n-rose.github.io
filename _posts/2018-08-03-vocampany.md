@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Forever Vocab: collect word treasures you find and get tested on them later"
-date: 2018-08-03
+date: 2018-11-01
 ---
 
-I am dissatisfied with the vocab apps I have come across - maybe it's cause I'm just looking at the free ones. Regardless, I am sad I am daily loosing vocabulary because I just haven't found the tool that works for me.
+Below I think about what I would like in my ideal vocab app. The one I'm actually creating though, while more humble is still helpful! The code can be found <a href="https://github.com/a-n-rose/Vocab-Collector-and-Tester">here</a>.
 
 What is a vocab tool that would work for me? One that allows me to collect words no matter where I'm reading them, save them to a themed list, and then have that app test me on those words with different measures: 1) multiple choice, 2) fill in the blank, 3) synonyms/antonyms. And maybe 4) pronunciation. (The last measure would likely be several versions down the road).
 
