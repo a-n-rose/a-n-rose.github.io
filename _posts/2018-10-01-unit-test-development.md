@@ -6,6 +6,9 @@ date: 2018-10-01
 
 I built many of my applications out of desires for experimentation rather than implementation. That does not reduce their need for unit testing, however. Therefore, I am going through and adding tests to several of them. Given the variation in complexity, some tests will get implemented faster than others (I am getting to the simpler functions first). Read on if you are interested in how I add tests to my applications. 
 
+## UPDATE:
+While I may continue building tests for the applciations below, my current goal is to simply do my best to implement unittesting for all apps I make in the future. The one I am working on as of November 2nd, 2018 is my vocab app (code available <a href="https://github.com/a-n-rose/Vocab-Collector-and-Tester">here</a> and you can also read my <a href="/2018/11/01/vocab-app.html">blog post</a> (in the works... as is this post...))
+
 ## Mimic Master
 The tests I am making for my <a href="/2018/08/24/mimic-master-pitchcurve-vs-fingerprint.html">Mimic Game</a> can be referenced <a href="https://github.com/a-n-rose/mimic-master-how-well-can-you-mimic/tree/master/pitch_curve">here</a>.
 
