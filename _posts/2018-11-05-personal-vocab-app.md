@@ -24,6 +24,13 @@ The current version can be found in this <a href="https://github.com/a-n-rose/Vo
 
 My first version is pretty simple. There is no GUI; one uses the app via command line. I built it with Python 3.5 so the only installation necessary is Numpy. Otherwise, all other libraries are built in. 
 
+Functionality includes: 
+* create account
+* save multiple lists
+* tag lists
+* add words with definition, examples sentences, and tags
+* quiz knowledge with flashcards, multiple choice, and fill-in-the-blank tests
+
 Here is a basic run through once you run 'vocab_run.py'. 
 
 Note: input is marked with preceding arrows.
