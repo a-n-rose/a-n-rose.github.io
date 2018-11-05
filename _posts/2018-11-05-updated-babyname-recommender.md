@@ -6,7 +6,7 @@ date: 2018-11-05
 
 Don't get any ideas; I'm not pregnant nor am I planning to be. This is just a really fun project that I built in the past (while I was pregnant). 
 
-Back then I had the goal to understand frontend better. I learned a lot but I'm happy to further explore this recommendation system in just the backend world.
+Back then I had the goal to understand frontend better, and I implemented a recommender with frontend in mind. I learned a lot but I'm happy to further explore this recommendation system in just the backend world.
 
 The repo and code can be viewed <a href="https://github.com/a-n-rose/recommendation-systems-python/tree/master/babyname_recommender">here</a>.
 
@@ -50,8 +50,13 @@ Margaret,F,1578
 
 Looking at this and knowing I want to keep as much information in the database as possible I will build a database with the following structure:
 
-1) table with all names and assigned sex --> name_id; name; sex; 
-2) table for all years and the popularity of each name in that year --> year_id; year; popularity; name_id (links to the name/parent table)
+1) table with all names and assigned sex 
+
+columns --> name_id; name; sex; 
+
+2) table for all years and the popularity of each name in that year 
+
+columns --> year_id; year; popularity; name_id (links to the name/parent table)
 
 I can add additional tables later, for example tables with phonological information or name meanings (e.g. dream, protector) and backgrounds (e.g. Arabic, Irish).
 
@@ -59,15 +64,15 @@ While in the long-run I'd prefer to work with SQLAlchemy, I will build this firs
 
 ## Write the Code: General Tips
 
-1) 
+1) **Appropriately close the database**
 
-One key thing to remember when setting up code to save data to a database is to ensure you can **appropriately close the database**, despite any errors that may come up. For that, common practice in Python is to use the 'try statement'. The 'try statement' includes also 'except' and, optionally, 'finally' statements (see <a href="https://www.w3schools.com/python/python_try_except.asp">here</a>).
+One key thing to remember when setting up code to save data to a database is to ensure you can appropriately close the database, despite any errors that may come up. For that, common practice in Python is to use the 'try statement'. The 'try statement' includes also 'except' and, optionally, 'finally' statements (see <a href="https://www.w3schools.com/python/python_try_except.asp">here</a>).
 
 Basically it tries some code and if it fails, it can get taken care of/ handled in the 'except' statement (let's say you don't want an error to stop your entire program). And in the 'finally' statement, anything else you want to be completed gets completed. Like, for example, appropriately closing your database so no data gets lost or messed up.
 
-2)
+2) **show/log/print progress**
 
-Another helpful thing I've found is to **show progress**. There are some fancy options for that but I often times just code something like this:
+Another helpful thing I've found is to show progress. There are some fancy options for that but I often times just code something like this:
 ```
 total_data = len(data)
 count=0
@@ -83,9 +88,9 @@ This spits out something like this at every iteration:
 ```
 Yes, that means that my shell/screen is just full of lines like that above but... it helps me stay sane. It's on my ToDo list to improve. Don't judge. 
 
-3) 
+3) **Simplify functionality**
 
-**Simplify functionality**. I'll be the first to admit it: it is fun to squeeze in as much functionality into one function. But it is a deep pimple to squeeze out if anything goes wrong. If you see your code exceeding 5 indendtations, seperate it into separate functions. That way your code is more understandable for others and yourself and you can also more easily apply unittesting if you so please.
+I'll be the first to admit it: it is fun to squeeze in as much functionality into one function. But it is a deep pimple to squeeze out if anything goes wrong. If you see your code exceeding 5 indendtations, seperate it into separate functions. That way your code is more understandable for others and yourself and you can also more easily apply unittesting if you so please.
 
 ## My code:
 
@@ -97,10 +102,9 @@ I separated my functionality into three modules:
 
 3) error module that holds any errors that I raise.
 
-I can put out there the simpler modules: 
-The main module (as of this writing called 'database_setup.py')
+First, the main module, as of this writing called 'database_setup.py'.
 
-Notice the 'try statment' and in general how nice and simple this is.
+Notice the 'try statment' and that in general it looks nice and simple.
 ```
 import sqlite3
 import traceback
@@ -122,9 +126,9 @@ if __name__ == '__main__':
             bn.conn.close()
 ```
 
-This code imports the more complicated, meaty module: 'data_prep_babyname', which is saved as data_prep_babyname.py.
+This code imports the more complicated, meaty class 'Setup_Name_DB' from the module 'data_prep_babyname.py'. 
 
-That code I will break down first. 
+I will break down the code in 'data_prep_babyname.py'. 
 
 It defines a class called 'Setup_Name_DB'. This class is initiated with a database name. It is programmed to search for text files and extract the data contained in them and save to an SQL database.
 
@@ -132,14 +136,14 @@ Before one can save data to an SQL database, you have to
 
 1) connect and create a database and
 
-2) form the databse skeleton.
+2) form the database skeleton.
 
 Below is code where I do that. First I import the necessary libraries.
-I also import an error I defined in errors.py called 'MissingNameID'
+I also import an error I defined in 'errors.py' called 'MissingNameID'
 
 Whenever Setup_Name_DB gets initiated, it creates/initializes a database. 
 
-To form the skeleton, at least of the tables I want to insert data, I create the tables I need. When creating them, I need to specify the column names and the type of data they will hold. The tables I created here are the 'names' table and the 'popularity' table.
+To form the skeleton, at least of the tables into which I want to insert data, I create the tables I need. When creating them, I need to specify the column names and the type of data they will hold. The tables I created here are the 'names' table and the 'popularity' table.
 
 I also wrote a function 'execute_commit_msg'. I just got tired of entering the contents of this function in other functions... so I wrote a function for it.
 
@@ -205,13 +209,11 @@ The next function 'save_name_data_2_SQL' is where the work gets done. It looks s
 ```
 All of the code can be found <a href="https://github.com/a-n-rose/recommendation-systems-python/blob/master/babyname_recommender/data_prep_babyname.py">here</a> but these functions above provide the necessary context. These are also what get called in the main function. 
 
-Lest I forget, the errors. They are also really important. The reason why I coded an error is because inserting data into SQL databases is tricky. I don't want to spend 2 hours inserting data and because of one little error, which I could have handled, cause me extra hours work. 
+Lest I forget, the errors. They are also really important. The reason why I coded an error is because inserting data into SQL databases is tricky. I don't want to spend 2 hours inserting data and because of one little error, which I could have handled, cause me extra hours work making sure I don't waste 2 more hours overwriting data I already have. Blah blah blah. 
 
-In the function 'insert_name_data', I'm not always sure if there is data to insert or if that data already exists in the table. If I can skip work I don't have to do, I'll always skip it.
+In the function 'insert_name_data', I'm not always sure if there is data to insert.
 
-Find the function 'self.get_name_id'. I couldn't be sure if it existed in the names table, but it was imperative for inserting data about name popularity given a year. Therefore, if no name id could be found, I decided to raise a 'MissingNameID' error just in case. 
-
-If I raise the error myself, I can make sure it doesn't stop my program. In my 'except' statment, I include a print statement (which should actually be a logging statement), stating that the name id wasn't collected and that that year's data for that name could not be saved.
+Find the function 'self.get_name_id'. I couldn't be sure if the name_id existed in the names table, but it was imperative for inserting data about name popularity given a year. Therefore, if no name id could be found, I decided to raise a 'MissingNameID' to "pass" that name's popularity data for that year, error just in case. Otherwise, an error would raise and my entire program would shut down. (See the 'except' statement.)
 
 ```
     def insert_name_data(self,data_entry,year):
@@ -252,11 +254,11 @@ class Error(Exception):
 class MissingNameID(Error):
     pass
 ```
-First the Error class had to be created, then I could create my own, inheriting from that Error class. 
+First the Error class had to be created, then I could create my own, inheriting functionality from that Error class. 
 
 ## Next Steps
 
-I have only inserted part of the data into the SQL database. Therefore currently I am still working on that. 
+I have only inserted part of the data into the SQL database and see it is taking a while, just for 3 years. Therefore currently I am still working on that and wondering if I could scratch the for loop without killing my sweet, harmless computer... (but I might kill it for being so slow....)
 
 In addition I am brainstorming all the kinds of features I can create in order to improve my recommendation system. 
 
