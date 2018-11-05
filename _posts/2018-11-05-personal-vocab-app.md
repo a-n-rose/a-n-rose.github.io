@@ -28,6 +28,8 @@ My first version is pretty simple. There is no GUI; one uses the app via command
 
 Here is a basic run through once you run 'vocab_run.py'. 
 
+Note: input is marked with a preceding '>>>'.
+
 First prompt:
 
 ```
@@ -36,7 +38,7 @@ Spaces and special characters will be removed:
 ```
 Just for fun I'll enter in  
 ```
-$ $A)#ni__k   a*( 
+>>> $A)#ni__k   a*( 
 ```
 which will get saved as 'Anika' as spaces and special chars get removed from usernamee. This will result in the output:
 ```
@@ -46,10 +48,8 @@ Welcome Anika! Enter a password to create your account
 
 Password: 
 
-```
-I'll enter a fancy password, cause I don't want anyone to ever find out the ridiculous words I'm learning :P 
+>>> some_password
 
-```
 You're account has been created.
 Get started by creating your first list.
 
@@ -63,27 +63,16 @@ Action:
 2) create new list
 Enter 1 or 2 (or exit): 
 
-```
+>>> 1
 
-Just to see what happens, I'll enter 
-```
-1
-```
-```
 It looks like you don't have a list. Start one now!
 Name of list: 
-```
-I need to brush up on my Spanish so I'll go with 
-```
-'Spanish 101'
-```
-The next prompt is:
-```
+
+>>> 'Spanish 101'
+
 Tags (separated by ;)
-```
-I'll enter 
-```
-'brush-up; basic; every-day'
+
+>>> 'brush-up; basic; every-day'
 ```
 Great! The list has been created. My next menu is the word menu:
 ```
@@ -92,26 +81,24 @@ Action:
 2) review words 
 3) change list
 Enter 1, 2, 3 (or exit): 
-```
 
-Well, I gotta add some words.
+>>> 1
 
-```
 New word: 
 
-hola
+>>> hola
 
 Meaning: 
 
-hello
+>>> hello
 
 Example sentence (if multiple, separate by ; ) 
 
-Hola, ¿cómo estás?
+>>> Hola, ¿cómo estás?
 
 Tags (separated by ;)
 
-greeting
+>>> greeting
 ```
 
 Once I've added that word, I get the same menu again:
@@ -125,10 +112,8 @@ Enter 1, 2, 3 (or exit):
 
 This time I'll show you some 'review' or quizzing functionality by entering:
 ```
-2
-```
+>>> 2
 
-```
 Review:
 1) Flashcards
 2) Multiple Choice
@@ -138,16 +123,15 @@ Enter 1, 2, 3, 4 (or exit):
 ```
 I want to show you 'fill-in-the-blank'
 ```
-3
-```
-```
+>>> 3
+
 Enter the word that fills the blank.
 
 
 ____, ¿cómo estás?
 Your answer:
 
-Hola
+>>> Hola
 
 
 Way to go!
