@@ -144,6 +144,9 @@ Action:
 3) change list
 
 ```
+
+This should give you an idea of how the app works and what you can do with it. 
+
 ## What I'm working on now
 
-I'm bouncing back and forth between *creating unittests* and improving/*building onto functionality*. For example, I want to keep track of users' performances on their lists, to be able to quiz them if they haven't tested words in a while, as well as so many other things. 
+I'm bouncing back and forth between **creating unittests** and improving/ **building onto functionality**. For example, I want to keep track of users' performances on their lists, to be able to quiz them if they haven't tested words in a while, as well as so many other things. 
