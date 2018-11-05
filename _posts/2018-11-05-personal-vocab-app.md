@@ -26,7 +26,7 @@ My first version is pretty simple. There is no GUI; one uses the app via command
 
 Here is a basic run through once you run 'vocab_run.py'. 
 
-Note: input is marked with a preceding '>>>'.
+Note: input is marked with preceding arrows.
 
 First prompt:
 
