@@ -38,7 +38,7 @@ Just for fun I'll enter in
 ```
 >>> $A)#ni__k   a*( 
 ```
-which will get saved as 'Anika' as spaces and special chars get removed from usernamee. This will result in the output:
+which will get saved as 'Anika' as spaces and special chars get removed from username. This will result in the output:
 ```
 Your username will be saved as 'Anika'
 
