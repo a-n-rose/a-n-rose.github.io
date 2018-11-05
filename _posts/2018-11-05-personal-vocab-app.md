@@ -7,7 +7,9 @@ date: 2018-11-05
 I'm finally putting it together: my own personal vocabulary etc. collector! High five to self. I have several goals for this project: 
 
 1) create a knowledge collector that works for me
+
 2) improve my overall organization of code and functionality
+
 3) practice unittesting development with SQLite3 and OOP functionality
 
 and eventually
