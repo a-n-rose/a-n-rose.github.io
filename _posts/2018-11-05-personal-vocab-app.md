@@ -65,23 +65,26 @@ Enter 1 or 2 (or exit):
 
 ```
 
-Just to see what happens, I'll enter '1':
+Just to see what happens, I'll enter 
+```
+1
+```
 ```
 It looks like you don't have a list. Start one now!
 Name of list: 
 ```
 I need to brush up on my Spanish so I'll go with 
-
+```
 'Spanish 101'
-
+```
 The next prompt is:
 ```
 Tags (separated by ;)
 ```
 I'll enter 
-
+```
 'brush-up; basic; every-day'
-
+```
 Great! The list has been created. My next menu is the word menu:
 ```
 Action:
@@ -95,21 +98,21 @@ Well, I gotta add some words.
 
 ```
 New word: 
-```
-hola
-```
-Meaning: 
-```
-hello
-```
-Example sentence (if multiple, separate by ; ) 
-```
-Hola, ¿cómo estás?
-```
-Tags (separated by ;)
-```
-greeting
 
+hola
+
+Meaning: 
+
+hello
+
+Example sentence (if multiple, separate by ; ) 
+
+Hola, ¿cómo estás?
+
+Tags (separated by ;)
+
+greeting
+```
 
 Once I've added that word, I get the same menu again:
 ```
@@ -121,9 +124,9 @@ Enter 1, 2, 3 (or exit):
 ```
 
 This time I'll show you some 'review' or quizzing functionality by entering:
-
+```
 2
-
+```
 
 ```
 Review:
@@ -134,18 +137,18 @@ Review:
 Enter 1, 2, 3, 4 (or exit): 
 ```
 I want to show you 'fill-in-the-blank'
-
+```
 3
-
+```
 ```
 Enter the word that fills the blank.
 
 
 ____, ¿cómo estás?
 Your answer:
-```
+
 Hola
-```
+
 
 Way to go!
 
@@ -161,4 +164,4 @@ Action:
 ```
 ## What I'm working on now
 
-I'm currently bouncing back and forth between *creating unittests* and improving/*building onto functionality*. For example, I want to keep track of users' performances on their lists, to be able to quiz them if they haven't tested words in a while, as well as so many other things. 
+I'm bouncing back and forth between *creating unittests* and improving/*building onto functionality*. For example, I want to keep track of users' performances on their lists, to be able to quiz them if they haven't tested words in a while, as well as so many other things. 
