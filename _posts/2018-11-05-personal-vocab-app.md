@@ -18,8 +18,6 @@ and eventually
 
 All of the above will likely be constant 'works-in-progress', which is good. Otherwise it probably means I'm dead. Or bored of this project. 
 
-Anyways, to be honest, I wanted to develop this vocab app with a mindset of "test-driven development". That lasted maybe 2 hours. I found that I first needed a basic version of the app to figure out a working layout. To that I would create and apply tests. Those plans for developing unittests *did* help me to keep functionality more separate, though, so in a way I did build it in a test-driven way..
-
 The current version can be found in this <a href="https://github.com/a-n-rose/Vocab-Collector-and-Tester">repo</a>.
 
 ## Version 1
