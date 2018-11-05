@@ -26,7 +26,9 @@ The current version can be found in this <a href="https://github.com/a-n-rose/Vo
 
 My first version is pretty simple. There is no GUI; one uses the app via command line. I built it with Python 3.5 so the only installation necessary is Numpy. Otherwise, all other libraries are built in. 
 
-Here is a basic run through once you run 'vocab_run.py'. The command line prompts are quoted.
+Here is a basic run through once you run 'vocab_run.py'. 
+
+First prompt:
 
 ```
 Username: 
@@ -68,12 +70,17 @@ Just to see what happens, I'll enter '1':
 It looks like you don't have a list. Start one now!
 Name of list: 
 ```
-I need to brush up on my Spanish so I'll go with 'Spanish 101'
+I need to brush up on my Spanish so I'll go with 
+
+'Spanish 101'
+
 The next prompt is:
 ```
 Tags (separated by ;)
 ```
-I'll enter 'brush-up; basic; every-day'
+I'll enter 
+
+'brush-up; basic; every-day'
 
 Great! The list has been created. My next menu is the word menu:
 ```
@@ -84,7 +91,7 @@ Action:
 Enter 1, 2, 3 (or exit): 
 ```
 
-I gotta add some words.
+Well, I gotta add some words.
 
 ```
 New word: 
@@ -113,7 +120,10 @@ Action:
 Enter 1, 2, 3 (or exit): 
 ```
 
-This time I'll show you some review functionality:
+This time I'll show you some 'review' or quizzing functionality by entering:
+
+2
+
 
 ```
 Review:
@@ -124,6 +134,8 @@ Review:
 Enter 1, 2, 3, 4 (or exit): 
 ```
 I want to show you 'fill-in-the-blank'
+
+3
 
 ```
 Enter the word that fills the blank.
