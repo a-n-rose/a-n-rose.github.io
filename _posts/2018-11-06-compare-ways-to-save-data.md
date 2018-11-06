@@ -25,7 +25,6 @@ def save_name_data_2_SQL(self):
     text_files = self.collect_filenames()
     num_years = len(text_files)
     for text_path in text_files:
-        year_start = time.time()
         with open(text_path) as f:
             data = f.read()
         year = self.get_year(text_path)
@@ -39,7 +38,6 @@ def save_name_data_2_SQL(self):
         
         for entry in name_data:
             self.insert_name_data(entry,year)
-            section = 'names of {}'.format(year)
             
             
     return None
