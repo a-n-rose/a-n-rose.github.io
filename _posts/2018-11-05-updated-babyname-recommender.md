@@ -10,7 +10,7 @@ Back then I had the goal to understand frontend better, and I implemented a reco
 
 The repo and code can be viewed <a href="https://github.com/a-n-rose/recommendation-systems-python/tree/master/babyname_recommender">here</a>.
 
-I explore different techniques for saving data to SLQ databases in this <a href="/2018/11/06/compare-ways-to-save-data.html">post</a>, for example, the advantages and disadvantages of using a for loop (which is in my code below) vs lambda and list comprehensions when inserting data. Quickly put, depending on how much memmory your computer has, one or the other is better. 
+I compare different techniques for saving this name data to SQL databases in this <a href="/2018/11/06/compare-ways-to-save-data.html">post</a>. In it I show the time difference in saving the data iteratively via for-loop vs batch insert with the help of dictionaries. Dictionaries are definitely worth your while. 
 
 ## Collect the names
 
@@ -22,7 +22,7 @@ I unzipped the file into a subdirectory of my current working directory 'names'.
 
 This sounds easy but it does require some extra thought. When creating a database, it is easier in the long-run to build a database with sufficient feature columns as well as tables (and there can be many) than to build a database with insufficient columns and tables, only to have to add/change them later. I at least don't have fun doing that, so I try to avoid that. 
 
-For my name database, I need to think about the possible functionality. For example, what I did last time was I retained only the most recent use of a name. That means that I didn't keep how popular the name 'Anna', for example, was in the year 1903. I can imagine someone (myself included) being interested in exploring names popular in a specific year, and if I store data that way, I can't do that. 
+For my name database, I need to think about the possible functionality. For example, what I did last time (basically to avoid dealing with this issue) was, I retained only the most recent use of a name. That means that I didn't keep how popular the name 'Anna', for example, was in the year 1903. I can imagine someone (myself included) being interested in exploring names popular in a specific year, and if I store data that way, I can't do that. 
 
 Ideas for functionality:
 * check for overall popularity: all-time favorites
@@ -48,6 +48,26 @@ Minnie,F,1746
 Margaret,F,1578
 ```
 
+So what does the data look like?
+
+### Figure 1: Number of Unique Baby Names in the USA
+![Imgur](https://i.imgur.com/BpF9BdM.png)
+#### This graph shows the number of unique names given to babies each year. Note: all names included were used in their corresponding year at least 5 times, with some almost 10,000 times (some years had around 10,000 US American babies all with the same name). 
+
+There are more name data as the years progress. I imagine much of this has to do with the increase in population. But I also wonder if it also has cultural correlations? For example, perhaps in more modern times, parents want more unique names for their children. Therefore, there are more name data as years progress because more babies have more unique names.
+
+### Figure 2: Number of Babies per Year (based on US social security applications)
+![Imgur](https://i.imgur.com/rIzca6f.png)
+#### This graph shows the total number of babies recorded that year (with a name popularity of at least 5, meaning at least 5 babies must have been given that name)
+
+This graph looks very similar to Figure 1, which means that population probably accounts for most of the increase in baby name data through the years. But it is still interesting to see if unique names increase, decrease, or stay the same through the years.
+
+### Figure 3: Percentage of Babies with the Most Popular Name
+![Imgur](https://i.imgur.com/kbgoxXs.png)
+#### The percent of babies with the year's most popular name goes down as years progress. This could mean that parents are trying to give their babies more unique names in more recent times. 
+
+This helps give us an primitive idea of how the data looks and how it behaves.
+
 ### Plan the database
 
 Looking at this and knowing I want to keep as much information in the database as possible I will build a database with the following structure:
@@ -62,7 +82,7 @@ columns --> year_id; year; popularity; name_id (links to the name/parent table)
 
 I can add additional tables later, for example tables with phonological information or name meanings (e.g. dream, protector) and backgrounds (e.g. Arabic, Irish).
 
-While in the long-run I'd prefer to work with SQLAlchemy, I will build this first version with SQLite3 as it comes preinstalled in Python3+. My goal is to make this as starter friendly as possible. 
+The reason I separate the data into 2 tables is because this allows the least amount of redundant information to be saved. In one table I can save the name and the sex, without repeats. I don't need to have 200,000,000 rows dedicated to the name Charles. I can have Charles saved safely there, and linked to other data in various years with its ID. What allows me to remove all repeats of the names is the fact I made a separate table for the year and popularity data. The year and popularity data can be linked to the associated name via name ID. 
 
 ## Write the Code: General Tips
 
@@ -70,29 +90,17 @@ While in the long-run I'd prefer to work with SQLAlchemy, I will build this firs
 
 One key thing to remember when setting up code to save data to a database is to ensure you can appropriately close the database, despite any errors that may come up. For that, common practice in Python is to use the 'try statement'. The 'try statement' includes also 'except' and, optionally, 'finally' statements (see <a href="https://www.w3schools.com/python/python_try_except.asp">here</a>).
 
-Basically it tries some code and if it fails, it can get taken care of/ handled in the 'except' statement (let's say you don't want an error to stop your entire program). And in the 'finally' statement, anything else you want to be completed gets completed. Like, for example, appropriately closing your database so no data gets lost or messed up.
+Basically it tries some code and if it fails, it can get taken care of/ handled in the 'except' statement (let's say you don't want an error to stop your entire program). And in the 'finally' statement, anything else you want to be completed gets completed. Like, for example, appropriately closing your database so no data gets lost or messed up. 
 
-2) **show/log/print progress**
-
-Another helpful thing I've found is to show progress. There are some fancy options for that but I often times just code something like this:
-```
-total_data = len(data)
-count=0
-for sample in tot_data:
-    count+=1
-    #get a percentage rounded to 2 decimal places
-    percent = round(count/float(total_data)*100,2)
-    print("{}% through all data".format())
-```
-This spits out something like this at every iteration:
-```
-2.01% through all data
-```
-Yes, that means that my shell/screen is just full of lines like that above but... it helps me stay sane. It's on my ToDo list to improve. Don't judge. 
-
-3) **Simplify functionality**
+2) **Simplify functionality**
 
 I'll be the first to admit it: it is fun to squeeze in as much functionality into one function. But it is a deep pimple to squeeze out if anything goes wrong. If you see your code exceeding 5 indendtations, seperate it into separate functions. That way your code is more understandable for others and yourself and you can also more easily apply unittesting if you so please.
+
+3) **If something is running slow, see if dictionaries help**
+
+My first version of these functions did not use dictionaries; it just inserted data iteratively, as it collected it. It would probably still be running if I hadn't stopped it. 
+
+Knowing whether you should use a for-loop, list-comprehension, dictionary, apply.lambda, dataframes, etc. can sometimes be difficult. Memory constraints can be an issue (which is why I initially when with a for-loop iteration of inserting data) meaning something that works really really fast for smaller amounts of data crashes your computer when you work with millions of rows. You get the best idea by just trying stuff out. That way you develop a feeling for when what works best.
 
 ## My code:
 
