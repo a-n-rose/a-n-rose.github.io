@@ -100,7 +100,7 @@ def data_2_dict(self):
         year_data_dict[year] = name_data
     return year_data_dict
 ```
-From there I wasn't sure how to create unique IDs for the names in order to link the tables 'names' and 'popuarity'. In my for-loop, SQL filled in the ID values for me, linking the table without me having to do much. 
+From there I wasn't sure how to create unique IDs for the names in order to link the tables 'names' and 'popularity'. In my iterative insert, SQL filled in the ID values for me, linking the table without me having to do much. 
 
 Shortly though, I found an easy solution: count += 1
 
