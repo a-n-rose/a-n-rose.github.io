@@ -22,23 +22,23 @@ Your machine strengths and weaknesses can help you determine the best way to han
 
 Let's get a quick look at the data. 
 
-### Number of Unique Baby Names in the USA
+### Figure 1: Number of Unique Baby Names in the USA
 ![Imgur](https://i.imgur.com/BpF9BdM.png)
-#### This graph shows the number of unique names give to babies each year. Note: all names included were used in their corresponding year at least 5 times, with some almost 10,000 times (some years had around 10,000 US American babies all with the same name). 
+#### This graph shows the number of unique names given to babies each year. Note: all names included were used in their corresponding year at least 5 times, with some almost 10,000 times (some years had around 10,000 US American babies all with the same name). 
 
-There is a lot more name data as the years progress. I imagine much of this has to do with the increase in population. But I also wonder if it is has cultural correlations? For example, perhaps in more modern times, parents wanted more unique names for their children. Therefore, more name data results also because more babies have different names.
+There are more name data as the years progress. I imagine much of this has to do with the increase in population. But I also wonder if it also has cultural correlations? For example, perhaps in more modern times, parents want more unique names for their children. Therefore, there are more name data as years progress because more babies have more unique names.
 
-### Number of Babies per Year (based on US social security applications)
+### Figure 2: Number of Babies per Year (based on US social security applications)
 ![Imgur](https://i.imgur.com/rIzca6f.png)
 #### This graph shows the total number of babies recorded that year (with a name popularity of at least 5, meaning at least 5 babies must have been given that name)
 
-This graph looks very similar to Figure 1, which means that population probably accounts for the increase in baby name data through the years. But it is still interesting to see if unique names increase, decrease, or stay the same through the years.
+This graph looks very similar to Figure 1, which means that population probably accounts for most of the increase in baby name data through the years. But it is still interesting to see if unique names increase, decrease, or stay the same through the years.
 
-### Percentage of Babies with Most Popular Name
+### Figure 3: Percentage of Babies with the Most Popular Name
 ![Imgur](https://i.imgur.com/kbgoxXs.png)
 #### The percent of babies with the year's most popular name goes down as years progress. This could mean that parents are trying to give their babies more unique names in more recent times. 
 
-This helps give us an idea of how the data looks. As the years progress, more name data will have to be inserted into the database, a relavant issue to think about when writing code for that. 
+This helps give us an idea of how the data looks. As the years progress, more name data will have to be inserted into the database, a relavant issue to think about when writing code to do that. 
 
 
 ## For Loop and SQLite3
