@@ -10,6 +10,8 @@ Back then I had the goal to understand frontend better, and I implemented a reco
 
 The repo and code can be viewed <a href="https://github.com/a-n-rose/recommendation-systems-python/tree/master/babyname_recommender">here</a>.
 
+I explore different techniques for saving data to SLQ databases in this <a href="/2018/11/06/compare-ways-to-save-data.html">post</a>, for example, the advantages and disadvantages of using a for loop (which is in my code below) vs lambda and list comprehensions when inserting data. Quickly put, depending on how much memmory your computer has, one or the other is better. 
+
 ## Collect the names
 
 The most updated name list can be found at <a href="https://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data">data.org</a>. It is a collection of names from USA social security applications, dating from 1879/1880 until, as of writing this, 2017. 
