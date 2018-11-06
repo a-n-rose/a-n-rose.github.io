@@ -64,7 +64,7 @@ This graph looks very similar to Figure 1, which means that population probably 
 
 ### Figure 3: Percentage of Babies with the Most Popular Name
 ![Imgur](https://i.imgur.com/kbgoxXs.png)
-#### The percent of babies with the year's most popular name goes down as years progress. This could mean that parents are trying to give their babies more unique names in more recent times. 
+#### The percent of babies with the year's most popular name goes down as years progress. This could mean that parents are trying to give their babies more unique names in more recent times. It could also be a sign of the increasing cultural diversity in the US, resulting in much more diverse names.
 
 This helps give us an primitive idea of how the data looks and how it behaves.
 
