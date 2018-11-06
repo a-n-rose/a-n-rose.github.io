@@ -94,23 +94,21 @@ Basically it tries some code and if it fails, it can get taken care of/ handled 
 
 2) **Simplify functionality**
 
-I'll be the first to admit it: it is fun to squeeze in as much functionality into one function. But it is a deep pimple to squeeze out if anything goes wrong. If you see your code exceeding 5 indendtations, seperate it into separate functions. That way your code is more understandable for others and yourself and you can also more easily apply unittesting if you so please.
+I'll be the first to admit it: it is fun to squeeze in as much functionality into one function. But it is a deep pimple to squeeze out if anything goes wrong. If you see your code exceeding 5 indentations, separate it into separate functions. That way your code is more understandable for others and yourself and you can also more easily apply unittesting if you so please.
 
 3) **If something is running slow, see if dictionaries help**
 
-My first version of these functions did not use dictionaries; it just inserted data iteratively, as it collected it. It would probably still be running if I hadn't stopped it. 
+My first version of these functions did not use dictionaries; it just inserted data iteratively, as it collected it. It would probably still be running if I hadn't stopped it. When I used dictionaries instead, the program finished within 40 seconds.
 
-Knowing whether you should use a for-loop, list-comprehension, dictionary, apply.lambda, dataframes, etc. can sometimes be difficult. Memory constraints can be an issue (which is why I initially when with a for-loop iteration of inserting data) meaning something that works really really fast for smaller amounts of data crashes your computer when you work with millions of rows. You get the best idea by just trying stuff out. That way you develop a feeling for when what works best.
+Knowing whether you should use a for-loop, list-comprehension, dictionary, apply.lambda, dataframes, etc. can sometimes be difficult. Memory constraints can be an issue (which is why I initially when with a for-loop iteration of inserting data). That means that some datasets work really really well and fast with list-comprehensions and apply.lambda, but when huge datasets are put through those functions, it can crash your computer. You get the best idea by just trying stuff out. That way you develop a feeling for when what works best.
 
 ## My code:
 
-I separated my functionality into three modules:
+I separated my functionality into two modules:
 
 1) main module that calls the others into action
 
 2) function module that holds all the necessary functions
-
-3) error module that holds any errors that I raise.
 
 First, the main module, as of this writing called 'database_setup.py'. It calls certain functions from the 'Setup_Name_DB' class, which gets the functionality going. The functions getting called are: __init__(), which gets called when the class gets initialized; create_table_names(); create_table_popularity(); and collect_save_data(). I will go over those functions below. 
 
@@ -137,16 +135,15 @@ if __name__ == '__main__':
 
 This code imports the more complicated, meaty class 'Setup_Name_DB' from the module 'data_prep_babyname.py'.  
 
-It defines a class called 'Setup_Name_DB'. This class is initiated with a database name. It is programmed to search for text files and extract the data contained in them and save to an SQL database.
+This class is initiated with a database name. It is programmed to search for text files and extract the data contained in them and save to a SQL database.
 
-Before one can save data to an SQL database, you have to 
+Before one can save data to a SQL database, you have to 
 
 1) connect and create a database and
 
 2) form the database skeleton.
 
 Below is code where I do that. First I import the necessary libraries.
-I also import an error I defined in 'errors.py' called 'MissingNameID'
 
 Whenever Setup_Name_DB gets initiated, it creates/initializes a database. 
 
@@ -197,7 +194,9 @@ class Setup_Name_DB:
         return None
 ```
 
-The next function that is called in the main module is 'collect_save_data'  It basically calls several other functions (which I will list below this function) to do the work, and returns a value back to the main module, either success or failure, once the data has been processed. The most interesting of these functions, I would say, the most interesting functions are: 'organize_name_data', 'prep_dict_4_SQL', and 'batch_insert_data'. Those shape the data in a way to work with <a href="https://docs.python.org/2/library/sqlite3.html">batch inserting data</a> into SQL. 
+The next function that is called in the main module is 'collect_save_data'.  It basically calls several other functions (which I will list below this function) to do the work, and returns a value back to the main module, either success or failure, once the data has been processed. 
+
+The most interesting of these functions, I would say, are: 'organize_name_data', 'prep_dict_4_SQL', and 'batch_insert_data'. Those shape the data in a way to work with <a href="https://docs.python.org/2/library/sqlite3.html">batch inserting data</a> into SQL. 
 
 ```
     def collect_save_data(self):
@@ -294,6 +293,6 @@ All of the code can be found <a href="https://github.com/a-n-rose/recommendation
 
 ## Next Steps
 
-I will play around with the new database, and see how I like I set it up. I will also probably start on making a basic recommender. Probably in parallel I will generate other features to work with and brainstorm all the kinds of features I want in such a recommendation system. 
+I will play around with the new database, see how navigating it is and what patterns I can find in the data. I will also probably start making a basic recommender. Probably in parallel, I will generate other features to work with (i.e. put together a table with phonological sounds) and brainstorm all the kinds of features I want in such a recommendation system. 
 
-Keep tuned!
+Stay tuned!
