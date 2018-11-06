@@ -4,15 +4,15 @@ title: "Save to SQLite3 Database with Python: Why Dictionaries Kick-Ass"
 date: 2018-11-06
 ---
 
-While putting together my new-and-improved <a href="/2018/11/05/updated-babyname-recommender.html">babyname recommender</a>, I saw the opportunity to further explore the advantages and disadvantages in techniques for saving data to a database. To see the code I show below in its full context, check out my <a href="https://github.com/a-n-rose/recommendation-systems-python/tree/master/babyname_recommender">repo</a>.
+While putting together my new-and-improved <a href="/2018/11/05/updated-babyname-recommender.html">babyname recommender</a>, I saw the opportunity to further explore the advantages and disadvantages of techniques for saving data to a database. To see the code I show below in its full context, check out my <a href="https://github.com/a-n-rose/recommendation-systems-python/tree/master/babyname_recommender">repo</a>.
 
-In my scenario, I am working with an SQL database to insert and save the names, sexes, and year popularity of all names from USA social security applications, ranging from the years 1880 until 2017. (The name data can be downloaded from <a href="https://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data">data.org</a>.)
+In my scenario, I am working with an SQL database to insert and save the names, sex, and year popularity of all names from USA social security applications, ranging from the years 1880 until 2017. (The name data can be downloaded from <a href="https://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data">data.org</a>.)
 
-The issue is that I need to have a table with only the used names and their assigned sexes - no repeats. And I need another table with the years, the popularity of a name, and that name's ID number. 
+The issue is that I need to have a table with only the used names and their assigned sex - no repeats. And I need another table with the years, the popularity of a name, and that name's ID number. 
 
 This means that I nead a unique ID number assigned to each name in the table. I can either let SQL do this for me, which I do when I insert the data at each iteration. OR I can create the IDs myself, which python dictionaries allow me to do beautifully, shortening the processing time **drastically**
 
-## For Loop and SQLite3
+## Iterative Insert and SQLite3
 
 The first technique I implemented did a pretty good job not taking over my CPU. When I ran it, my CPU mostly remained at around 20% - 25%, with the rare occasion going above 30%. This meant that I could use my computer as usual, while my program collected, organized, and safely saved my data for me. 
 
@@ -24,8 +24,6 @@ def save_name_data_2_SQL(self):
     #collect filenames
     text_files = self.collect_filenames()
     num_years = len(text_files)
-    
-    # I did a for loop here to reduce memory costs.
     for text_path in text_files:
         year_start = time.time()
         with open(text_path) as f:
@@ -57,9 +55,6 @@ def insert_name_data(self,data_entry,year):
             t = (name,sex,)
             msg = '''INSERT INTO names VALUES(NULL, ?, ?) '''
             self.execute_commit_msg(msg,t)
-        #else:
-            #print("name {} for sex {} exists already".format(name,sex))
-        #insert name popularity into years database:
         msg = '''INSERT INTO popularity VALUES(NULL, ?, ?, ?) '''
         name_id = self.get_name_id(name,sex)
         if name_id is None:
@@ -81,11 +76,13 @@ Program running for 12.88 hrs
 Processing names in the year 1949
 ```
 
-I pulled the plug well after my dictionary solution; I just wanted to see how long it would take! But after almost 13 hours and only 50% progress... I couldn't let it keep going. I let it out of its misery.
+I pulled the plug well after my dictionary solution; I just wanted to see how long it would take! But after almost 13 hours and only 50% progress... I couldn't let it keep going. I put it out of its misery.
 
-## Dictionaries
+## Dictionaries --> Batch Insert
 
-I gathered the name data and immediately stored it into a dictionary, with the year as the key (the year was saved in the filename). This is adapted code from the function I showed above: 'save_name_data_2_SQL'.
+Instead of inserting data iteratively into the database, I iteritavely added each year (with its data in a list) to a python dictionary. The benefits of this were that the data would be immutable and that dictionaries could add the data very quickly. 
+
+Below is how I adapted my code from the function I above: 'save_name_data_2_SQL':
 ```
 def data_2_dict(self):
     #collect filenames
@@ -105,7 +102,9 @@ def data_2_dict(self):
         year_data_dict[year] = name_data
     return year_data_dict
 ```
-From there I wasn't sure how to link the tables 'names' and 'popuarity'. In my for-loop, SQL filled in the ID values for me, linking the table without me having to do much. Shortly though I found an easy solution: count += 1
+From there I wasn't sure how to create unique IDs for the names in order to link the tables 'names' and 'popuarity'. In my for-loop, SQL filled in the ID values for me, linking the table without me having to do much. 
+
+Shortly though, I found an easy solution: count += 1
 
 ```
 def organize_name_data(self,year_data_dict):
@@ -133,5 +132,29 @@ def organize_name_data(self,year_data_dict):
     return name_sex_ids, year_popularity_ids
 ```
 From the dictionaries I returned, I could easily make a list of tuples to batch insert into SQL. 
+
+```
+def prep_dict_4_SQL(self,names_dict,years_dict):
+    names_prepped = []
+    years_prepped = []
+    for key, value in names_dict.items():
+        names_prepped.append((value,key[0],key[1]))
+    for key, value in years_dict.items():
+        years_prepped.append((value,key[0],key[1],key[2]))
+    return names_prepped, years_prepped
+    
+def batch_insert_data(self,names_prepped,years_prepped):
+    try:
+        msg_names = '''INSERT INTO names VALUES(?,?,?) '''
+        msg_years = '''INSERT INTO popularity VALUES(?,?,?,?) '''
+        self.execute_commit_msg(msg_names,names_prepped,many=True)
+        self.execute_commit_msg(msg_years,years_prepped,many=True)
+        return True
+    except Error as e:
+        print("Database Error occured: {}".format(e))
+    finally:
+        self.conn.close()
+    return None
+```
 
 This was so much faster than the iterative inserting of data. It took a mere 40 seconds to collect, organize and save the data to the SQL database.
