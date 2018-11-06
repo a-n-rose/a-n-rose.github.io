@@ -104,9 +104,8 @@ I separated my functionality into three modules:
 
 3) error module that holds any errors that I raise.
 
-First, the main module, as of this writing called 'database_setup.py'.
+First, the main module, as of this writing called 'database_setup.py'. It calls certain functions from the 'Setup_Name_DB' class, which gets the functionality going. The functions getting called are: __init__(), which gets called when the class gets initialized; create_table_names(); create_table_popularity(); and collect_save_data(). I will go over those functions below. 
 
-Notice the 'try statment' and that in general it looks nice and simple.
 ```
 import sqlite3
 import traceback
@@ -120,7 +119,7 @@ if __name__ == '__main__':
         bn = Setup_Name_DB(database)
         bn.create_table_names()
         bn.create_table_popularity()
-        bn.save_name_data_2_SQL()
+        bn.collect_save_data()
     except Exception as e:
         traceback.print_tb(e)
     finally:
@@ -128,9 +127,7 @@ if __name__ == '__main__':
             bn.conn.close()
 ```
 
-This code imports the more complicated, meaty class 'Setup_Name_DB' from the module 'data_prep_babyname.py'. 
-
-I will break down the code in 'data_prep_babyname.py'. 
+This code imports the more complicated, meaty class 'Setup_Name_DB' from the module 'data_prep_babyname.py'.  
 
 It defines a class called 'Setup_Name_DB'. This class is initiated with a database name. It is programmed to search for text files and extract the data contained in them and save to an SQL database.
 
@@ -147,15 +144,20 @@ Whenever Setup_Name_DB gets initiated, it creates/initializes a database.
 
 To form the skeleton, at least of the tables into which I want to insert data, I create the tables I need. When creating them, I need to specify the column names and the type of data they will hold. The tables I created here are the 'names' table and the 'popularity' table.
 
-I also wrote a function 'execute_commit_msg'. I just got tired of entering the contents of this function in other functions... so I wrote a function for it.
+The 'names' table has three columns:  name_ID, name, and sex.
+
+The 'popularity' table has four columns: year_ID, year, popularity, name_ID
+
+The 'name_ID' column links the year data to the name.
+
 
 ```
 import sqlite3
 import numpy as np
 import glob
 import os
-
-from errors import MissingNameID
+import time
+from sqlite3 import Error
 
 
 class Setup_Name_DB:
@@ -164,11 +166,14 @@ class Setup_Name_DB:
         self.conn = sqlite3.connect(database)
         self.c = self.conn.cursor()
         
-    def execute_commit_msg(self,msg,t=None):
+    def execute_commit_msg(self,msg,t=None,many=False):
         if t is None:
             self.c.execute(msg)
         else:
-            self.c.execute(msg,t)
+            if many == False:
+                self.c.execute(msg,t)
+            else:
+                self.c.executemany(msg,t)
         self.conn.commit()
         return None
 
@@ -184,84 +189,103 @@ class Setup_Name_DB:
         return None
 ```
 
-The next function 'save_name_data_2_SQL' is where the work gets done. It looks simple but that is because I broke this function down into several. In this code I call 4 other key functions, not counting a function showing progress.
+The next function that is called in the main module is 'collect_save_data'  It basically calls several other functions (which I will list below this function) to do the work, and returns a value back to the main module, either success or failure, once the data has been processed. The most interesting of these functions, I would say, the most interesting functions are: 'organize_name_data', 'prep_dict_4_SQL', and 'batch_insert_data'. Those shape the data in a way to work with <a href="https://docs.python.org/2/library/sqlite3.html">batch inserting data</a> into SQL. 
 
 ```
-    def save_name_data_2_SQL(self):
+    def collect_save_data(self):
+        data_dict = self.data_2_dict()
+        name_data_dict, year_data_dict = self.organize_name_data(data_dict)
+        names4sql, years4sql = self.prep_dict_4_SQL(name_data_dict,year_data_dict)
+        success = self.batch_insert_data(names4sql,years4sql)
+        return success
+        
+    def data_2_dict(self):
         #collect filenames
         text_files = self.collect_filenames()
         num_years = len(text_files)
         count_years = 0
-        # I did a for loop here to reduce memory costs.
+        year_data_dict = {}
         for text_path in text_files:
+            year_start = time.time()
             with open(text_path) as f:
                 data = f.read()
             year = self.get_year(text_path)
+            print("Processing names in the year {}".format(year))
             name_data =  self.separate_name_data(data)
-            num_names = len(name_data)
-            count_names = 0
-            for entry in name_data:
-                self.insert_name_data(entry,year)
-                count_names+=1
-                section = 'names of {}'.format(year)
-                self.progress(count_names,num_names,section)
-            count_years += 1
-            self.progress(count_years,num_years,'all years')
-        return None
-```
-All of the code can be found <a href="https://github.com/a-n-rose/recommendation-systems-python/blob/master/babyname_recommender/data_prep_babyname.py">here</a> but these functions above provide the necessary context. These are also what get called in the main function. 
+            year_data_dict[year] = name_data
+        return year_data_dict
+        
+    def collect_filenames(self):
+        text_files = []
+        for txt in glob.glob('./names/*.txt'):
+            text_files.append(txt)
+        text_files = sorted(text_files, reverse = False)
+        return text_files
+        
+    def get_year(self,path2file):
+        filename = os.path.splitext(path2file)[0]
+        year = filename[-4:]
+        return year
+        
+    def separate_name_data(self,data):
+        name_data = [s.strip().split(',') for s in data.splitlines()]
+        return name_data
+    
+    def organize_name_data(self,year_data_dict):
+        
+        #need ids when inserting batch data into SQL tables
+        #create them by using count_years and count_names
+        name_sex_ids = {}
+        year_popularity_ids = {}
+        
+        count_years = 1 
+        count_names = 1
+        for key,value in year_data_dict.items():
+            year = key
+            
+            for entry in value:
+                name,sex,popularity = self.get_name_info(entry)
+                if (name,sex) not in name_sex_ids:
+                    name_sex_ids[(name,sex)]=count_names
+                    count_names+=1
+                year_popularity_ids[(year,popularity,name_sex_ids[(name,sex)])] = count_years
+                count_years += 1
+        return name_sex_ids, year_popularity_ids
+    
+    def get_name_info(self,name_entry):
+        name = name_entry[0]
+        sex = name_entry[1]
+        popularity = name_entry[2]
+        return name, sex, popularity
 
-Lest I forget, the errors. They are also really important. The reason why I coded an error is because inserting data into SQL databases is tricky. I don't want to spend 2 hours inserting data and because of one little error, which I could have handled, cause me extra hours work making sure I don't waste 2 more hours overwriting data I already have. Blah blah blah. 
-
-In the function 'insert_name_data', I'm not always sure if there is data to insert.
-
-Find the function 'self.get_name_id'. I couldn't be sure if the name_id existed in the names table, but it was imperative for inserting data about name popularity given a year. Therefore, if no name id could be found, I decided to raise a 'MissingNameID' to "pass" that name's popularity data for that year, error just in case. Otherwise, an error would raise and my entire program would shut down. (See the 'except' statement.)
-
-```
-    def insert_name_data(self,data_entry,year):
+    def prep_dict_4_SQL(self,names_dict,years_dict):
+        names_prepped = []
+        years_prepped = []
+        for key, value in names_dict.items():
+            names_prepped.append((value,key[0],key[1]))
+        for key, value in years_dict.items():
+            years_prepped.append((value,key[0],key[1],key[2]))
+        return names_prepped, years_prepped
+        
+    def batch_insert_data(self,names_prepped,years_prepped):
         try:
-            name,sex,popularity = self.get_name_info(data_entry)
-
-            #insert name and sex data into names database
-            # IF name doesn't exist
-            name_exist = self.check_if_name_exists(name,sex)
-            if name_exist == False:
-                t = (name,sex,)
-                msg = '''INSERT INTO names VALUES(NULL, ?, ?) '''
-                self.execute_commit_msg(msg,t)
-            else:
-                print("name {} for sex {} exists already".format(name,sex))
-            #insert name popularity into years database:
-            msg = '''INSERT INTO popularity VALUES(NULL, ?, ?, ?) '''
-            name_id = self.get_name_id(name,sex)
-            if name_id is None:
-                raise MissingNameID("The name ID for the name {} for sex {} cannot be collected".format(name,sex))
-            t = (str(year),str(popularity),str(name_id),)
-            self.execute_commit_msg(msg,t)
-        except MissingNameID as e:
-            print(e)
-            pass
+            msg_names = '''INSERT INTO names VALUES(?,?,?) '''
+            msg_years = '''INSERT INTO popularity VALUES(?,?,?,?) '''
+            self.execute_commit_msg(msg_names,names_prepped,many=True)
+            self.execute_commit_msg(msg_years,years_prepped,many=True)
+            return True
+        except Error as e:
+            print("Database Error occured: {}".format(e))
         finally:
-            self.conn.commit()
+            self.conn.close()
         return None
 ```
 
-For reference, the 'errors' module looks like this:
-```
+All of the code can be found <a href="https://github.com/a-n-rose/recommendation-systems-python/blob/master/babyname_recommender/data_prep_babyname.py">here</a>. 
 
-class Error(Exception):
-    """Base class for other exceptions"""
-    pass
-
-class MissingNameID(Error):
-    pass
-```
-First the Error class had to be created, then I could create my own, inheriting functionality from that Error class. 
 
 ## Next Steps
 
-I have only inserted part of the data into the SQL database and see it is taking a while, just for 3 years. Therefore currently I am still working on that and wondering if I could scratch the for loop without killing my sweet, harmless computer... (but I might kill it for being so slow....)
-
-In addition I am brainstorming all the kinds of features I can create in order to improve my recommendation system. 
+I will play around with the new database, and see how I like I set it up. I will also probably start on making a basic recommender. Probably in parallel I will generate other features to work with and brainstorm all the kinds of features I want in such a recommendation system. 
 
 Keep tuned!
