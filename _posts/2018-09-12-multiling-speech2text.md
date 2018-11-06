@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building Multi-Lingual Speech to Text Application"
+title: "Long-Term Goal: Building a Multi-Lingual Speech to Text Application"
 date: 2018-09-12
 ---
 
