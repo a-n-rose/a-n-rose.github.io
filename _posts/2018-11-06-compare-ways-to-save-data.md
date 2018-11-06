@@ -45,6 +45,10 @@ This helps give us an idea of how the data looks. As the years progress, more na
 
 The first technique I implemented did a pretty good job not taking over my CPU. When I ran it, my CPU mostly remained at around 20% - 25%, with the rare occasion going above 30%. This meant that I could use my computer as usual, while my program collected, organized, and safely saved my data for me. 
 
-The time to go through all the data, however, took forever. I started the program 3 hours ago and it is only 36% through the entire dataset. Further, as there is more baby name data to work with as the years progress, this program took longer and longer to process each year.
+The time to go through all the data, however, took forever. This is because data is getting inserted and commited to the database at every iteration. That slows the program way down.
 
-As I continue working with this data, I will update this post. 
+To speed this process up, I changed my code to save the data to dictionaries via for loops, and then batch add the data to the SQL database.
+
+## Dictionaries
+
+This is so much faster. It took 40 seconds to collect, organize and save the data to an SQL database. 
