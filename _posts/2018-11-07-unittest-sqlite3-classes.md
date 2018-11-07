@@ -28,7 +28,7 @@ I listed the functions types above in the order of difficulty / anxiety I had fo
 
 The first ones were easy.
 
-### Unitesting Stand-Alone Functions
+### Unittesting Stand-Alone Functions
 
 I only had one truely stand-alone function. This function simply took a user's input and removed any spaces and special characters. Here is the test for that:
 ```
@@ -67,7 +67,7 @@ In these tests, I put in all sorts of things a user could enter. I checked that 
 
 All the other functions seemed to be largely dependent on data in the vocab list database. 
 
-### Unitesting SQLite3 Functions 
+### Unittesting SQLite3 Functions 
 
 This was actually easier than I expected. 
 
@@ -113,7 +113,7 @@ class TestUserVocabDatabase(unittest.TestCase):
 
 In the setUp() function, I initialize my class (which I imported from my module). This in turn initializes a database, which I named 'test_database.db'. Now that's up, I need to create the tables necessary for my app.
 
-(Those code gets added to the setUp() function above)
+(This code gets added to the setUp() function above)
 
 ```
         #create necessary tables
