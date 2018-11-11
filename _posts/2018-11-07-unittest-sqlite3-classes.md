@@ -4,11 +4,13 @@ title: "Putting Python to the Unittest: Classes and Sqlite3"
 date: 2018-11-07
 ---
 
-Much of my previous work (and probably some of my future experimental work) did not include much testing. That is a habit I would like to change, and I'm not waiting for New Years to do that. 
+Much of my previous work did not include much testing. That is a habit I would like to change, and I'm not waiting for New Years to do that. 
 
 My most recent app (as of Nov. 2nd 2018) is my vocab/idea collector. Since this could theoretically be built into a real functioning app, unittest development simply is a must. (For code: <a href="https://github.com/a-n-rose/Vocab-Collector-and-Tester">REPO</a>; for a <b>working</b> blogpost: <a href="/2018/11/05/personal-vocab-app.html">BLOG</a>)
 
 To see the unittests I made for this app, the code can be viewed <a href="https://github.com/a-n-rose/Vocab-Collector-and-Tester/blob/master/test_vocab_collector.py">here<a>.
+
+Note: I'm still working out the best architecture for this app. I don't like how mixed in the SQL commands are with the rest of the app and need to separate them further. On my ToDo list.
 
 ## Unittest development
 
