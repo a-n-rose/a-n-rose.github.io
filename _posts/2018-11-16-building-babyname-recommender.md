@@ -21,15 +21,15 @@ To start out, I will group them in basic clusters using the data I have already:
 
 First, I need to get the name data into a form an algorithm such as K-means clustering would understand. To do this, I created a new table with each letter in the English alphabet as its own column (in alphabetical order) and length of the name as its own column. 
 
-With this kind of table, I can put in binary values for each name, whether or not they have this letter and how long the name is. (Note: later I will improve these features, for example, scaling the length, and expanding on the sounds in the name, to show how that influences the performance of the recommender)
+With this kind of table, I can put in binary or integer values for each name, whether or not they have this letter and how long the name is. (Note: later I will improve these features, for example, scaling the length, and expanding on the sounds in the name, to show how that influences the performance of the recommender)
 
 ### Table 1: Letter and Length Feature Columns
-![Imgur](https://i.imgur.com/Fdmqv3m.png)
-#### See Table 2 to check if the names are labeled correctly. For example, row 1 represents 'Mary'. That row should have all zeros except for columns 'a', 'm', 'r', and 'y', as well as a number 4 in the 'length' column.
+![Imgur](https://i.imgur.com/Fdmqv3m.png?1)
+#### Note: see Table 2 to check if the names are labeled correctly. For example, row 1 represents 'Mary'. That row should have all zeros except for columns 'a', 'm', 'r', and 'y', as well as a number 4 in the 'length' column.
 
 ### Table 2: Reference Table: Contains Name Id
 ![Imgur](https://i.imgur.com/5rW7yHP.png)
-#### The first 13 names in the database.
+#### Above: the first 13 names in the database.
 
 When fitting the Kmeans algorithm to the data, how many clusters are used is very important.
 
@@ -37,22 +37,21 @@ I was not sure how many clusters would be useful for this name recommender. Ther
 
 The reason I chose 9 to start out with is the following:
 
-The names from the dataabase range from lengths of 2 to 15. I personally would create five categories for these lengths: very-short, short, middle, long, very-long
+The names from the database range from lengths of 2 to 15. I personally would create five categories for these lengths: very-short, short, middle, long, very-long
 
-Considering the letters, 26 of them, we've got vowels and consonants to think about: 5 vowels (sometimes six), and usually 21 consonants. Simply put, vowels tend to be more open or closed (e.g. 'a' as in 'apple' vs 'e' as in 'see') and consonants voice or unvoiced (e.g. 'v' in 'vaccuum' vs 'f' in 'funny'). 
+Considering the letters, 26 of them, we've got vowels and consonants to think about: 5 vowels (sometimes six), and usually 21 consonants. Simply put, vowels tend to be more open or closed (e.g. *a* in *and* vs *e* in *end*) and consonants voiced or unvoiced (e.g. *p* in *pun* vs *b* in *bun*). 
 
-In sum, 5 clusters for length and 4 clusters for speech sounds in letters brings us to 9. Ultimately I don't expect this to work but since I had no idea where to start, this is where I did. It was after experimenting a bit that I was able to tell that 9 clusters were probably too few, which inspired me to try 30 and 50 as well. 
+In sum, 5 clusters for length and 4 clusters for speech sounds in letters, which brings us to 9. Ultimately I didn't expect this to work but since I had no idea where to start, this is where I did. It was after experimenting a bit that I was able to tell that 9 clusters were probably too few, which inspired me to try 30 and 50 as well. 
 
 ### Testing the Clusters
 
-First, I measured how much time it took to assign the clusters to all of the names (107973 names to be exact).
+First, I measured how much time it took to assign the clusters to all of the names (107,973 names to be exact).
 
-
-| Num Clusters  | Duration      | 
-| ------------- |:-------------:| 
-| 9             | 9.69 sec      | 
-| 30            | 44.61 sec     | 
-| 50            | 122.78 sec    | 
+| Num Clusters:  | Duration:      | 
+| --- | --- |
+| 9 | 9.69 sec |
+| 30 | 44.61 sec |
+| 50 | 122.78 sec  |
 
 To see how each of the cluster assignments compared, I ran the recommender with names I had rated, one search for a girl name and one search for a boy name. I tested the cluster assignments as I rated. 
 
@@ -75,6 +74,7 @@ def check_cluster_list_similarity(clusterlist1,clusterlist2):
 
 
 ## 9 Clusters
+
 | Search    | Num Names Rated   | Like-Dislike Cluster similarity   |
 | --------- |:---------:        | :------------------------------:  |
 | Girl Name |  12               |                71.43%             |
@@ -83,6 +83,7 @@ def check_cluster_list_similarity(clusterlist1,clusterlist2):
 | Boy Name  | 206               |                100%               |
 
 ## 30 Clusters
+
 | Search    | Num Names Rated   | Like-Dislike Cluster similarity   |
 | --------- |:---------:        | :------------------------------:  |
 | Girl Name |  12               |                28.57%             |
@@ -91,6 +92,7 @@ def check_cluster_list_similarity(clusterlist1,clusterlist2):
 | Boy Name  | 206               |                100%               |
 
 ## 50 Clusters
+
 | Search    | Num Names Rated   | Like-Dislike Cluster similarity   |
 | --------- |:---------:        | :------------------------------:  |
 | Girl Name |  12               |                14.29%             |
