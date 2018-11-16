@@ -76,7 +76,7 @@ def check_cluster_list_similarity(clusterlist1,clusterlist2):
 ## 9 Clusters
 
 | Search:    | Num Names Rated:   | Cluster Similarity:   |
-| :--------- |:---------:        | :------------------------------  |
+| :--------- |:---------:        | :------------------------------:  |
 | Girl Name |  12               |                71.43%             |
 | Boy Name  |  67               |                100%               |
 | Girl Name | 115               |                98.04%             |
@@ -85,7 +85,7 @@ def check_cluster_list_similarity(clusterlist1,clusterlist2):
 ## 30 Clusters
 
 | Search:    | Num Names Rated:   | Cluster Similarity:   |
-| :--------- |:---------:        | :------------------------------  |
+| :--------- |:---------:        | :------------------------------:  |
 | Girl Name |  12               |                28.57%             |
 | Boy Name  |  67               |                92.0%              |
 | Girl Name | 115               |                98.04%             |
@@ -94,7 +94,7 @@ def check_cluster_list_similarity(clusterlist1,clusterlist2):
 ## 50 Clusters
 
 | Search:    | Num Names Rated:   | Cluster Similarity   |
-| :--------- |:---------:        | :------------------------------  |
+| :--------- |:---------:        | :------------------------------:  |
 | Girl Name |  12               |                14.29%             |
 | Boy Name  |  67               |                72.0%              |
 | Girl Name | 115               |                86.27%             |
