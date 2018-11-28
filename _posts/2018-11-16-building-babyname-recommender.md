@@ -6,16 +6,16 @@ date: 2018-11-16
 
 I started building <a href="https://github.com/a-n-rose/recommendation-systems-python/tree/master/babyname_recommender">this recommender</a> while I was pregnant with my daughter, with no idea what to name her. I really wanted to know what other names were out there that I might also like. I am satisfied with how the project turned out (it did help my husband and me find a name) but there are some improvements that can be made to make it run more efficiently and also of course improve on recommendations. But, for the most part, I'm happy with it!
 
+For more on the original data and the database I used to organize them, see <a href="https://a-n-rose.github.io/2018/11/05/updated-babyname-recommender.html">this post</a>.
+
 
 ## Bulding the Recommender
 
 To build my recommender, I decided to use SKlearn's KMeans Clustering. I figured that because I'm using the <a href="http://www.internationalphoneticalphabet.org/ipa-sounds/ipa-chart-with-sounds/">International Phonetic Alphabet</a> (IPA) features and classifications, which basically cluster consonantal and vowel sounds, the names could be clustered too. (Note: I also want to try K-Nearest-Neighbors.) 
 
-But before I get there, I'll walk through the features I used to build clusters.
-
 ## Prep Features for Clustering
 
-The IPA seemed to me the best choice to use as a base for features because it represents sounds much more accurately than English letters do.
+The IPA seemed to me the best choice to use as a base for features because it represents sounds much more accurately than English letters do. Since the names database was from a US American <a href="https://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data">source</>, I thought it defintely best to get out of the English-letter realm.
 
 First of all, English letters change in how they sound depending on the context they are found. For example, let's examine the letter *a* and how it changes in the phrase:
 ```
@@ -82,11 +82,11 @@ kɔrˈniljə
 
 You can see that spelling differences in English can deceive an algorithm into categorizing those two names as having the same length, even though *Cornelia* sounds much longer than *Ashleigh* in reality. The IPA characters, 5 vs 9 (including stress markers) represent the name lengths more more accurately.
 
-In sum, using IPA characters, including the stress markers, to categorize names based on sound would be more useful as features than English characters alone. 
+In sum, using IPA characters, including the stress markers, to categorize names based on sound would be more useful as features than English characters. 
 
 ## Transform Features
 
-Espeak is a framework that can transcribe several languages into IPA characters. Once I collected the names from the dataset, I created a pandas dataframe to add IPA features.
+<a href="http://espeak.sourceforge.net/">Espeak</a> is a framework that can transcribe several languages into IPA characters. Once I collected the names from the dataset, I created a pandas dataframe to add IPA features.
 
 Note: to run this code, you need to have Espeak installed on your machine. Also, it took my computer **a half-hour** to transcribe all the names
 
@@ -130,10 +130,10 @@ def collect_used_ipa(name_df):
     return ipa_chars, ipa_lengths
 ```
 
-To generate useful features from these transcriptions, I collected all the IPA chars used and saved them in a separate file. In this file, I categorized all the IPA characters according to the IPA charts.
+To generate useful features from these transcriptions, I collected all the IPA chars used and saved them in a separate file. In this file, I categorized the IPA characters according to the <a href="http://www.internationalphoneticalphabet.org/ipa-sounds/ipa-chart-with-sounds/">IPA charts</a>.
 
 
-As examples, below is code for where I stored all the possible IPA chars, vowel types, and stress symbols. The consonant information is in the repo. (Reference <a href="http://www.internationalphoneticalphabet.org/ipa-sounds/ipa-chart-with-sounds/">here</a> for how I categorized the characters )
+As examples, below is code for where I stored all the possible IPA characters, vowel types, and stress symbols. The consonant information is in the <a href="https://github.com/a-n-rose/recommendation-systems-python/blob/master/babyname_recommender/ipa_chart_dicts.py">repo</a>. 
 ```
 def ipa_characters():
     chars = ('a', 'b', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'w', 'x', 'z', 'æ', 'ð', 'ø', 'ŋ', 'ɐ', 'ɑ', 'ɔ', 'ə', 'ɚ', 'ɛ', 'ɜ', 'ɡ', 'ɣ', 'ɪ', 'ɬ', 'ɹ', 'ɾ', 'ʃ', 'ʊ', 'ʌ', 'ʒ', 'ʔ', 'ˈ', 'ˌ', 'ː', '̩', 'θ', 'ᵻ')
@@ -164,11 +164,11 @@ def ipa_stress_dict():
 ```
 
 
-Long story short, I used these features to generate thousands. 
+Long story short, I used these features to generate thousands more. 
 
 ### Pairs of Sounds
 
-I found *pairs* of sounds very relevant. Usually I like sounds with some sounds but not others. For example, separately, I like *e* as in *see* as well as *a* as in *opera*. BUT, *i* + *a* at the ends of names? For some reason I detest them. I want my recommender to be able to recognize that. Therefore, I created a feature for every possible pairing (repeats excluded) of the IPA characters. 
+I find *pairs* of sounds very relevant. Usually I like sounds with some sounds but not others. For example, separately, I like *e* as in *see* as well as *a* as in *opera*. BUT, *i* + *a* at the ends of names? For some reason I detest them. I want my recommender to be able to recognize that. Therefore, I created a feature for every possible pairing (repeats excluded) of the IPA characters. 
 
 ### IPA Sound Categories
 
@@ -178,7 +178,7 @@ Compare *Danny* with *Phillip*. *Danny*, as I mentioned, has no *voiceless* cons
 
 ### Stress and Length
 
-Some people like strong short names, long, delicate ones, and all mixes inbetween. I used the primary and secondary stress markes to indicate whether a name had more stress on the first half of the name, like *Harry* or *Elizabeth* vs stress on the latter half, as in *Josephina* or *Gerome*. 
+Some people like strong short names, long, delicate ones, and all mixes in-between. I used the primary and secondary stress markers to indicate whether a name had more stress on the first half of the name, like *Harry* or *Elizabeth* vs stress on the latter half, as in *Josephina* or *Gerome*. 
 
 That basically sums it up. To see how I generated these features, refer to the <a href="https://github.com/a-n-rose/recommendation-systems-python/blob/master/babyname_recommender/ipa_features.py">code</a>.
 
@@ -228,6 +228,6 @@ Zaydah
 
 ```
 
-The "Relevant features" the recommender identified for me will likely change quite a bit until I have rated enough names. I also may change the number of selected features; when I used more, however, I didn't see enough "focus" in my recommendations. I like what I was recommended more when I set a stricter limit. 
+The "Relevant features" the recommender identified for me will likely become more consistent as I rate more and more names. I also may change the number of selected features (right now it's 5); when I used more, however, I didn't see enough "focus" in my recommendations. 
 
-I will fine-tune this recommender from time to time, perhaps explore K-Nearest-Neighbors or improving my code to be more efficient. Hopefully this can be of interest to someone out there :P 
+I will fine-tune this recommender from time to time, perhaps explore K-Nearest-Neighbors or improve my code to be more efficient. 
