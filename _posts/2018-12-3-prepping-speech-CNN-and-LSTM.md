@@ -36,14 +36,16 @@ mel_spec_delta_delta = librosa.feature.delta(mel_spec,order=2)
 As an example, below are mel spectrograms, as well as the delta/rate of change and delta delta/ acceleration of change take from the speech of a dysphonic speaker as well as a healthy speaker. 
 
 
-<a target="_blank" href="https://imageshack.com/i/poxBnUlVp"><img src="https://imagizer.imageshack.com/v2/150x100q90/924/xBnUlV.png" border="0">Healthy Male Speaker</a> 
+<a target="_blank" href="https://imageshack.com/i/plVmrApLp"><img src="https://imagizer.imageshack.com/v2/150x100q90/921/VmrApL.png" border="0"></a>
+#### Healthy Male Speaker
 
-<a target="_blank" href="https://imageshack.com/i/plUYP3qgp"><img src="https://imagizer.imageshack.com/v2/150x100q90/921/UYP3qg.png" border="0">Male Speaker with Dypshonia</a>
+<a target="_blank" href="https://imageshack.com/i/pod7LcTrp"><img src="https://imagizer.imageshack.com/v2/150x100q90/924/d7LcTr.png" border="0"></a>
+#### Male Speaker with Dypshonia
 
-Note: the links will turn into pictures once imgur is up and running again. 
+Note: sorry if the figures are a bit funny - imgur seems to be having difficulties and I'm trying out imageshack. 
 
 ## CNN and LSTM
 
-Plan: I will feed these features with a context window frame of 9, first to a CNN then to LSTM. 
+Current Plan: I will feed these features with a context window frame of 9, first to a CNN then to LSTM and compare classification success with the above mentioned studies.
 
 Work-in-progress.
