@@ -41,15 +41,15 @@ mel_spec_delta_delta = librosa.feature.delta(mel_spec,order=2)
 
 ```
 
-As an example, below are mel spectrograms, as well as the first derivative (delta/rate of change) and second derivative (delta delta/ acceleration of change) from the speech of a dysphonic speaker as well as a healthy speaker. 
+As an example, below are mel spectrograms, as well as the first derivative (delta/rate of change) and second derivative (delta delta/ acceleration of change) from the speech of a dysphonic speaker as well as a healthy speaker, saying "Hello, how are you?" in German. 
 
 ### Healthy Male Speaker
 ![Imgur](https://i.imgur.com/k8khD7R.png)
-
+#### "Hallo, wie geht es Ihnen?"
 
 ### Male Speaker with Dypshonia
 ![Imgur](https://i.imgur.com/jeVNMEb.png)
-
+#### "Hallo, wie geht es Ihnen?"
 
 ## CNN 
 
