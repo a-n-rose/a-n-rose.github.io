@@ -25,7 +25,7 @@ For the first experiment, I trained and tested my model to classify just one pat
 | male            | dysphonia    | 39  |
 | male            | healthy    |  39  |
 
-I calculated the log mel-frequency energy features and their first and second derivatives, according to the methodologies implemented by Kim, Cao, An, and Wang (2018). These values served as the features to train the CNN and LSTM models. 
+I calculated 40 log mel-frequency energy features and their first and second derivatives, according to the methodologies implemented by Kim, Cao, An, and Wang (2018). These values served as the features to train the CNN and LSTM models. 
 
 ```
 import librosa
@@ -53,7 +53,7 @@ As an example, below are mel spectrograms, as well as the first derivative (delt
 
 ## CNN 
 
-I fed the CNN with sections of such spectrograms, with 19 frames in each (context window frame of 9: the 9 frames previous and following a central frame). Each of these frames contain 120 features. Finally, CNNs require a dimension indicating color scheme, which is just grayscale in this case. 
+I fed the CNN with sections of such spectrograms, with 19 frames in each (context window frame of 9: the 9 frames previous and following a central frame). Each of these frames contain 120 features (the log mel-filterbank energies and the 1st and 2nd derivatives). Finally, CNNs require a dimension indicating color scheme, which is just grayscale in this case. 
 
 Data shape:
 (19,120,1)
