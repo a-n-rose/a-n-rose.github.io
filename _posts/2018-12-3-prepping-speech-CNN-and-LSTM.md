@@ -60,7 +60,7 @@ Data shape:
 
 ## LSTM
 
-The LSTM does not need the grayscale component. It does however feed the data as a series. Therefore, the LSTM, on its own, trained well with 19 frames in a series, each frame with 120 features.
+The LSTM does not need the grayscale component. It does however feed the data as a series. Therefore, the LSTM, on its own, could train with 19 frames in a series, each frame with 120 features.
 
 Data shape:
 (19,120)
