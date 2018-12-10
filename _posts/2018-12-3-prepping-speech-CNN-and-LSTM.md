@@ -15,17 +15,17 @@ Both of the latter two studies used speech data from the openly available <a hre
 
 ## Speech Collection:
 
-For the first experiment, I will train and test my model to classify just one pathological speech type: dysphonia. I used only speech that was solely labeled as dysphonic.
+For the first experiment, I trained and tested my model to classify just one pathological speech type: dysphonia. I used only speech that was solely labeled as dysphonic.
 
 
-| Sex  | Health      | Number of speakers
-| ------------- |:-------------:| 
+| Sex  | Group      | Number of speakers |
+| :-------------: |:-------------:| :---:|
 | female             | dysphonia      |  41  |
 | female            | healthy    | 41  |
 | male            | dysphonia    | 39  |
 | male            | healthy    |  39  |
 
-I calculated the log mel-frequency energy features and their first and second derivatives, according to the methodologies implemented by Kim, Cao, An, and Wang (2018). These values serves as the features to train the CNN and LSTM models. 
+I calculated the log mel-frequency energy features and their first and second derivatives, according to the methodologies implemented by Kim, Cao, An, and Wang (2018). These values served as the features to train the CNN and LSTM models. 
 
 ```
 import librosa
@@ -71,7 +71,7 @@ Because the data has to go through both of these models, the shape must be prepa
 
 The LSTM still requires a series of data. This I achieved by requiring each speaker in the dataset to offer the same number of samples. In speech and language, this isn't natural. People talk longer, faster, shorter, etc.; so if I want to use all of the speech data, the samples will be of varying lengths. In this scenario I simply zero-padded the samples of speakers that did not have enough speech data to make up the set number of samples I needed. 
 
-I decided to set the number of samples from each speaker to 608. It is divisable by the frame set size (19), which creates the second dimension you see below: 32. What that means is each speaker had 32 sets of 19-framed samples, each containing 120 features. In grayscale. 
+I decided to set the number of samples from each speaker to 608. It is divisable by the frame set size (19), which creates the second dimension you see below: 32. What that means is, each speaker had 32 sets of 19-framed samples, each containing 120 features. In grayscale. 
 
 Data shape:
 (num speakers, 32, 19, 120, 1)
@@ -83,18 +83,18 @@ Data shape:
 I will expand on this section soon. Briefly, I have found the CNN+LSTM, specifically the time-frequency CNN+LSTM (explained in this <a href="https://www.researchgate.net/publication/327350843_Dysarthric_Speech_Recognition_Using_Convolutional_LSTM_Neural_Network">paper</a>), performed the best.
 
 | Model  | Speech Data      | Accuracy
-| ------------- |:-------------:| 
+|: -------------: |:-------------:| 
 | TFCNN             | female      |  62.5%  |
 | LSTM            | female    | 58.7%  |
 | TFCNN+LSTM            | female    | 87.5%  |
 
-Note: all in all, this dataset is very small. Also, the accuracies were collected with speakers randomly assigned to training, validation, and testing datasets. Accuracy rates change a bit accordingly; however, in the several training and testing sessions I have completed thus far, the accuracies tended to stay around these numbers for the corresponding models. 
+Note: all in all, this dataset is small; I trained using only 82 speakers, total (for the female speech). Also, the accuracies were collected with speakers randomly assigned to training, validation, and testing datasets. Accuracy rates change a bit accordingly; however, in the several training and testing sessions I have completed thus far, the accuracies tended to stay around these numbers for the corresponding models. 
 
-First thoughts: This is too small of a dataset. However, the validation loss was quite low while training the TFCNN+LSTM and also reached quite high accuracy on the test datasets, at each training. The paper that also used this data reached an accuracy of 100%, which is quite a bit higher than my model reached. However, my model still achieves quite a high accuracy and suggests potential applicability, especially if more data were available. This I hope to further explore in the following section.
+First thoughts: This is too small of a dataset. However, the validation loss was quite low while training the TFCNN+LSTM and also reached quite high accuracy on the test datasets, at each training. The paper that also used this data reached an accuracy of 100%, which is quite a bit higher than my model reached. My model still achieves quite a high accuracy, with far less work regarding feature preparation/selection. The success of the CNN+LSTM here suggests potential applicability to the identification of clinical speech, especially if more data were available. This I hope to further explore in the following section.
 
 ### Clinical vs Healthy Speech
 
-This section is in the works. I collected the six clinical types of speech used in the paper by <a href="https://strathprints.strath.ac.uk/64290/">Wu, H., Soraghan, J., Lowit, A., and Caterina, G. D. (2018)</a>: 1) laryngitis, 2) leukoplakia, 3) Reinke's edema, 4) recurrent laryngeal nerve paralysis, 5) vocal fold carcinoma, 6) vocal fold polyps. 
+This section is in the works. I collected the six clinical types of speech used in the paper by <a href="https://strathprints.strath.ac.uk/64290/">Wu, H., Soraghan, J., Lowit, A., and Caterina, G. D. (2018)</a>: 1) laryngitis, 2) leukoplakia, 3) Reinke's edema, 4) recurrent laryngeal nerve paralysis, 5) vocal fold carcinoma, 6) vocal fold polyps. I am currently extracting the same features I extracted for the previous experiment: log mel-filterbank energy features and their first and second derivatives.
 
 ### Male vs Female Speech
 
