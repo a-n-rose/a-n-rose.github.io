@@ -15,6 +15,8 @@ To collect resources of freely available speech databases. Links are working as 
 * Various spoken American English sentences (with various dialects) with good annotations: <a href="">TIMIT corpus</a> (partial)
 <a href="http://voxforge.org/home/downloads">Voxforge</a>
 
+* YouTube videos (can use audio and/or visuals) of celebrities: <a href="http://www.robots.ox.ac.uk/~vgg/data/voxceleb/">VoxCeleb</a>.
+
 ### Clinical Speech
 
 * Various disorders, as well as healthy <a href="http://www.stimmdatenbank.coli.uni-saarland.de/index.php4#target">Saarbrücker Voice Database</a>
