@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Resources for publicly available speech databases"
-date: 2019-01-07
+date: 2019-01-06
 ---
 
 
