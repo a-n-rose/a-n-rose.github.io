@@ -8,7 +8,7 @@ date: 2019-01-07
 ## Purpose:
 To collect resources of freely available speech databases. Links are working as of January 2019.
 
-### Healthy Speech (English, but some have other languages as well)
+### Healthy Speech
 
 * Read English: <a href="http://www.openslr.org/12">LibriSpeech</a>
 
