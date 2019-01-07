@@ -26,7 +26,7 @@ The final score was the difference between the similiarity scores of the mimic t
 
 With the above changes, I could finally play the game and feel good about the scoring system. It seemed pretty much fair. Also, when I checked the manipulated wavefiles (noise reduction; volume matching; beginning and ending silence removal), those had also vastly improved, particularly in identifying when a mimic started and stopped - except for when I mimicked a cat meowing. It had a hard time identifying when I stopped meowing.
 
-That being said, there is of course room for improvement. The game could compare some sounds better than others; for example, I didn't perform well with most of the bird sounds, except for the owl and rooster. Oh and I failed mimicking cats, despite having had cats and mimicked them avidly as a kid. I suspect the larger amounts of background noise present in the target recordings reduced the ability of the VAD to identify the mimic from the larger amounts of background noise. So, to avoid that, *sounds used for mimicking should not have significant amounts of extended silences.*
+That being said, there is of course room for improvement. The game could compare some sounds better than others; for example, I didn't perform well with most of the bird sounds, except for the owl and rooster. Oh and I failed mimicking cats, despite having had cats and mimicked them avidly as a kid. I suspect the larger amounts of silence present in the target recordings reduced the ability of the VAD to identify the mimic from the larger amounts of silence. So, to avoid that, *sounds used for mimicking should not have significant amounts of extended silences.* (Some of the recordings I had of cats had large periods of silences.)
 
 ## Next Steps
 
