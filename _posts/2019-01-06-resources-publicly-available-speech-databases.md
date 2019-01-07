@@ -24,5 +24,11 @@ To collect resources of freely available speech databases. Links are working as 
 
 * Children with Specific Language Impairment (Czech): <a href="https://figshare.com/articles/New_draft_item/2360626">LANNA database</a>
 
+### Emotion in Speech
+
+* German: <a href="http://emodb.bilderbar.info/download/">EmoDB</a>
+
+* English: The Ryerson Audio-Visual Database of Emotional Speech and Song <a href="https://zenodo.org/record/1188976">(RAVDESS)</a>
+
 
 
