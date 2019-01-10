@@ -29,3 +29,9 @@ To collect resources of freely available speech databases. Links are working as 
 * German: <a href="http://emodb.bilderbar.info/download/">EmoDB</a>
 
 * English: The Ryerson Audio-Visual Database of Emotional Speech and Song <a href="https://zenodo.org/record/1188976">(RAVDESS)</a>
+
+### General Sounds/ Noise
+
+* <a href="https://urbansounddataset.weebly.com/urbansound.html">Urban Sound Dataset</a>
+
+* <a href="https://freesound.org/">Freesound.org</a>
