@@ -80,7 +80,7 @@ kɔrˈniljə
 
 ```
 
-You can see that spelling differences in English can deceive an algorithm into categorizing those two names as having the same length, even though *Cornelia* sounds much longer than *Ashleigh* in reality. The IPA characters, 5 vs 9 (including stress markers) represent the name lengths more more accurately.
+You can see that spelling differences in English can deceive an algorithm into categorizing those two names as having the same length, even though *Cornelia* sounds much longer than *Ashleigh* in reality. The IPA characters, 5 vs 9 (including stress markers) represent the name lengths much more accurately.
 
 In sum, using IPA characters, including the stress markers, to categorize names based on sound would be more useful as features than English characters. 
 
