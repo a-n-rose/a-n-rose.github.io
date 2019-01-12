@@ -14,7 +14,7 @@ I compare different techniques for saving this name data to SQL databases in thi
 
 ## Collect the names
 
-The most updated name list can be found at <a href="https://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data">data.org</a>. It is a collection of names from USA social security applications, dating from 1879/1880 until, as of writing this, 2017. 
+The most updated name list can be found at <a href="https://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data">data.org</a> (during the US government shutdown, this may not be available). It is a collection of names from USA social security applications, dating from 1879/1880 until, as of writing this, 2017. 
 
 I unzipped the file into a subdirectory of my current working directory 'names'. (Note: the size of the unzipped contents is appx. 24 MiB.)
 
