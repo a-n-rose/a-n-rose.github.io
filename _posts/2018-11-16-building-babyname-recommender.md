@@ -15,7 +15,7 @@ To build my recommender, I decided to use SKlearn's KMeans Clustering. I figured
 
 ## Prep Features for Clustering
 
-The IPA seemed to me the best choice to use as a base for features because it represents sounds much more accurately than English letters do. Since the names database was from a US American <a href="https://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data">source</>, I thought it defintely best to get out of the English-letter realm.
+The IPA seemed to me the best choice to use as a base for features because it represents sounds much more accurately than English letters do. Since the names database was from a US American <a href="https://catalog.data.gov/dataset/baby-names-from-social-security-card-applications-national-level-data">source</a> (during the US government shutdown, this may not be available), I thought it defintely best to get out of the English-letter realm.
 
 First of all, English letters change in how they sound depending on the context they are found. For example, let's examine the letter *a* and how it changes in the phrase:
 ```
