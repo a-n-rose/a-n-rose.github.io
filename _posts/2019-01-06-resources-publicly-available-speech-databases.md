@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Resources for publicly available speech databases"
+title: "Resources for publicly available machine learning databasets, including speech"
 date: 2019-01-06
 ---
 
 
 ## Purpose:
-To collect resources of freely available speech databases. Links are working as of January 2019.
+To collect resources of freely available datasets for machine learning (with emphasis on speech). Links are working as of January 2019.
 
 ### Healthy Speech
 
@@ -30,8 +30,24 @@ To collect resources of freely available speech databases. Links are working as 
 
 * English: The Ryerson Audio-Visual Database of Emotional Speech and Song <a href="https://zenodo.org/record/1188976">(RAVDESS)</a>
 
-### General Sounds/ Noise
+### General Sounds / Noise / Music
 
 * <a href="https://urbansounddataset.weebly.com/urbansound.html">Urban Sound Dataset</a>
 
 * <a href="https://freesound.org/">Freesound.org</a>
+
+* <a href="http://www-etud.iro.umontreal.ca/~boulanni/icml2012">Music</a> 
+
+### General Datasets
+
+* Github repo for machine learning datasets: <a href="https://github.com/edwardlib/observations">Observations</a>
+
+* Github repo comparing ConvNet and RNNs on time sequence data: <a href="https://github.com/locuslab/TCN">locuslab</a>
+
+### Images
+
+* Object class recogntion): <a href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC</a>. One needs to register but should be able to download for free 
+
+* Object class recogntion: <a href="http://cocodataset.org/#download">COCO</a> (common objects in context)
+
+* <a href="http://image-net.org/download">IMAGENET</a>: "an image database organized according to the WordNet hierarchy".
