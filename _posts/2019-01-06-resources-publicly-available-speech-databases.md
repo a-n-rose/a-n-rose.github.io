@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Resources for publicly available machine learning databasets, including speech"
+title: "Resources for publicly available machine learning datasets, including speech"
 date: 2019-01-06
 ---
 
