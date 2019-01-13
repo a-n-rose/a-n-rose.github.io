@@ -27,7 +27,7 @@ According to <a href="https://www.topbots.com/">TopBots</a>, "the largest public
 
 # “Always start with a CNN before reaching for an RNN. You’ll be surprised with how far you can get.” – Andrej Karpathy, Director of AI at Tesla.
     
-Important to note here, is that none of those very important papers specifically targeted speech. We will explore in this workshop how ConvNets and LSTMs (a subset of RNNs) handle speech data. We will build a ConvNet, an LSTM, and a ConvNet+LSTM and see how they compare when handling real-world data. 
+Important to note here, is that none of those very important papers specifically targeted speech. We will explore in this workshop how ConvNets and LSTMs (a subset of RNNs) handle speech data. We will build a ConvNet, an LSTM, and a ConvNet+LSTM and see how they compare when handling real-world speech data. 
 
 If you're asking yourself, WTF is a CNN, RNN, or LSTM? No worries, I'll cover the basics. 
 
@@ -35,11 +35,11 @@ If you're asking yourself, WTF is a CNN, RNN, or LSTM? No worries, I'll cover th
 
 What I find the most helpful when thinking about neural networks is the *kind* of data they work with. 
 
-* Object Identification (e.g. <a href="https://towardsdatascience.com/mtcnn-face-detection-cdcb20448ce0">face detection</a>, ): Images
+* Object Identification (e.g. <a href="https://towardsdatascience.com/mtcnn-face-detection-cdcb20448ce0">face detection</a>) --> Images
 
-* Text Analysis (i.e. classifying positive or negative reviews): Series
+* Text Analysis (i.e. classifying positive or negative reviews) --> Series
 
-* Speech Analysis (e.g. <a href="https://ai.google/research/pubs/pub46169">speech recogntion</a>): Images **and** Series??
+* Speech Analysis (e.g. <a href="https://ai.google/research/pubs/pub46169">speech recogntion</a>) --> Images **and** Series??
 
 ## Speech
 
