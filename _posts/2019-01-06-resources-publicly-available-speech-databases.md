@@ -44,6 +44,12 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * Github repo comparing ConvNet and RNNs on time sequence data: <a href="https://github.com/locuslab/TCN">locuslab</a>
 
+### Text
+
+* Sentiment Analysis <a href="https://blog.cambridgespark.com/50-free-machine-learning-datasets-sentiment-analysis-b9388f79c124">Datasets</a>.
+
+* Text Comprehension: <a href="https://rajpurkar.github.io/SQuAD-explorer/">SQuAD</a> (The Stanford Question Answer Dataset)
+
 ### Images
 
 * Object class recogntion): <a href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC</a>. One needs to register but should be able to download for free 
