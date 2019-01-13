@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building a ConvNet+LSTM neural network to classify female vs male speech: A Python workshop for PyLadies programmers"
+title: "PyLadies Workshop: Building a ConvNet+LSTM neural network to classify female vs male speech"
 date: 2019-01-13
 ---
 
