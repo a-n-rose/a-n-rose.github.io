@@ -51,3 +51,7 @@ To collect resources of freely available datasets for machine learning (with emp
 * Object class recogntion: <a href="http://cocodataset.org/#download">COCO</a> (common objects in context)
 
 * <a href="http://image-net.org/download">IMAGENET</a>: "an image database organized according to the WordNet hierarchy".
+
+### Pre-Trained Models
+
+* Speech related: <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/43576">Kaggle Discussion</a>
