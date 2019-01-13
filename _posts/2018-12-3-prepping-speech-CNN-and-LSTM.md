@@ -98,7 +98,7 @@ This section is in the works. I collected the six clinical types of speech used 
 
 ### Male vs Female Speech
 
-I would like to generate a model that is a bit easier to test in the real-world. Therefore, I will also separate the male and female speech data, of the healthy speakers, and see how well these deep learning models learn and apply to real-world data. Application of noise in training and general speech data augmentation may be explored as well. 
+I would like to generate a model that is a bit easier to test in the real-world. Therefore, I will also separate the male and female speech data, of the healthy speakers, and see how well these deep learning models learn and apply to real-world data. Application of noise in training and general speech data augmentation may be explored as well. (I have put together a <a href="https://a-n-rose.github.io/2019/01/13/workshop-pyladies-deeplearning-speech.html">workshop</a> exploring exactly this.)
 
 
 ## Helpful Recources
