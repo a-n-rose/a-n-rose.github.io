@@ -52,7 +52,7 @@ To collect resources of freely available datasets for machine learning (with emp
 
 ### Images
 
-* Object class recogntion): <a href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC</a>. One needs to register but should be able to download for free 
+* Object class recogntion: <a href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC</a>. One needs to register but should be able to download for free 
 
 * Object class recogntion: <a href="http://cocodataset.org/#download">COCO</a> (common objects in context)
 
@@ -60,4 +60,4 @@ To collect resources of freely available datasets for machine learning (with emp
 
 ### Pre-Trained Models
 
-* Speech related: <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/43576">Kaggle Discussion</a>
+* Speech related: <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/43576">Kaggle Discussion</a>.
