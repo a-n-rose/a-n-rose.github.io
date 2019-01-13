@@ -35,11 +35,15 @@ If you're asking yourself, WTF is a CNN, RNN, or LSTM? No worries, I'll cover th
 
 What I find the most helpful when thinking about neural networks is the *kind* of data they work with. 
 
-* Object Identification (e.g. <a href="https://towardsdatascience.com/mtcnn-face-detection-cdcb20448ce0">face detection</a>) --> Images
+A few examples:
 
-* Text Analysis (i.e. classifying positive or negative reviews) --> Series
+* Object Identification (e.g. <a href="https://towardsdatascience.com/mtcnn-face-detection-cdcb20448ce0">face detection</a>) --> Image data
 
-* Speech Analysis (e.g. <a href="https://ai.google/research/pubs/pub46169">speech recogntion</a>) --> Images **and** Series??
+* Time Series (<a href="https://machinelearningmastery.com/challenging-machine-learning-time-series-forecasting-problems/">datascience competitions</a> answering time series problems) --> Sequence data
+
+* Text Analysis (e.g. text comprehension, sentiment analysis, question answering; a nice <a href="https://aclweb.org/anthology/N18-1202">pdf</a> to read) --> Sequence data, Bag-of-Words, Language Models (complicated field...)
+
+* Speech Analysis (e.g. <a href="https://ai.google/research/pubs/pub46169">speech recogntion</a>) --> Image **and** Sequence data??
 
 ## Speech
 
@@ -47,4 +51,10 @@ What I find the most helpful when thinking about neural networks is the *kind* o
 
 ## Other Related Tutorials 
 
-* Building a <a href="https://medium.com/analytics-vidhya/building-a-speaker-identification-system-from-scratch-with-deep-learning-f4c4aa558a56">Speaker Identification System</a>
+* Building a <a href="https://medium.com/analytics-vidhya/building-a-speaker-identification-system-from-scratch-with-deep-learning-f4c4aa558a56">Speaker Identification System</a>.
+
+* Review of machine and deep learning techniques to do <a href="https://nlpforhackers.io/deep-learning-introduction/">sentiment analysis</a> of text.
+
+* Use LSTM on <a href="https://towardsdatascience.com/a-beginners-guide-on-sentiment-analysis-with-rnn-9e100627c02e">sentiment analysis</a> text data.
+
+* Time Series <a href="https://machinelearningmastery.com/time-series-forecasting-supervised-learning/">Crashcourse</a>
