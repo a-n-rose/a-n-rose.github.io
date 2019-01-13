@@ -37,7 +37,7 @@ What I find the most helpful when thinking about neural networks is the *kind* o
 
 ### Convolutional Neural Networks
 
-ConvNets are most well known for their application to image analysis. These can be used to create <a href="https://towardsdatascience.com/mtcnn-face-detection-cdcb20448ce0">face detection</a> models, object identification models (<a href="https://towardsdatascience.com/object-detection-with-neural-networks-a4e2c46b4491">tutorial</a>), written digit classifiers (<a href="https://machinelearningmastery.com/handwritten-digit-recognition-using-convolutional-neural-networks-python-keras/>tutorial</a> using MNIST dataset"), and others.
+ConvNets are most well known for their application to image analysis. These can be used to create <a href="https://towardsdatascience.com/mtcnn-face-detection-cdcb20448ce0">face detection</a> models, object identification models (<a href="https://towardsdatascience.com/object-detection-with-neural-networks-a4e2c46b4491">tutorial</a>), written digit classifiers (<a href="https://machinelearningmastery.com/handwritten-digit-recognition-using-convolutional-neural-networks-python-keras/">tutorial</a> using MNIST dataset"), and others.
 
 ### Long Short-Term Memory Neural Networks
 
