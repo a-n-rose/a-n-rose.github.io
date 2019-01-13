@@ -35,15 +35,13 @@ If you're asking yourself, WTF is a CNN, RNN, or LSTM? No worries, I'll cover th
 
 What I find the most helpful when thinking about neural networks is the *kind* of data they work with. 
 
-A few examples:
+### Convolutional Neural Networks
 
-* Object Identification (e.g. <a href="https://towardsdatascience.com/mtcnn-face-detection-cdcb20448ce0">face detection</a>) --> Image data
+ConvNets are most well known for their application to image analysis. These can be used to create <a href="https://towardsdatascience.com/mtcnn-face-detection-cdcb20448ce0">face detection</a> models, object identification models (<a href="https://towardsdatascience.com/object-detection-with-neural-networks-a4e2c46b4491">tutorial</a>), written digit classifiers (<a href="https://machinelearningmastery.com/handwritten-digit-recognition-using-convolutional-neural-networks-python-keras/>tutorial</a> using MNIST dataset"), and others.
 
-* Time Series (<a href="https://machinelearningmastery.com/challenging-machine-learning-time-series-forecasting-problems/">datascience competitions</a> answering time series problems) --> Sequence data
+### Long Short-Term Memory Neural Networks
 
-* Text Analysis (e.g. text comprehension, sentiment analysis, question answering; a nice <a href="https://aclweb.org/anthology/N18-1202">pdf</a> to read) --> Sequence data, Bag-of-Words, Language Models (complicated field...)
-
-* Speech Analysis (e.g. <a href="https://ai.google/research/pubs/pub46169">speech recogntion</a>) --> Image **and** Sequence data??
+LSTMs are a subset of recurrent neural networks (<a href="https://towardsdatascience.com/recurrent-neural-networks-and-lstm-4b601dd822a5">RNN</a>). They are known for being able to train with data that requires more flexible memory. LSTMs are capable of remembering and forgetting information that was presented to the algorithm several samples previous. 
 
 ## Speech
 
