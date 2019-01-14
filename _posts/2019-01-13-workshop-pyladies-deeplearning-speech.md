@@ -56,3 +56,7 @@ LSTMs are a subset of recurrent neural networks (<a href="https://towardsdatasci
 * Use LSTM on <a href="https://towardsdatascience.com/a-beginners-guide-on-sentiment-analysis-with-rnn-9e100627c02e">sentiment analysis</a> text data.
 
 * Time Series <a href="https://machinelearningmastery.com/time-series-forecasting-supervised-learning/">Crashcourse</a>
+
+* <a href="https://www.freewebmentor.com/2018/06/python-programs-for-practice.html">10 short Python functions</a> to play around with
+
+* Fun programming and math challenges: <a href="https://projecteuler.net/">Project Euler</a>
