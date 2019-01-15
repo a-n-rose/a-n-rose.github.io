@@ -49,7 +49,15 @@ LSTMs are a subset of recurrent neural networks (<a href="https://towardsdatasci
 
 ## Other Related Tutorials 
 
+* A little <a href="https://github.com/a-n-rose/workshops/tree/master/sqlite3">exercise of mine</a> to play with SQLite3, which we will use in the workshop.
+
+* Intro to <a href="https://www.datacamp.com/community/tutorials/python-numpy-tutorial">NumPy</a>
+
+* Important to be familiar with for data science, machine learning and deep learning: working with matrices in <a href="https://www.programiz.com/python-programming/matrix">NumPy</a>. 
+
 * Building a <a href="https://medium.com/analytics-vidhya/building-a-speaker-identification-system-from-scratch-with-deep-learning-f4c4aa558a56">Speaker Identification System</a>.
+
+* Using APIs to build a <a href="https://realpython.com/python-speech-recognition/">Speech Recognition System</a> in Python yourself.
 
 * Review of machine and deep learning techniques to do <a href="https://nlpforhackers.io/deep-learning-introduction/">sentiment analysis</a> of text.
 
