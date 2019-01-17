@@ -18,6 +18,10 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * YouTube videos (can use audio and/or visuals) of celebrities (English): <a href="http://www.robots.ox.ac.uk/~vgg/data/voxceleb/">VoxCeleb</a>.
 
+* Variety of languages: <a href="https://psi.engr.tamu.edu/l2-arctic-corpus/">Arctic2 Database</a>
+
+* Datasets/ databases for a variety of research purposes/ algorithms: <a href="http://www.cstr.ed.ac.uk/downloads/">The Centre for Speech Technology Research</a>
+
 ### Clinical Speech
 
 * Various disorders, as well as healthy (German): <a href="http://www.stimmdatenbank.coli.uni-saarland.de/index.php4#target">Saarbrücker Voice Database</a>
