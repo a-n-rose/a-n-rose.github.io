@@ -34,6 +34,10 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * English: The Ryerson Audio-Visual Database of Emotional Speech and Song <a href="https://zenodo.org/record/1188976">(RAVDESS)</a>
 
+### Speech Commands
+
+* Google, <a href="https://www.tensorflow.org/">TensorFlow</a>, and <a href="https://aiyprojects.withgoogle.com/">AIY</a> collaborated to create the <a href="https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html">Speech Commands Dataset</a>
+
 ### General Sounds / Noise / Music
 
 * <a href="https://urbansounddataset.weebly.com/urbansound.html">Urban Sound Dataset</a>
