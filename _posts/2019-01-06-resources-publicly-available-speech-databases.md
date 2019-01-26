@@ -22,6 +22,10 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * Datasets/ databases for a variety of research purposes/ algorithms: <a href="http://www.cstr.ed.ac.uk/downloads/">The Centre for Speech Technology Research</a>
 
+* <a href="https://ivdnt.org/downloads/taalmaterialen/tstc-corpus-gesproken-nederlands">Corpus of Spoken Dutch</a>
+
+* Annotated and with natural sounds (laughs, coughs, etc): <a href="http://www1.icsi.berkeley.edu/~ees/dadb/">Meeting Recorder Dialog Act Database</a>
+
 ### Clinical Speech
 
 * Various disorders, as well as healthy (German): <a href="http://www.stimmdatenbank.coli.uni-saarland.de/index.php4#target">Saarbrücker Voice Database</a>
