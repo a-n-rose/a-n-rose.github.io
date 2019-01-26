@@ -56,6 +56,8 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * Github repo comparing ConvNet and RNNs on time sequence data: <a href="https://github.com/locuslab/TCN">locuslab</a>
 
+* An amazing list of opensource <a href="https://deepmind.com/research/open-source/open-source-datasets/">datasets</a>
+
 ### Text
 
 * Sentiment Analysis <a href="https://blog.cambridgespark.com/50-free-machine-learning-datasets-sentiment-analysis-b9388f79c124">Datasets</a>.
@@ -73,3 +75,6 @@ To collect resources of freely available datasets for machine learning (with emp
 ### Pre-Trained Models
 
 * Speech related: <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge/discussion/43576">Kaggle Discussion</a>.
+
+* <a href="https://deepmind.com/blog/wavenet-generative-model-raw-audio/">WaveNet</a> can be included in ur projects I believe.
+
