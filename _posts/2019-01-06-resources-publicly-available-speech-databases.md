@@ -50,6 +50,8 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * <a href="http://www-etud.iro.umontreal.ca/~boulanni/icml2012">Music</a> 
 
+* <a herf="https://www.kaggle.com/c/freesound-audio-tagging">Freesound Audio Tagging</a> dataset for Kaggle competition
+
 ### General Datasets
 
 * Github repo for machine learning datasets: <a href="https://github.com/edwardlib/observations">Observations</a>
