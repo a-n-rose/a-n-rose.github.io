@@ -12,7 +12,7 @@ Request the data from here:
 
 <a href="http://www.stimmdatenbank.coli.uni-saarland.de/index.php4#target">Saarbrücker Voice Database</a>
 
-### Directions: Download Male Speech Data:
+## Male Speech Data
 
 I've posted some screenshots to help you navigate the webpage. We will first download healthy male speech, then healthy female speech. The webpage is in German, so real quick: 
 
@@ -42,7 +42,7 @@ female = weiblich
 
 This should reset the values and you can do the same to download the female speech.
 
-### Directions: Female Speech Data
+### Female Speech Data
 
 Now, repeat the process for the female speech: 
 
