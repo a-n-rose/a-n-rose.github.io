@@ -17,7 +17,9 @@ Request the data from here:
 I've posted some screenshots to help you navigate the webpage. We will first download healthy male speech, then healthy female speech. The webpage is in German, so real quick: 
 
 healthy = gesund
+
 male = männlich
+
 female = weiblich
 
 
@@ -46,17 +48,15 @@ This should reset the values and you can do the same to download the female spee
 
 Now, repeat the process for the female speech: 
 
-1) **IMPORTANT:** Click on "Neue Anfrage"
+1) Check the boxes for "weiblich" and "gesund"
 
-2) Check the boxes for "weiblich" and "gesund"
+2) Click "Exportieren"
 
-3) Click "Exportieren"
+3) Check the boxes "Satzdatei" and "WAV" for the 'Sprach-Signal' (not the 'EEG-Signal').
 
-4) Check the boxes "Satzdatei" and "WAV" for the 'Sprach-Signal' (not the 'EEG-Signal').
+4) Once the data has loaded, click on "Herunterladen". Save this zip file in the "data" folder as "female_speech.zip". Extract the zipfile. 
 
-5) Once the data has loaded, click on "Herunterladen". Save this zip file in the "data" folder as "female_speech.zip". Extract the zipfile. 
-
-6) Rename the extracted file "export" as "female_speech"
+5) Rename the extracted file "export" as "female_speech"
 
 ### Check the speech
 
