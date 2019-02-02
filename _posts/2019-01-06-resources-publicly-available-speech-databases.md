@@ -26,6 +26,8 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * Annotated and with natural sounds (laughs, coughs, etc): <a href="http://www1.icsi.berkeley.edu/~ees/dadb/">Meeting Recorder Dialog Act Database</a>
 
+* <a href="https://librivox.org/">LibriVox</a>: free public domain audiobooks
+
 ### Clinical Speech
 
 * Various disorders, as well as healthy (German): <a href="http://www.stimmdatenbank.coli.uni-saarland.de/index.php4#target">Saarbrücker Voice Database</a>
