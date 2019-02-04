@@ -28,6 +28,8 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * <a href="https://librivox.org/">LibriVox</a>: free public domain audiobooks
 
+* <a href="https://github.com/Jakobovski/free-spoken-digit-dataset">Free Spoken Digit Dataset</a> 
+
 ### Clinical Speech
 
 * Various disorders, as well as healthy (German): <a href="http://www.stimmdatenbank.coli.uni-saarland.de/index.php4#target">Saarbrücker Voice Database</a>
