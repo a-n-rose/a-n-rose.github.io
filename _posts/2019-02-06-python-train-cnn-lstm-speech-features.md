@@ -4,21 +4,13 @@ title: "Train a ConvNet, LSTM, or stacked ConvNet+LSTM with Various Speech Featu
 date: 2019-02-06
 ---
 
-(In the works..)
+(In the works..)  
 
-Have you messed around with Keras, perhaps using audio data? If you are anything like me, you had issues with dimensionality, among countless other things, but mainly dimensionality. Regardless, I hope you find this workshop helpful and who knows, maybe even soothing. 
+Speech and machine learning. Why is it relevant? I assume you're familiar with Siri and Alexa, and that they can hear pretty well what you say (depending on your language/accent). But let's say we want to expand such speech recognition technology to also identify other aspects of our speech signal. This can be useful (and is being explored) for health related apps, such as the tracking of <a href="http://www.infomus.org/Events/proceedings/ACII2015/papers/Main_Conference/M4_Doctoral_Consortium/D01_Recognition/ACII2015_submission_195.pdf">depression</a> or <a href="https://ac.els-cdn.com/S2352872915000160/1-s2.0-S2352872915000160-main.pdf?_tid=d04d9cc3-f992-4820-af98-f083c847c322&acdnat=1549408007_fe358db560e7df5618e8d68875824413">identifying the onset of Alzheimer's</a>.
 
-The <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">code</a> I put together allows you to extract several different speech/ sound features, and feed them to various networks. As the script is, you don't have to touch dimensionality. But, I suggest for you to have a peak and see how the dimensionality of your data needs to be adjusted to get that bugger of a model training. 
+To better understand the features used in machine learning, from traditional algorithms such as support vector machines (SVM), hidden markovian models - guassian mixture models (HMM-GMM), and random forests, to deep learning algorithms such as convolutional neural netowrks (CNN) and recurrent neural networks, i.e. long short-term memory networks (LSTM), then read on!
 
-Where to start with such a complicted subject? 
-
-Sound? 
-
-Neural networks? 
-
-Matrices?
-
-I suppose we should actually start with a problem we'd like to solve. Let's say we want to expand speech recognition (where computers understand *what* we say ~ not necessarily *how* we say it) to identify other aspects of our speech signal. This can be useful (and is being explored) for health related apps, such as the tracking of depression or <a href="https://ac.els-cdn.com/S2352872915000160/1-s2.0-S2352872915000160-main.pdf?_tid=d04d9cc3-f992-4820-af98-f083c847c322&acdnat=1549408007_fe358db560e7df5618e8d68875824413">identifying the onset of Alzheimer's</a>.
+Note: to test out different speech features with CNNs, LSTMs, and CNN+LSTMs, check out this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">workshop repo</a>.
 
 Let's see what information is available in the raw waveform of speech:
 
