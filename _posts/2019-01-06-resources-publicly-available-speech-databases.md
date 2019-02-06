@@ -36,6 +36,8 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * Children with Specific Language Impairment (Czech): <a href="https://figshare.com/articles/New_draft_item/2360626">LANNA database</a>
 
+* Interviews of people with clinical disorders (anxiety, depression, post-traumatic stress disorder): <a href="http://dcapswoz.ict.usc.edu/">DAIC-WOZ Database</a>
+
 ### Emotion in Speech
 
 * German: <a href="http://emodb.bilderbar.info/download/">EmoDB</a>
