@@ -8,7 +8,7 @@ date: 2019-02-06
 
 Speech and machine learning. Why is it relevant? I assume you're familiar with Siri and Alexa, and that they can hear pretty well what you say (depending on your language/accent). But let's say we want to expand such speech recognition technology to also identify other aspects of our speech signal. This can be useful (and is being explored) for health related apps, such as the tracking of <a href="http://www.infomus.org/Events/proceedings/ACII2015/papers/Main_Conference/M4_Doctoral_Consortium/D01_Recognition/ACII2015_submission_195.pdf">depression</a> or <a href="https://ac.els-cdn.com/S2352872915000160/1-s2.0-S2352872915000160-main.pdf?_tid=d04d9cc3-f992-4820-af98-f083c847c322&acdnat=1549408007_fe358db560e7df5618e8d68875824413">identifying the onset of Alzheimer's</a>.
 
-To better understand the features used in machine learning, from traditional algorithms such as support vector machines (SVM), hidden markovian models - guassian mixture models (HMM-GMM), and random forests, to deep learning algorithms such as convolutional neural netowrks (CNN) and recurrent neural networks, i.e. long short-term memory networks (LSTM), then read on!
+To better understand the features used in machine learning, from traditional algorithms such as support vector machines (SVM), hidden markov models - guassian mixture models (HMM-GMM), and random forests, to deep learning algorithms such as convolutional neural netoworks (CNN) and recurrent neural networks, i.e. long short-term memory networks (LSTM), then read on!
 
 Note: to test out different speech features with CNNs, LSTMs, and CNN+LSTMs, check out this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">workshop repo</a>.
 
