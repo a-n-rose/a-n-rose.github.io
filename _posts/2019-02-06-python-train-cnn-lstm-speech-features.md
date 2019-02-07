@@ -94,7 +94,7 @@ Which is where the <a href="https://en.wikipedia.org/wiki/Mel_scale">Mel scale</
 ![Imgur](https://i.imgur.com/mjtew0l.png)
 #### Krishna Vedala [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons
 
-The Mel scale puts into perspective human perception of frequencies: some frequencies we pay more attention to than others. (Would you be surprised if we paid more attention to frequency changes in the levels  of speech than those at the level of a screetching car?) 
+The Mel scale puts into perspective human perception of frequencies: some frequencies we pay more attention to than others. (Would you be surprised if we paid more attention to frequency changes at the levels  of speech than those at the level of a screetching car?) 
 
 By applying the mel scale, as well as the logarthimic scale (i.e. turning the (linear) power domain to the (non-linear) decibel domain), to the STFT, we get mel filterbank energies! 
 
