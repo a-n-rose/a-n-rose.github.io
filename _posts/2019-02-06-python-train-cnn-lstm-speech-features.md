@@ -1,16 +1,18 @@
 ---
 layout: post
-title: "Train a ConvNet, LSTM, or stacked ConvNet+LSTM with Various Speech Features"
+title: "Speech and Deep Learning: What does speech look like and how can we prep it for taining?"
 date: 2019-02-06
 ---
 
-(In the works..)  
+This post complements a <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">workshop repo</a> where you can explore speech feature extraction and deep neural network training. To better understand some of the speech features used in machine and deep learning then read on!
 
-Speech and machine learning. Why is it relevant? I assume you're familiar with Siri and Alexa, and that they can hear pretty well what you say (depending on your language/accent). But let's say we want to expand such speech recognition technology to also identify other aspects of our speech signal. This can be useful (and is being explored) for health related apps, such as the tracking of <a href="http://www.infomus.org/Events/proceedings/ACII2015/papers/Main_Conference/M4_Doctoral_Consortium/D01_Recognition/ACII2015_submission_195.pdf">depression</a> or <a href="https://ac.els-cdn.com/S2352872915000160/1-s2.0-S2352872915000160-main.pdf?_tid=d04d9cc3-f992-4820-af98-f083c847c322&acdnat=1549408007_fe358db560e7df5618e8d68875824413">identifying the onset of Alzheimer's</a>.
+Speech and machine learning. Why is it relevant? I assume you're familiar with Siri and Alexa, and (depending on your language/accent) they do what you say, from turning on the lights, playing a song, to taking notes for you. This speech recognition technology <a href="https://uwaterloo.ca/global-impact/how-machine-learning-helps-siri-and-alexa-understand-you">already uses deep learning</a>, but let's say we want to expand it to also identify other aspects of our speech. This can be useful (and is being explored) for health related apps, such as the tracking of <a href="http://www.infomus.org/Events/proceedings/ACII2015/papers/Main_Conference/M4_Doctoral_Consortium/D01_Recognition/ACII2015_submission_195.pdf">depression</a> or <a href="https://ac.els-cdn.com/S2352872915000160/1-s2.0-S2352872915000160-main.pdf?_tid=d04d9cc3-f992-4820-af98-f083c847c322&acdnat=1549408007_fe358db560e7df5618e8d68875824413">identifying the onset of Alzheimer's</a>.
 
-To better understand the features used in machine learning, from traditional algorithms such as support vector machines (SVM), hidden markov models - guassian mixture models (HMM-GMM), and random forests, to deep learning algorithms such as convolutional neural netoworks (CNN) and recurrent neural networks, i.e. long short-term memory networks (LSTM), then read on!
+So how can we train a model to identify characteristics in our speech? We need to present whatever machine learning algorithm(s) we want to use speech in a way it learns best from. 
 
-Note: to test out different speech features with CNNs, LSTMs, and CNN+LSTMs, check out this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">workshop repo</a>.
+## Speech Signal
+
+### Waveform 
 
 Let's see what information is available in the raw waveform of speech:
 
@@ -29,17 +31,38 @@ Let's zoom in to see what the actual waves look like; maybe that will tell us so
 
 Was this what you expected? These waves are pretty squiggly. Compare these waves with those below. 
 
-![Imgur](https://i.imgur.com/VjNz6Pj.png)
+![Imgur](https://i.imgur.com/m7HmVna.png)
 
-What's the difference? Simply put, the sine wave has just one frequency; the speech sound wave has multiple frequencies, packed together. For us humans, and most standard machine learning algorithms, it is very hard to tell which frequencies are in there. 
+What's the difference? Simply put, the sine wave has just one frequency; the speech sound wave has multiple frequencies, packed together. Here are two more sine waves, at differing frequencies:
+
+![Imgur](https://i.imgur.com/bWTarkl.png)
+
+![Imgur](https://i.imgur.com/GwXFRQd.png)
+
+And here are all three waves, packed together:
+
+![Imgur](https://i.imgur.com/bo6PMnL.png)
+
+
+For us humans, and most standard machine learning algorithms, it is very hard to tell which frequencies are in there. 
 
 This is where the Fourier Transform comes in!! 
+
+### Fourier Transform: Switch Domains
 
 For a really great explanation of the Fourier Transform, as well as some enjoyable visuals, watch this <a href="https://www.youtube.com/watch?v=spUNpyF58BY">video</a>.
 
 Long story short, by applying this equation - equipped with several spiraling sinewaves, all with different frequencies - to the sound wave, it basically unpacks the frequencies from the sound wave. This can tell us the frequencies in the speech.
 
 Why would frequencies be helpful? Think of how you tell if a speaker is a man, woman, or child. The most obvious way is hearing how high or low the speech is. That's one thing frequencies can tell us but they can potentially reveal additional characteristics, such as health.
+
+#### "Dominant Frequencies" of child, adult female, and adult male vowel 'a':
+![Imgur](https://i.imgur.com/71C4E9l.png)
+#### Child: frequency stays around 1200
+![Imgur](https://i.imgur.com/stVda2u.png)
+#### Adult female: frequency stays around 1000
+![Imgur](https://i.imgur.com/p6QvgTj.png)
+#### Adult male: frequency stays around 700
 
 Note: my background is more focused on clinical speech, so I will continue with the standards I've seen for handling speech; I can't (yet) speak for the standards for music or other realms of digital signal processing.
 
@@ -52,7 +75,7 @@ Apply the Fourier Transform in tiny little windows, specifically, the <a href="h
 Most research papers I've come across apply the FT (I'm tired of typing that out) in windows of 25 milliseconds, meaning they 'transform' the signal at only 25 ms at a time. In order to catch variations in frequency that might happen within that 25 milliseconds, the FT is calculated in shifts of 10 milliseconds, going down the signal until all of it has been 'transformed'. In the future I will refer to this as a window size of 25 ms and a window shift of 10 ms. 
 
 
-Knowing this, let's compare the raw waveform and it's transformed state:
+Knowing this, let's compare the raw waveform of 'sheila' and it's transformed state:
 
 ![Imgur](https://i.imgur.com/sSYOMbq.png)
 
@@ -62,7 +85,7 @@ Knowing this, let's compare the raw waveform and it's transformed state:
 
 Can you see the changes between the sounds 'sh', 'e', 'l', and 'a'?
 
-One issue with the STFT here is that not all the frequencies are very relevant to us humans. Look at the frequencies at the bottom (0-128 Hz) and those at the very top (4,000 Hz+). They don't seem to carry quite as much information as those in the middle. 
+One issue with the STFT here is that not all the frequencies are very relevant to us humans. Look at the frequencies at the bottom (0-128 Hz) and those at the very top (4,000 Hz+). They don't seem to carry quite as much information as those in the middle, as it pertains to speech.
 
 Which is where the <a href="https://en.wikipedia.org/wiki/Mel_scale">Mel scale</a> comes in. 
 
@@ -79,13 +102,20 @@ By applying the mel scale, as well as the logarthimic scale (i.e. turning the (l
 
 (We're almost through the features, I promise.)
 
-For deep learning algorithms, all of the forms above are useful in developing high performing speech classifiers. We'll get into *why* later. But traditional machine learning algorithms don't handle such data as elegantly. There's simply a lot of features here for an algorithm to learn, and many of them <a href="https://en.wikipedia.org/wiki/Multicollinearity">colinear</a>. (Speech is just complicated man.)
+For deep learning algorithms, all of the forms above are useful in developing high performing speech classifiers. We'll get into *why* in another post. But traditional machine learning algorithms (like support vector machines, random forests, hidden markov models-gaussian mixture models) don't handle such data as elegantly. There's simply a lot of features here for an algorithm to learn, and many of them <a href="https://en.wikipedia.org/wiki/Multicollinearity">colinear</a>. (Speech is just complicated man.)
 
 Mel frequency cepstral coefficients are filterbank energies (FBANK) with an additional filter applied: the <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform">discrete cosine transform</a> (DCT). Basically this removes the colinearity prevalent in the FBANK features. 
 
 ![Imgur](https://i.imgur.com/CXWRmfw.png)
 
-For speech research, if using FBANKs, one usually uses 20 or 40 mel filters, and if using MFCCs, one usually uses 13 (12, if not including the 1st coefficient as it pertains to amplitude, not necessarily to speech sounds), 20, or 40 coefficients. This largely depends on whether you want to focus only on the speech sounds, i.e. 'd' vs. 'p' or 'e' vs 'u', which would mean you would use fewer MFCCs, 13 for example. For intonation, emotion, and other characteristics, you may want to explore using all 40 MFCCs.
+Based on some of the research I've read, if using FBANKs, one can use around 20 or 40 mel filters, and if using MFCCs, one can use 13 (12, if not including the 1st coefficient as it pertains to amplitude, not necessarily to speech sounds), 20, or 40 coefficients. This largely depends on whether you want to focus only on the speech sounds, i.e. 'd' vs. 'p' or 'e' vs 'u', which would mean you would use fewer MFCCs, 13 for example. For intonation, emotion, and other characteristics, you may want to explore using all 40 MFCCs.
 
-Phew! Let's move on.
+Phew! That's a bit of background on just these features; there are many other speech features I did not explore here and I suggest you to look into the research papers below and see how they prepared their speech for their research purposes. 
+
+
+## Papers
+
+### Features
+
+Identifying depression in <a href="http://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC3652557&blobtype=pdf">adolescents</a>
 
