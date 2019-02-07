@@ -101,9 +101,9 @@ By applying the mel scale, as well as the logarthimic scale (i.e. turning the (l
 ### FBANK
 
 ![Imgur](https://i.imgur.com/Z3Xqbwa.png)
-#### The focus in on the frequencies relevant for speech. Note: the db are in respect to the highest db value, hence the highest == 0.
+#### The focus is now on the frequencies relevant for speech. Note: the db are in respect to the highest db value, hence the highest == 0.
 
-For deep learning algorithms, all of the forms above are useful in developing high performing speech classifiers. We'll get into *why* in another post. But traditional machine learning algorithms (like support vector machines, random forests, hidden markov models-gaussian mixture models) don't handle such data as elegantly. There's simply a lot of features here for an algorithm to learn, and many of them <a href="https://en.wikipedia.org/wiki/Multicollinearity">colinear</a>. (Speech is just complicated man.)
+For deep learning algorithms, all of the forms above are useful in developing high performing speech classifiers (raw waveform, STFT, FBANK). We'll get into *why* in another post. But traditional machine learning algorithms (like support vector machines, random forests, hidden markov models-gaussian mixture models) don't handle such data as elegantly. There's simply a lot of features here for an algorithm to learn, and many of them <a href="https://en.wikipedia.org/wiki/Multicollinearity">colinear</a>. (Speech is just complicated man.)
 
 ### MFCC
 
@@ -120,9 +120,7 @@ This is just an intro to get you comfortable with the features: raw waveform, ST
 I hope this has been helpful! 
 
 
-## Papers
-
-### Features
+## Further exploration:
 
 Identifying depression in <a href="http://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC3652557&blobtype=pdf">adolescents</a>
 
