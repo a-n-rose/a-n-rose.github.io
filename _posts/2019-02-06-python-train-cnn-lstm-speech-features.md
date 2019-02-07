@@ -56,7 +56,7 @@ Long story short, by applying this equation - equipped with several spiraling si
 
 Why would frequencies be helpful? Think of how you tell if a speaker is a man, woman, or child. The most obvious way is hearing how high or low the speech is. That's one thing frequencies can tell us but they can potentially reveal additional characteristics, such as health.
 
-#### "Dominant Frequencies" of child, adult female, and adult male vowel 'a':
+### "Dominant Frequencies" of child, adult female, and adult male, all saying the vowel 'a':
 ![Imgur](https://i.imgur.com/71C4E9l.png)
 #### Child: frequency stays around 1200 Hz
 ![Imgur](https://i.imgur.com/stVda2u.png)
@@ -69,6 +69,8 @@ Note: my background is more focused on clinical speech, so I will continue with 
 Anyways, while the Fourier Transform is amazing, it expects the signal to be unchanging. Think of the humming comming from your computer, or refrigerator. (It's my microwave's ringing that drives me bonkers.) Those signals stay relatively the same over time.
 
 Speech is vastly different. The signal changes in the realm of milliseconds! These changes reflect the different speech sounds, or phonemes, we make. So, how do we find out the frequencies within such a varying signal? 
+
+### STFT
 
 Apply the Fourier Transform in tiny little windows, specifically, the <a href="https://ccrma.stanford.edu/~jos/sasp/Short_Time_Fourier_Transform.html">short-time fourier transform</a> (STFT)
 
@@ -96,10 +98,14 @@ The Mel scale puts into perspective human perception of frequencies: some freque
 
 By applying the mel scale, as well as the logarthimic scale (i.e. turning the (linear) power domain to the (non-linear) decibel domain), to the STFT, we get mel filterbank energies! 
 
+### FBANK
+
 ![Imgur](https://i.imgur.com/Z3Xqbwa.png)
 #### The focus in on the frequencies relevant for speech. Note: the db are in respect to the highest db value, hence the highest == 0.
 
 For deep learning algorithms, all of the forms above are useful in developing high performing speech classifiers. We'll get into *why* in another post. But traditional machine learning algorithms (like support vector machines, random forests, hidden markov models-gaussian mixture models) don't handle such data as elegantly. There's simply a lot of features here for an algorithm to learn, and many of them <a href="https://en.wikipedia.org/wiki/Multicollinearity">colinear</a>. (Speech is just complicated man.)
+
+### MFCC
 
 Mel frequency cepstral coefficients (<a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">MFCC</a>) are basically filterbank energies (FBANK) with an additional filter applied: the <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform">discrete cosine transform</a> (DCT). This helps remove the colinearity prevalent in the FBANK features, making it easier for traditioal machine learning algorithms to actually learn the relevant features. (Deep learning algorithms are better at dealing with colinear features.)
 
