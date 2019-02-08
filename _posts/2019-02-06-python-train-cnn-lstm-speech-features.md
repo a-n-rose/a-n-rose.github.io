@@ -57,12 +57,8 @@ Long story short, by applying this equation - equipped with several spiraling si
 Why would frequencies be helpful? Think of how you tell if a speaker is a man, woman, or child. The most obvious way is hearing how high or low the speech is. That's one thing frequencies can tell us but they can potentially reveal additional characteristics, such as health.
 
 ### "Dominant Frequencies" of child, adult female, and adult male, all saying the vowel 'a':
-![Imgur](https://i.imgur.com/71C4E9l.png)
-#### Child: frequency stays around 1200 Hz (wavefile collected from the LANNA database)
-![Imgur](https://i.imgur.com/stVda2u.png)
-#### Adult female: frequency stays around 1000 Hz (wavefile collected from Saarbrücker Voice Database)
-![Imgur](https://i.imgur.com/p6QvgTj.png)
-#### Adult male: frequency stays around 700 Hz (wavefile collected from the Saarbrücker Voice Database)
+![Imgur](https://i.imgur.com/ErQojXd.png)
+#### Child (LANNA database) frequency stays around 1200 Hz; adult female (Saarbrücker Voice Database) frequency stays around 1000 Hz; and adult male (Saarbrücker Voice Database) frequency stays around 700 Hz.
 
 Note: my background is more focused on clinical speech, so I will continue with the standards I've seen for handling speech; I can't (yet) speak for the standards for music or other realms of digital signal processing.
 
