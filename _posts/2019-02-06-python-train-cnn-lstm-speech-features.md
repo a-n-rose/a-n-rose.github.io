@@ -58,11 +58,11 @@ Why would frequencies be helpful? Think of how you tell if a speaker is a man, w
 
 ### "Dominant Frequencies" of child, adult female, and adult male, all saying the vowel 'a':
 ![Imgur](https://i.imgur.com/71C4E9l.png)
-#### Child: frequency stays around 1200 Hz
+#### Child: frequency stays around 1200 Hz (wavefile collected from the LANNA database)
 ![Imgur](https://i.imgur.com/stVda2u.png)
-#### Adult female: frequency stays around 1000 Hz
+#### Adult female: frequency stays around 1000 Hz (wavefile collected from Saarbrücker Voice Database)
 ![Imgur](https://i.imgur.com/p6QvgTj.png)
-#### Adult male: frequency stays around 700 Hz
+#### Adult male: frequency stays around 700 Hz (wavefile collected from the Saarbrücker Voice Database)
 
 Note: my background is more focused on clinical speech, so I will continue with the standards I've seen for handling speech; I can't (yet) speak for the standards for music or other realms of digital signal processing.
 
