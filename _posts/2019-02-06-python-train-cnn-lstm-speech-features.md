@@ -87,7 +87,7 @@ Knowing this, let's compare the raw waveform of 'sheila' and it's transformed st
 
 Can you see the changes between the sounds 'sh', 'e', 'l', and 'a'?
 
-One issue with the STFT here is that not all the frequencies are very relevant to us humans. Look at the frequencies above 4,000 Hz. They don't seem to carry quite as much information as those in the middle, as it pertains to speech.
+One issue with the STFT here is that not all the frequencies are very relevant to us humans. Look at the frequencies above 4,000 Hz. They don't seem to carry quite as much information as below 4,000 Hz, as it pertains to speech.
 
 Which is where the <a href="https://en.wikipedia.org/wiki/Mel_scale">Mel scale</a> comes in. 
 
