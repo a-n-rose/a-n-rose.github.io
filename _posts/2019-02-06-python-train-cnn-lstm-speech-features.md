@@ -76,7 +76,7 @@ Apply the Fourier Transform in tiny little windows, specifically, the <a href="h
 
 Most research papers I've come across apply the STFT in windows of 25 milliseconds, meaning they 'transform' the signal at only 25 ms at a time. In order to catch variations in frequency that might happen within that 25 milliseconds, the STFT is calculated in shifts of 10 milliseconds, going down the signal until all of it has been 'transformed'. 
 
-![Imgur](https://i.imgur.com/YXsLnXT.png)
+![Imgur](https://i.imgur.com/jNsNBn4.png)
 #### To find out the number of samples per window, multiply the time in seconds with the sampling rate (16000 = 16000 samples per second)
 
 You'll find functions using this window size and window shift in this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features/blob/master/feature_extraction_scripts/feature_extraction_functions.py">script</a>. 
