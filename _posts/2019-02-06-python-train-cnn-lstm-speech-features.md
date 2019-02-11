@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Speech and Deep Learning: What does speech look like and how can we prep it for taining?"
+title: "Speech and Deep Learning: What does speech look like and how can we prep it for training?"
 date: 2019-02-06
 ---
 
