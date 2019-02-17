@@ -11,7 +11,7 @@ The purpose of this post is to see which kind of speech features are best to app
 
 I have three expectations:
 
-1) I expect the STFT features to result in the best models
+1) I expect the STFT features to result in the best models.
 
 Deep neural networks work very well when allowed to filter complex features themselves, rather than learn from the features humans filter for them. The FBANK and MFCC are more filtered than the STFT. For more on what I mean, refer to this <a href="https://a-n-rose.github.io/2019/02/06/python-train-cnn-lstm-speech-features.html">post</a> on the speech features used.
 
@@ -21,9 +21,9 @@ This is a common practice in the training of models: to train them with noise th
 
 3) The CNN+LSTM models will perform the best and the CNN models will perform slightly worse with much lower computation cost. The LSTMs will have long training times and will not outperform the CNNs in general. 
 
-CNNs are masters at breaking complex data down into the most relevant features. This means that only the most relevant information is used when computing, and also the neurons within the network only communicate with other nearby neurons. This means that the neurons don't havee to interact with all other neurons in their layer, further reducing computation. 
+CNNs are masters at breaking complex data down into the most relevant features. This means that only the most relevant information is used when computing, and also the neurons within the network only communicate with other nearby neurons. This means that the neurons don't have to interact with all other neurons in their layer, further reducing computation. 
 
-Furthermore, while CNNs are good at recognizing patterns, with low computation cost, they may miss some patterns that occur in a time series, which means the addition of LSTM layers may help the model catch otherwise missed patterns, resulting in a better model. 
+While CNNs are good at recognizing patterns, they may miss some patterns that occur in a time series, which means the addition of LSTM layers may help the model catch otherwise missed patterns, resulting in a better model. 
 
 LSTMs, on the other hand, tend to be very computationally expensive. While they are good at identifying patterns in long time-series, it could be that because speech is so complicated, without the CNN to break the features down, the LSTM will not be able to effectively learn from the data. If this is correct, the LSTM alone should perform best on the MFCC features, specifically the 13 MFCCs. These are the least complex features of all implemented here.
 
@@ -44,13 +44,15 @@ The feature extraction variables I adjust include:
 
 The models I will compare:
 * CNN: 32 feature maps, kernel size (8,4), max pooling pool size (3,3)
-* LSTM: same number of cells for the number of features
+* LSTM: same number of cells as the number of features
 * CNN+LSTM: combination of the two above
 
 
 #### Durations of feature extraction
 | Features | Number of Features  | Noise Added | Delta Added | Duration | Best Performing Model | Test Acc | Test Loss |
+
 |----------------:|:-------------------:|:----------------:|:-------------------:|:----------------|:----------------|:----------------|:----------------|
+
 | STFT|201|False|False|25.5 min|TBC|TBC|TBC|
 | STFT|201|True|False|132.4 min|CNN+LSTM|72.9%|0.95|
 | STFT|201|False|True|TBC|TBC|TBC|TBC|
