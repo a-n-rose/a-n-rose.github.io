@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Comparing Speech Features and Deep Learning **Speech Recognition** Models: STFT vs FBANK vs MFCC and CNN vs LSTM vs CNN+LSTM"
+title: "Comparing Speech Features and Deep Learning Models for Speech Recognition"
 date: 2019-02-17
 ---
 
