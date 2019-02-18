@@ -79,7 +79,8 @@ Durations of Feature Extraction and Best Model Performance
 
 ## Graphs
 
-![Imgur](https://i.imgur.com/UdA0tnf.png)
+![Imgur](https://i.imgur.com/UdA0tnf.png?1)
+
 ## FBANK
 
 #### CNN+LSTM Accuracy trained on 40 FBANK with noise
