@@ -5,7 +5,7 @@ date: 2019-02-17
 ---
 
 
-The purpose of this post is to see which kind of speech features are best to apply to deep learning neural networks. I compare the extraction of various types of features, with and without added noise, and the success of convolutional neural networks and long short-term memory neural networks trained on that data. I consider time taken to extract the features and to train the models, the test accuracy and loss, as well as how well the models classify new speech, both female and male speech. The speech data used to train are the Speech Commands Dataset (2017) available <a href="https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html">here</a>. 
+The purpose of this post is to see which kind of speech features are best to apply to deep learning neural networks for the purpose of speech recognition. I compare the extraction of various types of features, with and without added noise, and the success of convolutional neural networks and long short-term memory neural networks trained on that data. I consider time taken to extract the features and to train the models, the test accuracy and loss, as well as how well the models classify new speech, both female and male speech. The speech data used to train are the Speech Commands Dataset (2017), available <a href="https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html">here</a>. 
 
 ## Expectations
 
@@ -53,7 +53,7 @@ The models I will compare:
 
 |----------------:|:-------------------:|:----------------:|:-------------------:|:----------------|:----------------|:----------------|:----------------|
 
-| STFT|201|False|False|25.5 min|TBC|TBC|TBC|
+| STFT|201|False|False|25.5 min|CNN+LSTM|81.7%|0.65|
 | STFT|201|True|False|132.4 min|CNN+LSTM|72.9%|0.95|
 | STFT|201|False|True|TBC|TBC|TBC|TBC|
 | STFT|201|True|True|TBC|TBC|TBC|TBC|
@@ -78,25 +78,37 @@ The models I will compare:
 
 ## CNN+LSTM
 
-### Features with noise
+## STFT
 
-#### Accuracy trained on STFT with noise
+#### CNN+LSTM Accuracy trained on STFT with noise
 ![Imgur](https://i.imgur.com/MAFw0vL.png)
 ##### Notice the validation accuracy remains at around 73%
 
-#### loss trained on STFT with noise
+#### CNN+LSTM Accuracy trained on STFT without noise
+![Imgur](https://i.imgur.com/hWQyO5P.png)
+
+#### CNN+LSTM loss trained on STFT with noise
 ![Imgur](https://i.imgur.com/Dlugbrr.png)
 ##### The loss does not drop further than around 0.95, after 10 consecutive epochs. The training ended after 20 epochs.
 
-#### Accuracy trained on 40 FBANK with noise
+#### CNN+LSTM loss trained on STFT without noise
+![Imgur](https://i.imgur.com/Vdn153x.png)
+
+## FBANK
+
+#### CNN+LSTM Accuracy trained on 40 FBANK with noise
 ![Imgur](https://i.imgur.com/c828ORN.png)
 
-#### Loss trained on 40 FBANK with noise
+#### CNN+LSTM Loss trained on 40 FBANK with noise
 ![Imgur](https://i.imgur.com/KyvK4LW.png)
 
-#### Accuracy trained on 40 MFCC with noise
+## MFCC
+
+#### CNN+LSTM Accuracy trained on 40 MFCC with noise
 ![Imgur](https://i.imgur.com/oK5Etk3.png)
 ##### The training stopped quite quickly: the MFCCs did not prove to be a very good feature in this case.
 
-#### Loss trained on 40 MFCC with noise
+#### CNN+LSTM Loss trained on 40 MFCC with noise
 ![Imgur](https://i.imgur.com/hsRyM2D.png)
+
+
