@@ -79,24 +79,7 @@ Durations of Feature Extraction and Best Model Performance
 
 ## Graphs
 
-## CNN+LSTM
-
-## STFT
-
-#### CNN+LSTM Accuracy trained on STFT with noise
-![Imgur](https://i.imgur.com/MAFw0vL.png)
-##### Notice the validation accuracy remains at around 73%
-
-#### CNN+LSTM Accuracy trained on STFT without noise
-![Imgur](https://i.imgur.com/hWQyO5P.png)
-
-#### CNN+LSTM loss trained on STFT with noise
-![Imgur](https://i.imgur.com/Dlugbrr.png)
-##### The loss does not drop further than around 0.95, after 10 consecutive epochs. The training ended after 20 epochs.
-
-#### CNN+LSTM loss trained on STFT without noise
-![Imgur](https://i.imgur.com/Vdn153x.png)
-
+![Imgur](https://i.imgur.com/UdA0tnf.png)
 ## FBANK
 
 #### CNN+LSTM Accuracy trained on 40 FBANK with noise
