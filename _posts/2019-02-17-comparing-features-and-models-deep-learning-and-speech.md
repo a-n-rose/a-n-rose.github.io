@@ -56,24 +56,26 @@ Durations of Feature Extraction and Best Model Performance
 |----:|:----:|:----:|:---:|:---:|:---:|:---:|:---:|:---|
 | STFT|201|False|False|25.5|CNN+LSTM|81.7%|0.65|869.0|
 | STFT|201|True|False|132.4|CNN+LSTM|72.9%|0.95|678.7|
-| STFT|201|False|True|TBC|TBC|TBC|TBC|TBC|
-| STFT|201|True|True|TBC|TBC|TBC|TBC|TBC|
+| STFT|603|False|True|TBC|TBC|TBC|TBC|TBC|
+| STFT|603|True|True|TBC|TBC|TBC|TBC|TBC|
 | FBANK|40|False|False|21.4|TBC|TBC|TBC|TBC|
 | FBANK|40|True|False|167.3|CNN+LSTM|57.7%|1.42|147.9|
-| FBANK|40|False|True|TBC|TBC|TBC|TBC|TBC|
-| FBANK|40|True|True|TBC|TBC|TBC|TBC|TBC|
+| FBANK|120|False|True|TBC|TBC|TBC|TBC|TBC|
+| FBANK|120|True|True|TBC|TBC|TBC|TBC|TBC|
 | FBANK|20|False|False|TBC|TBC|TBC|TBC|TBC|
 | FBANK|20|True|False|TBC|TBC|TBC|TBC|TBC|
-| FBANK|20|False|True|TBC|TBC|TBC|TBC|TBC|
-| FBANK|20|True|True|TBC|TBC|TBC|TBC|TBC|
+| FBANK|60|False|True|TBC|TBC|TBC|TBC|TBC|
+| FBANK|60|True|True|TBC|TBC|TBC|TBC|TBC|
 | MFCC|40|False|False|17.7|TBC|TBC|TBC|TBC|
 | MFCC|40|True|False|174.47|CNN+LSTM|15.5%|2.9|55.9|
-| MFCC|40|False|True|TBC|TBC|TBC|TBC|TBC|
-| MFCC|40|True|True|TBC|TBC|TBC|TBC|TBC|
+| MFCC|120|False|True|TBC|TBC|TBC|TBC|TBC|
+| MFCC|120|True|True|TBC|TBC|TBC|TBC|TBC|
 | MFCC|13|False|False|TBC|TBC|TBC|TBC|TBC|
 | MFCC|13|True|False|TBC|TBC|TBC|TBC|TBC|
-| MFCC|13|False|True|TBC|TBC|TBC|TBC|TBC|
-| MFCC|13|True|True|TBC|TBC|TBC|TBC|TBC|
+| MFCC|39|False|True|TBC|TBC|TBC|TBC|TBC|
+| MFCC|39|True|True|TBC|TBC|TBC|TBC|TBC|
+
+#### If Delta == True, the features triple in number. The first and second derivatives will be calcuated on the original feautures and added as features.
 
 ## Graphs
 
