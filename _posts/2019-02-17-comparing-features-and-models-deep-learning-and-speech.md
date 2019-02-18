@@ -52,22 +52,22 @@ The models I will compare:
 
 Durations of Feature Extraction and Best Model Performance
 
-| Features | Number of Features  | Noise Added | Delta Added | Duration | Best Performing Model | Test Acc | Test Loss |
+| Features | Number of Features  | Noise Added | Delta Added | Duration (min) | Best Performing Model | Test Acc | Test Loss |
 |----:|:----:|:----:|:---:|:---:|:---:|:---:|:---|
-| STFT|201|False|False|25.5 min|CNN+LSTM|81.7%|0.65|
-| STFT|201|True|False|132.4 min|CNN+LSTM|72.9%|0.95|
+| STFT|201|False|False|25.5|CNN+LSTM|81.7%|0.65|
+| STFT|201|True|False|132.4|CNN+LSTM|72.9%|0.95|
 | STFT|201|False|True|TBC|TBC|TBC|TBC|
 | STFT|201|True|True|TBC|TBC|TBC|TBC|
-| FBANK|40|False|False|21.4 min|TBC|TBC|TBC|
-| FBANK|40|True|False|167.3 min|CNN+LSTM|57.7%|1.42|
+| FBANK|40|False|False|21.4|TBC|TBC|TBC|
+| FBANK|40|True|False|167.3|CNN+LSTM|57.7%|1.42|
 | FBANK|40|False|True|TBC|TBC|TBC|TBC|
 | FBANK|40|True|True|TBC|TBC|TBC|TBC|
 | FBANK|20|False|False|TBC|TBC|TBC|TBC|
 | FBANK|20|True|False|TBC|TBC|TBC|TBC|
 | FBANK|20|False|True|TBC|TBC|TBC|TBC|
 | FBANK|20|True|True|TBC|TBC|TBC|TBC|
-| MFCC|40|False|False|17.7 min|TBC|TBC|TBC|
-| MFCC|40|True|False|174.47 min|CNN+LSTM|15.5%|2.9|
+| MFCC|40|False|False|17.7|TBC|TBC|TBC|
+| MFCC|40|True|False|174.47|CNN+LSTM|15.5%|2.9|
 | MFCC|40|False|True|TBC|TBC|TBC|TBC|
 | MFCC|40|True|True|TBC|TBC|TBC|TBC|
 | MFCC|13|False|False|TBC|TBC|TBC|TBC|
