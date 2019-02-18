@@ -66,7 +66,7 @@ Durations of Feature Extraction and Best Model Performance
 | FBANK|20|True|False|TBC|TBC|TBC|TBC|TBC|
 | FBANK|60|False|True|TBC|TBC|TBC|TBC|TBC|
 | FBANK|60|True|True|TBC|TBC|TBC|TBC|TBC|
-| MFCC|40|False|False|17.7|TBC|TBC|TBC|TBC|
+| MFCC|40|False|False|17.7|CNN+LSTM|11.6%|3.1|58.9|
 | MFCC|40|True|False|174.47|CNN+LSTM|15.5%|2.9|55.9|
 | MFCC|120|False|True|TBC|TBC|TBC|TBC|TBC|
 | MFCC|120|True|True|TBC|TBC|TBC|TBC|TBC|
@@ -89,13 +89,6 @@ Durations of Feature Extraction and Best Model Performance
 #### CNN+LSTM Loss trained on 40 FBANK with noise
 ![Imgur](https://i.imgur.com/KyvK4LW.png)
 
-## MFCC
-
-#### CNN+LSTM Accuracy trained on 40 MFCC with noise
-![Imgur](https://i.imgur.com/oK5Etk3.png)
-##### The training stopped quite quickly: the MFCCs did not prove to be a very good feature in this case.
-
-#### CNN+LSTM Loss trained on 40 MFCC with noise
-![Imgur](https://i.imgur.com/hsRyM2D.png)
+![Imgur](https://i.imgur.com/ATayHgw.png?1)
 
 
