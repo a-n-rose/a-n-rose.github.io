@@ -58,7 +58,7 @@ Durations of Feature Extraction and Best Model Performance
 | STFT|201|True|False|132.4|CNN+LSTM|72.9%|0.95|678.7|
 | STFT|603|False|True|TBC|TBC|TBC|TBC|TBC|
 | STFT|603|True|True|TBC|TBC|TBC|TBC|TBC|
-| FBANK|40|False|False|21.4|TBC|TBC|TBC|TBC|
+| FBANK|40|False|False|21.4|CNN+LSTM|60.6%|1.31|268.0|
 | FBANK|40|True|False|167.3|CNN+LSTM|57.7%|1.42|147.9|
 | FBANK|120|False|True|TBC|TBC|TBC|TBC|TBC|
 | FBANK|120|True|True|TBC|TBC|TBC|TBC|TBC|
@@ -81,13 +81,7 @@ Durations of Feature Extraction and Best Model Performance
 
 ![Imgur](https://i.imgur.com/UdA0tnf.png?1)
 
-## FBANK
-
-#### CNN+LSTM Accuracy trained on 40 FBANK with noise
-![Imgur](https://i.imgur.com/c828ORN.png)
-
-#### CNN+LSTM Loss trained on 40 FBANK with noise
-![Imgur](https://i.imgur.com/KyvK4LW.png)
+![Imgur](https://i.imgur.com/JOl0If4.png)
 
 ![Imgur](https://i.imgur.com/ATayHgw.png?1)
 
