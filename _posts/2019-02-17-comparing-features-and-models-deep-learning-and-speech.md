@@ -49,10 +49,9 @@ The models I will compare:
 
 
 #### Durations of feature extraction
+
 | Features | Number of Features  | Noise Added | Delta Added | Duration | Best Performing Model | Test Acc | Test Loss |
-
-|----------------:|:-------------------:|:----------------:|:-------------------:|:----------------|:----------------|:----------------|:----------------|
-
+|----:|:----:|:----:|:---:|:---:|:---:|:---:|:---|
 | STFT|201|False|False|25.5 min|CNN+LSTM|81.7%|0.65|
 | STFT|201|True|False|132.4 min|CNN+LSTM|72.9%|0.95|
 | STFT|201|False|True|TBC|TBC|TBC|TBC|
