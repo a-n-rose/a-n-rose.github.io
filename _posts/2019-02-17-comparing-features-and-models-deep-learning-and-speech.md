@@ -27,13 +27,13 @@ While CNNs are good at recognizing patterns, they may miss some patterns that oc
 
 LSTMs, on the other hand, tend to be very computationally expensive. While they are good at identifying patterns in long time-series, it could be that because speech is so complicated, without the CNN to break the features down, the LSTM will not be able to effectively learn from the data. If this is correct, the LSTM alone should perform best on the MFCC features, specifically the 13 MFCCs. These are the least complex features of all implemented here.
 
-## About
+## About the Project
 
-To explore the code used to achieve this, please see this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">repository</a>. Because the data used is prepared for speech recognition, I will include comparisons of features used typically for speech recognition. These are 1st and 2nd derivatives, or delta and delta delta, which show rate of change and rate of acceleration. Additionally, the lower filters/coefficients of the FBANK and MFCC are most relevant for speech sounds. I will see how these features influence the success of the speech recognition models. I add the noise to test if this makes the model more robust when introduced to real world speech data. This should make models more robust, regardless the purpose of the model.
+To explore the code used to achieve this, please see this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">repository</a>. For this specific problem, because the data used is prepared for speech recognition, **I will compare features used typically for speech recognition**. These are **1st and 2nd derivatives**, or delta and delta delta, which show rate of change and rate of acceleration. Additionally, **the lower filters/coefficients of the FBANK and MFCC (i.e. 20 FBANK and 13 MFCC) are most relevant for speech sounds**. I will see how these features influence the success of the speech recognition models. I add the noise to test if this makes the model more robust when introduced to real world speech data. This should make models more robust, regardless the purpose of the model.
 
 During training, if a model's validation loss does not improve after 10 consecutive epochs, training will be stopped. The best model throughout training will be saved, as well as the final model achieved. This may result in varying number of training epochs for the models even though they were all set to complete 100 epochs.
 
-## Variables
+## Variables for Feature Extraction and Model Setup
 
 The feature extraction variables I adjust include:
 
