@@ -48,7 +48,9 @@ The models I will compare:
 * CNN+LSTM: combination of the two above
 
 
-## Figure 1: Durations of Feature Extraction and Best Model Performance
+## Figure 1: 
+
+Durations of Feature Extraction and Best Model Performance
 
 | Features | Number of Features  | Noise Added | Delta Added | Duration | Best Performing Model | Test Acc | Test Loss |
 |----:|:----:|:----:|:---:|:---:|:---:|:---:|:---|
