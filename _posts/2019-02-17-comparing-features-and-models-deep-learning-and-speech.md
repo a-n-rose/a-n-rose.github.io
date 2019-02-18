@@ -75,7 +75,7 @@ Durations of Feature Extraction and Best Model Performance
 | MFCC|39|False|True|TBC|TBC|TBC|TBC|TBC|
 | MFCC|39|True|True|TBC|TBC|TBC|TBC|TBC|
 
-#### If Delta == True, the features triple in number. The first and second derivatives will be calcuated on the original feautures and added as features.
+#### If Delta == True, the features triple in number. The first and second derivatives will be calcuated on the original feautures and added as features. Note: all steps were completed on my CPU machine; on a better machine, the durations may decrease.
 
 ## Graphs
 
