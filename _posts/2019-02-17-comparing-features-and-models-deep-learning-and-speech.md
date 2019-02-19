@@ -64,7 +64,7 @@ The dataset used to train the models is the Speech Commands Dataset (2017), avai
 
 ![Imgur](https://i.imgur.com/ATayHgw.png?1)
 
-## Figure 2: Model classification of new speech, with and without noise reduction 
+## Figure 2: Model classification of new speech, without and with noise reduction 
 
 | word ~| CNN+LSTM STFT no noise ~| CNN+LSTM STFT with noise ~| CNN+LSTM 40 FBANK with Delta |
 |:----|:----:|:----:|:---:|
