@@ -17,15 +17,15 @@ I will first train CNN+LSTM models on varying <a href="https://a-n-rose.github.i
 
 I want to answer the following:
 
-* Does adding noise to the training data result in more robust models?
+**Does adding noise to the training data result in more robust models?**
 
 If so, the models trained with noise should be better at classifying new speech.
 
-* If I implement features used specifically in speech recogntion, will my models better recognize words?
+**If I implement features used specifically in speech recogntion, will my models better recognize words?**
 
-If the features are useful in speech recognition, and since the models are trained in this context for speech recognition, this should be the case. Specifically, by using the 1st and 2nd derivatives, indicating rate of change and rate of acceleration, should result in better classification of words. Also, using the lower filters/coefficients of the FBANK and MFCC features should also help their models' performance.
+If the features are useful in speech recognition, and since the models are trained, in this context, for speech recognition, this should be the case. Specifically, by using the 1st and 2nd derivatives, indicating rate of change and rate of acceleration, should result in better classification of words. Also, using the lower filters/coefficients of the FBANK and MFCC features should also help their models' performance.
 
-* Do less filtered data work better with all deep neural networks? Or only with some? (e.g CNN vs LSTM)
+**Do less filtered data work better with all deep neural networks? Or only with some? (e.g CNN vs LSTM)**
 
 Given that deep neural networks are very good at deciphering which features to use on their own, I assume the least filtered features (i.e. the STFT) should be the most useful features. However, this might not be the case for the LSTM alone: the LSTM has very high computation costs which may mean that it would perform better (on my cpu) with the fewest features, and also the most filtered: the MFCC 13. 
 
@@ -57,11 +57,11 @@ Durations of Feature Extraction and Best Model Performance
 
 #### If Delta == True, the features triple in number. The first and second derivatives will be calcuated on the original feautures and added as features. Note: all steps were completed on my CPU machine; on a better machine, the durations may decrease. My computer was not able to compute the delta of the STFT (too much memory)
 
-## Graphs
+## Training Accuracy and Loss
 
 ![Imgur](https://i.imgur.com/UdA0tnf.png?1)
 
-![Imgur](https://i.imgur.com/T5uFb8a.png?1)
+![Imgur](https://i.imgur.com/wgYwbbY.png)
 #### The Delta (i.e. 1st and 2nd derivatives) features only applied to features NOT mixed with noise: the addition of noise has not revealed a more robust model. 
 
 ![Imgur](https://i.imgur.com/ATayHgw.png?1)
