@@ -68,11 +68,29 @@ Durations of Feature Extraction and Best Model Performance
 
 ## Figure 2: Performance of Best Models on New Speech 
 
-| Model and Training Features | bed  | bird | cat | dog | down | eight | house | left |  marvin  | nine  | no | on | one | right | sheila | six |  three  | tree  | yes | zero |
-|----:|:----:|:----:|:---:|:---:|:---:|:---:|:---:|:----:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---|
-| CNN+LSTM STFT no noise| six / cat  | six / bed | right / **cat** | up / **dog** | three / left | cat / **eight** | right / left | two / **left** |  two / **marvin**  | eight / **nine**  | two / bed | two / happy | three / two | eight / **right** | six / **sheila** | **six** / seven  |  **three** / seven  | seven / sheila  | two / sheila | two / yes |
-| CNN+LSTM STFT with noise|  six / six  | right / **bird** | right / **cat** | right / wow | wow / cat | two / bed | right / seven | two / **left** |  right / five  | right / **nine**  | right / bed | happy / off | right / six | wow / **right** | wow / **sheila** | right / **six**  |  two / seven  | right / sheila  | two / six | tree / **zero** |
-|  CNN+LSTM FBANK with Delta |  six / **bed**  | four / **bird** | three / **cat** | up / wow | six / seven | up / bird | happy / seven | six / sheila |  six / **marvin**  | on / **nine**  | left / cat | six / cat | six / two | four / **right** | six / six | up / seven |  **three** / stop  | six / stop  | on / six | six / **zero** | 
+| word | CNN+LSTM STFT no noise | CNN+LSTM STFT with noise | CNN+LSTM 40 FBANK with Delta |
+|----:|:----:|:----:|:---|
+| bed  | six / cat  | six / six  | six / **bed**  |
+| bird | six / bed | right / **bird** |  four / **bird** |
+| cat |  right / **cat** | right / **cat** | three / **cat** | 
+| dog |  up / **dog** | right / wow | up / wow | 
+| down |  three / left |  wow / cat | six / seven |
+| eight | cat / **eight** | two / bed | up / bird | 
+| house | right / left |  right / seven | happy / seven |
+| left | two / **left** |  two / **left** |  six / sheila |
+| marvin  | two / **marvin**  |  right / five  |  six / **marvin**  |
+| nine  | eight / **nine**  | right / **nine**  |  on / **nine**  |
+| no |  two / bed | right / bed |  left / cat |
+| on | two / happy | happy / off |  six / cat |
+| one | three / two | right / six | six / two |
+| right | eight / **right** | wow / **right** | four / **right** |
+| sheila | six / **sheila** | wow / **sheila** | six / six |
+| six |  **six** / seven  | right / **six**  |  up / seven |
+| three  | **three** / seven  | two / seven  |  **three** / stop  |
+| tree  |  seven / sheila  | right / sheila  | six / stop  | 
+| yes | two / sheila | two / six | on / six |
+| zero | two / yes | tree / **zero** | six / **zero** | 
+
 
 #### labels assigned: 1. without noise reduction / 2. with noise reduction. The models tended to perform better when the speech underwent noise reduction. You can see "six" was assigned quite often as the label without noise reduction. The "s" and "x" sound a bit like white noise, right?
 
