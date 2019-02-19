@@ -27,7 +27,7 @@ If the features are useful in speech recognition, and since the models are train
 
 **Do less filtered data work better with all deep neural networks? Or only with some? (e.g CNN vs LSTM)**
 
-Given that deep neural networks are very good at deciphering which features to use on their own, I assume the least filtered features (i.e. the STFT) should be the most useful features. However, this might not be the case for the LSTM alone: the LSTM has very high computation costs which may mean that it would perform better (on my cpu) with the fewest features, and also the most filtered: the MFCC 13. 
+Given that deep neural networks are very good at deciphering which features to use on their own, I assume the least filtered features (i.e. the STFT) should be the most useful features. However, this might not be the case for the LSTM alone: the LSTM has very high computation costs which may mean that it would perform better (on my cpu) with the fewest features, which is also the most filtered: the MFCC 13. 
 
 The dataset used to train the models is the Speech Commands Dataset (2017), available <a href="https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html">here</a>. To explore the code used to achieve this, please see this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">repository</a>. 
 
@@ -62,13 +62,13 @@ Durations of Feature Extraction and Best Model Performance
 ![Imgur](https://i.imgur.com/UdA0tnf.png?1)
 
 ![Imgur](https://i.imgur.com/wgYwbbY.png?1)
-#### The Delta (i.e. 1st and 2nd derivatives) features only applied to features NOT mixed with noise: the addition of noise has not revealed a more robust model. 
+#### The Delta (i.e. 1st and 2nd derivatives) features only applied to features NOT mixed with noise: the addition of noise has not revealed a more robust model, except perhaps for the MFCC features.
 
 ![Imgur](https://i.imgur.com/ATayHgw.png?1)
 
 ## Figure 2: Performance of Best Models on New Speech 
 
-| word | CNN+LSTM STFT no noise | CNN+LSTM STFT with noise | CNN+LSTM 40 FBANK with Delta |
+| word ~| CNN+LSTM STFT no noise ~| CNN+LSTM STFT with noise ~| CNN+LSTM 40 FBANK with Delta |
 |----:|:----:|:----:|:---|
 | bed  | six / cat  | six / six  | six / **bed**  |
 | bird | six / bed | right / **bird** |  four / **bird** |
