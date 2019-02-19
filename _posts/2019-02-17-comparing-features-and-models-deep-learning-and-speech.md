@@ -61,7 +61,7 @@ Durations of Feature Extraction and Best Model Performance
 
 ![Imgur](https://i.imgur.com/UdA0tnf.png?1)
 
-![Imgur](https://i.imgur.com/wgYwbbY.png)
+![Imgur](https://i.imgur.com/wgYwbbY.png?1)
 #### The Delta (i.e. 1st and 2nd derivatives) features only applied to features NOT mixed with noise: the addition of noise has not revealed a more robust model. 
 
 ![Imgur](https://i.imgur.com/ATayHgw.png?1)
