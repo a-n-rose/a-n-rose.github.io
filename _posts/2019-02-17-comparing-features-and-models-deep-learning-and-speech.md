@@ -66,7 +66,7 @@ Durations of Feature Extraction and Best Model Performance
 
 ![Imgur](https://i.imgur.com/ATayHgw.png?1)
 
-## Figure 2: Performance of Best Models on New Speech 
+## Figure 2: Model classification of new speech, with and without noise reduction 
 
 | word ~| CNN+LSTM STFT no noise ~| CNN+LSTM STFT with noise ~| CNN+LSTM 40 FBANK with Delta |
 |:----|:----:|:----:|:---:|
