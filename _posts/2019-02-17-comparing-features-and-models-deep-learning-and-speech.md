@@ -4,7 +4,7 @@ title: "Comparing Speech Features and Deep Learning Models for Speech Recognitio
 date: 2019-02-17
 ---
 
-This past week I gave a workshop exploring speech feature extraction and deep learning models. In this post I will compare:
+This past week I gave a <a href="/2019/01/13/workshop-pyladies-deeplearning-speech.html">workshop</a> exploring speech feature extraction and deep learning models. In this post I will use that repo's code to compare:
 
 1) the feature extraction process
 
@@ -98,7 +98,7 @@ Durations of Feature Extraction and Best Model Performance
 
 While these models didn't do so well with the new speech, I have to give them credit, as the library I used to record the new speech recorded along with it a heck ton of noise. I am working on making those recordings cleaner - maybe it's just on my system, I don't know. To give you an idea of *how much noise* is in these recordings and why noise reduction helped:
 
-![Imgur](https://i.imgur.com/MW6Sm8G.png)
+![Imgur](https://i.imgur.com/MW6Sm8G.png?1)
 
 That aside, I was surprised to find that the models **not** trained with noise performed better on the new speech. I just tested these models with my own speech and on my own computer, so this finding might not hold up elsewhere. If it *is* the case, however, that noise doesn't necessarily help the CNN+LSTM model, hooray! The addition of noise required much longer feature duration times. It will be interesting to see if this holds true for the CNN and LSTM on their own.
 
