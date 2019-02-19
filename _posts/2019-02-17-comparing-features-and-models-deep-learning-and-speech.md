@@ -32,9 +32,7 @@ Given that deep neural networks are very good at deciphering which features to u
 The dataset used to train the models is the Speech Commands Dataset (2017), available <a href="https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html">here</a>. To explore the code used to achieve this, please see this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">repository</a>. 
 
 
-## Figure 1:
-
-Durations of Feature Extraction and Best Model Performance
+## Figure 1: Durations of feature extraction and best model performance
 
 | Features | Number of Features  | Noise Added | Delta Added | Feature Extraction Duration (min) | Best Performing Model | Test Acc | Test Loss | Train Duration (min) |
 |----:|:----:|:----:|:---:|:---:|:---:|:---:|:---:|:---|
