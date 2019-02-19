@@ -69,7 +69,7 @@ Durations of Feature Extraction and Best Model Performance
 ## Figure 2: Performance of Best Models on New Speech 
 
 | word ~| CNN+LSTM STFT no noise ~| CNN+LSTM STFT with noise ~| CNN+LSTM 40 FBANK with Delta |
-|----:|:----:|:----:|:---|
+|:----|:----:|:----:|:---:|
 | bed  | six / cat  | six / six  | six / **bed**  |
 | bird | six / bed | right / **bird** |  four / **bird** |
 | cat |  right / **cat** | right / **cat** | three / **cat** | 
