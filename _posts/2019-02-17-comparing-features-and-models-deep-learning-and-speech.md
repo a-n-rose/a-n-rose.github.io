@@ -4,51 +4,35 @@ title: "Comparing Speech Features and Deep Learning Models for Speech Recognitio
 date: 2019-02-17
 ---
 
+This past week I gave a workshop exploring speech feature extraction and deep learning models. In this post I will compare:
 
-The purpose of this post is to see which kind of speech features are best to apply to deep learning neural networks for the purpose of speech recognition. I compare the extraction of various types of features, with and without added noise, and the success of convolutional neural networks and long short-term memory neural networks trained on that data. I consider time taken to extract the features and to train the models, the test accuracy and loss, as well as how well the models classify new speech, both female and male speech. The speech data used to train are the Speech Commands Dataset (2017), available <a href="https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html">here</a>. 
+1) the feature extraction process
 
-## Expectations
+2) training and test accuracy/loss of models
 
-I have three expectations:
-
-1) I expect the STFT features to result in the best models.
-
-Deep neural networks work very well when allowed to filter complex features themselves, rather than learn from the features humans filter for them. The FBANK and MFCC are more filtered than the STFT. For more on what I mean, refer to this <a href="https://a-n-rose.github.io/2019/02/06/python-train-cnn-lstm-speech-features.html">post</a> on the speech features used.
-
-2) The models trained on speech mixed with noise will handle new real-world speech better than those not trained with added noise. 
-
-This is a common practice in the training of models: to train them with noise that may very well occur in the real-world. Adding noise keeps the model from over-fitting during training, which is learning too specifically on the data available at training. I only used one form of noise (a file from the Speech Commands Dataset); I plan on expanding on this in future. 
-
-3) The CNN+LSTM models will perform the best and the CNN models will perform slightly worse with much lower computation cost. The LSTMs will have long training times and will not outperform the CNNs in general. 
-
-CNNs are masters at breaking complex data down into the most relevant features. This means that only the most relevant information is used when computing, and also the neurons within the network only communicate with other nearby neurons. This means that the neurons don't have to interact with all other neurons in their layer, further reducing computation. 
-
-While CNNs are good at recognizing patterns, they may miss some patterns that occur in a time series, which means the addition of LSTM layers may help the model catch otherwise missed patterns, resulting in a better model. 
-
-LSTMs, on the other hand, tend to be very computationally expensive. While they are good at identifying patterns in long time-series, it could be that because speech is so complicated, without the CNN to break the features down, the LSTM will not be able to effectively learn from the data. If this is correct, the LSTM alone should perform best on the MFCC features, specifically the 13 MFCCs. These are the least complex features of all implemented here.
-
-## About the Project
-
-To explore the code used to achieve this, please see this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">repository</a>. For this specific problem, because the data used is prepared for speech recognition, **I will compare features used typically for speech recognition**. These are **1st and 2nd derivatives**, or delta and delta delta, which show rate of change and rate of acceleration. Additionally, **the lower filters/coefficients of the FBANK and MFCC (i.e. 20 FBANK and 13 MFCC) are most relevant for speech sounds**. I will see how these features influence the success of the speech recognition models. I add the noise to test if this makes the model more robust when introduced to real world speech data. This should make models more robust, regardless the purpose of the model.
-
-During training, if a model's validation loss does not improve after 10 consecutive epochs, training will be stopped. The best model throughout training will be saved, as well as the final model achieved. This may result in varying number of training epochs for the models even though they were all set to complete 100 epochs.
-
-## Variables for Feature Extraction and Model Setup
-
-The feature extraction variables I adjust include:
-
-* type of feature (stft, fbank, mfcc)
-* number of features (fbank = 20 vs 40; mfcc = 13 vs 40)
-* inclusion of 1st and 2nd derivatives 
-* mixture of noise 
-
-The models I will compare:
-* CNN: 32 feature maps, kernel size (8,4), max pooling pool size (3,3)
-* LSTM: same number of cells as the number of features
-* CNN+LSTM: combination of the two above
+3) the performance of the models on new speech data
 
 
-## Figure 1: 
+I will first train CNN+LSTM models on varying <a href="https://a-n-rose.github.io/2019/02/06/python-train-cnn-lstm-speech-features.html">speech features</a>. Eventually I will compare the CNN and LSTM individually as well. 
+
+I want to answer the following:
+
+* Does adding noise to the training data result in more robust models?
+
+If so, the models trained with noise should be better at classifying new speech.
+
+* If I implement features used specifically in speech recogntion, will my models better recognize words?
+
+If the features are useful in speech recognition, and since the models are trained in this context for speech recognition, this should be the case. Specifically, by using the 1st and 2nd derivatives, indicating rate of change and rate of acceleration, should result in better classification of words. Also, using the lower filters/coefficients of the FBANK and MFCC features should also help their models' performance.
+
+* Do less filtered data work better with all deep neural networks? Or only with some? (e.g CNN vs LSTM)
+
+Given that deep neural networks are very good at deciphering which features to use on their own, I assume the least filtered features (i.e. the STFT) should be the most useful features. However, this might not be the case for the LSTM alone: the LSTM has very high computation costs which may mean that it would perform better (on my cpu) with the fewest features, and also the most filtered: the MFCC 13. 
+
+The dataset used to train the models is the Speech Commands Dataset (2017), available <a href="https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html">here</a>. To explore the code used to achieve this, please see this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">repository</a>. 
+
+
+## Figure 1:
 
 Durations of Feature Extraction and Best Model Performance
 
@@ -56,33 +40,52 @@ Durations of Feature Extraction and Best Model Performance
 |----:|:----:|:----:|:---:|:---:|:---:|:---:|:---:|:---|
 | STFT|201|False|False|25.5|CNN+LSTM|81.7%|0.65|869.0|
 | STFT|201|True|False|132.4|CNN+LSTM|72.9%|0.95|678.7|
-| STFT|603|False|True|TBC|TBC|TBC|TBC|TBC|
-| STFT|603|True|True|TBC|TBC|TBC|TBC|TBC|
 | FBANK|40|False|False|21.4|CNN+LSTM|60.6%|1.31|268.0|
 | FBANK|40|True|False|167.3|CNN+LSTM|57.7%|1.42|147.9|
-| FBANK|120|False|True|TBC|TBC|TBC|TBC|TBC|
-| FBANK|120|True|True|TBC|TBC|TBC|TBC|TBC|
+| FBANK|120|False|True|27.9|CNN+LSTM|66.2%|1.15|395.9|
 | FBANK|20|False|False|TBC|TBC|TBC|TBC|TBC|
 | FBANK|20|True|False|TBC|TBC|TBC|TBC|TBC|
 | FBANK|60|False|True|TBC|TBC|TBC|TBC|TBC|
 | FBANK|60|True|True|TBC|TBC|TBC|TBC|TBC|
 | MFCC|40|False|False|17.7|CNN+LSTM|11.6%|3.1|58.9|
 | MFCC|40|True|False|174.47|CNN+LSTM|15.5%|2.9|55.9|
-| MFCC|120|False|True|TBC|TBC|TBC|TBC|TBC|
-| MFCC|120|True|True|TBC|TBC|TBC|TBC|TBC|
+| MFCC|120|False|True|34.56|TBC|TBC|TBC|TBC|
 | MFCC|13|False|False|TBC|TBC|TBC|TBC|TBC|
 | MFCC|13|True|False|TBC|TBC|TBC|TBC|TBC|
 | MFCC|39|False|True|TBC|TBC|TBC|TBC|TBC|
 | MFCC|39|True|True|TBC|TBC|TBC|TBC|TBC|
 
-#### If Delta == True, the features triple in number. The first and second derivatives will be calcuated on the original feautures and added as features. Note: all steps were completed on my CPU machine; on a better machine, the durations may decrease.
+#### If Delta == True, the features triple in number. The first and second derivatives will be calcuated on the original feautures and added as features. Note: all steps were completed on my CPU machine; on a better machine, the durations may decrease. My computer was not able to compute the delta of the STFT (too much memory)
 
 ## Graphs
 
 ![Imgur](https://i.imgur.com/UdA0tnf.png?1)
 
-![Imgur](https://i.imgur.com/JOl0If4.png)
+![Imgur](https://i.imgur.com/T5uFb8a.png?1)
+#### The Delta (i.e. 1st and 2nd derivatives) features only applied to features NOT mixed with noise: the addition of noise has not revealed a more robust model. 
 
 ![Imgur](https://i.imgur.com/ATayHgw.png?1)
 
+## Figure 2: Performance of Best Models on New Speech 
 
+| Model and Training Features | bed  | bird | cat | dog | down | eight | house | left |  marvin  | nine  | no | on | one | right | sheila | six |  three  | tree  | yes | zero |
+|----:|:----:|:----:|:---:|:---:|:---:|:---:|:---:|:----:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---|
+| CNN+LSTM STFT no noise| six / cat  | six / bed | right / **cat** | up / **dog** | three / left | cat / **eight** | right / left | two / **left** |  two / **marvin**  | eight / **nine**  | two / bed | two / happy | three / two | eight / **right** | six / **sheila** | **six** / seven  |  **three** / seven  | seven / sheila  | two / sheila | two / yes |
+| CNN+LSTM STFT with noise|  six / six  | right / **bird** | right / **cat** | right / wow | wow / cat | two / bed | right / seven | two / **left** |  right / five  | right / **nine**  | right / bed | happy / off | right / six | wow / **right** | wow / **sheila** | right / **six**  |  two / seven  | right / sheila  | two / six | tree / **zero** |
+|  CNN+LSTM FBANK with Delta |  six / **bed**  | four / **bird** | three / **cat** | up / wow | six / seven | up / bird | happy / seven | six / sheila |  six / **marvin**  | on / **nine**  | left / cat | six / cat | six / two | four / **right** | six / six | up / seven |  **three** / stop  | six / stop  | on / six | six / **zero** | 
+
+#### labels assigned: 1. without noise reduction / 2. with noise reduction. The models tended to perform better when the speech underwent noise reduction. You can see "six" was assigned quite often as the label without noise reduction. The "s" and "x" sound a bit like white noise, right?
+
+## Summary
+
+While these models didn't do so well with the new speech, I have to give them credit, as the library I used to record the new speech recorded along with it a heck ton of noise. I am working on making those recordings cleaner - maybe it's just on my system, I don't know. To give you an idea of *how much noise* is in these recordings and why noise reduction helped:
+
+![Imgur](https://i.imgur.com/MW6Sm8G.png)
+
+That aside, I was surprised to find that the models **not** trained with noise performed better on the new speech. I just tested these models with my own speech and on my own computer, so this finding might not hold up elsewhere. If it *is* the case, however, that noise doesn't necessarily help the CNN+LSTM model, hooray! The addition of noise required much longer feature duration times. It will be interesting to see if this holds true for the CNN and LSTM on their own.
+
+The addition of the 1st and 2nd derivatives did seem to help the FBANK features. I did try to apply them to the STFT features; however, my computer ran out of memory. Just too many features. I'll have to break those further down when saving. That's on my ToDo list.
+
+Lastly, it does seem that the least filtered features work the best, at least for the CNN+LSTM. Even without the 1st and 2nd derivatives, the STFT outperformed the FBANK with the 1st and 2nd derivatives. I'm really curious if those would build an even stronger model!
+
+I am in the process of extracting MFCC 13 and FBANK 20; soon thereafter I will train CNN and LSTM models individually on this data to see the strengths and weaknesses there. 
