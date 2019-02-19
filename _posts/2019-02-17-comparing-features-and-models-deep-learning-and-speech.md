@@ -104,4 +104,4 @@ The addition of the 1st and 2nd derivatives did seem to help the FBANK features.
 
 Lastly, it does seem that the least filtered features work the best, at least for the CNN+LSTM. Even without the 1st and 2nd derivatives, the STFT outperformed the FBANK with the 1st and 2nd derivatives. I'm really curious if those would build an even stronger model!
 
-I am in the process of extracting MFCC 13 and FBANK 20; soon thereafter I will train CNN and LSTM models individually on this data to see the strengths and weaknesses there. 
+I am in the process of extracting MFCC 13 and FBANK 20; soon thereafter I will train CNN and LSTM models individually on this data to further explore the strengths and weaknesses of these models. 
