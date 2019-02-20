@@ -34,7 +34,7 @@ The dataset used to train the models is the Speech Commands Dataset (2017), avai
 
 ## Figure 1: Durations of feature extraction and best model performance
 
-Below show the feature type, number of features total, whether or not noise was mixed or delta features were applied and how long the extraction process took. So far I have only tested CNN+LSTM, but of these, you can compare which features resulted in the best models. The best below are the models trained on STFT without noise, STFT with noise, an the FBANK without noise but with delta features. I show below these models' classification of new (and very noisy) speech.
+Below show the feature type, number of features total, whether or not noise was mixed or delta features were applied and how long the extraction process took. So far I have only tested CNN+LSTM, but of these, you can compare which features resulted in the best models. The best below are the models trained on STFT without noise, STFT with noise, and the FBANK without noise but with delta features. I show below these models' classification of new (and very noisy) speech.
 
 | Features | Number of Features  | Noise Added | Delta Added | Feature Extraction Duration (min) | Best Performing Model | Test Acc | Test Loss | Train Duration (min) |
 |----:|:----:|:----:|:---:|:---:|:---:|:---:|:---:|:---|
@@ -54,7 +54,7 @@ Below show the feature type, number of features total, whether or not noise was 
 
 ## Training Accuracy and Loss
 
-Below are graphs depicting the training accuracy and loss of the CNN+LSTM with varyious features. You can see the STFT and FBANK features resulted in quite smooth curves, at least compared with the MFCC features. The best performing model is the one trained on STFT features without mixed noise, followed by the model trained with STFT with noise. The best model trained on FBANK was the one trained including delta features. 
+Below are graphs depicting the training accuracy and loss of the CNN+LSTM with various features. You can see the STFT and FBANK features resulted in quite smooth curves, at least compared with the MFCC features. The best performing model is the one trained on STFT features without mixed noise, followed by the model trained with STFT with noise. The best model trained on FBANK was the one trained including delta features. 
 
 ![Imgur](https://i.imgur.com/UdA0tnf.png?1)
 
@@ -62,6 +62,8 @@ Below are graphs depicting the training accuracy and loss of the CNN+LSTM with v
 #### The Delta (i.e. 1st and 2nd derivatives) features only applied to features NOT mixed with noise: the addition of noise has not revealed a more robust model, except perhaps for the MFCC features.
 
 ![Imgur](https://i.imgur.com/zyQu98m.png?1)
+
+As the table and graphs above show, not all of the models were worth using. Therefore, instead of wasting my time trying out all of the trained models on new speech, I chose only those above 65% accuracy on the test dataset: the CNN+LSTM trained on STFT without noise, with noise, and the FBANK without noise and with delta features. I chose several words to test the models with: some words all models got correct, some all models got wrong. It is interesting to see how these models categorized the speech, especially incorrectly: which sounds cued the model to categorize the speech the way it did?
 
 ## Figure 2: Model classification of new speech, without and with noise reduction 
 
