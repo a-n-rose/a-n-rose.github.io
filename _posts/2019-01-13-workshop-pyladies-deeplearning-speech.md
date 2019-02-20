@@ -16,6 +16,9 @@ Code:
 
 <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">Repo</a> for the workshop.
 
+Experimental findings:
+My <a href="https://a-n-rose.github.io/2019/02/17/comparing-features-and-models-deep-learning-and-speech.html">post</a> showing graphs and tables comparing performance of models, trained with various speech features, on test datasets and brand new speech.
+
 The workshop is planned for Tuesday, 12th of February, 2019.
 
 Find more infos <a href="https://www.meetup.com/PyLadies-Berlin/events/258238053/">here</a>.
