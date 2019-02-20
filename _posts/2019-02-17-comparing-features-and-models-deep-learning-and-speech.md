@@ -123,6 +123,6 @@ While I still plan on testing these features on CNNs and LSTMs as separate model
 
 ## Future Work
 
-I would like to apply different kinds of data to this repo code, for example, instead of building a speech recognition model, build a sound classifcation system or a clinical speech disorder detector. I would love to compare which features and models work best for those systems.
+I would like to apply different kinds of data to this repo code, for example, instead of building a speech recognition model, build a sound classification system or a clinical speech disorder detector. I would love to compare which features and models work best for those systems.
 
 Additionally, I would like to expand the type of features collected. The STFT, FBANK, and MFCC are just a few features of many. I hope to add functionality to collect other kinds of features, and also to train other algorithms, such as traditional machine learning algorithms like the support vector machine and random forests. 
