@@ -23,7 +23,11 @@ If so, the models trained with noise should be better at classifying new speech.
 
 **If I implement features used specifically in speech recogntion, will my models better recognize words?**
 
-If the features are useful in speech recognition, and since the models are trained, in this context, for speech recognition, this should be the case. Specifically, by using the 1st and 2nd derivatives, indicating rate of change and rate of acceleration, should result in better classification of words. Also, using the lower filters/coefficients of the FBANK and MFCC features should also help their models' performance.
+If the features are useful in speech recognition, and since the models are trained, in this context, for speech recognition, this should be the case. Specifically, by using the 1st and 2nd derivatives, indicating rate of change and rate of acceleration, should result in better classification of words. Also, using the lower 13 coefficients of the MFCC features, as opposed to 40, should also help their models' performance, as the lower coefficients pertain to the speech sounds produced and the upper coefficients with non-speech sounds. 
+
+Expanding on this logic, it may also be the case that using only 20 FBANK filters, as opposed to 40, helps the models classify words in speech. However, in the research on speech recogntion I have come across, I have seen 40 FBANKs used more often than 20. 
+
+Note: (to further the confusion I'm sure) in speech research in general, I have seen researchers using MFCCs with 12 (omitting the first coefficient, which denotes amplitude/volume), 13, 20 - 22 (not very common), and 40 coefficients and FBANK energy features with 20 or 40 filters, 40 being the most common. 
 
 **Do less filtered data work better with all deep neural networks? Or only with some? (e.g CNN vs LSTM)**
 
