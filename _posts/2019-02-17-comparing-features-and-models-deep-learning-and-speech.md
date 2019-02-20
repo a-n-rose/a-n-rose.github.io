@@ -32,7 +32,7 @@ Given that deep neural networks are very good at deciphering which features to u
 The dataset used to train the models is the Speech Commands Dataset (2017), available <a href="https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html">here</a>. To explore the code used to achieve this, please see this <a href="https://github.com/a-n-rose/Build-CNN-or-LSTM-or-CNNLSTM-with-speech-features">repository</a>. 
 
 
-## Figure 1: Durations of feature extraction and best model performance
+## Table 1: Durations of feature extraction and best model performance
 
 Below show the feature type, number of features total, whether or not noise was mixed or delta features were applied and how long the extraction process took. So far I have only tested CNN+LSTM, but of these, you can compare which features resulted in the best models. The best below are the models trained on STFT without noise, STFT with noise, and the FBANK without noise but with delta features. I show below these models' classification of new (and very noisy) speech.
 
@@ -65,7 +65,7 @@ Below are graphs depicting the training accuracy and loss of the CNN+LSTM with v
 
 As the table and graphs above show, not all of the models were worth using. Therefore, instead of wasting my time trying out all of the trained models on new speech, I chose only those above 65% accuracy on the test dataset: the CNN+LSTM trained on STFT without noise, with noise, and the FBANK without noise and with delta features. I chose several words to test the models with: some words all models got correct, some all models got wrong. It is interesting to see how these models categorized the speech, especially incorrectly: which sounds cued the model to categorize the speech the way it did?
 
-## Figure 2: CNN+LSTM Model classification of new speech, without and with noise reduction 
+## Table 2: CNN+LSTM Model classification of new speech, without and with noise reduction 
 
 | word ~| STFT no noise ~| STFT with noise ~| 40 FBANK with Delta |
 |:----|:----:|:----:|:---:|
