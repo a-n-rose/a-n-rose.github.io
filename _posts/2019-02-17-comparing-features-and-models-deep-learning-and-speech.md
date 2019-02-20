@@ -109,7 +109,7 @@ Lastly, it does seem that the least filtered features work the best, at least fo
 
 While I still plan on testing these features on CNNs and LSTMs as separate models, as well as exploring if FBANK 20 features (rather than 40) aid or hinder the training of speech recognition models, I think the experiments so far do a pretty good job showing the strengths and weaknesses of training with features used in deep learning and speech recognition, namely:
 
-1) STFT features are ideal, but result in potentially long feature extraction and training times (especially if delta features are included)
+1) STFT features seem to be ideal, except when combining with delta features. I'm so bummed my computer couldn't handle that. It also makes me wonder how training on the raw waveform would do... (the STFT is the raw waveform transformed to the frequency domain)
 
 2) FBANK features are very good features, especially when combined with delta features
 
