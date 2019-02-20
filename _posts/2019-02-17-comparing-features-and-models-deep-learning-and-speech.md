@@ -66,6 +66,7 @@ Below are graphs depicting the training accuracy and loss of the CNN+LSTM with v
 #### The Delta (i.e. 1st and 2nd derivatives) features only applied to features NOT mixed with noise: the addition of noise has not revealed a more robust model, except perhaps for the MFCC features.
 
 ![Imgur](https://i.imgur.com/zyQu98m.png?1)
+#### The number of epochs (x-label) are different for each model trained because training was programmed to stop if loss did not improve (i.e. decrease) after 10 consecutive epochs. All models were originally programmed to complete 100 epochs.
 
 As the table and graphs above show, not all of the models were worth using. Therefore, instead of wasting my time trying out all of the trained models on new speech, I chose only those above 65% accuracy on the test dataset: the CNN+LSTM trained on STFT without noise, with noise, and the FBANK without noise and with delta features. I chose several words to test the models with: some words all models got correct, some all models got wrong. It is interesting to see how these models categorized the speech, especially incorrectly: which sounds cued the model to categorize the speech the way it did?
 
