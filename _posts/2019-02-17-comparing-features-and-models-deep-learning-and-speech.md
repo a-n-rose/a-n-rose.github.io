@@ -65,9 +65,9 @@ Below are graphs depicting the training accuracy and loss of the CNN+LSTM with v
 
 As the table and graphs above show, not all of the models were worth using. Therefore, instead of wasting my time trying out all of the trained models on new speech, I chose only those above 65% accuracy on the test dataset: the CNN+LSTM trained on STFT without noise, with noise, and the FBANK without noise and with delta features. I chose several words to test the models with: some words all models got correct, some all models got wrong. It is interesting to see how these models categorized the speech, especially incorrectly: which sounds cued the model to categorize the speech the way it did?
 
-## Figure 2: Model classification of new speech, without and with noise reduction 
+## Figure 2: CNN+LSTM Model classification of new speech, without and with noise reduction 
 
-| word ~| CNN+LSTM STFT no noise ~| CNN+LSTM STFT with noise ~| CNN+LSTM 40 FBANK with Delta |
+| word ~| STFT no noise ~| STFT with noise ~| 40 FBANK with Delta |
 |:----|:----:|:----:|:---:|
 | bed  | six / cat  | six / six  | six / **bed**  |
 | bird | six / bed | right / **bird** |  four / **bird** |
