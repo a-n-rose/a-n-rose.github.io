@@ -47,12 +47,14 @@ Below show the feature type, number of features total, whether or not noise was 
 | FBANK|40|False|False|21.4|CNN+LSTM|60.6%|1.31|268.0|
 | FBANK|40|True|False|167.3|CNN+LSTM|57.7%|1.42|147.9|
 | FBANK|120|False|True|27.9|CNN+LSTM|66.2%|1.15|395.9|
+| *FBANK|120|False|True|27.9|CNN+LSTM|74.0%|0.92|1800+|
 | MFCC|40|False|False|17.7|CNN+LSTM|11.6%|3.1|58.9|
 | MFCC|40|True|False|174.47|CNN+LSTM|15.5%|2.9|55.9|
 | MFCC|120|False|True|34.56|CNN+LSTM|7.7%|3.2|175.54|
 | MFCC|13|True|False|179.68|CNN+LSTM|7.7%|3.21|51.292|
 | MFCC|39|False|True|23.72 |CNN+LSTM|16.082%|2.86|80.232|
 
+#### "*" designates a model trained with a sliding or overlapping window (rather than a non-overlapping window)
 
 #### If Delta == True, the features triple in number. The first and second derivatives will be calcuated on the original feautures and added as features. Note: all steps were completed on my CPU machine; on a better machine, the durations may decrease. My computer was not able to compute the delta of the STFT (too much memory)
 
@@ -68,7 +70,7 @@ Below are graphs depicting the training accuracy and loss of the CNN+LSTM with v
 ![Imgur](https://i.imgur.com/zyQu98m.png?1)
 #### The number of epochs (x-label) are different for each model trained because training was programmed to stop if loss did not improve (i.e. decrease) after 10 consecutive epochs. All models were originally programmed to complete 100 epochs.
 
-As the table and graphs above show, not all of the models were worth using. Therefore, instead of wasting my time trying out all of the trained models on new speech, I chose only those above 65% accuracy on the test dataset: the CNN+LSTM trained on STFT without noise, with noise, and the FBANK without noise and with delta features. I chose several words to test the models with: some words all models got correct, some all models got wrong. It is interesting to see how these models categorized the speech, especially incorrectly: which sounds cued the model to categorize the speech the way it did?
+As the table and graphs above show, not all of the models were worth using. Therefore, instead of wasting my time trying out all of the trained models on new speech, I chose only those above 65% accuracy on the test dataset: the CNN+LSTM trained on STFT without noise, with noise, and the FBANK without noise and with delta features (and after the update, with a sliding window). I chose several words to test the models with: some words all models got correct, some all models got wrong. It is interesting to see how these models categorized the speech, especially incorrectly: which sounds cued the model to categorize the speech the way it did?
 
 ## Table 2: CNN+LSTM Model classification of new speech, without and with noise reduction 
 
@@ -98,17 +100,48 @@ As the table and graphs above show, not all of the models were worth using. Ther
 
 #### labels assigned: 1. without noise reduction / 2. with noise reduction. The models tended to perform better when the speech underwent noise reduction. You can see "six" was assigned quite often as the label without noise reduction. The "s" and "x" sound a bit like white noise, right?
 
+## Table 3: UPDATED CNN+LSTM Model classification of new speech, without and with noise reduction, with improved wavefiles and sliding window
+
+| word ~| STFT no noise ~| STFT with noise ~| 40 FBANK with Delta | 40 FBANK with Delta and Sliding Window |
+|:----|:----:|:----:|:---:|:---:|
+| bed  | cat / **bed**  | cat / **bed**  | stop / seven  | house / seven  |
+| bird | **bird** / **bird** | **bird** / **bird** |  **bird** / **bird** |  **bird** / **bird** |
+| cat |  **cat** / **cat** | **cat** / **cat** | **cat** / **cat** | **cat** / **cat** | 
+| dog |  **dog** / **dog** | **dog** / **dog** | wow / wow | wow / wow | 
+| down |  **down** / **down** |  **down** / **down** | wow / wow | **down** / **down** |
+| eight | **eight** / **eight** | **eight** / **eight** | **eight** / **eight** |  **eight** / **eight** |
+| house | **house** / **house** |  **house** / **house** | **house** / **house** | **house** / **house** |
+| left | yes / **left** |  **left** / wow |  right / right | **left** / **left** |
+| marvin  | **marvin** / **marvin**  |  **marvin** / **marvin**  |  **marvin** / **marvin**  |  **marvin** / **marvin**  |
+| nine  | right / **nine**  | **nine** / **nine**  |  house / **nine**  | one / **nine**  |
+| no |  **no** / **no** |  **no** / **no** |  **no** / **no** |  **no** / **no** |
+| one | **one** / **one** | **one** / **one**  | **one** / **one** | **one** / right | 
+| right | up / **right** | **right** / left | cat / **right** | happy / **right** |
+| sheila | **sheila** / **sheila** | **sheila** / **sheila** | **sheila** / **sheila** | **sheila** / **sheila** |
+| six |  bed / bed  | seven / **six**  |  bed / **six** | bed / bed |
+| three  | **three** / **three**  | **three** / **three**  |  **three** / **three**  | **three** / **three**  |
+| tree  |  eight / **tree**  | two / **tree**  | **tree** / **tree**  | six / **tree**  | 
+| yes | **yes** / **yes** | **yes** / left | left / **yes** | **yes** / left |
+| zero | **zero** / **zero** | **zero** / **zero** | **zero** / **zero** | **zero** / **zero** | 
+
+
+#### Note: I accidentally left out "on". Labels assigned: 1. without noise reduction / 2. with noise reduction. The models performed much better on the recorded files without crazy background noise. The sliding window means that the features were fed to the CNNLSTM in overlapping windows rather than non-overlapping windows.
+
+
 ## Summary
 
 Given how much noise was recorded with these speech files, these models did great! I used sounddevice, a library for Python, and I need to fix the settings somehow. Below you will see what the recordings look like before and after noise reduction.
 
 ![Imgur](https://i.imgur.com/MW6Sm8G.png?1)
 
-I will rerun these models on cleaner speech soon. But this gives you an idea of how good these models actually are: despite so much interference, they still recognized the correct word (with and without noise reduction) 35-50% of the time. 
+I will rerun these models on cleaner speech soon (see Table 3). But this gives you an idea of how good these models actually are: despite so much interference, they still recognized the correct word (with and without noise reduction) 35-50% of the time. 
 
-That aside, I was surprised to find that the models **not** trained with noise performed better on the new speech. I just tested these models with my own speech and on my own computer, so this finding might not hold up elsewhere. If it *is* the case, however, that noise doesn't necessarily help the CNN+LSTM model, hooray! The addition of noise required much longer feature extraction durations. It will be interesting to see if this holds true for the CNN and LSTM as separate models.
+### Original and post noise reduction with improved recording settings:
+![Imgur](https://i.imgur.com/uHqoMTG.png)
 
-The addition of the 1st and 2nd derivatives did seem to help the FBANK features. I did try to apply them to the STFT features; however, my computer ran out of memory. Just too many features. I'll have to break those further down when saving. That's on my ToDo list. However, adding the delta features to the MFCC features, both the 13 and 40 coefficients, didn't seem to help much. What I gather, at least for the CNN+LSTM model, MFCC features aren't the best to use, at least when it comes to speech recognition. 
+That aside, I was surprised to find that the models **not** trained with noise performed better on the new speech (Update: with the improved recordings, the models trained **with** noise seemed to do better.) I just tested these models with my own speech and on my own computer, so this finding might not hold up elsewhere. If it *is* the case, however, that noise doesn't necessarily help the CNN+LSTM model, hooray! The addition of noise required much longer feature extraction durations. It will be interesting to see if this holds true for the CNN and LSTM as separate models.
+
+The addition of the 1st and 2nd derivatives did seem to help the FBANK features. I did try to apply them to the STFT features; however, my computer ran out of memory. Just too many features. I'll have to break those further down when saving. That's on my ToDo list. However, adding the delta features to the MFCC features, both the 13 and 40 coefficients, didn't seem to help much. What I gather, at least for the CNN+LSTM model, MFCC features aren't the best to use, at least when it comes to speech recognition. The results were so messy, it is difficult to draw any conclusions there.
 
 Lastly, it does seem that the least filtered features work the best, at least for the CNN+LSTM. Even without the 1st and 2nd derivatives, the STFT outperformed the FBANK with the 1st and 2nd derivatives. I'm really curious if those would build an even stronger model!
 
@@ -120,7 +153,7 @@ While I still plan on testing these features on CNNs and LSTMs as separate model
 
 3) MFCC features, at least for speech recognition, are perhaps better left to traditional learning algorithms
 
-4) adding noise to the training data does not necessarily build more robust models; however, the models trained on data with mixed noise did converge faster, resulting in shorter training times. (That said, the feature extraction process when mixing noise is *much* longer. You win some, you lose some, I suppose.)
+4) adding noise to the training data does not necessarily build more robust models (post update: *or does it*..?); however, the models trained on data with mixed noise did converge faster, resulting in shorter training times. (That said, the feature extraction process when mixing noise takes *much* longer. You win some, you lose some, I suppose.)
 
 ## Future Work
 
