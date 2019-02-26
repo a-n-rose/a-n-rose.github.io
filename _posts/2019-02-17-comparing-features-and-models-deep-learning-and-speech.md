@@ -102,7 +102,7 @@ As the table and graphs above show, not all of the models were worth using. Ther
 
 ## Table 3: UPDATED CNN+LSTM Model classification of new speech, without and with noise reduction, with improved wavefiles and sliding window
 
-|* word *| * STFT no noise *| * STFT with noise *| * 40 FBANK with Delta * | * 40 FBANK with Delta and Sliding Window * |
+|*word*| *STFT no noise*| *STFT with noise*| * 40 FBANK with Delta* | * 40 FBANK with Delta and Sliding Window* |
 |:----|:----:|:----:|:---:|:---:|
 | bed  | cat / **bed**  | cat / **bed**  | stop / seven  | house / seven  |
 | bird | **bird** / **bird** | **bird** / **bird** |  **bird** / **bird** |  **bird** / **bird** |
