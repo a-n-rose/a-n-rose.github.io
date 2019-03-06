@@ -58,6 +58,8 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * <a href="https://www.kaggle.com/c/freesound-audio-tagging">Freesound Audio Tagging</a> dataset for Kaggle competition
 
+* For acoustic scene analysis: <a href="https://sites.google.com/site/alainrakotomamonjy/home/audio-scene">LITIS Rouen Audio scene dataset</a>
+
 ### General Datasets
 
 * Github repo for machine learning datasets: <a href="https://github.com/edwardlib/observations">Observations</a>
