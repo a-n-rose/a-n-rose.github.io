@@ -30,6 +30,8 @@ To collect resources of freely available datasets for machine learning (with emp
 
 * <a href="https://github.com/Jakobovski/free-spoken-digit-dataset">Free Spoken Digit Dataset</a> 
 
+* Two types of north American dialects speaking Harvard sentences (I believe): <a href="https://depts.washington.edu/phonlab/resources/uwnu/uwnu2/">PN/NC Corpus</a>
+
 ### Clinical Speech
 
 * Various disorders, as well as healthy (German): <a href="http://www.stimmdatenbank.coli.uni-saarland.de/index.php4#target">Saarbrücker Voice Database</a>
