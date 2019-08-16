@@ -14,4 +14,4 @@ September 2nd we present our smart noise filter prototype <a href='https://proto
 
 September 8th we will give a workshop for PyLadies Berlin, <a href='https://www.meetup.com/PyLadies-Berlin/events/263676106/'>centering on our open source smart filter</a>.
 
-October 10th we will give a talk at PyCon / PyData Berlin called <a href='https://de.pycon.org/program/pydata-jzw9he-take-control-of-your-hearing-accessible-methods-to-build-a-smart-noise-filter-peggy-sylopp-aislyn-rose/'>Take control of your hearing: Accessible methods to build a smart noise filter</a>
+October 11th we will give a talk at PyCon / PyData Berlin called <a href='https://de.pycon.org/program/pydata-jzw9he-take-control-of-your-hearing-accessible-methods-to-build-a-smart-noise-filter-peggy-sylopp-aislyn-rose/'>Take control of your hearing: Accessible methods to build a smart noise filter</a>
