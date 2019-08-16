@@ -4,9 +4,9 @@ title: "Interactive Digital Signal Processing in Jupyter Lab"
 date: 2019-08-16
 ---
 
-I put together a <a href='https://notebooks.ai/a-n-rose/working-with-signals-c2032035'>Jupyter Lab notebook</a> for creating and analyzing signals in Python. I try to make the math behind that of signal creation, the <a href='https://whatis.techtarget.com/definition/Nyquist-Theorem'>Nyquist Theorem</a>, and the fast Fourier Transform (FFT) a little bit more accessible. 
+I put together a <a href='https://notebooks.ai/a-n-rose/working-with-signals-c2032035'>Jupyter Lab notebook</a> for creating and analyzing signals in Python. I try to make the math behind that of signal creation, the <a href='https://whatis.techtarget.com/definition/Nyquist-Theorem'>Nyquist Theorem</a>, and the fast <a href='https://en.wikipedia.org/wiki/Fourier_transform'>Fourier Transform</a> (FFT) a little bit more accessible. 
 
-Note: this notebook should be more of an aid to additional materials about digital signal processing, especially that of the FFT. My goal to offer a perspective of some components of the FFT that I found missing when researching it myself; additionally, the Jupyter notebook offers the opportunity to directly see how frequency, noise, sample rate, etc. influence digital signal processing.
+Note: this notebook should be more of an aid to additional materials about digital signal processing, especially that of the FFT. My goal is to offer a perspective of some components of the FFT that I found missing when researching it myself; additionally, the Jupyter notebook offers the opportunity to directly see how frequency, noise, sample rate, etc. influence digital signal processing.
 
 Upcoming events: 
 
