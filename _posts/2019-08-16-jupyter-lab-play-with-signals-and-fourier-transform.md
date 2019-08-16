@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Interactive Digital Signal Processing in Jupyter Lab"
-date: 2019-06-24
+date: 2019-08-16
 ---
 
 I put together a <a href='https://notebooks.ai/a-n-rose/working-with-signals-c2032035'>Jupyter Lab notebook</a> for creating and analyzing signals in Python. I try to make the math behind that of signal creation, the <a href='https://whatis.techtarget.com/definition/Nyquist-Theorem'>Nyquist Theorem</a>, and the fast Fourier Transform (FFT) a little bit more accessible. 
