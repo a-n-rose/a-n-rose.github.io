@@ -4,7 +4,7 @@ title: "Interacting with Acoustics and Deep Learning"
 date: 2019-08-25
 ---
 
-In light of my and my colleague's <a href='https://de.pycon.org/program/pydata-jzw9he-take-control-of-your-hearing-accessible-methods-to-build-a-smart-noise-filter-peggy-sylopp-aislyn-rose/'>PyCon DE and PyData Berlin talk</a> this fall (October 2019), I began putting together Jupyter notebooks to help acoustics and deep learning become more tangible to people. 
+In light of my and my colleague's <a href='https://de.pycon.org/program/pydata-jzw9he-take-control-of-your-hearing-accessible-methods-to-build-a-smart-noise-filter-peggy-sylopp-aislyn-rose/'>PyCon DE and PyData Berlin talk</a> this fall (October 2019), I began putting together <a href='https://notebooks.ai/a-n-rose'>Jupyter notebooks</a> to help acoustics and deep learning become more tangible to people. 
 
 To my delight, <a href='https://i.notebooks.ai/i/qrtJj3'>notebooks.ai</a> offers an amazing platform to do this using Jupyter Lab. I was able to load pre-trained models, sound datasets for feature extraction, and play manipulated sound files online, without anyone having to download or run anything on their own local machines. I strongly recommend setting up your own free account to fork and experiment with not only my notebooks but those of countless others.
 
