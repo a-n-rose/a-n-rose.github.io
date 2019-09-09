@@ -15,12 +15,13 @@ FAILURE: Build failed with an exception.
 
 * What went wrong:
 Execution failed for task ':transformClassesWithDexBuilderForDebug'.
-> com.android.build.api.transform.TransformException: com.android.builder.dexing.DexArchiveBuilderException: com.android.builder.dexing.DexArchiveBuilderException: Failed to process /home/<user>/.../helloworld/android/libs/python-android-support.jar
+> com.android.build.api.transform.TransformException: com.android.builder.dexing.DexArchiveBuilderException: com.android.builder.dexing.DexArchiveBuilderException: 
+Failed to process /home/<user>/.../helloworld/android/libs/python-android-support.jar
 ```
 
 To get this far I overcame(?) the following issues in aims of following the guide:
 
-* Couldn't get sdkmanager to update or run emulator commands
+## Couldn't get sdkmanager to update or run emulator commands
 
 These commands didn't work:
 ```
@@ -45,7 +46,7 @@ I kept this script in my project directory and ran it so:
 ```
 $ source setup_dev_env.sh
 ```
-* Could not run emulator
+## Could not run emulator
 
 Even though I could then find out which devices had been created for the emulator to emulate (by creating them in the AVD manager in AnroidStudio), I could not run this command:
 ```
@@ -60,7 +61,7 @@ $ ./emulator @<device_name>
 ```
 Note: I have a Linux machine, therefore I need './' before 'emulator'.
 
-* AndroidStudio: user does not have access to /dev/kvm
+## AndroidStudio: user does not have access to /dev/kvm
 
 When using AndroidStudio and creating virtual devices, my user didn't have access to the AVD in AndroidStudio.
 
@@ -80,7 +81,8 @@ If you have Linux, you can find out your user/username by typing:
 $ whoami
 ```
 
-* ERROR: toga-gtk 0.3.0.dev14 has requirement toga-core==0.3.0.dev14, but you'll have toga-core 0.3.0.dev11 which is incompatible
+## ERROR: toga-gtk 0.3.0.dev14 has requirement toga-core==0.3.0.dev14,
+## but you'll have toga-core 0.3.0.dev11 which is incompatible
 
 ### What helped:
 
@@ -89,7 +91,7 @@ Nothing. Ignoring it I guess.
 When running the Beeware tutorial, I kept getting this error, even though I had 'toga-core==0.3.0.dev14' installed. I just ignore it.
 
 
-* AndroidStudio couldn't find 'local.properties'. 
+## AndroidStudio couldn't find 'local.properties'. 
 
 ### What helped:
 
@@ -98,7 +100,7 @@ I had to copy the local.properties file from AndroidStudioProjects to where my l
 $ cp /home/<user>/AndroidStudioProjects/MyFirstApp/local.properties /home/<user>/.../helloworld/android/
 ```
 
-* More errors... 
+## More errors... 
 
 I got a couple more errors and I can't remember what they were. They weren't self-explanatory though. 
 
@@ -133,7 +135,7 @@ allprojects {
 }
 ```
 
-## Current State: Annoyed.
+# Current State: Annoyed.
 
 I am currently getting through 67% of the build and now getting an error about python-android-support.jar. I'm a bit sick of this though. 
 
