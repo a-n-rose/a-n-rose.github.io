@@ -95,7 +95,7 @@ When running the Beeware tutorial, I kept getting this error, even though I had 
 
 ### What helped:
 
-I had to copy the local.properties file from AndroidStudioProjects to where my local project was (here titled 'helloworld':
+I had to copy the local.properties file from AndroidStudioProjects to where my local project (titled 'helloworld') was:
 ```
 $ cp /home/<user>/AndroidStudioProjects/MyFirstApp/local.properties /home/<user>/.../helloworld/android/
 ```
