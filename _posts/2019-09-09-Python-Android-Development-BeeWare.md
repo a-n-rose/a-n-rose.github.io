@@ -108,7 +108,7 @@ I got a couple more errors and I can't remember what they were. They weren't sel
 
 Make adjustments to the gradle.build script in my project directory:
 
-'/home/<user>/.../helloworld/android/build.gradle'
+'/home/ <user> /.../helloworld/android/build.gradle'
 
 I changed the 'buildscript' item and added the 'allprojects' item:
 ```
@@ -144,7 +144,8 @@ FAILURE: Build failed with an exception.
 
 * What went wrong:
 Execution failed for task ':transformClassesWithDexBuilderForDebug'.
-> com.android.build.api.transform.TransformException: com.android.builder.dexing.DexArchiveBuilderException: com.android.builder.dexing.DexArchiveBuilderException: Failed to process /home/airos/Desktop/github/a-n-rose/app-development/beeware/helloworld/android/libs/python-android-support.jar
+> com.android.build.api.transform.TransformException: com.android.builder.dexing.DexArchiveBuilderException: com.android.builder.dexing.DexArchiveBuilderException: 
+Failed to process /home/airos/Desktop/github/a-n-rose/app-development/beeware/helloworld/android/libs/python-android-support.jar
 ```
 
 If I get any further I'll update this post. 
