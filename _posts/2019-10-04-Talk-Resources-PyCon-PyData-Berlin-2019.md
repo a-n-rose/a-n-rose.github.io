@@ -18,7 +18,7 @@ My <a href="https://notebooks.ai/a-n-rose">interactive space</a> for working wit
 
 # Errors? 
 
-Experiencing problems using your own sound? They are probably not compatible with the software/ online environment. This <a href="https://github.com/a-n-rose/python-sound-prep#prepare-audio-for-jupyter-lab">repo</a> should be able to help with that. As of now the software uses <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.wavfile.read.html">scipy.io.wavfile</a>, which accepts only .wav files with bitdepth 16 and 32. That was the library I could use for reading soundfiles into JupyterLab. Sorry for the inconvenience!)
+Experiencing problems using your own sound? They are probably not compatible with the software/ online environment. This <a href="https://github.com/a-n-rose/python-sound-prep#prepare-audio-for-jupyter-lab">repo</a> should be able to help with that. As of now the software uses <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.wavfile.read.html">scipy.io.wavfile</a>, which accepts only .wav files with bitdepth 16 and 32. That was the library I could use for reading soundfiles into JupyterLab. Sorry for the inconvenience!
 
 # Visualization
 
