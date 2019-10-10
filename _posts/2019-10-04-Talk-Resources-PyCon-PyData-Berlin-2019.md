@@ -4,9 +4,9 @@ title: "PyCon DE and PyData Berlin 2019 Talk Resources"
 date: 2019-10-10
 ---
 
-# Aislyn's resources for the talk
+# Aislyn's resources for <a href="https://de.pycon.org/program/pydata-jzw9he-take-control-of-your-hearing-accessible-methods-to-build-a-smart-noise-filter-peggy-sylopp-aislyn-rose/">the talk</a>:
 
-<a href="https://de.pycon.org/program/pydata-jzw9he-take-control-of-your-hearing-accessible-methods-to-build-a-smart-noise-filter-peggy-sylopp-aislyn-rose/">Take control of your hearing: Accessible methods to build a smart noise filter</a>
+**Take control of your hearing: Accessible methods to build a smart noise filter**
 
 ## Smart noise filter
 
