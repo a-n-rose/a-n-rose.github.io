@@ -14,7 +14,13 @@ The repository for the smart noise filter functionality I built: <a href="https:
 
 # Sound Playground
 
-My <a href="https://notebooks.ai/a-n-rose">interactive space</a> for working with sound in JupyterLab. (Recently some labs weren't loading, so if you encounter problems.. you're not alone..)
+## Notebooks.ai
+
+I have a few Jupyter notebooks with accompanying sound data and necessary code (package and modules) loaded at Notebooks.ai: <a href="https://notebooks.ai/a-n-rose">Aislyn's Sound Playground</a> (Recently some labs weren't loading, so if you encounter problems.. you're not alone..)
+
+## GitHub
+
+If you would like to access the notebooks on their own, you can find them at <a href="https://github.com/a-n-rose/experiment-with-sound-in-Python-filtering-and-deep-learning">this repo</a>. The notebook 'create_sound' should work without the sound data or code; I aim to get the others working on <a href="https://hub.gke.mybinder.org/user/a-n-rose-experi-d-deep-learning-l9fqpls1/tree">Binder</a> as well as on Notebooks.ai, but can't say exactly when I'll be able to do this.
 
 # Errors? 
 
