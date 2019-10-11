@@ -20,11 +20,11 @@ I have a few Jupyter notebooks with accompanying sound data and necessary code (
 
 ## GitHub
 
-If you would like to access the notebooks on their own, you can find them at <a href="https://github.com/a-n-rose/experiment-with-sound-in-Python-filtering-and-deep-learning">this repo</a>. The notebook 'create_sound' should work without the sound data or code; I aim to get the others working on <a href="https://hub.gke.mybinder.org/user/a-n-rose-experi-d-deep-learning-l9fqpls1/tree">Binder</a> as well as on Notebooks.ai, but can't say exactly when I'll be able to do this.
+If you would like to access the notebooks on their own, you can find them at <a href="https://github.com/a-n-rose/experiment-with-sound-in-Python-filtering-and-deep-learning">this repo</a>. The notebook 'create_sound' should work without the sound data or code; I aim to get the others working on <a href="https://mybinder.org/v2/gh/a-n-rose/experiment-with-sound-in-Python-filtering-and-deep-learning/master">Binder</a> as well as on Notebooks.ai, but can't say exactly when I'll be able to do this.
 
 # Problems using your own sound?
 
-They are probably not compatible with the software/ online environment. This <a href="https://github.com/a-n-rose/python-sound-prep#prepare-audio-for-jupyter-lab">repo</a> should be able to help with that. As of now the software uses <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.wavfile.read.html">scipy.io.wavfile</a>, which accepts only .wav files with bitdepth 16 and 32. That was the library I could use for reading soundfiles into JupyterLab. Sorry for the inconvenience!
+They are probably not compatible with the software/ online environment. This <a href="https://github.com/a-n-rose/python-sound-prep#prepare-audio-for-jupyter-lab">repo</a> should be able to help with that. Previously the software used Librosa to load sound files but because that library could not be imported into Jupyter environments, the software now uses a Jupyter friendly library: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.wavfile.read.html">scipy.io.wavfile</a>. This module accepts only .wav files with bitdepth 16 and 32. The software only accepts mono channel sound as well (something Librosa did automatically). Sorry for the inconvenience! 
 
 # Visualization
 
@@ -42,4 +42,4 @@ This book, <a href="https://www.crcpress.com/Speech-Enhancement-Theory-and-Pract
 
 ## Deep Learning / Architecture of Convolutional Neural Networks etc.
 
-The <a href="http://www.deeplearningbook.org/">Deep Learing Book</a> was also very helpful in increasing understanding of CNNs in an accessible manner.
+The <a href="http://www.deeplearningbook.org/">Deep Learning Book</a> was also very helpful in increasing understanding of CNNs in an accessible manner.
