@@ -14,17 +14,19 @@ The repository for the smart noise filter functionality I built: <a href="https:
 
 # Sound Playground
 
+## GitHub repo
+
+I have put together a tool called <a href="https://github.com/a-n-rose/Python-Sound-Tool">PySoundTool</a> for visualization, filtering, sound creation, training sound classifiers etc. 
+
 ## Notebooks.ai
 
 I have a few Jupyter notebooks with accompanying sound data and necessary code (package and modules) loaded at Notebooks.ai: <a href="https://notebooks.ai/a-n-rose">Aislyn's Sound Playground</a> (Recently some labs weren't loading, so if you encounter problems.. you're not alone..)
 
-## GitHub
-
-If you would like to access the notebooks on their own, you can find them at <a href="https://github.com/a-n-rose/experiment-with-sound-in-Python-filtering-and-deep-learning">this repo</a>. The notebook 'create_sound' should work without the sound data or code; I aim to get the others working on <a href="https://mybinder.org/v2/gh/a-n-rose/experiment-with-sound-in-Python-filtering-and-deep-learning/master">Binder</a> as well as on Notebooks.ai, but can't say exactly when I'll be able to do this.
-
 # Problems using your own sound?
 
-They are probably not compatible with the software/ online environment. This <a href="https://github.com/a-n-rose/python-sound-prep#prepare-audio-for-jupyter-lab">repo</a> should be able to help with that. Previously the software used Librosa to load sound files but because that library could not be imported into Jupyter environments, the software now uses a Jupyter friendly library: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.wavfile.read.html">scipy.io.wavfile</a>. This module accepts only .wav files with bitdepth 16 and 32. The software only accepts mono channel sound as well (something Librosa did automatically). Sorry for the inconvenience! 
+They are probably not compatible with the software/ online environment. This <a href="https://github.com/a-n-rose/Python-Sound-Tool#convert-soundfiles-for-use-with-scipyiowavfile">repo</a> should be able to help with that. (See subsection 'Convert Soundfiles for use with scipy.io.wavfile' in the README.)
+
+Previously the software used Librosa to load sound files but because that library could not be imported into Jupyter environments, the software now uses a Jupyter friendly library: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.wavfile.read.html">scipy.io.wavfile</a>. This module accepts only .wav files with bitdepth 16 and 32. The software only accepts mono channel sound as well (something Librosa did automatically). Sorry for the inconvenience! 
 
 # Visualization
 

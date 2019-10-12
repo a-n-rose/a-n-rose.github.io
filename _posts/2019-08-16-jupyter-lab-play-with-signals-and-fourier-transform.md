@@ -1,8 +1,12 @@
 ---
 layout: post
-title: "Interactive Digital Signal Processing in Jupyter Lab"
+title: "Interactive Digital Signal Processing in Jupyter"
 date: 2019-08-16
 ---
+
+Update (Oct. 12, 2019) Here is my repo called <a href="https://github.com/a-n-rose/Python-Sound-Tool">PySoundTool</a> with various tools for visualizing sound, training sound classifiers, etc. Additionally, you can access Jupyter notebooks on <a href="https://mybinder.org/v2/gh/a-n-rose/Python-Sound-Tool/master">mybinder</a>, without needing an account. It may take a few minutes to load as I include a small amount of audio data for you to experiment with. They offer basically the same functionality as the notebooks I describe below on notebooks.ai. 
+
+(On to the older post)
 
 I put together a <a href='https://notebooks.ai/a-n-rose/working-with-signals-c2032035'>Jupyter Lab notebook</a> for creating and analyzing signals in Python. I try to make the math behind that of signal creation, the <a href='https://whatis.techtarget.com/definition/Nyquist-Theorem'>Nyquist Theorem</a>, and the fast <a href='https://en.wikipedia.org/wiki/Fourier_transform'>Fourier Transform</a> (FFT) a little bit more accessible. 
 

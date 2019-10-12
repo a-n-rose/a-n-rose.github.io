@@ -148,4 +148,9 @@ Execution failed for task ':transformClassesWithDexBuilderForDebug'.
 Failed to process /home/airos/Desktop/github/a-n-rose/app-development/beeware/helloworld/android/libs/python-android-support.jar
 ```
 
-If I get any further I'll update this post. 
+I tried this person's <a href='https://github.com/flutter/flutter/issues/23131#issuecomment-520425044'>fix</a> but I just get stuck at 67% without getting anywhere.
+
+
+I am now trying this tutorial out in a Docker image with <a href='https://github.com/beeware/Python-Android-template/issues/18#issuecomment-430766009'>these</a> versions. We'll see how this goes!
+
+To download Docker, you can do so <a href='https://store.docker.com/editions/community/docker-ce-server-ubuntu?tab=description'>here</a>.
