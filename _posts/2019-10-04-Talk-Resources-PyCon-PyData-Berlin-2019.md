@@ -30,7 +30,7 @@ Previously the software used Librosa to load sound files but because that librar
 
 # Visualization
 
-If you would like to visualize sound (plot or .png file), you can do that with <a href="https://github.com/a-n-rose/python-sound-prep#visualizing-sound">this resource</a>. Visualize the sound in the time domain (sound wave) and in the frequency domain (MFCC and FBANK features)
+If you would like to visualize sound (plot or .png file), you can do that with <a href="https://github.com/a-n-rose/Python-Sound-Tool#visualization">this resource</a>. Visualize the sound in the time domain (sound wave) and in the frequency domain (MFCC and FBANK features)
 
 # Datasets
 
