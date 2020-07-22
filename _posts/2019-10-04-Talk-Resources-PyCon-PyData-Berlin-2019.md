@@ -4,7 +4,7 @@ title: "PyCon DE and PyData Berlin 2019 Talk Resources"
 date: 2019-10-10
 ---
 
-# Aislyn's resources for <a href="https://de.pycon.org/program/pydata-jzw9he-take-control-of-your-hearing-accessible-methods-to-build-a-smart-noise-filter-peggy-sylopp-aislyn-rose/">the talk</a>:
+# Aislyn's resources for <a href="https://www.youtube.com/watch?v=BJ0f2x49Imc&feature=youtu.be">the talk</a>:
 
 ## **Take control of your hearing: Accessible methods to build a smart noise filter**
 
@@ -16,7 +16,7 @@ The repository for the smart noise filter functionality I built: <a href="https:
 
 ## GitHub repo
 
-I have put together a tool called <a href="https://github.com/a-n-rose/Python-Sound-Tool">PySoundTool</a> for visualization, filtering, sound creation, training sound classifiers etc. 
+I have put together a framework called <a href="https://github.com/a-n-rose/Python-Sound-Tool">PySoundTool</a> for visualization, filtering, sound creation, training sound classifiers etc. 
 
 ## Notebooks.ai
 
