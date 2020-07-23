@@ -1,2 +1,63 @@
-name: Aislyn Rose, Wave-Enthusiast Coder
-markdown: kramdown
+layout: stacked
+style: dark
+
+plugins:
+  - jekyll-octicons
+  - jekyll-github-metadata
+  - jemoji
+
+permalink: /:year/:month/:day/:title/
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts"
+    values:
+      layout: "post"
+
+projects:
+  sort_by: stars
+  # sort_by options: 
+  #   - pushed
+  #   - stars
+  limit: 3
+  exclude:
+    archived: false
+    forks: true
+    projects:
+    # - repo-name
+    
+resume: 
+  - name: resume
+
+# social_media:
+  # behance: your_username
+  # dribbble: your_username
+  # facebook: your_username
+  # hackerrank: your_username
+  # instagram: your_username
+  # keybase: your_username
+  # linkedin: your_username
+  # mastodon: your_username
+  # medium: your_username
+  # stackoverflow: your_user_id
+  # telegram: your_username
+  # twitter: your_username
+  # unsplash: your_username
+  # vk: your_username
+  # website: http://your_website_url
+  # youtube: your_username
+
+topics:
+  - name: Deep Learning for Signal Processing
+    web_url: https://blog.exxactcorp.com/deep-learning-for-signal-processing-what-you-need-to-know/
+    image_url: https://image.flaticon.com/icons/png/512/213/213208.png
+
+  - name: Real-Time Development
+    web_url: http://www.realtimerendering.com/blog/
+    image_url: https://images.designtrends.com/wp-content/uploads/2015/11/28132254/Dancing-Human-Silhouette-Icon.jpg
+
+  - name: Clinical Speech and Hearing
+    web_url: https://www.asha.org/slp/clinical/
+    image_url: https://image.flaticon.com/icons/png/512/179/179858.png
