@@ -9,15 +9,15 @@ published: true
 
 In this post, I will show how I take this loooooong audio signal of an adorable baby babbling,
 
-![Imgur](https://imgur.com/7GXvYKX)
+<blockquote class="imgur-embed-pub" lang="en" data-id="7GXvYKX"><a href="https://imgur.com/7GXvYKX">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 remove the silences,
 
-![Imgur](https://imgur.com/eIEBUH5)
+<blockquote class="imgur-embed-pub" lang="en" data-id="eIEBUH5"><a href="https://imgur.com/eIEBUH5">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 aaaaand separate the utterances into separate, beautiful chunks!
 
-![Imgur](https://imgur.com/G3OZj0q)
+<blockquote class="imgur-embed-pub" lang="en" data-id="O9xAX3F"><a href="https://imgur.com/O9xAX3F">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 (Oh my God. This baby babble is gooooorgeous.)
 
@@ -60,7 +60,7 @@ If you run this:
 ```
 you should see a plot somewhat like this one, but resembling your audio file.
 
-![Imgur](https://imgur.com/7GXvYKX)
+<blockquote class="imgur-embed-pub" lang="en" data-id="7GXvYKX"><a href="https://imgur.com/7GXvYKX">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 # Voice Activity Detection and Silence Removal 
 
@@ -77,7 +77,7 @@ I'll plot `audio_VAD`:
 ```
 sp.feats.plot(audio_VAD, sr=sr, feature_type='signal')
 ```
-![Imgur](https://imgur.com/eIEBUH5)
+<blockquote class="imgur-embed-pub" lang="en" data-id="eIEBUH5"><a href="https://imgur.com/eIEBUH5">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 You can see it is already much shorter than the original audio.
 
@@ -100,13 +100,13 @@ sp.feats.plot(utterance_matrix[21], sr=sr, feature_type='signal')
 
 Oooooooooooooooh
 
-![Imgur](https://imgur.com/iAK9cYw)
+<blockquote class="imgur-embed-pub" lang="en" data-id="iAK9cYw"><a href="https://imgur.com/iAK9cYw">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ```
 sp.feats.plot(utterance_matrix[11], sr=sr, feature_type='signal')
 ```
 
-![Imgur](https://imgur.com/3eNn0nE)
+<blockquote class="imgur-embed-pub" lang="en" data-id="3eNn0nE"><a href="https://imgur.com/3eNn0nE">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 Aaaaaaaaaaaaaaah
 
@@ -134,15 +134,15 @@ Here is an example of how an utterance was sectioned with the following padding 
 
 ### extend_window_ms = 350
 
-![Imgur](https://imgur.com/37szUen)
+<blockquote class="imgur-embed-pub" lang="en" data-id="37szUen"><a href="https://imgur.com/37szUen">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ### extend_window_ms = 200 
 
-![Imgur](https://imgur.com/IVefAlW)
+<blockquote class="imgur-embed-pub" lang="en" data-id="IVefAlW"><a href="https://imgur.com/IVefAlW">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ### extend_window_ms = 100
 
-![Imgur](https://imgur.com/VovYQpK)
+<blockquote class="imgur-embed-pub" lang="en" data-id="VovYQpK"><a href="https://imgur.com/VovYQpK">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 You can see the end of the utterance got chopped off when set to 100. In some cases, that's okay, for example if otherwise you will catch an additional speaker. When set to 350, the utterance contains two baby babbles. That's fine for me, as long as it's the same baby, as this was clearly a full sentence.
 
