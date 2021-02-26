@@ -43,7 +43,15 @@ At the bottom of this post, I have written aaaaaall the functions applied in the
 
 # Load and Plot Audio
 
-In a Python file (ipython has been a bit buggy lately) type up the following. Let's save it as `speech_separation.py`. 
+This example uses a Python file, but you can also run this in ipython. However, there are issues in the latest releases of dependencies. You can fix this with the following:
+
+```
+(env)...$ pip install -U jedi==0.17.2 parso==0.7.1 ipython
+```
+
+Back to the example. 
+
+In a Python file type up the following. Let's save it as `speech_separation.py`. 
 
 ```
 import soundpy as sp
