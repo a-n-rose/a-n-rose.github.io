@@ -207,7 +207,7 @@ It just depends on your purpose and taste, really.
 
 # Sum Up
 
-I hope you have fun tinkering around with - and perhaps improving - this code. Please forgive any bugs that pop up.. if you feel so inclined, never hesitate to send an email. 
+I hope you have fun tinkering around with - and perhaps improving - this code. Please forgive any bugs that pop up. 
 
 In the future I will look into individual utterance analysis. I am sure I'll find my baby's first word in there somewhere...
 
